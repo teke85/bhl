@@ -7,12 +7,12 @@ const StrategicImportance = () => {
   return (
     <section className="py-16 lg:py-24 bg-card">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-4xl font-[family-name:var(--font-jost)] mx-auto text-center">
           <Badge variant="secondary" className="mb-4">
             Strategic Impact
           </Badge>
 
-          <h2 className="text-3xl lg:text-4xl font-bold text-card-foreground mb-6">
+          <h2 className="text-3xl lg:text-4xl font-[family-name:var(--font-playfair)] font-bold text-card-foreground mb-6">
             Gateway to Economic Growth
           </h2>
 
@@ -35,7 +35,7 @@ const StrategicImportance = () => {
               <div
                 className="aspect-[16/9] w-full"
                 style={{
-                  backgroundImage: `url('/map-of-zambia-showing-mutanda-kaoma-road-route-con.png')`,
+                  backgroundImage: `url('https://res.cloudinary.com/dpeg7wc34/image/upload/v1756193625/map-of-zambia-showing-mutanda-kaoma-road-route-con_oshdzc.png')`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}

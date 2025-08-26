@@ -47,7 +47,7 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 font-[family-name:var(--font-playfair)] container mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+      <div className="relative z-10 font-[family-name:var(--font-playfair)] container mx-auto px-4 sm:px-6 lg:px-4 text-center text-white">
         <h1
           ref={titleRef}
           className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 leading-tight"
@@ -59,10 +59,10 @@ const HeroSection = () => {
 
         <p
           ref={subtitleRef}
-          className="text-xl font-[family-name:var(--font-jost)] sm:text-2xl lg:text-3xl mb-8 max-w-4xl mx-auto leading-relaxed opacity-90"
+          className="text-xl font-[family-name:var(--font-jost)] sm:text-2xl lg:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed opacity-90"
         >
           371km of modern infrastructure connecting the Copperbelt to
-          international markets
+          international markets via Namibia&apos;s Walvis Bay port.
         </p>
 
         <div
@@ -84,13 +84,6 @@ const HeroSection = () => {
             <Play className="mr-2 h-5 w-5" />
             Watch Overview
           </Button>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse" />
-          </div>
         </div>
       </div>
 
@@ -117,6 +110,12 @@ const HeroSection = () => {
             style={{ animationDelay: "0.5s" }}
           />
         </svg>
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse" />
+          </div>
+        </div>
       </div>
     </section>
   );

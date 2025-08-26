@@ -32,11 +32,11 @@ const benefits = [
 
 const ProjectOverview = () => {
   return (
-    <section className="py-16 lg:py-24 bg-background">
+    <section className="py-16 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
-          <div>
+          <div className="font-[family-name:var(--font-jost)]">
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
               Transforming Zambia&apos;s
               <span className="text-primary"> Western Corridor</span>
@@ -73,7 +73,7 @@ const ProjectOverview = () => {
             <div
               className="aspect-[4/3] rounded-lg overflow-hidden shadow-2xl"
               style={{
-                backgroundImage: `url('/modern-highway-construction-in-africa-with-mining-.png')`,
+                backgroundImage: `url('https://res.cloudinary.com/dpeg7wc34/image/upload/v1756193625/modern-highway-construction-in-africa-with-mining-_wwaibc.png')`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
@@ -84,7 +84,7 @@ const ProjectOverview = () => {
         </div>
 
         {/* Benefits Grid */}
-        <div className="mt-16">
+        <div className="mt-16 font-[family-name:var(--font-playfair)]">
           <h3 className="text-2xl lg:text-3xl font-bold text-center text-foreground mb-12">
             Key Benefits & Impact
           </h3>
@@ -93,14 +93,14 @@ const ProjectOverview = () => {
             {benefits.map((benefit, index) => (
               <Card
                 key={index}
-                className="text-center hover:shadow-lg transition-shadow duration-300"
+                className="text-center bg-[#ecfeff] hover:shadow-lg transition-shadow duration-300"
               >
                 <CardContent className="p-6">
                   <div className="flex justify-center mb-4">{benefit.icon}</div>
                   <h4 className="text-lg font-semibold text-foreground mb-3">
                     {benefit.title}
                   </h4>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
+                  <p className="text-muted-foreground font-[family-name:var(--font-jost)] text-sm leading-relaxed">
                     {benefit.description}
                   </p>
                 </CardContent>

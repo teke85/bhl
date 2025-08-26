@@ -107,10 +107,10 @@ const TimelineSection = () => {
     <section ref={sectionRef} className="py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl lg:text-4xl font-[family-name:var(--font-playfair)] font-bold text-foreground mb-4">
             Project Journey
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground font-[family-name:var(--font-jost)] max-w-3xl mx-auto">
             From conception to completion, track the major milestones of
             Zambia&apos;s most ambitious infrastructure project
           </p>
@@ -118,7 +118,7 @@ const TimelineSection = () => {
 
         <div className="relative max-w-4xl mx-auto">
           {/* Timeline Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 timeline-line hidden lg:block" />
+          <div className="absolute bg-[#164e63] left-8 top-0 bottom-0 w-0.5 timeline-line hidden lg:block" />
 
           <div className="space-y-8">
             {timelineData.map((item, index) => (
@@ -129,7 +129,7 @@ const TimelineSection = () => {
                   transitionDelay: `${index * 100}ms`,
                 }}
               >
-                <div className="flex items-start gap-6">
+                <div className="flex text-[#164e63] items-start gap-6">
                   {/* Timeline Dot */}
                   <div className="relative flex-shrink-0">
                     <div className="timeline-dot w-16 h-16 rounded-full bg-background border-4 border-primary flex items-center justify-center">
@@ -141,7 +141,7 @@ const TimelineSection = () => {
                   <Card className="flex-1 hover:shadow-lg transition-shadow duration-300">
                     <CardContent className="p-6">
                       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-3">
-                        <div className="flex items-center gap-3 mb-2 lg:mb-0">
+                        <div className="flex font-[family-name:var(--font-jost)] items-center gap-3 mb-2 lg:mb-0">
                           <Badge
                             variant={
                               item.status === "completed"
@@ -159,11 +159,11 @@ const TimelineSection = () => {
                         </div>
                       </div>
 
-                      <h3 className="text-xl font-semibold text-foreground mb-2">
+                      <h3 className="text-xl font-[family-name:var(--font-jost)] font-semibold text-foreground mb-2">
                         {item.title}
                       </h3>
 
-                      <p className="text-muted-foreground leading-relaxed">
+                      <p className="text-muted-foreground font-[family-name:var(--font-jost)] leading-relaxed">
                         {item.description}
                       </p>
                     </CardContent>

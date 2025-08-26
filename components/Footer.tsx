@@ -21,11 +21,11 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <Image
-              src="/images/barotse-logo.png"
+              src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1756192912/Barotse_Logo-removebg-preview_nufoih.png"
               alt="Barotse Highway Limited"
-              width={150}
-              height={75}
-              className="h-16 w-auto mb-4 brightness-0 invert"
+              width={120}
+              height={120}
+              className="h-16 w-auto"
             />
             <p className="text-sm opacity-90 mb-4 leading-relaxed">
               Building Zambia&apos;s gateway to the west through world-class

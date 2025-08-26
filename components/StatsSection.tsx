@@ -73,7 +73,7 @@ const AnimatedCounter = ({
       <div className="text-4xl lg:text-5xl font-bold text-primary mb-2">
         {count.toLocaleString()}
         {suffix && (
-          <span className="text-2xl lg:text-3xl text-secondary ml-1">
+          <span className="text-xl lg:text-2xl text-secondary ml-1">
             {suffix}
           </span>
         )}
@@ -84,13 +84,13 @@ const AnimatedCounter = ({
 
 const StatsSection = () => {
   return (
-    <section className="py-16 lg:py-24 bg-card">
+    <section className="py-16 lg:py-24 bg-[#ecfeff]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-card-foreground mb-4">
+        <div className="text-center mb-12 font-[family-name:var(--font-playfair)]">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#38261b] mb-4">
             Project by the Numbers
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground font-[family-name:var(--font-jost)] max-w-2xl mx-auto">
             A transformative infrastructure investment that will reshape
             Zambia&apos;s economic landscape
           </p>
@@ -104,7 +104,7 @@ const StatsSection = () => {
             >
               <CardContent className="p-6">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                <p className="text-sm lg:text-base font-medium text-muted-foreground mt-2 leading-tight">
+                <p className="text-sm lg:text-base text-center font-medium text-muted-foreground mt-2 leading-tight">
                   {stat.label}
                 </p>
               </CardContent>
