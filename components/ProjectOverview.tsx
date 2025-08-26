@@ -1,8 +1,15 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MapPin, Truck, Users, Zap } from "lucide-react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const benefits = [
   {
@@ -31,13 +38,137 @@ const benefits = [
 ];
 
 const ProjectOverview = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
+  const benefitsTitleRef = useRef<HTMLHeadingElement>(null);
+  const benefitsGridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Content section animation - slide in from left
+      gsap.fromTo(
+        contentRef.current,
+        { opacity: 0, x: -80 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: contentRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Image section animation - slide in from right with scale
+      gsap.fromTo(
+        imageRef.current,
+        { opacity: 0, x: 80, scale: 0.9 },
+        {
+          opacity: 1,
+          x: 0,
+          scale: 1,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: imageRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Parallax effect for the background image
+      const bgImage = imageRef.current?.querySelector(".bg-image");
+      if (bgImage) {
+        gsap.to(bgImage, {
+          yPercent: -15,
+          ease: "none",
+          scrollTrigger: {
+            trigger: imageRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      }
+
+      // Benefits title animation
+      gsap.fromTo(
+        benefitsTitleRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: benefitsTitleRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Benefits cards staggered animation
+      gsap.fromTo(
+        benefitsGridRef.current?.children || [],
+        { opacity: 0, y: 60, scale: 0.9 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: benefitsGridRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Hover animations for benefit cards
+      const cards = benefitsGridRef.current?.children;
+      if (cards) {
+        Array.from(cards).forEach((card) => {
+          const cardElement = card as HTMLElement;
+
+          cardElement.addEventListener("mouseenter", () => {
+            gsap.to(cardElement, {
+              y: -10,
+              scale: 1.05,
+              duration: 0.3,
+              ease: "power2.out",
+            });
+          });
+
+          cardElement.addEventListener("mouseleave", () => {
+            gsap.to(cardElement, {
+              y: 0,
+              scale: 1,
+              duration: 0.3,
+              ease: "power2.out",
+            });
+          });
+        });
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="py-16 lg:py-24">
+    <section ref={sectionRef} className="py-16 lg:py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
-          <div className="font-[family-name:var(--font-jost)]">
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
+          <div ref={contentRef} className="font-[family-name:var(--font-jost)]">
+            <h2 className="text-3xl lg:text-4xl font-[family-name:var(--font-playfair)] font-bold text-foreground mb-6">
               Transforming Zambia&apos;s
               <span className="text-primary"> Western Corridor</span>
             </h2>
@@ -69,9 +200,9 @@ const ProjectOverview = () => {
           </div>
 
           {/* Image */}
-          <div className="relative">
+          <div ref={imageRef} className="relative">
             <div
-              className="aspect-[4/3] rounded-lg overflow-hidden shadow-2xl"
+              className="aspect-[4/3] rounded-lg overflow-hidden shadow-2xl bg-image"
               style={{
                 backgroundImage: `url('https://res.cloudinary.com/dpeg7wc34/image/upload/v1756193625/modern-highway-construction-in-africa-with-mining-_wwaibc.png')`,
                 backgroundSize: "cover",
@@ -85,15 +216,21 @@ const ProjectOverview = () => {
 
         {/* Benefits Grid */}
         <div className="mt-16 font-[family-name:var(--font-playfair)]">
-          <h3 className="text-2xl lg:text-3xl font-bold text-center text-foreground mb-12">
+          <h3
+            ref={benefitsTitleRef}
+            className="text-2xl lg:text-3xl font-bold text-center text-foreground mb-12"
+          >
             Key Benefits & Impact
           </h3>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            ref={benefitsGridRef}
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
             {benefits.map((benefit, index) => (
               <Card
                 key={index}
-                className="text-center bg-[#ecfeff] hover:shadow-lg transition-shadow duration-300"
+                className="text-center bg-[#ecfeff] hover:shadow-lg transition-shadow duration-300 cursor-pointer"
               >
                 <CardContent className="p-6">
                   <div className="flex justify-center mb-4">{benefit.icon}</div>
