@@ -34,7 +34,7 @@ function Navigation() {
 
           {/* Desktop Navigation */}
           <NavigationMenu className="hidden lg:flex">
-            <NavigationMenuList className="font-[family-name:var(--font-jost)]">
+            <NavigationMenuList className="font-[family-name:var(--font-jost)] uppercase">
               <NavigationMenuItem>
                 <Link href="/" legacyBehavior passHref>
                   <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center px-4 py-2 text-md font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
@@ -44,7 +44,7 @@ function Navigation() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-md">
+                <NavigationMenuTrigger className="text-md uppercase">
                   About
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -76,7 +76,7 @@ function Navigation() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-md">
+                <NavigationMenuTrigger className="text-md uppercase">
                   Project
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -119,7 +119,7 @@ function Navigation() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-md">
+                <NavigationMenuTrigger className="text-md uppercase">
                   Updates
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
