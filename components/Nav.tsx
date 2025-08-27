@@ -34,7 +34,7 @@ function Navigation() {
 
           {/* Desktop Navigation */}
           <NavigationMenu className="hidden lg:flex">
-            <NavigationMenuList className="font-[family-name:var(--font-jost)] uppercase">
+            <NavigationMenuList className=" font-extrabold font-poppins uppercase">
               <NavigationMenuItem>
                 <Link href="/" legacyBehavior passHref>
                   <NavigationMenuLink className="group bg-transparent text-accent inline-flex h-10 w-max items-center justify-center px-4 py-2 text-md font-medium transition-colors hover:text-white focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">

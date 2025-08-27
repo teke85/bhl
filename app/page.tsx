@@ -4,7 +4,7 @@
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import Navigation from "@/components/Nav";
-import NewsUpdatesSections from "@/components/NewsUpdatesSections";
+import NewsUpdatesSection from "@/components/NewsUpdatesSections";
 import ProjectOverview from "@/components/ProjectOverview";
 import StatsSection from "@/components/StatsSection";
 import StrategicImportance from "@/components/StrategicImportance";
@@ -19,7 +19,7 @@ export default function HomePage() {
       <ProjectOverview />
       <StrategicImportance />
       <TimelineSection />
-      <NewsUpdatesSections />
+      <NewsUpdatesSection />
       <Footer />
     </main>
   );

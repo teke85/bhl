@@ -73,7 +73,7 @@ const AnimatedCounter = ({
       <div className="text-4xl lg:text-5xl font-bold text-primary mb-2">
         {count}
         {suffix && (
-          <span className="text-xl lg:text-2xl text-secondary ml-1">
+          <span className="text-xl lg:text-2xl text-[#5e5f61] ml-1">
             {suffix}
           </span>
         )}
@@ -84,7 +84,7 @@ const AnimatedCounter = ({
 
 const StatsSection = () => {
   return (
-    <section className="py-16 lg:py-24 bg-[#ecfeff]">
+    <section className="py-16 lg:py-24 bg-[#E7E9EB]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 font-[family-name:var(--font-playfair)]">
           <h2 className="text-3xl lg:text-4xl font-bold text-[#161E32] mb-4">

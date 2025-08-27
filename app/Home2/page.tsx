@@ -74,7 +74,7 @@ const HeroSection = () => {
 
             {/* Desktop Navigation */}
             <NavigationMenu className="hidden lg:flex">
-              <NavigationMenuList className="uppercase">
+              <NavigationMenuList className="uppercase font-inter leading-4 font-extrabold">
                 <NavigationMenuItem>
                   <Link href="/" legacyBehavior passHref>
                     <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent hover:text-white focus:bg-accent focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50">

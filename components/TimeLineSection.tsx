@@ -73,11 +73,11 @@ const timelineData: TimelineItem[] = [
 const TimelineIcon = ({ status }: { status: TimelineItem["status"] }) => {
   switch (status) {
     case "completed":
-      return <CheckCircle className="h-6 w-6 text-secondary" />;
+      return <CheckCircle className="h-6 w-6 text-blue-900 fill-current" />;
     case "current":
-      return <Clock className="h-6 w-6 text-primary animate-pulse" />;
+      return <Clock className="h-6 w-6 text-blue-900 animate-pulse" />;
     default:
-      return <Circle className="h-6 w-6 text-muted-foreground" />;
+      return <Circle className="h-6 w-6 text-blue-900/50" />;
   }
 };
 
@@ -266,13 +266,20 @@ const TimelineSection = () => {
             ref={timelineLineRef}
             className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-primary hidden lg:block"
           />
-
           <div className="space-y-8">
             {timelineData.map((item, index) => (
               <div key={index} className="timeline-item">
                 <div className="flex items-start gap-6">
                   <div className="relative flex-shrink-0">
-                    <div className="timeline-dot w-16 h-16 rounded-full bg-background border-4 border-primary flex items-center justify-center shadow-lg">
+                    <div
+                      className={`timeline-dot w-16 h-16 rounded-full bg-background flex items-center justify-center shadow-lg ${
+                        item.status === "completed"
+                          ? "border-4 border-blue-900"
+                          : item.status === "current"
+                            ? "border-4 border-blue-900 ring-4 ring-blue-100"
+                            : "border-4 border-gray-300"
+                      }`}
+                    >
                       <TimelineIcon status={item.status} />
                     </div>
                   </div>
@@ -282,14 +289,14 @@ const TimelineSection = () => {
                       <div className="flex font-[family-name:var(--font-jost)] flex-col lg:flex-row lg:items-center lg:justify-between mb-3">
                         <div className="flex items-center gap-3 mb-2 lg:mb-0">
                           <Badge
-                            className="timeline-badge"
-                            variant={
+                            className={`timeline-badge font-medium px-3 py-1 ${
                               item.status === "completed"
-                                ? "default"
+                                ? "bg-blue-900 text-white hover:bg-blue-800"
                                 : item.status === "current"
-                                  ? "secondary"
-                                  : "outline"
-                            }
+                                  ? "bg-blue-100 text-blue-900 border-2 border-blue-900"
+                                  : "bg-gray-100 text-gray-700 border border-gray-300"
+                            }`}
+                            variant="outline"
                           >
                             {item.phase}
                           </Badge>

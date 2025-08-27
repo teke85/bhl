@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 
 const StrategicImportance = () => {
   return (
-    <section className="py-16 lg:py-24 bg-card">
+    <section className="py-16 lg:py-24 bg-[#E7E9EB]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl font-[family-name:var(--font-jost)] mx-auto text-center">
           <Badge variant="secondary" className="mb-4">

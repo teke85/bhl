@@ -1,22 +1,35 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, X, ChevronDown } from "lucide-react";
-import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { gsap } from "gsap";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Menu,
+  ArrowRight,
+  Play,
+  ChevronDown,
+  Building2,
+  Users,
+  FileText,
+  Newspaper,
+  Download,
+} from "lucide-react";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
-function HeroSection() {
+const HeroSection = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
-
   const [isOpen, setIsOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const menuRef = useRef<HTMLDivElement>(null);
-  const overlayRef = useRef<HTMLDivElement>(null);
-  const menuItemsRef = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
     // Simple fade-in animations
@@ -40,416 +53,437 @@ function HeroSection() {
     });
   }, []);
 
-  useEffect(() => {
-    if (isOpen) {
-      // Open animation
-      gsap.set(menuRef.current, { x: "100%" });
-      gsap.set(overlayRef.current, { opacity: 0 });
-
-      const tl = gsap.timeline();
-      tl.to(overlayRef.current, { opacity: 1, duration: 0.3 })
-        .to(
-          menuRef.current,
-          { x: "0%", duration: 0.5, ease: "power3.out" },
-          "-=0.1"
-        )
-        .from(
-          menuItemsRef.current,
-          {
-            x: 50,
-            opacity: 0,
-            duration: 0.4,
-            stagger: 0.1,
-            ease: "power2.out",
-          },
-          "-=0.3"
-        );
-    } else if (menuRef.current) {
-      // Close animation
-      const tl = gsap.timeline();
-      tl.to(menuItemsRef.current, {
-        x: 50,
-        opacity: 0,
-        duration: 0.2,
-        stagger: 0.05,
-      })
-        .to(
-          menuRef.current,
-          { x: "100%", duration: 0.4, ease: "power3.in" },
-          "-=0.1"
-        )
-        .to(overlayRef.current, { opacity: 0, duration: 0.3 }, "-=0.2");
-    }
-  }, [isOpen]);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-    setActiveDropdown(null);
-  };
-
-  const toggleDropdown = (dropdown: string) => {
-    setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
-  };
-
-  const addToRefs = (el: HTMLDivElement) => {
-    if (el && !menuItemsRef.current.includes(el)) {
-      menuItemsRef.current.push(el);
-    }
-  };
-
   return (
-    <>
-      <section className="relative min-h-screen flex flex-col overflow-hidden">
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: `url('https://res.cloudinary.com/dpeg7wc34/image/upload/v1756193625/aerial-view-of-african-highway-construction-site-w_ulux6u.png')`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-          }}
-        >
-          <div className="absolute inset-0 bg-black/60" />
-        </div>
-
-        <header className="relative z-20 flex items-center justify-between p-6 lg:p-8">
-          <button
-            onClick={toggleMenu}
-            className="flex items-center space-x-3 text-white hover:text-accent transition-colors duration-300 group"
-          >
-            <div className="flex flex-col space-y-1">
-              <span
-                className={`block h-0.5 w-6 bg-current transition-all duration-300 ${isOpen ? "rotate-45 translate-y-1.5" : ""}`}
-              ></span>
-              <span
-                className={`block h-0.5 w-6 bg-current transition-all duration-300 ${isOpen ? "opacity-0" : ""}`}
-              ></span>
-              <span
-                className={`block h-0.5 w-6 bg-current transition-all duration-300 ${isOpen ? "-rotate-45 -translate-y-1.5" : ""}`}
-              ></span>
-            </div>
-            <span className="text-sm font-medium tracking-wider uppercase">
-              {isOpen ? "Close" : "Menu"}
-            </span>
-          </button>
-
-          <div className="flex items-center">
-            <Image
-              src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1756192912/Barotse_Logo-removebg-preview_nufoih.png"
-              alt="Barotse Highway Limited"
-              width={120}
-              height={120}
-              className="h-12 w-auto"
-            />
-          </div>
-        </header>
-
-        <div className="relative z-10 flex-1 flex items-center justify-center">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-            <h1
-              ref={titleRef}
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight tracking-tight font-serif"
-            >
-              Building Zambia&apos;s Gateway to the West
-            </h1>
-
-            <p
-              ref={subtitleRef}
-              className="text-lg sm:text-xl lg:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed opacity-90"
-            >
-              371km of modern infrastructure connecting the Copperbelt to
-              international markets
-            </p>
-
-            <div
-              ref={buttonsRef}
-              className="flex flex-col sm:flex-row gap-6 justify-center items-center"
-            >
-              <Button
-                size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg font-semibold"
-              >
-                Explore the Project
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 text-lg font-semibold bg-transparent"
-              >
-                <Play className="mr-2 h-5 w-5" />
-                View Latest Updates
-              </Button>
-            </div>
-
-            {/* Scroll Indicator */}
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-              <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-                <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+    <section className="relative min-h-screen flex flex-col overflow-hidden">
+      {/* Background Image */}
       <div
-        ref={overlayRef}
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-40 ${isOpen ? "pointer-events-auto" : "pointer-events-none"}`}
-        onClick={toggleMenu}
-      />
-
-      <div
-        ref={menuRef}
-        className="fixed top-0 right-0 h-full w-full max-w-lg bg-white z-50 shadow-2xl"
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url('https://res.cloudinary.com/dpeg7wc34/image/upload/v1756193625/aerial-view-of-african-highway-construction-site-w_ulux6u.png')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
       >
-        <div className="flex flex-col h-full">
-          {/* Menu Header */}
-          <div className="flex items-center justify-between p-6 border-b border-gray-100">
-            <h2 className="text-xl font-semibold text-gray-900">Navigation</h2>
-            <button
-              onClick={toggleMenu}
-              className="p-2 rounded-full hover:bg-gray-100 transition-colors"
-            >
-              <X className="h-6 w-6 text-gray-600" />
-            </button>
-          </div>
+        <div className="absolute inset-0 bg-black/60" />
+      </div>
 
-          {/* Menu Content */}
-          <div className="flex-1 overflow-y-auto p-6">
-            <nav className="space-y-2">
-              {/* Home */}
-              <div ref={addToRefs}>
-                <Link
-                  href="/"
-                  onClick={toggleMenu}
-                  className="flex items-center py-4 px-4 text-lg font-medium text-gray-900 hover:bg-accent hover:text-white rounded-lg transition-all duration-300"
-                >
-                  Home
-                </Link>
-              </div>
+      <header className="relative z-50 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex h-20 items-center justify-between">
+            {/* Logo */}
+            <Link href="/" className="flex items-center space-x-2">
+              <Image
+                src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1756192912/Barotse_Logo-removebg-preview_nufoih.png"
+                alt="Barotse Highway Limited"
+                width={240}
+                height={240}
+                className="h-16 w-auto"
+              />
+            </Link>
 
-              {/* About with Dropdown */}
-              <div ref={addToRefs}>
-                <button
-                  onClick={() => toggleDropdown("about")}
-                  className="flex items-center justify-between w-full py-4 px-4 text-lg font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-300"
-                >
-                  About
-                  <ChevronDown
-                    className={`h-5 w-5 transition-transform duration-300 ${activeDropdown === "about" ? "rotate-180" : ""}`}
-                  />
-                </button>
-                <div
-                  className={`overflow-hidden transition-all duration-300 ${activeDropdown === "about" ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
-                >
-                  <div className="pl-4 py-2 space-y-1">
-                    <Link
-                      href="/about"
-                      onClick={toggleMenu}
-                      className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
-                    >
-                      About BHL
-                    </Link>
-                    <Link
-                      href="/leadership"
-                      onClick={toggleMenu}
-                      className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
-                    >
-                      Leadership Team
-                    </Link>
-                    <Link
-                      href="/vision-mission"
-                      onClick={toggleMenu}
-                      className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
-                    >
-                      Vision & Mission
-                    </Link>
-                    <Link
-                      href="/corporate-governance"
-                      onClick={toggleMenu}
-                      className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
-                    >
-                      Corporate Governance
-                    </Link>
-                  </div>
-                </div>
-              </div>
+            {/* Desktop Navigation */}
+            <NavigationMenu className="hidden lg:flex">
+              <NavigationMenuList className="font-jost">
+                <NavigationMenuItem>
+                  <Link href="/" legacyBehavior passHref>
+                    <NavigationMenuLink className="group inline-flex h-12 w-max items-center justify-center px-6 py-2 text-sm font-semibold text-gray-700 transition-colors hover:text-white focus:outline-none uppercase tracking-wide">
+                      Home
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
 
-              {/* Project with Dropdown */}
-              <div ref={addToRefs}>
-                <button
-                  onClick={() => toggleDropdown("project")}
-                  className="flex items-center justify-between w-full py-4 px-4 text-lg font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-300"
-                >
-                  The Project
-                  <ChevronDown
-                    className={`h-5 w-5 transition-transform duration-300 ${activeDropdown === "project" ? "rotate-180" : ""}`}
-                  />
-                </button>
-                <div
-                  className={`overflow-hidden transition-all duration-300 ${activeDropdown === "project" ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
-                >
-                  <div className="pl-4 py-2 space-y-1">
-                    <Link
-                      href="/project-overview"
-                      onClick={toggleMenu}
-                      className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
-                    >
-                      Project Overview
-                    </Link>
-                    <Link
-                      href="/key-benefits"
-                      onClick={toggleMenu}
-                      className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
-                    >
-                      Key Benefits & Impact
-                    </Link>
-                    <Link
-                      href="/timeline"
-                      onClick={toggleMenu}
-                      className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
-                    >
-                      Project Journey
-                    </Link>
-                    <Link
-                      href="/technical-specifications"
-                      onClick={toggleMenu}
-                      className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
-                    >
-                      Technical Specifications
-                    </Link>
-                    <Link
-                      href="/environmental-assessment"
-                      onClick={toggleMenu}
-                      className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
-                    >
-                      Environmental Assessment
-                    </Link>
-                  </div>
-                </div>
-              </div>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="h-12 px-6 text-sm bg-transparent font-semibold text-gray-700 hover:text-white uppercase tracking-wide">
+                    About <ChevronDown className="ml-1 h-4 w-4" />
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid gap-6 p-8 w-[600px] lg:w-[700px] lg:grid-cols-2">
+                      <div className="space-y-4">
+                        <h3 className="font-playfair text-lg font-bold text-gray-900 mb-4">
+                          Company
+                        </h3>
+                        <Link
+                          href="/about"
+                          className="group block select-none space-y-2 p-4 leading-none no-underline outline-none transition-colors hover:bg-transparent focus:bg-transparent"
+                        >
+                          <div className="flex items-center space-x-3">
+                            <Building2 className="h-5 w-5 text-[#1e3a8a]" />
+                            <div className="text-sm font-semibold leading-none text-gray-900 group-hover:text-[#1e3a8a]">
+                              Company Background
+                            </div>
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
+                            Learn about our history, mission, and commitment to
+                            infrastructure development
+                          </p>
+                        </Link>
+                        <Link
+                          href="/leadership"
+                          className="group block select-none space-y-2 p-4 leading-none no-underline outline-none transition-colors hover:bg-transparent focus:bg-transparent"
+                        >
+                          <div className="flex items-center space-x-3">
+                            <Users className="h-5 w-5 text-[#1e3a8a]" />
+                            <div className="text-sm font-semibold leading-none text-gray-900 group-hover:text-[#1e3a8a]">
+                              Leadership Team
+                            </div>
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
+                            Meet our experienced leadership driving
+                            Zambia&apos;s infrastructure future
+                          </p>
+                        </Link>
+                      </div>
+                      <div className="space-y-4">
+                        <h3 className="font-playfair text-lg font-bold text-gray-900 mb-4">
+                          Our Story
+                        </h3>
+                        <Link
+                          href="/our-story"
+                          className="group block select-none space-y-2 p-4 leading-none no-underline outline-none transition-colors hover:bg-transparent focus:bg-transparent"
+                        >
+                          <div className="flex items-center space-x-3">
+                            <FileText className="h-5 w-5 text-[#1e3a8a]" />
+                            <div className="text-sm font-semibold leading-none text-gray-900 group-hover:text-[#1e3a8a]">
+                              Our Journey
+                            </div>
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
+                            From vision to reality - the story behind
+                            Zambia&apos;s gateway project
+                          </p>
+                        </Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
 
-              {/* News & Updates with Dropdown */}
-              <div ref={addToRefs}>
-                <button
-                  onClick={() => toggleDropdown("updates")}
-                  className="flex items-center justify-between w-full py-4 px-4 text-lg font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-300"
-                >
-                  News & Updates
-                  <ChevronDown
-                    className={`h-5 w-5 transition-transform duration-300 ${activeDropdown === "updates" ? "rotate-180" : ""}`}
-                  />
-                </button>
-                <div
-                  className={`overflow-hidden transition-all duration-300 ${activeDropdown === "updates" ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
-                >
-                  <div className="pl-4 py-2 space-y-1">
-                    <Link
-                      href="/news"
-                      onClick={toggleMenu}
-                      className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
-                    >
-                      Latest News
-                    </Link>
-                    <Link
-                      href="/project-updates"
-                      onClick={toggleMenu}
-                      className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
-                    >
-                      Project Updates
-                    </Link>
-                    <Link
-                      href="/community-engagement"
-                      onClick={toggleMenu}
-                      className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
-                    >
-                      Community Engagement
-                    </Link>
-                    <Link
-                      href="/media-gallery"
-                      onClick={toggleMenu}
-                      className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
-                    >
-                      Media Gallery
-                    </Link>
-                  </div>
-                </div>
-              </div>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="h-12 bg-transparent px-6 text-sm font-semibold text-gray-700 uppercase tracking-wide">
+                    Project <ChevronDown className="ml-1 h-4 w-4" />
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid gap-6 p-8 w-[800px] lg:w-[900px] lg:grid-cols-3">
+                      <div className="space-y-4">
+                        <h3 className="font-playfair text-lg font-bold text-gray-900 mb-4">
+                          Overview
+                        </h3>
+                        <Link
+                          href="/project"
+                          className="group block select-none space-y-2 p-4 leading-none no-underline outline-none transition-colors hover:bg-transparent focus:bg-transparent"
+                        >
+                          <div className="text-sm font-semibold leading-none text-gray-900 group-hover:text-[#1e3a8a]">
+                            Project Overview
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
+                            371km highway connecting Copperbelt to international
+                            markets
+                          </p>
+                        </Link>
+                        <Link
+                          href="/technical-specifications"
+                          className="group block select-none space-y-2 p-4 leading-none no-underline outline-none transition-colors hover:bg-transparent focus:bg-transparent"
+                        >
+                          <div className="text-sm font-semibold leading-none text-gray-900 group-hover:text-[#1e3a8a]">
+                            Technical Specifications
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
+                            Engineering details, road design, and infrastructure
+                            specs
+                          </p>
+                        </Link>
+                      </div>
+                      <div className="space-y-4">
+                        <h3 className="font-playfair text-lg font-bold text-gray-900 mb-4">
+                          Progress
+                        </h3>
+                        <Link
+                          href="/timeline"
+                          className="group block select-none space-y-2 p-4 leading-none no-underline outline-none transition-colors hover:bg-transparent focus:bg-transparent"
+                        >
+                          <div className="text-sm font-semibold leading-none text-gray-900 group-hover:text-[#1e3a8a]">
+                            Timeline & Milestones
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
+                            Track construction progress and key project
+                            milestones
+                          </p>
+                        </Link>
+                        <Link
+                          href="/environmental"
+                          className="group block select-none space-y-2 p-4 leading-none no-underline outline-none transition-colors hover:bg-transparent focus:bg-transparent"
+                        >
+                          <div className="text-sm font-semibold leading-none text-gray-900 group-hover:text-[#1e3a8a]">
+                            Environmental Impact
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
+                            Sustainability measures and environmental
+                            responsibility
+                          </p>
+                        </Link>
+                      </div>
+                      <div className="space-y-4">
+                        <h3 className="font-playfair text-lg font-bold text-gray-900 mb-4">
+                          Partners
+                        </h3>
+                        <Link
+                          href="/partners"
+                          className="group block select-none space-y-2 p-4 leading-none no-underline outline-none transition-colors hover:bg-transparent focus:bg-transparent"
+                        >
+                          <div className="text-sm font-semibold leading-none text-gray-900 group-hover:text-[#1e3a8a]">
+                            Partners & Consultants
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
+                            World-class partnership ecosystem driving project
+                            success
+                          </p>
+                        </Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
 
-              {/* Procurement (New Section) */}
-              <div ref={addToRefs}>
-                <button
-                  onClick={() => toggleDropdown("procurement")}
-                  className="flex items-center justify-between w-full py-4 px-4 text-lg font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-300"
-                >
-                  Procurement
-                  <ChevronDown
-                    className={`h-5 w-5 transition-transform duration-300 ${activeDropdown === "procurement" ? "rotate-180" : ""}`}
-                  />
-                </button>
-                <div
-                  className={`overflow-hidden transition-all duration-300 ${activeDropdown === "procurement" ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
-                >
-                  <div className="pl-4 py-2 space-y-1">
-                    <Link
-                      href="/tenders"
-                      onClick={toggleMenu}
-                      className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
-                    >
-                      Current Tenders
-                    </Link>
-                    <Link
-                      href="/procurement-opportunities"
-                      onClick={toggleMenu}
-                      className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
-                    >
-                      Business Opportunities
-                    </Link>
-                    <Link
-                      href="/supplier-registration"
-                      onClick={toggleMenu}
-                      className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
-                    >
-                      Supplier Registration
-                    </Link>
-                    <Link
-                      href="/procurement-policy"
-                      onClick={toggleMenu}
-                      className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
-                    >
-                      Procurement Policy
-                    </Link>
-                  </div>
-                </div>
-              </div>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="h-12 bg-transparent px-6 text-sm font-semibold text-gray-700 hover:text-white uppercase tracking-wide">
+                    Updates <ChevronDown className="ml-1 h-4 w-4" />
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid gap-6 p-8 w-[600px] lg:w-[700px] lg:grid-cols-2">
+                      <div className="space-y-4">
+                        <h3 className="font-playfair text-lg font-bold text-gray-900 mb-4">
+                          Latest News
+                        </h3>
+                        <Link
+                          href="/news"
+                          className="group block select-none space-y-2 p-4 leading-none no-underline outline-none transition-colors hover:bg-transparent focus:bg-transparent"
+                        >
+                          <div className="flex items-center space-x-3">
+                            <Newspaper className="h-5 w-5 text-[#1e3a8a]" />
+                            <div className="text-sm font-semibold leading-none text-gray-900 group-hover:text-[#1e3a8a]">
+                              News & Announcements
+                            </div>
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
+                            Latest project updates, milestones, and official
+                            announcements
+                          </p>
+                        </Link>
+                        <Link
+                          href="/media-gallery"
+                          className="group block select-none space-y-2 p-4 leading-none no-underline outline-none transition-colors hover:bg-transparent focus:bg-transparent"
+                        >
+                          <div className="text-sm font-semibold leading-none text-gray-900 group-hover:text-[#1e3a8a]">
+                            Media Gallery
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
+                            Photos, videos, and visual documentation of project
+                            progress
+                          </p>
+                        </Link>
+                      </div>
+                      <div className="space-y-4">
+                        <h3 className="font-playfair text-lg font-bold text-gray-900 mb-4">
+                          Community
+                        </h3>
+                        <Link
+                          href="/community"
+                          className="group block select-none space-y-2 p-4 leading-none no-underline outline-none transition-colors hover:bg-transparent focus:bg-transparent"
+                        >
+                          <div className="text-sm font-semibold leading-none text-gray-900 group-hover:text-[#1e3a8a]">
+                            CSR & Community
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
+                            Community engagement and corporate social
+                            responsibility initiatives
+                          </p>
+                        </Link>
+                        <Link
+                          href="/procurement"
+                          className="group block select-none space-y-2 p-4 leading-none no-underline outline-none transition-colors hover:bg-transparent focus:bg-transparent"
+                        >
+                          <div className="text-sm font-semibold leading-none text-gray-900 group-hover:text-[#1e3a8a]">
+                            Procurement Opportunities
+                          </div>
+                          <p className="line-clamp-2 text-sm leading-snug text-gray-600">
+                            Business opportunities and supplier engagement
+                            programs
+                          </p>
+                        </Link>
+                      </div>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
 
-              {/* Contact */}
-              <div ref={addToRefs}>
-                <Link
-                  href="/contact"
-                  onClick={toggleMenu}
-                  className="flex items-center py-4 px-4 text-lg font-medium text-gray-900 hover:bg-accent hover:text-white rounded-lg transition-all duration-300"
-                >
-                  Contact
-                </Link>
-              </div>
-            </nav>
+                <NavigationMenuItem>
+                  <Link href="/contact" legacyBehavior passHref>
+                    <NavigationMenuLink className="group inline-flex bg-transparent h-12 w-max items-center justify-center px-6 py-2 text-sm font-semibold text-gray-700 transition-colors hover:text-white focus:outline-none uppercase tracking-wide">
+                      Contact
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
 
             {/* CTA Button */}
-            <div ref={addToRefs} className="mt-8 pt-6 border-t border-gray-100">
-              <Button
-                onClick={toggleMenu}
-                className="w-full bg-accent hover:bg-accent/90 text-white font-medium py-4 text-lg"
-              >
-                Download Project Brief
+            <div className="hidden lg:flex">
+              <Button className="bg-[#E7E9EB] text-[#162540] hover:bg-[#b8babd] px-6 py-3 font-semibold uppercase tracking-wide">
+                <Download className="mr-2 h-4 w-4" />
+                Project Brief
               </Button>
+            </div>
+
+            {/* Mobile Menu */}
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild className="lg:hidden">
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-6 w-6 text-gray-700" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                <nav className="flex flex-col space-y-6 mt-8">
+                  <Link
+                    href="/"
+                    className="text-lg font-semibold text-gray-900 hover:text-[#1e3a8a]"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Home
+                  </Link>
+                  <div className="space-y-3">
+                    <h3 className="text-lg font-semibold text-gray-900">
+                      About
+                    </h3>
+                    <div className="pl-4 space-y-2">
+                      <Link
+                        href="/about"
+                        className="block text-gray-600 hover:text-[#1e3a8a]"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        Company Background
+                      </Link>
+                      <Link
+                        href="/leadership"
+                        className="block text-gray-600 hover:text-[#1e3a8a]"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        Leadership Team
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <h3 className="text-lg font-semibold text-gray-900">
+                      Project
+                    </h3>
+                    <div className="pl-4 space-y-2">
+                      <Link
+                        href="/project"
+                        className="block text-gray-600 hover:text-[#1e3a8a]"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        Project Overview
+                      </Link>
+                      <Link
+                        href="/timeline"
+                        className="block text-gray-600 hover:text-[#1e3a8a]"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        Timeline & Milestones
+                      </Link>
+                      <Link
+                        href="/environmental"
+                        className="block text-gray-600 hover:text-[#1e3a8a]"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        Environmental Impact
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <h3 className="text-lg font-semibold text-gray-900">
+                      Updates
+                    </h3>
+                    <div className="pl-4 space-y-2">
+                      <Link
+                        href="/news"
+                        className="block text-gray-600 hover:text-[#1e3a8a]"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        News & Announcements
+                      </Link>
+                      <Link
+                        href="/community"
+                        className="block text-gray-600 hover:text-[#1e3a8a]"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        CSR & Community
+                      </Link>
+                    </div>
+                  </div>
+                  <Link
+                    href="/contact"
+                    className="text-lg font-semibold text-gray-900 hover:text-[#1e3a8a]"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Contact
+                  </Link>
+                  <Button className="mt-6 bg-[#1e3a8a] text-white hover:bg-[#1e40af]">
+                    <Download className="mr-2 h-4 w-4" />
+                    Download Project Brief
+                  </Button>
+                </nav>
+              </SheetContent>
+            </Sheet>
+          </div>
+        </div>
+      </header>
+
+      <div className="relative z-10 flex-1 flex items-center justify-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+          <h1
+            ref={titleRef}
+            className="text-4xl font-[family-name:var(--font-playfair)] sm:text-5xl lg:text-4xl xl:text-6xl font-bold mb-6 leading-tight tracking-tight"
+          >
+            Building Zambia&apos;s Gateway to the West
+          </h1>
+
+          <p
+            ref={subtitleRef}
+            className="text-lg sm:text-xl font-[family-name:var(--font-jost)] lg:text-xl mb-12 max-w-4xl mx-auto leading-relaxed opacity-90"
+          >
+            371km of modern infrastructure connecting the Copperbelt to
+            international markets
+          </p>
+
+          <div
+            ref={buttonsRef}
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+          >
+            <Button
+              size="lg"
+              className="bg-[#B8BABD] text-white hover:bg-[#898c8f] px-8 py-4 text-lg font-semibold"
+            >
+              Explore the Project
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 text-lg font-semibold bg-transparent"
+            >
+              <Play className="mr-2 h-5 w-5" />
+              View Latest Updates
+            </Button>
+          </div>
+
+          {/* Scroll Indicator */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse" />
             </div>
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
-}
+};
 
 export default HeroSection;

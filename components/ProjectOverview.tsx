@@ -230,7 +230,7 @@ const ProjectOverview = () => {
             {benefits.map((benefit, index) => (
               <Card
                 key={index}
-                className="text-center bg-[#ecfeff] hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+                className="text-center bg-[#E7E9EB] hover:shadow-lg transition-shadow duration-300 cursor-pointer"
               >
                 <CardContent className="p-6">
                   <div className="flex justify-center mb-4">{benefit.icon}</div>

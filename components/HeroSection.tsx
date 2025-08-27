@@ -54,7 +54,7 @@ const HeroSection = () => {
         >
           Building Zambia&apos;s
           <br />
-          <span className="text-secondary">Gateway to the West</span>
+          <span className="text-[#7c7e80]">Gateway to the West</span>
         </h1>
 
         <p
