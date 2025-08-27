@@ -87,7 +87,7 @@ const StatsSection = () => {
     <section className="py-16 lg:py-24 bg-[#ecfeff]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 font-[family-name:var(--font-playfair)]">
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#38261b] mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#161E32] mb-4">
             Project by the Numbers
           </h2>
           <p className="text-lg text-muted-foreground font-[family-name:var(--font-jost)] max-w-2xl mx-auto">

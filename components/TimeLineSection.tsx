@@ -248,13 +248,13 @@ const TimelineSection = () => {
         <div className="text-center mb-16">
           <h2
             ref={titleRef}
-            className="text-3xl lg:text-4xl font-bold text-foreground mb-4"
+            className="text-3xl font-[family-name:var(--font-playfair)] lg:text-4xl font-bold text-foreground mb-4"
           >
             Project Journey
           </h2>
           <p
             ref={subtitleRef}
-            className="text-lg text-muted-foreground max-w-3xl mx-auto"
+            className="text-lg text-muted-foreground font-[family-name:var(--font-jost)] max-w-3xl mx-auto"
           >
             From conception to completion, track the major milestones of
             Zambia&apos;s most ambitious infrastructure project
@@ -279,7 +279,7 @@ const TimelineSection = () => {
 
                   <Card className="timeline-card flex-1 hover:shadow-xl transition-shadow duration-300 border-2 hover:border-primary/20">
                     <CardContent className="p-6">
-                      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-3">
+                      <div className="flex font-[family-name:var(--font-jost)] flex-col lg:flex-row lg:items-center lg:justify-between mb-3">
                         <div className="flex items-center gap-3 mb-2 lg:mb-0">
                           <Badge
                             className="timeline-badge"

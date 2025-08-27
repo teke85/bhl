@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, X, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { gsap } from "gsap";
 
-const HeroSection = () => {
+function HeroSection() {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
@@ -249,7 +249,7 @@ const HeroSection = () => {
                       onClick={toggleMenu}
                       className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
                     >
-                      Company Background
+                      About BHL
                     </Link>
                     <Link
                       href="/leadership"
@@ -259,11 +259,18 @@ const HeroSection = () => {
                       Leadership Team
                     </Link>
                     <Link
-                      href="/story"
+                      href="/vision-mission"
                       onClick={toggleMenu}
                       className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
                     >
-                      Our Story
+                      Vision & Mission
+                    </Link>
+                    <Link
+                      href="/corporate-governance"
+                      onClick={toggleMenu}
+                      className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
+                    >
+                      Corporate Governance
                     </Link>
                   </div>
                 </div>
@@ -275,7 +282,7 @@ const HeroSection = () => {
                   onClick={() => toggleDropdown("project")}
                   className="flex items-center justify-between w-full py-4 px-4 text-lg font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-300"
                 >
-                  Project
+                  The Project
                   <ChevronDown
                     className={`h-5 w-5 transition-transform duration-300 ${activeDropdown === "project" ? "rotate-180" : ""}`}
                   />
@@ -285,44 +292,51 @@ const HeroSection = () => {
                 >
                   <div className="pl-4 py-2 space-y-1">
                     <Link
-                      href="/project"
+                      href="/project-overview"
                       onClick={toggleMenu}
                       className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
                     >
                       Project Overview
                     </Link>
                     <Link
+                      href="/key-benefits"
+                      onClick={toggleMenu}
+                      className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
+                    >
+                      Key Benefits & Impact
+                    </Link>
+                    <Link
                       href="/timeline"
                       onClick={toggleMenu}
                       className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
                     >
-                      Timeline & Milestones
+                      Project Journey
                     </Link>
                     <Link
-                      href="/environmental"
+                      href="/technical-specifications"
                       onClick={toggleMenu}
                       className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
                     >
-                      Environmental Impact
+                      Technical Specifications
                     </Link>
                     <Link
-                      href="/partners"
+                      href="/environmental-assessment"
                       onClick={toggleMenu}
                       className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
                     >
-                      Partners & Consultants
+                      Environmental Assessment
                     </Link>
                   </div>
                 </div>
               </div>
 
-              {/* Updates with Dropdown */}
+              {/* News & Updates with Dropdown */}
               <div ref={addToRefs}>
                 <button
                   onClick={() => toggleDropdown("updates")}
                   className="flex items-center justify-between w-full py-4 px-4 text-lg font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-300"
                 >
-                  Updates
+                  News & Updates
                   <ChevronDown
                     className={`h-5 w-5 transition-transform duration-300 ${activeDropdown === "updates" ? "rotate-180" : ""}`}
                   />
@@ -336,28 +350,75 @@ const HeroSection = () => {
                       onClick={toggleMenu}
                       className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
                     >
-                      News & Announcements
+                      Latest News
                     </Link>
                     <Link
-                      href="/community"
+                      href="/project-updates"
                       onClick={toggleMenu}
                       className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
                     >
-                      CSR & Community
+                      Project Updates
                     </Link>
                     <Link
-                      href="/procurement"
+                      href="/community-engagement"
                       onClick={toggleMenu}
                       className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
                     >
-                      Procurement Opportunities
+                      Community Engagement
                     </Link>
                     <Link
-                      href="/media"
+                      href="/media-gallery"
                       onClick={toggleMenu}
                       className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
                     >
                       Media Gallery
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              {/* Procurement (New Section) */}
+              <div ref={addToRefs}>
+                <button
+                  onClick={() => toggleDropdown("procurement")}
+                  className="flex items-center justify-between w-full py-4 px-4 text-lg font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-all duration-300"
+                >
+                  Procurement
+                  <ChevronDown
+                    className={`h-5 w-5 transition-transform duration-300 ${activeDropdown === "procurement" ? "rotate-180" : ""}`}
+                  />
+                </button>
+                <div
+                  className={`overflow-hidden transition-all duration-300 ${activeDropdown === "procurement" ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
+                >
+                  <div className="pl-4 py-2 space-y-1">
+                    <Link
+                      href="/tenders"
+                      onClick={toggleMenu}
+                      className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
+                    >
+                      Current Tenders
+                    </Link>
+                    <Link
+                      href="/procurement-opportunities"
+                      onClick={toggleMenu}
+                      className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
+                    >
+                      Business Opportunities
+                    </Link>
+                    <Link
+                      href="/supplier-registration"
+                      onClick={toggleMenu}
+                      className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
+                    >
+                      Supplier Registration
+                    </Link>
+                    <Link
+                      href="/procurement-policy"
+                      onClick={toggleMenu}
+                      className="block py-3 px-4 text-gray-600 hover:text-accent hover:bg-gray-50 rounded-lg transition-colors"
+                    >
+                      Procurement Policy
                     </Link>
                   </div>
                 </div>
@@ -389,6 +450,6 @@ const HeroSection = () => {
       </div>
     </>
   );
-};
+}
 
 export default HeroSection;

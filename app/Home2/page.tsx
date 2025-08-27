@@ -84,7 +84,7 @@ const HeroSection = () => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="uppercase">
+                  <NavigationMenuTrigger className="uppercase bg-transparent text-white hover:bg-[bg-red-600 hover:text-white focus:bg-accent/20 focus:text-white focus:outline-none">
                     About
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -116,7 +116,7 @@ const HeroSection = () => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="uppercase">
+                  <NavigationMenuTrigger className="uppercase bg-transparent text-white">
                     Project
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -159,7 +159,7 @@ const HeroSection = () => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="uppercase">
+                  <NavigationMenuTrigger className="uppercase bg-transparent text-white">
                     Updates
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -192,7 +192,7 @@ const HeroSection = () => {
 
                 <NavigationMenuItem>
                   <Link href="/contact" legacyBehavior passHref>
-                    <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent hover:text-white focus:bg-accent focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+                    <NavigationMenuLink className="group bg-transparent text-white inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-white focus:bg-accent focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50">
                       Contact
                     </NavigationMenuLink>
                   </Link>
