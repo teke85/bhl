@@ -71,7 +71,7 @@ const AnimatedCounter = ({
   return (
     <div ref={ref} className="text-center">
       <div className="text-4xl lg:text-5xl font-bold text-primary mb-2">
-        {count.toLocaleString()}
+        {count}
         {suffix && (
           <span className="text-xl lg:text-2xl text-secondary ml-1">
             {suffix}

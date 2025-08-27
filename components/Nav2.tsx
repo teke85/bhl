@@ -168,7 +168,7 @@ const Navigation = () => {
                     <Link
                       href="/about"
                       onClick={toggleMenu}
-                      className="block py-3 px-4 text-gray-600 hover:text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                      className="block py-3 px-4 text-gray-600 hover:text-white hover:bg-gray-50 rounded-lg transition-colors"
                     >
                       Company Background
                     </Link>

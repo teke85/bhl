@@ -19,15 +19,15 @@ function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 w-full border-b backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container-fluid bg-[#161E32] mx-auto p-2 sm:px-6 lg:px-8">
+      <div className="container-fluid bg-white mx-auto p-2 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <Image
               src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1756192912/Barotse_Logo-removebg-preview_nufoih.png"
               alt="Barotse Highway Limited"
-              width={120}
-              height={120}
+              width={220}
+              height={220}
               className="h-16 w-auto"
             />
           </Link>
@@ -37,14 +37,14 @@ function Navigation() {
             <NavigationMenuList className="font-[family-name:var(--font-jost)] uppercase">
               <NavigationMenuItem>
                 <Link href="/" legacyBehavior passHref>
-                  <NavigationMenuLink className="group bg-transparent text-white inline-flex h-10 w-max items-center justify-center px-4 py-2 text-md font-medium transition-colors hover:bg-[#161E32] hover:text-white focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+                  <NavigationMenuLink className="group bg-transparent text-accent inline-flex h-10 w-max items-center justify-center px-4 py-2 text-md font-medium transition-colors hover:text-white focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
                     Home
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-md bg-transparent hover:bg-[#161E32] hover:text-white text-white uppercase">
+                <NavigationMenuTrigger className="text-md bg-transparent text-accent hover:text-white uppercase">
                   About
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -76,7 +76,7 @@ function Navigation() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-md bg-transparent text-white uppercase">
+                <NavigationMenuTrigger className="text-md bg-transparent text-accent hover:bg-[#161E32] uppercase">
                   Project
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -119,7 +119,7 @@ function Navigation() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-md bg-transparent text-white uppercase">
+                <NavigationMenuTrigger className="text-md bg-transparent uppercase">
                   Updates
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -152,7 +152,7 @@ function Navigation() {
 
               <NavigationMenuItem>
                 <Link href="/contact" legacyBehavior passHref>
-                  <NavigationMenuLink className="group bg-transparent text-white inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+                  <NavigationMenuLink className="group bg-transparent inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-accent-foreground focus:bg-[#161E32] focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
                     Contact
                   </NavigationMenuLink>
                 </Link>
@@ -162,7 +162,7 @@ function Navigation() {
 
           {/* CTA Button */}
           <div className="hidden lg:flex">
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
+            <Button className="bg-primary uppercase text-primary-foreground hover:bg-primary/90">
               Download Project Brief
             </Button>
           </div>
