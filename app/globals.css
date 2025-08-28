@@ -9,7 +9,7 @@
 
   /* Fonts */
   --font-sans: var(--font-jost), system-ui, sans-serif;
-  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-playfair: var(--font-playfair), "Playfair", serif;
   --font-poppins: var(--font-poppins), "Poppins", sans-serif;
   --font-roboto: var(--font-roboto), "Roboto", sans-serif;
   --font-inter: var(--font-inter), "Inter", sans-serif;
