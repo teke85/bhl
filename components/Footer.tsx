@@ -157,9 +157,7 @@ const Footer = () => {
                 placeholder="Enter your email"
                 className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/60"
               />
-              <Button variant="secondary" size="sm">
-                Subscribe
-              </Button>
+              <Button size="sm">Subscribe</Button>
             </div>
           </div>
         </div>

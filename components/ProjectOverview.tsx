@@ -168,7 +168,7 @@ const ProjectOverview = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div ref={contentRef} className="font-[family-name:var(--font-jost)]">
-            <h2 className="text-3xl lg:text-4xl font-[family-name:var(--font-playfair)] font-bold text-foreground mb-6">
+            <h2 className="text-3xl lg:text-4xl font-[family-name:var(--font-playfair)] font-bold text-[#151E2F] mb-6">
               Transforming Zambia&apos;s
               <span className="text-primary"> Western Corridor</span>
             </h2>
@@ -192,7 +192,7 @@ const ProjectOverview = () => {
 
             <Button
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
+              className="bg-[#151E2F] text-primary-foreground hover:bg-[#2c3a53]"
             >
               Learn More About the Project
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -218,7 +218,7 @@ const ProjectOverview = () => {
         <div className="mt-16 font-[family-name:var(--font-playfair)]">
           <h3
             ref={benefitsTitleRef}
-            className="text-2xl lg:text-3xl font-bold text-center text-foreground mb-12"
+            className="text-2xl lg:text-3xl font-bold text-center text-[#151E2F] mb-12"
           >
             Key Benefits & Impact
           </h3>

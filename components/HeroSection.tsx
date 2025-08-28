@@ -71,7 +71,7 @@ const HeroSection = () => {
         >
           <Button
             size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg"
+            className="bg-[#151E2F] text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg"
           >
             Explore the Project
             <ArrowRight className="ml-2 h-5 w-5" />

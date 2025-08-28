@@ -130,7 +130,7 @@ export default function LeadershipPage() {
                     <h3 className="text-2xl font-bold text-slate-900 mb-2">
                       {leader.name}
                     </h3>
-                    <p className="text-lg font-semibold text-teal-700 mb-1">
+                    <p className="text-lg font-semibold text-foreground mb-1">
                       {leader.position}
                     </p>
                     <p className="text-slate-600">{leader.company}</p>
@@ -143,7 +143,7 @@ export default function LeadershipPage() {
 
                     <div>
                       <h4 className="font-semibold text-slate-900 mb-3 flex items-center">
-                        <Award className="w-5 h-5 mr-2 text-teal-700" />
+                        <Award className="w-5 h-5 mr-2 text-foreground" />
                         Key Achievements
                       </h4>
                       <ul className="space-y-2">
@@ -152,7 +152,7 @@ export default function LeadershipPage() {
                             key={i}
                             className="text-slate-700 flex items-start"
                           >
-                            <span className="w-2 h-2 bg-teal-700 mt-2 mr-3 flex-shrink-0"></span>
+                            <span className="w-2 h-2 bg-foreground mt-2 mr-3 flex-shrink-0"></span>
                             {achievement}
                           </li>
                         ))}
@@ -161,7 +161,7 @@ export default function LeadershipPage() {
 
                     <div>
                       <h4 className="font-semibold text-slate-900 mb-3 flex items-center">
-                        <Users className="w-5 h-5 mr-2 text-teal-700" />
+                        <Users className="w-5 h-5 mr-2 text-foreground" />
                         Areas of Expertise
                       </h4>
                       <div className="flex flex-wrap gap-2">
@@ -169,7 +169,7 @@ export default function LeadershipPage() {
                           <Badge
                             key={i}
                             variant="outline"
-                            className="border-teal-700 text-teal-700"
+                            className="border-foreground text-foreground"
                           >
                             {skill}
                           </Badge>
@@ -217,7 +217,9 @@ export default function LeadershipPage() {
                   <h3 className="font-bold text-slate-900 mb-2">
                     {consultant.name}
                   </h3>
-                  <p className="text-teal-700 font-medium">{consultant.role}</p>
+                  <p className="text-foreground font-medium">
+                    {consultant.role}
+                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -231,28 +233,28 @@ export default function LeadershipPage() {
           <div className="grid md:grid-cols-4 gap-8 max-w-4xl mx-auto text-center">
             <div className="space-y-2">
               <div className="flex justify-center mb-3">
-                <Building2 className="w-8 h-8 text-teal-700" />
+                <Building2 className="w-8 h-8 text-foreground" />
               </div>
               <div className="text-3xl font-bold text-slate-900">30+</div>
               <div className="text-slate-600">Years Combined Experience</div>
             </div>
             <div className="space-y-2">
               <div className="flex justify-center mb-3">
-                <Users className="w-8 h-8 text-teal-700" />
+                <Users className="w-8 h-8 text-foreground" />
               </div>
               <div className="text-3xl font-bold text-slate-900">1000+</div>
               <div className="text-slate-600">Vehicle Fleet</div>
             </div>
             <div className="space-y-2">
               <div className="flex justify-center mb-3">
-                <Globe className="w-8 h-8 text-teal-700" />
+                <Globe className="w-8 h-8 text-foreground" />
               </div>
               <div className="text-3xl font-bold text-slate-900">371km</div>
               <div className="text-slate-600">Road Project</div>
             </div>
             <div className="space-y-2">
               <div className="flex justify-center mb-3">
-                <Award className="w-8 h-8 text-teal-700" />
+                <Award className="w-8 h-8 text-foreground" />
               </div>
               <div className="text-3xl font-bold text-slate-900">25</div>
               <div className="text-slate-600">Year Concession</div>

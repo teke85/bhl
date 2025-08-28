@@ -70,7 +70,7 @@ const AnimatedCounter = ({
 
   return (
     <div ref={ref} className="text-center">
-      <div className="text-4xl lg:text-5xl font-bold text-primary mb-2">
+      <div className="text-4xl lg:text-5xl font-bold text-[#151E2F] mb-2">
         {count}
         {suffix && (
           <span className="text-xl lg:text-2xl text-[#5e5f61] ml-1">

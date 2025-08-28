@@ -34,7 +34,7 @@ function Navigation() {
 
           {/* Desktop Navigation */}
           <NavigationMenu className="hidden lg:flex">
-            <NavigationMenuList className=" font-extrabold font-poppins uppercase">
+            <NavigationMenuList className=" font-extrabold font-inter uppercase">
               <NavigationMenuItem>
                 <Link href="/" legacyBehavior passHref>
                   <NavigationMenuLink className="group bg-transparent text-accent inline-flex h-10 w-max items-center justify-center px-4 py-2 text-md font-medium transition-colors hover:text-white focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
@@ -56,7 +56,7 @@ function Navigation() {
                       <div className="text-md font-medium leading-none">
                         Company Background
                       </div>
-                      <p className="line-clamp-2 text-md leading-snug text-muted-foreground">
+                      <p className="line-clamp-2 text-md leading-relaxed text-foreground hover:text-white">
                         Learn about our history and mission
                       </p>
                     </Link>
@@ -67,7 +67,7 @@ function Navigation() {
                       <div className="text-md font-medium leading-none">
                         Leadership Team
                       </div>
-                      <p className="line-clamp-2 text-md leading-snug text-muted-foreground">
+                      <p className="line-clamp-2 text-md leading-relaxed text-foreground hover:text-white">
                         Meet our experienced leadership
                       </p>
                     </Link>
@@ -88,7 +88,7 @@ function Navigation() {
                       <div className="text-md font-medium leading-none">
                         Project Overview
                       </div>
-                      <p className="line-clamp-2 text-md leading-snug text-muted-foreground">
+                      <p className="line-clamp-2 text-md leading-relaxed text-foreground hover:text-white">
                         Comprehensive details about the highway project
                       </p>
                     </Link>
@@ -99,7 +99,7 @@ function Navigation() {
                       <div className="text-md font-medium leading-none">
                         Timeline & Milestones
                       </div>
-                      <p className="line-clamp-2 text-md leading-snug text-muted-foreground">
+                      <p className="line-clamp-2 text-md leading-relaxed text-foreground hover:text-white">
                         Track our progress and upcoming milestones
                       </p>
                     </Link>
@@ -110,7 +110,7 @@ function Navigation() {
                       <div className="text-md font-medium leading-none">
                         Environmental Impact
                       </div>
-                      <p className="line-clamp-2 text-md leading-snug text-muted-foreground">
+                      <p className="line-clamp-2 text-md leading-relaxed text-foreground hover:text-white">
                         Our commitment to environmental responsibility
                       </p>
                     </Link>
@@ -119,7 +119,7 @@ function Navigation() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-md bg-transparent uppercase">
+                <NavigationMenuTrigger className="text-md text-accent bg-transparent uppercase">
                   Updates
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -131,7 +131,7 @@ function Navigation() {
                       <div className="text-md font-medium leading-none">
                         News & Announcements
                       </div>
-                      <p className="line-clamp-2 text-md leading-snug text-muted-foreground">
+                      <p className="line-clamp-2 text-md leading-relaxed text-foreground hover:text-white">
                         Latest project updates and news
                       </p>
                     </Link>
@@ -142,7 +142,7 @@ function Navigation() {
                       <div className="text-md font-medium leading-none">
                         CSR & Community
                       </div>
-                      <p className="line-clamp-2 text-md leading-snug text-muted-foreground">
+                      <p className="line-clamp-2 text-md leading-relaxed text-foreground hover:text-white">
                         Community engagement and social responsibility
                       </p>
                     </Link>
@@ -152,7 +152,7 @@ function Navigation() {
 
               <NavigationMenuItem>
                 <Link href="/contact" legacyBehavior passHref>
-                  <NavigationMenuLink className="group bg-transparent inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-accent-foreground focus:bg-[#161E32] focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
+                  <NavigationMenuLink className="group bg-transparent text-accent inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-accent-foreground focus:bg-[#161E32] focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
                     Contact
                   </NavigationMenuLink>
                 </Link>
@@ -162,7 +162,7 @@ function Navigation() {
 
           {/* CTA Button */}
           <div className="hidden lg:flex">
-            <Button className="bg-primary uppercase text-primary-foreground hover:bg-primary/90">
+            <Button className="bg-[#151E2F] uppercase text-primary-foreground hover:bg-primary/90">
               Download Project Brief
             </Button>
           </div>
