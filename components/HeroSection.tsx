@@ -47,14 +47,16 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 font-[family-name:var(--font-playfair)] container mx-auto px-4 sm:px-6 lg:px-4 text-center text-white">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-4 text-center text-white">
         <h1
           ref={titleRef}
-          className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 leading-tight"
+          className="text-4xl font-[family-name:var(--font-playfair)] sm:text-5xl lg:text-7xl font-bold mb-6 leading-tight"
         >
           Building Zambia&apos;s
           <br />
-          <span className="text-[#7c7e80]">Gateway to the West</span>
+          <span className="text-[#7c7e80] font-[family-name:var(--font-playfair)]">
+            Gateway to the West
+          </span>
         </h1>
 
         <p
