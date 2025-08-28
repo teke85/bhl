@@ -181,7 +181,7 @@ function Navigation() {
                   placeholder="Search..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 pr-4 py-2 w-64 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-700 focus:border-teal-700 transition-colors"
+                  className="pl-10 pr-4 py-2 w-64 border border-gray-300 rounded-md focus:ring-[#151E2F] focus:border-[#151E2F] transition-colors"
                 />
               </div>
             </form>
