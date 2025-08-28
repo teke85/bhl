@@ -35,7 +35,7 @@ const StrategicImportance = () => {
               <div
                 className="aspect-[16/9] w-full"
                 style={{
-                  backgroundImage: `url('https://res.cloudinary.com/dpeg7wc34/image/upload/v1756376121/ScreenShot_Tool_-20250828121249_eolcmd.png')`,
+                  backgroundImage: `url('https://res.cloudinary.com/dpeg7wc34/image/upload/v1756193625/map-of-zambia-showing-mutanda-kaoma-road-route-con_oshdzc.png')`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}

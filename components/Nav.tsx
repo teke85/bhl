@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, Search } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -14,9 +14,20 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { Input } from "./ui/input";
 
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      console.log("Searching for:", searchQuery);
+      // Example: router.push(`/search?q=${encodeURIComponent(searchQuery)}`)
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full border-b backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container-fluid bg-white mx-auto p-2 sm:px-6 lg:px-8">
@@ -159,6 +170,22 @@ function Navigation() {
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
+
+          {/* Search Bar and CTA - Updated colors to match website teal theme */}
+          <div className="hidden lg:flex items-center space-x-4">
+            <form onSubmit={handleSearch} className="relative">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                <Input
+                  type="text"
+                  placeholder="Search..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-10 pr-4 py-2 w-64 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-700 focus:border-teal-700 transition-colors"
+                />
+              </div>
+            </form>
+          </div>
 
           {/* CTA Button */}
           <div className="hidden lg:flex">
