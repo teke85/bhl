@@ -7,6 +7,8 @@ import {
   Inter,
 } from "next/font/google";
 import "./globals.css";
+import Navigation from "@/components/Nav";
+import Footer from "@/components/Footer";
 
 const jost = Jost({
   subsets: ["latin"],
@@ -59,7 +61,9 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${jost.variable} ${poppins.variable} ${roboto.variable} ${inter.variable} antialiased`}
       >
+        <Navigation />
         {children}
+        <Footer />
       </body>
     </html>
   );

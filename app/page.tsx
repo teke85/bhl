@@ -1,9 +1,9 @@
 // import { Footer } from "@/components/Footer";
 // import { HeroSection } from "@/components/HeroSection";
 
-import Footer from "@/components/Footer";
+// import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
-import Navigation from "@/components/Nav";
+// import Navigation from "@/components/Nav";
 import NewsUpdatesSection from "@/components/NewsUpdatesSections";
 import ProjectOverview from "@/components/ProjectOverview";
 import StatsSection from "@/components/StatsSection";
@@ -13,14 +13,14 @@ import TimelineSection from "@/components/TimeLineSection";
 export default function HomePage() {
   return (
     <main className="min-h-screen">
-      <Navigation />
+      {/* <Navigation /> */}
       <HeroSection />
       <StatsSection />
       <ProjectOverview />
       <StrategicImportance />
       <TimelineSection />
       <NewsUpdatesSection />
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 }
