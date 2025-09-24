@@ -3,37 +3,21 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
-<<<<<<< HEAD
 export function StrategicImportance() {
   return (
     <section className="py-16 lg:py-24 bg-card">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-=======
-const StrategicImportance = () => {
-  return (
-    <section className="py-16 lg:py-24 bg-[#E7E9EB]">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl font-[family-name:var(--font-jost)] mx-auto text-center">
->>>>>>> e662db40e2c772e8f8b4e5a7be1cec13ace7689f
           <Badge variant="secondary" className="mb-4">
             Strategic Impact
           </Badge>
 
-<<<<<<< HEAD
           <h2 className="text-3xl lg:text-4xl font-bold text-card-foreground mb-6">
-=======
-          <h2 className="text-3xl lg:text-4xl font-[family-name:var(--font-playfair)] font-bold text-card-foreground mb-6">
->>>>>>> e662db40e2c772e8f8b4e5a7be1cec13ace7689f
             Gateway to Economic Growth
           </h2>
 
           <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-<<<<<<< HEAD
             The Mutanda-Kaoma Road is more than infrastructure – it&apos;s
-=======
-            The Mutanda-Kaoma Road is more than infrastructure – it&#39;s
->>>>>>> e662db40e2c772e8f8b4e5a7be1cec13ace7689f
             economic transformation. By providing the fastest route from
             Zambia&apos;s Copperbelt to West Coast ports, we&apos;re opening new
             possibilities for trade, tourism, and community development.
@@ -51,35 +35,17 @@ const StrategicImportance = () => {
               <div
                 className="aspect-[16/9] w-full"
                 style={{
-<<<<<<< HEAD
                   backgroundImage: `url('/map-of-zambia-showing-mutanda-kaoma-road-route-con.png')`,
-=======
-                  backgroundImage: `url('https://res.cloudinary.com/dpeg7wc34/image/upload/v1756193625/map-of-zambia-showing-mutanda-kaoma-road-route-con_oshdzc.png')`,
->>>>>>> e662db40e2c772e8f8b4e5a7be1cec13ace7689f
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
               >
-<<<<<<< HEAD
                 {/* <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end">
                   <div className="p-6 text-white">
                     <h3 className="text-xl font-semibold mb-2">Regional Connectivity</h3>
                     <p className="text-sm opacity-90">Connecting Zambia&apos;s mineral wealth to international markets</p>
                   </div>
                 </div> */}
-=======
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end">
-                  <div className="p-6 text-white">
-                    <h3 className="text-xl font-semibold mb-2">
-                      Regional Connectivity
-                    </h3>
-                    <p className="text-sm opacity-90">
-                      Connecting Zambia&apos;s mineral wealth to international
-                      markets
-                    </p>
-                  </div>
-                </div>
->>>>>>> e662db40e2c772e8f8b4e5a7be1cec13ace7689f
               </div>
             </CardContent>
           </Card>
@@ -87,10 +53,4 @@ const StrategicImportance = () => {
       </div>
     </section>
   );
-<<<<<<< HEAD
 }
-=======
-};
-
-export default StrategicImportance;
->>>>>>> e662db40e2c772e8f8b4e5a7be1cec13ace7689f
