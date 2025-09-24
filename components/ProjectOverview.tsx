@@ -1,8 +1,21 @@
 "use client";
 
+<<<<<<< HEAD
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MapPin, Truck, Users, Zap } from "lucide-react";
+=======
+import { useEffect, useRef } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, MapPin, Truck, Users, Zap } from "lucide-react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+>>>>>>> e662db40e2c772e8f8b4e5a7be1cec13ace7689f
 
 const benefits = [
   {
@@ -30,6 +43,7 @@ const benefits = [
   },
 ];
 
+<<<<<<< HEAD
 export function ProjectOverview() {
   return (
     <section className="py-16 lg:py-24">
@@ -38,6 +52,140 @@ export function ProjectOverview() {
           {/* Content */}
           <div>
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
+=======
+const ProjectOverview = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
+  const benefitsTitleRef = useRef<HTMLHeadingElement>(null);
+  const benefitsGridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Content section animation - slide in from left
+      gsap.fromTo(
+        contentRef.current,
+        { opacity: 0, x: -80 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: contentRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Image section animation - slide in from right with scale
+      gsap.fromTo(
+        imageRef.current,
+        { opacity: 0, x: 80, scale: 0.9 },
+        {
+          opacity: 1,
+          x: 0,
+          scale: 1,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: imageRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Parallax effect for the background image
+      const bgImage = imageRef.current?.querySelector(".bg-image");
+      if (bgImage) {
+        gsap.to(bgImage, {
+          yPercent: -15,
+          ease: "none",
+          scrollTrigger: {
+            trigger: imageRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      }
+
+      // Benefits title animation
+      gsap.fromTo(
+        benefitsTitleRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: benefitsTitleRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Benefits cards staggered animation
+      gsap.fromTo(
+        benefitsGridRef.current?.children || [],
+        { opacity: 0, y: 60, scale: 0.9 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: benefitsGridRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Hover animations for benefit cards
+      const cards = benefitsGridRef.current?.children;
+      if (cards) {
+        Array.from(cards).forEach((card) => {
+          const cardElement = card as HTMLElement;
+
+          cardElement.addEventListener("mouseenter", () => {
+            gsap.to(cardElement, {
+              y: -10,
+              scale: 1.05,
+              duration: 0.3,
+              ease: "power2.out",
+            });
+          });
+
+          cardElement.addEventListener("mouseleave", () => {
+            gsap.to(cardElement, {
+              y: 0,
+              scale: 1,
+              duration: 0.3,
+              ease: "power2.out",
+            });
+          });
+        });
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="py-16 lg:py-24 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Content */}
+          <div ref={contentRef} className="font-[family-name:var(--font-jost)]">
+            <h2 className="text-3xl lg:text-4xl font-[family-name:var(--font-playfair)] font-bold text-[#151E2F] mb-6">
+>>>>>>> e662db40e2c772e8f8b4e5a7be1cec13ace7689f
               Transforming Zambia&apos;s
               <span className="text-primary"> Western Corridor</span>
             </h2>
@@ -61,7 +209,11 @@ export function ProjectOverview() {
 
             <Button
               size="lg"
+<<<<<<< HEAD
               className="bg-primary text-primary-foreground hover:bg-primary/90"
+=======
+              className="bg-[#151E2F] text-primary-foreground hover:bg-[#2c3a53]"
+>>>>>>> e662db40e2c772e8f8b4e5a7be1cec13ace7689f
             >
               Learn More About the Project
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -69,11 +221,19 @@ export function ProjectOverview() {
           </div>
 
           {/* Image */}
+<<<<<<< HEAD
           <div className="relative">
             <div
               className="aspect-[4/3] rounded-lg overflow-hidden shadow-2xl"
               style={{
                 backgroundImage: `url('/modern-highway-construction-in-africa-with-mining-.png')`,
+=======
+          <div ref={imageRef} className="relative">
+            <div
+              className="aspect-[4/3] rounded-lg overflow-hidden shadow-2xl bg-image"
+              style={{
+                backgroundImage: `url('https://res.cloudinary.com/dpeg7wc34/image/upload/v1756193625/modern-highway-construction-in-africa-with-mining-_wwaibc.png')`,
+>>>>>>> e662db40e2c772e8f8b4e5a7be1cec13ace7689f
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
@@ -84,6 +244,7 @@ export function ProjectOverview() {
         </div>
 
         {/* Benefits Grid */}
+<<<<<<< HEAD
         <div className="mt-16">
           <h3 className="text-2xl lg:text-3xl font-bold text-center text-foreground mb-12">
             Key Benefits & Impact
@@ -94,13 +255,35 @@ export function ProjectOverview() {
               <Card
                 key={index}
                 className="text-center hover:shadow-lg transition-shadow duration-300"
+=======
+        <div className="mt-16 font-[family-name:var(--font-playfair)]">
+          <h3
+            ref={benefitsTitleRef}
+            className="text-2xl lg:text-3xl font-bold text-center text-[#151E2F] mb-12"
+          >
+            Key Benefits & Impact
+          </h3>
+
+          <div
+            ref={benefitsGridRef}
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            {benefits.map((benefit, index) => (
+              <Card
+                key={index}
+                className="text-center bg-[#E7E9EB] hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+>>>>>>> e662db40e2c772e8f8b4e5a7be1cec13ace7689f
               >
                 <CardContent className="p-6">
                   <div className="flex justify-center mb-4">{benefit.icon}</div>
                   <h4 className="text-lg font-semibold text-foreground mb-3">
                     {benefit.title}
                   </h4>
+<<<<<<< HEAD
                   <p className="text-muted-foreground text-sm leading-relaxed">
+=======
+                  <p className="text-muted-foreground font-[family-name:var(--font-jost)] text-sm leading-relaxed">
+>>>>>>> e662db40e2c772e8f8b4e5a7be1cec13ace7689f
                     {benefit.description}
                   </p>
                 </CardContent>
@@ -111,4 +294,10 @@ export function ProjectOverview() {
       </div>
     </section>
   );
+<<<<<<< HEAD
 }
+=======
+};
+
+export default ProjectOverview;
+>>>>>>> e662db40e2c772e8f8b4e5a7be1cec13ace7689f

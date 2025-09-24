@@ -10,6 +10,10 @@
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",
+<<<<<<< HEAD
+=======
+    "@radix-ui/react-label": "^2.1.7",
+>>>>>>> e662db40e2c772e8f8b4e5a7be1cec13ace7689f
     "@radix-ui/react-navigation-menu": "^1.2.14",
     "@radix-ui/react-separator": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.3",
