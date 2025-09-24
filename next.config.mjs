@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-/** @type {import('next').NextConfig} */
-=======
->>>>>>> e662db40e2c772e8f8b4e5a7be1cec13ace7689f
 const nextConfig = {
   images: {
     remotePatterns: [
