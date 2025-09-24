@@ -21,7 +21,7 @@ export function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <Image
-              src="/images/barotse-logo.png"
+              src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1758461466/WhatsApp_Image_2025-08-29_at_13.11.42_ciqb2u-removebg-preview_dolid4.png"
               alt="Barotse Highway Limited"
               width={150}
               height={75}
