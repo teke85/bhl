@@ -1,44 +1,87 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function BigText() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [scrollY, setScrollY] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
+  const efficientRef = useRef<HTMLDivElement>(null);
+  const logisticsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
+    const container = containerRef.current;
+    const efficientElement = efficientRef.current;
+    const logisticsElement = logisticsRef.current;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -10% 0px",
-      }
-    );
+    if (efficientElement && logisticsElement && container) {
+      // Set initial positions
+      gsap.set(efficientElement, { x: -200, opacity: 0.3 });
+      gsap.set(logisticsElement, { x: 200, opacity: 0.3 });
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+      // Create timeline for the animations
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: container,
+          start: "top 80%",
+          end: "bottom 20%",
+          scrub: 1,
+          onEnter: () => {
+            gsap.to([efficientElement, logisticsElement], {
+              opacity: 1,
+              duration: 0.5,
+            });
+          },
+          onLeave: () => {
+            gsap.to([efficientElement, logisticsElement], {
+              opacity: 0.3,
+              duration: 0.5,
+            });
+          },
+          onEnterBack: () => {
+            gsap.to([efficientElement, logisticsElement], {
+              opacity: 1,
+              duration: 0.5,
+            });
+          },
+          onLeaveBack: () => {
+            gsap.to([efficientElement, logisticsElement], {
+              opacity: 0.3,
+              duration: 0.5,
+            });
+          },
+        },
+      });
+
+      // Animate "Efficient" to the left
+      tl.to(
+        efficientElement,
+        {
+          x: -100,
+          duration: 1,
+          ease: "power2.out",
+        },
+        0
+      );
+
+      // Animate "Logistics" to the right
+      tl.to(
+        logisticsElement,
+        {
+          x: 100,
+          duration: 1,
+          ease: "power2.out",
+        },
+        0
+      );
     }
 
-    window.addEventListener("scroll", handleScroll);
-
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
-      }
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
-
-  // Calculate transform values based on scroll position
-  const efficientTransform = isVisible ? Math.min(scrollY * 0.5, 200) : 0;
-  const logisticsTransform = isVisible ? Math.min(scrollY * 0.5, 200) : 0;
 
   return (
     <div
@@ -56,20 +99,14 @@ function BigText() {
 
       <div className="relative z-10">
         <div
-          className="text-center uppercase text-[#8C887F] font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-relaxed transition-transform duration-300 ease-out"
-          style={{
-            transform: `translateX(-${efficientTransform}px)`,
-            opacity: isVisible ? 1 : 0.3,
-          }}
+          ref={efficientRef}
+          className="text-center uppercase text-[#8C887F] font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-relaxed"
         >
           Efficient
         </div>
         <div
-          className="text-center uppercase text-[#8C887F] font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-relaxed transition-transform duration-300 ease-out"
-          style={{
-            transform: `translateX(${logisticsTransform}px)`,
-            opacity: isVisible ? 1 : 0.3,
-          }}
+          ref={logisticsRef}
+          className="text-center uppercase text-[#8C887F] font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-relaxed"
         >
           Logistics
         </div>
