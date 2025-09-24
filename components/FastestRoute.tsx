@@ -1,0 +1,336 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+
+const slides = [
+  {
+    id: 1,
+    image:
+      "https://res.cloudinary.com/dpeg7wc34/image/upload/v1756193625/modern-highway-construction-in-africa-with-mining-_wwaibc.png",
+    title: "FASTEST ROUTE TO WALVIS BAY",
+    subtitle: "Revolutionary Infrastructure Development",
+    buttonText: "VIEW PROJECT HIGHLIGHTS",
+  },
+  {
+    id: 2,
+    image:
+      "https://res.cloudinary.com/dpeg7wc34/image/upload/v1756193625/aerial-view-of-african-highway-construction-site-w_ulux6u.png",
+    title: "CONNECTING COMMUNITIES",
+    subtitle: "Advanced Bridge Engineering",
+    buttonText: "EXPLORE ENGINEERING",
+  },
+  {
+    id: 3,
+    image:
+      "https://res.cloudinary.com/dpeg7wc34/image/upload/v1756193625/aerial-view-of-african-highway-construction-site-w_ulux6u.png",
+    title: "MOUNTAIN PASS PROJECT",
+    subtitle: "Sustainable Transportation Solutions",
+    buttonText: "DISCOVER MORE",
+  },
+  {
+    id: 4,
+    image:
+      "https://res.cloudinary.com/dpeg7wc34/image/upload/v1756193625/aerial-view-of-african-highway-construction-site-w_ulux6u.png",
+    title: "TEST PROJECT",
+    subtitle: "Sustainable Transportation Solutions",
+    buttonText: "DISCOVER MORE",
+  },
+];
+
+// Custom Arrow Icons
+const ChevronLeftIcon = ({ className = "h-6 w-6" }) => (
+  <svg
+    className={className}
+    fill="currentColor"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fillRule="evenodd"
+      d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+    />
+  </svg>
+);
+
+const ChevronRightIcon = ({ className = "h-6 w-6" }) => (
+  <svg
+    className={className}
+    fill="currentColor"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fillRule="evenodd"
+      d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"
+    />
+  </svg>
+);
+
+const Route = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  // Auto-play functionality
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
+
+  const goToSlide = (index: number) => {
+    if (index === currentSlide || isTransitioning) return;
+
+    setIsTransitioning(true);
+    setCurrentSlide(index);
+    setIsAutoPlaying(false);
+
+    setTimeout(() => {
+      setIsTransitioning(false);
+    }, 600);
+
+    // Resume auto-play after 10 seconds
+    setTimeout(() => setIsAutoPlaying(true), 10000);
+  };
+
+  const goToPrevious = () => {
+    if (isTransitioning) return;
+
+    setIsTransitioning(true);
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setIsAutoPlaying(false);
+
+    setTimeout(() => {
+      setIsTransitioning(false);
+    }, 600);
+
+    setTimeout(() => setIsAutoPlaying(true), 10000);
+  };
+
+  const goToNext = () => {
+    if (isTransitioning) return;
+
+    setIsTransitioning(true);
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+    setIsAutoPlaying(false);
+
+    setTimeout(() => {
+      setIsTransitioning(false);
+    }, 600);
+
+    setTimeout(() => setIsAutoPlaying(true), 10000);
+  };
+
+  const getPreviousSlide = () =>
+    (currentSlide - 1 + slides.length) % slides.length;
+  const getNextSlide = () => (currentSlide + 1) % slides.length;
+
+  // Get card stacking positions and animations
+  const getCardStyles = (index: number) => {
+    const position = (index - currentSlide + slides.length) % slides.length;
+
+    switch (position) {
+      case 0: // Current card (top of deck)
+        return {
+          transform: "translateX(0) translateY(0) scale(1) rotateY(0deg)",
+          zIndex: 30,
+          opacity: 1,
+        };
+      case 1: // Next card (slightly behind and to the right)
+        return {
+          transform:
+            "translateX(20px) translateY(10px) scale(0.95) rotateY(-5deg)",
+          zIndex: 20,
+          opacity: 0.8,
+        };
+      case 2: // Second next card (further behind)
+        return {
+          transform:
+            "translateX(40px) translateY(20px) scale(0.9) rotateY(-10deg)",
+          zIndex: 10,
+          opacity: 0.6,
+        };
+      case slides.length - 1: // Previous card (slightly behind and to the left)
+        return {
+          transform:
+            "translateX(-20px) translateY(10px) scale(0.95) rotateY(5deg)",
+          zIndex: 20,
+          opacity: 0.8,
+        };
+      case slides.length - 2: // Second previous card
+        return {
+          transform:
+            "translateX(-40px) translateY(20px) scale(0.9) rotateY(10deg)",
+          zIndex: 10,
+          opacity: 0.6,
+        };
+      default: // Hidden cards
+        return {
+          transform: "translateX(0) translateY(60px) scale(0.8) rotateY(0deg)",
+          zIndex: 0,
+          opacity: 0,
+        };
+    }
+  };
+
+  return (
+    <div className="relative h-screen w-full overflow-hidden bg-white">
+      <div className="absolute inset-0 flex items-center">
+        {/* Left Thumbnail */}
+        <div
+          className="w-1/6 h-1/4 relative overflow-hidden self-center rounded-lg transform transition-all duration-300 hover:scale-105 cursor-pointer"
+          onClick={goToPrevious}
+        >
+          <Image
+            src={slides[getPreviousSlide()].image}
+            alt={slides[getPreviousSlide()].title}
+            fill
+            className="object-cover opacity-70"
+            sizes="(max-width: 768px) 100vw, 16vw"
+            priority={false}
+          />
+          <div className="absolute inset-0 bg-black/40 rounded-lg" />
+          <div className="absolute inset-0 border-2 border-white/20 rounded-lg" />
+        </div>
+
+        {/* Main Card Deck Container */}
+        <div className="w-2/3 h-full relative mx-4 flex items-center justify-center perspective-1000">
+          <div className="relative w-full max-w-4xl h-4/5">
+            {slides.map((slide, index) => {
+              const cardStyles = getCardStyles(index);
+
+              return (
+                <div
+                  key={slide.id}
+                  className="absolute inset-0 transition-all duration-600 ease-out cursor-pointer rounded-2xl overflow-hidden shadow-2xl"
+                  style={{
+                    transform: cardStyles.transform,
+                    zIndex: cardStyles.zIndex,
+                    opacity: cardStyles.opacity,
+                    transformStyle: "preserve-3d",
+                  }}
+                  onClick={() => index !== currentSlide && goToSlide(index)}
+                >
+                  <Image
+                    src={slide.image}
+                    alt={slide.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 66vw"
+                    priority={index === 0}
+                  />
+
+                  {/* Card overlay */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent transition-opacity duration-300 ${
+                      index === currentSlide ? "opacity-100" : "opacity-40"
+                    }`}
+                  />
+
+                  {/* Card border for depth */}
+                  <div
+                    className={`absolute inset-0 border-2 transition-all duration-300 ${
+                      index === currentSlide
+                        ? "border-[#E6B102] shadow-lg shadow-amber-500/50"
+                        : "border-white/10"
+                    }`}
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Right Thumbnail */}
+        <div
+          className="w-1/6 h-1/4 relative overflow-hidden self-center transform transition-all duration-300 hover:scale-105 cursor-pointer"
+          onClick={goToNext}
+        >
+          <Image
+            src={slides[getNextSlide()].image}
+            alt={slides[getNextSlide()].title}
+            fill
+            className="object-cover opacity-70"
+            sizes="(max-width: 768px) 100vw, 16vw"
+            priority={false}
+          />
+          <div className="absolute inset-0 bg-black/40 rounded-lg" />
+          <div className="absolute inset-0 border-2 border-white/20 rounded-lg" />
+        </div>
+      </div>
+
+      {/* Navigation Arrows */}
+      <button
+        onClick={goToPrevious}
+        disabled={isTransitioning}
+        className={`absolute left-2 top-1/2 -translate-y-1/2 z-40 bg-[#E6B102] hover:bg-[#c2970c] text-white p-3 rounded-full transition-all duration-300 shadow-lg hover:scale-110 ${
+          isTransitioning ? "opacity-50 cursor-not-allowed" : "hover:shadow-2xl"
+        }`}
+        aria-label="Previous slide"
+      >
+        <ChevronLeftIcon className="h-6 w-6" />
+      </button>
+
+      <button
+        onClick={goToNext}
+        disabled={isTransitioning}
+        className={`absolute right-2 top-1/2 -translate-y-1/2 z-40 bg-[#E6B102] hover:bg-[#c2970c] text-white p-3 rounded-full transition-all duration-300 shadow-lg hover:scale-110 ${
+          isTransitioning ? "opacity-50 cursor-not-allowed" : "hover:shadow-2xl"
+        }`}
+        aria-label="Next slide"
+      >
+        <ChevronRightIcon className="h-6 w-6" />
+      </button>
+
+      {/* Content Overlay - positioned over the current card */}
+      <div className="absolute top-50 inset-0 flex items-center justify-center z-35 pointer-events-none">
+        <div className="text-center bg-gray-800/70 p-3 text-white max-w-4xl px-6">
+          <h1 className="text-4xl md:text-3xl lg:text-4xl font-bold mb-4 text-balance drop-shadow-2xl">
+            {slides[currentSlide].title}
+          </h1>
+          <p className="text-lg md:text-xl lg:text-xl mb-8 text-balance opacity-90 drop-shadow-lg">
+            {slides[currentSlide].subtitle}
+          </p>
+          <Button
+            size="lg"
+            className="bg-[#A08F4B] hover:bg-[#9b7805] text-black font-semibold px-8 py-3 text-base md:text-sm transition-all duration-300 hover:scale-105 shadow-2xl pointer-events-auto"
+          >
+            {slides[currentSlide].buttonText}
+          </Button>
+        </div>
+      </div>
+
+      {/* Dot Indicators */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-40 flex space-x-3">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            disabled={isTransitioning}
+            className={`transition-all duration-300 rounded-full ${
+              index === currentSlide
+                ? "bg-[#E6B102] w-8 h-3 shadow-lg shadow-amber-500/50"
+                : "bg-white/50 hover:bg-white/75 w-3 h-3 hover:scale-125"
+            } ${isTransitioning ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Add CSS for 3D perspective */}
+      <style jsx>{`
+        .perspective-1000 {
+          perspective: 1000px;
+        }
+      `}</style>
+    </div>
+  );
+};
+
+export default Route;
