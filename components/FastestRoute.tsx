@@ -280,7 +280,7 @@ const Route = () => {
       <button
         onClick={goToNext}
         disabled={isTransitioning}
-        className={`absolute right-2 top-1/2 -translate-y-1/2 z-40 bg-[#E6B102] hover:bg-[#c2970c] text-white p-3 rounded-full transition-all duration-300 shadow-lg hover:scale-110 ${
+        className={`absolute right-2 top-1/2 -translate-y-1/2 z-40 bg-[#EAB81E] hover:bg-[#be9416] text-white p-3 rounded-full transition-all duration-300 shadow-lg hover:scale-110 ${
           isTransitioning ? "opacity-50 cursor-not-allowed" : "hover:shadow-2xl"
         }`}
         aria-label="Next slide"
@@ -299,7 +299,7 @@ const Route = () => {
           </p>
           <Button
             size="lg"
-            className="bg-[#A08F4B] hover:bg-[#9b7805] text-black font-semibold px-8 py-3 text-base md:text-sm transition-all duration-300 hover:scale-105 shadow-2xl pointer-events-auto"
+            className="bg-[#EAB81E] hover:bg-[#be9416] text-black font-semibold px-8 py-3 text-base md:text-sm transition-all duration-300 hover:scale-105 shadow-2xl pointer-events-auto"
           >
             {slides[currentSlide].buttonText}
           </Button>

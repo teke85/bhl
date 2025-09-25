@@ -152,7 +152,7 @@ export function HeroCarousel() {
                 placeholder="Search"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-64 bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:bg-white/20 transition-all duration-300"
+                className="w-64 bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:bg-[#ad8b19] transition-all duration-300"
               />
               <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-white/60" />
             </form>
@@ -203,7 +203,7 @@ export function HeroCarousel() {
           >
             <Button
               size="lg"
-              className="bg-[#E1AF1C] font-[family-name:var(--font-jost)] hover:bg-[#eec02b] text-primary-foreground px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+              className="bg-[#EAB81E] hover:bg-[#be9416] font-[family-name:var(--font-jost)] text-primary-foreground px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg group"
             >
               Explore Project
               <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">

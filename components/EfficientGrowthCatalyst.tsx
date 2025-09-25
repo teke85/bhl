@@ -50,7 +50,7 @@ const EconomicGrowthCatalyst: React.FC = () => {
             <div className="flex justify-start md:justify-end">
               <Button
                 size="lg"
-                className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold text-sm md:text-base px-6 md:px-8 py-3 rounded-none w-full md:w-auto font-[family-name:var(--font-jost)]"
+                className="bg-[#EAB81E] hover:bg-[#be9416] text-black font-bold text-sm md:text-base px-6 md:px-8 py-3 rounded-none w-full md:w-auto font-[family-name:var(--font-jost)]"
               >
                 Discover More
               </Button>
@@ -61,7 +61,7 @@ const EconomicGrowthCatalyst: React.FC = () => {
 
       {/* Bottom Title */}
       <div className="absolute bottom-4 md:bottom-8 left-4 md:left-8 z-20">
-        <h3 className="text-2xl font-[family-name:var(--font-outift)] md:text-4xl lg:text-6xl font-black text-yellow-500 tracking-wider">
+        <h3 className="text-2xl font-[family-name:var(--font-outift)] md:text-4xl lg:text-6xl font-black text-[#EAB81E] tracking-wider">
           KEY PROJECT
           <br />
           TIMELINES

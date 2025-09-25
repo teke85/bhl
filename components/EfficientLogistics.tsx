@@ -30,7 +30,7 @@ const EfficientLogistics: React.FC = () => {
             {/* Button */}
             <Button
               size="lg"
-              className="bg-yellow-500 font-[family-name:var(--font-jost)] hover:bg-yellow-600 text-black font-bold text-sm md:text-base px-6 md:px-8 py-3 rounded-none w-full md:w-auto"
+              className="bg-[#EAB81E] hover:bg-[#be9416] font-[family-name:var(--font-jost)] text-black font-bold text-sm md:text-base px-6 md:px-8 py-3 rounded-none w-full md:w-auto"
             >
               Discover More
             </Button>

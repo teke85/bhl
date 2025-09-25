@@ -1,37 +1,33 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+
 import { Separator } from "@/components/ui/separator";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Linkedin,
-  Facebook,
-  Twitter,
-  Youtube,
-} from "lucide-react";
+import { Linkedin, Facebook, Twitter, Youtube } from "lucide-react";
 
 export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="container-fluid mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <Image
-              src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1758461466/WhatsApp_Image_2025-08-29_at_13.11.42_ciqb2u-removebg-preview_dolid4.png"
-              alt="Barotse Highway Limited"
-              width={150}
-              height={75}
-              className="h-16 w-auto mb-4 brightness-0 invert"
-            />
-            <p className="text-sm opacity-90 mb-4 leading-relaxed">
+            <div className="flex justify-center mb-4">
+              <Image
+                src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1758461466/WhatsApp_Image_2025-08-29_at_13.11.42_ciqb2u-removebg-preview_dolid4.png"
+                alt="Company Logo"
+                width={250}
+                height={250}
+                className="object-contain h-32"
+                priority={true}
+                quality={100}
+              />
+            </div>
+            <p className="text-sm opacity-90 font-paragraph mb-4 leading-relaxed text-center">
               Building Zambia&apos;s gateway to the west through world-class
               infrastructure and sustainable development practices.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex justify-center space-x-4">
               <Button
                 size="icon"
                 variant="ghost"
@@ -64,102 +60,135 @@ export function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-sm">
+          <div className="font-paragraph">
+            <h3 className="font-semibold font-paragraph mb-4">Quick Links</h3>
+            <ul className="space-y-2 font-paragraph text-sm">
               <li>
                 <Link
-                  href="/about"
-                  className="opacity-90 hover:opacity-100 transition-opacity"
+                  href="/find-us"
+                  className="hover:text-white transition-colors"
                 >
-                  About the Project
+                  Find Us
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/timeline"
-                  className="opacity-90 hover:opacity-100 transition-opacity"
+                  href="/call-us"
+                  className="hover:text-white transition-colors"
                 >
-                  Timeline & Milestones
+                  Call Us
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/news"
-                  className="opacity-90 hover:opacity-100 transition-opacity"
+                  href="/email-us"
+                  className="hover:text-white transition-colors"
                 >
-                  Latest News
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/careers"
-                  className="opacity-90 hover:opacity-100 transition-opacity"
-                >
-                  Career Opportunities
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/procurement"
-                  className="opacity-90 hover:opacity-100 transition-opacity"
-                >
-                  Procurement Portal
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/documents"
-                  className="opacity-90 hover:opacity-100 transition-opacity"
-                >
-                  Document Library
+                  Email Us
                 </Link>
               </li>
             </ul>
           </div>
 
           {/* Contact Info */}
-          <div>
-            <h3 className="font-semibold mb-4">Contact Information</h3>
-            <div className="space-y-3 text-sm">
-              <div className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <div>
-                  <p>Mutanda Road, P.O. Box 110086</p>
-                  <p>Solwezi, Northwestern Province</p>
-                  <p>Zambia</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="h-4 w-4 flex-shrink-0" />
-                <a
-                  href="mailto:buksvr@bhl.co.zm"
-                  className="opacity-90 hover:opacity-100 transition-opacity"
+          <div className="font-paragraph">
+            <h3 className="font-semibold text-white mb-6 text-lg">
+              Project Overview
+            </h3>
+            <ul className="space-y-3 text-sm text-white/90">
+              <li>
+                <Link
+                  href="/about"
+                  className="hover:text-white transition-colors"
                 >
-                  buksvr@bhl.co.zm
-                </a>
-              </div>
-              <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4 flex-shrink-0" />
-                <span className="opacity-90">+260 XXX XXX XXX</span>
-              </div>
-            </div>
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/project"
+                  className="hover:text-white transition-colors"
+                >
+                  Project
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/milestones"
+                  className="hover:text-white transition-colors"
+                >
+                  Milestones
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/gallery"
+                  className="hover:text-white transition-colors"
+                >
+                  Gallery
+                </Link>
+              </li>
+            </ul>
           </div>
 
           {/* Newsletter */}
-          <div>
-            <h3 className="font-semibold mb-4">Stay Updated</h3>
-            <p className="text-sm opacity-90 mb-4">
-              Subscribe to receive the latest project updates and news.
-            </p>
-            <div className="flex gap-2">
-              <Input
-                placeholder="Enter your email"
-                className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/60"
-              />
-              <Button variant="secondary" size="sm">
-                Subscribe
-              </Button>
+          <div className="font-paragraph">
+            <h3 className="font-semibold text-white mb-6 text-lg">
+              Quick Links
+            </h3>
+            <div className="grid grid-cols-1 gap-3 text-sm text-white/90">
+              <div className="space-y-3">
+                <Link
+                  href="/rda"
+                  className="block hover:text-white transition-colors"
+                >
+                  Road Development Agency
+                </Link>
+                <Link
+                  href="/ministry-finance"
+                  className="block hover:text-white transition-colors"
+                >
+                  Ministry of Finance
+                </Link>
+                <Link
+                  href="/ministry-infrastructure"
+                  className="block hover:text-white transition-colors"
+                >
+                  Ministry of Infrastructure
+                </Link>
+                <Link
+                  href="/beefco"
+                  className="block hover:text-white transition-colors"
+                >
+                  Beefco
+                </Link>
+              </div>
+              <div className="space-y-3 mt-4 lg:mt-0">
+                <Link
+                  href="/first-quantum"
+                  className="block hover:text-white transition-colors"
+                >
+                  First Quantum Minerals Limited
+                </Link>
+                <Link
+                  href="/buks-haulage"
+                  className="block hover:text-white transition-colors"
+                >
+                  Buks Haulage Limited
+                </Link>
+                <Link
+                  href="/hotsheet"
+                  className="block hover:text-white transition-colors"
+                >
+                  Hotsheet
+                </Link>
+                <Link
+                  href="/pangaea"
+                  className="block hover:text-white transition-colors"
+                >
+                  Pangaea Securities
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -167,7 +196,7 @@ export function Footer() {
         <Separator className="my-8 bg-primary-foreground/20" />
 
         <div className="flex flex-col lg:flex-row justify-between items-center gap-4 text-sm opacity-90">
-          <div className="flex flex-wrap gap-4">
+          <div className="flex font-paragraph flex-wrap gap-4">
             <Link
               href="/privacy"
               className="hover:opacity-100 transition-opacity"
@@ -187,7 +216,9 @@ export function Footer() {
               Cookie Policy
             </Link>
           </div>
-          <p>© 2024 Barotse Highway Limited. All rights reserved.</p>
+          <p className="font-paragraph">
+            © 2025 Barotse Highway Limited. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

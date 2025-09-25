@@ -108,14 +108,17 @@ function PartnersCarousel() {
   const visibleItems = getVisibleItems();
 
   return (
-    <div className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 py-16 px-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="flex items-center justify-center w-full h-[300px] py-16 px-8">
+      <div className="w-full mx-auto">
         {/* Header */}
         <div className="text-left mb-12">
-          <div className="bg-white px-8 py-4 font-outfit inline-block rounded-t-lg">
-            <h2 className="text-2xl font-[family-name:var(--font-outift)] md:text-4xl lg:text-6xl font-black text-yellow-500 tracking-wider">
-              OUR PARTNERS
-            </h2>
+          <div className="flex flex-col px-8 py-4 font-outfit">
+            <span className="text-2xl font-[family-name:var(--font-outift)] md:text-4xl lg:text-6xl font-black text-[#EAB81E] tracking-wider">
+              OUR
+            </span>
+            <span className="text-2xl font-[family-name:var(--font-outift)] md:text-4xl lg:text-6xl font-black text-[#EAB81E] tracking-wider">
+              PARTNERS
+            </span>
           </div>
         </div>
 
