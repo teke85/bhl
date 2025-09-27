@@ -199,7 +199,7 @@ const HeroCarousel = () => {
           <div className="flex items-center justify-between h-16">
             {/* Logo with higher z-index and reduced size */}
             <div className="relative z-50">
-              <div className="w-20 h-12 relative overflow-hidden">
+              <div className="w-20 h-22 relative overflow-hidden">
                 <Link href="/">
                   <Image
                     src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1758461466/WhatsApp_Image_2025-08-29_at_13.11.42_ciqb2u-removebg-preview_dolid4.png"
