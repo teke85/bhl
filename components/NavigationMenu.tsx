@@ -313,11 +313,21 @@ function MegaMenuNavigation() {
         </div>
       ))}
 
-      {/* Mega Menu Dropdown - Fixed positioning */}
+      {/* Gallery Link */}
+      <div className="relative">
+        <a
+          href="/gallery"
+          className="text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300 flex items-center space-x-1 py-2 font-medium"
+        >
+          Gallery
+        </a>
+      </div>
+
+      {/* Mega Menu Dropdown - Adjusted top position for smaller navbar */}
       {activeMenu && (
         <div
           ref={menuRef}
-          className={`fixed top-[80px] left-1/2 transform -translate-x-1/2 w-full max-w-6xl bg-white shadow-2xl rounded-b-2xl border-t-4 border-[#E1AF1C] transition-all duration-300 z-50 mx-4 ${
+          className={`fixed top-[64px] left-1/2 transform -translate-x-1/2 w-full max-w-6xl bg-white shadow-2xl rounded-b-2xl border-t-4 border-[#E1AF1C] transition-all duration-300 z-40 mx-4 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
           }`}
           onMouseEnter={handleDropdownEnter}
