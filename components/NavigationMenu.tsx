@@ -302,14 +302,36 @@ function MegaMenuNavigation() {
           onMouseEnter={() => handleMenuEnter(menuName)}
           onMouseLeave={handleMenuLeave}
         >
-          <button className="text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300 flex items-center space-x-1 py-2">
-            <span className="font-medium">{menuName}</span>
-            <ChevronDown
-              className={`w-4 h-4 transition-transform duration-300 ${
-                activeMenu === menuName ? "rotate-180" : ""
-              }`}
-            />
-          </button>
+          {menuName === "Milestones" ? (
+            // Direct link for Milestones
+            <a
+              href="/milestones"
+              className="text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300 flex items-center space-x-1 py-2 font-medium"
+            >
+              <span>{menuName}</span>
+            </a>
+          ) : (
+            // Dropdown button for other menu items with direct link functionality
+            <div className="relative">
+              <a
+                href={
+                  menuName === "About"
+                    ? "/about"
+                    : menuName === "Projects"
+                      ? "/projects"
+                      : "#"
+                }
+                className="text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300 flex items-center space-x-1 py-2 font-medium"
+              >
+                <span>{menuName}</span>
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform duration-300 ${
+                    activeMenu === menuName ? "rotate-180" : ""
+                  }`}
+                />
+              </a>
+            </div>
+          )}
         </div>
       ))}
 
@@ -320,6 +342,16 @@ function MegaMenuNavigation() {
           className="text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300 flex items-center space-x-1 py-2 font-medium"
         >
           Gallery
+        </a>
+      </div>
+
+      {/* News Link */}
+      <div className="relative">
+        <a
+          href="/news"
+          className="text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300 flex items-center space-x-1 py-2 font-medium"
+        >
+          News
         </a>
       </div>
 

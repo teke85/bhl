@@ -51,11 +51,12 @@ const slides: CarouselSlide[] = [
 const SAMPLE_VIDEO_URL =
   "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
 
-const HeroCarousel = () => {
+function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -70,6 +71,15 @@ const HeroCarousel = () => {
     }, 6000);
     return () => clearInterval(timer);
   }, []);
+
+  // Handle slide transition with scaling effect
+  useEffect(() => {
+    setIsTransitioning(true);
+    const timer = setTimeout(() => {
+      setIsTransitioning(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [currentSlide]);
 
   // Handle escape key for modal
   useEffect(() => {
@@ -100,7 +110,7 @@ const HeroCarousel = () => {
             titleRef.current.style.transform = "translateX(0)";
             titleRef.current.style.opacity = "1";
           }
-        }, 100);
+        }, 300);
       }
 
       if (subtitleRef.current) {
@@ -113,7 +123,7 @@ const HeroCarousel = () => {
             subtitleRef.current.style.transform = "translateX(0)";
             subtitleRef.current.style.opacity = "1";
           }
-        }, 100);
+        }, 300);
       }
 
       if (ctaRef.current) {
@@ -126,15 +136,18 @@ const HeroCarousel = () => {
             ctaRef.current.style.transform = "translateY(0)";
             ctaRef.current.style.opacity = "1";
           }
-        }, 100);
+        }, 300);
       }
     };
 
-    animateElements();
+    const timer = setTimeout(animateElements, 500);
+    return () => clearTimeout(timer);
   }, [currentSlide]);
 
   const goToSlide = (index: number) => {
-    setCurrentSlide(index);
+    if (index !== currentSlide) {
+      setCurrentSlide(index);
+    }
   };
 
   const handleSearch = (e: React.FormEvent) => {
@@ -236,99 +249,111 @@ const HeroCarousel = () => {
         </div>
       </nav>
 
-      {/* Carousel Slides */}
+      {/* Carousel Slides with Scaling Effect */}
       <div className="relative h-full">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
             className={cn(
-              "absolute inset-0 transition-opacity duration-1000",
-              index === currentSlide ? "opacity-100" : "opacity-0"
+              "absolute inset-0 transition-all duration-1000 ease-in-out",
+              index === currentSlide ? "opacity-100 z-20" : "opacity-0 z-10"
             )}
           >
             <div
-              className="h-full w-full bg-cover bg-center bg-no-repeat"
-              style={{ backgroundImage: `url(${slide.backgroundImage})` }}
+              className={cn(
+                "h-full w-full bg-cover bg-center bg-no-repeat transition-transform duration-[6000ms] ease-out",
+                index === currentSlide ? "scale-110" : "scale-100"
+              )}
+              style={{
+                backgroundImage: `url(${slide.backgroundImage})`,
+                transformOrigin: "center center",
+              }}
             >
-              <div className="absolute inset-0 bg-black/40" />
+              {/* Gradient overlay for better text readability */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60" />
+
+              {/* Additional overlay for depth */}
+              <div className="absolute inset-0 bg-black/20" />
             </div>
           </div>
         ))}
       </div>
 
-      {/* Content Overlay with Side Arrows */}
-      <div className="absolute inset-0 flex items-center justify-center">
+      {/* Content Overlay */}
+      <div className="absolute inset-0 flex items-center justify-center z-30">
         <div className="container mx-auto text-center text-white relative">
           {/* Content - Adjusted top margin to account for smaller navbar */}
-          <h1
-            ref={titleRef}
-            className="text-4xl font-[family-name:var(--font-outfit)] mt-6 md:text-6xl lg:text-7xl font-bold mb-6 text-balance leading-tight"
-          >
-            {slides[currentSlide].title}
-          </h1>
-          <p
-            ref={subtitleRef}
-            className="text-lg font-[family-name:var(--font-jost)] md:text-xl lg:text-2xl mb-12 text-pretty max-w-4xl mx-auto opacity-90"
-          >
-            {slides[currentSlide].subtitle}
-          </p>
-
-          <div
-            ref={ctaRef}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          >
-            <Link href="/projects">
-              <Button
-                size="lg"
-                className="bg-[#EAB81E] hover:bg-[#be9416] font-[family-name:var(--font-jost)] text-primary-foreground px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg group"
-              >
-                Explore Projects
-                <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
-                  →
-                </span>
-              </Button>
-            </Link>
-
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={handleOpenVideoModal}
-              className="border-white/30 text-white hover:bg-white/10 hover:text-white hover:border-white/50 px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg group bg-transparent"
+          <div className="relative z-10">
+            <h1
+              ref={titleRef}
+              className="text-4xl font-[family-name:var(--font-outfit)] mt-6 md:text-6xl lg:text-7xl font-bold mb-6 text-balance leading-tight drop-shadow-lg"
             >
-              <Play className="w-5 font-[family-name:var(--font-jost)] h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
-              Watch Overview
-            </Button>
+              {slides[currentSlide].title}
+            </h1>
+            <p
+              ref={subtitleRef}
+              className="text-lg font-[family-name:var(--font-jost)] md:text-xl lg:text-2xl mb-12 text-pretty max-w-4xl mx-auto opacity-90 drop-shadow-md"
+            >
+              {slides[currentSlide].subtitle}
+            </p>
+
+            <div
+              ref={ctaRef}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            >
+              <Link href="/projects">
+                <Button
+                  size="lg"
+                  className="bg-[#EAB81E] hover:bg-[#be9416] font-[family-name:var(--font-jost)] text-primary-foreground px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl group shadow-lg"
+                >
+                  Explore Projects
+                  <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
+                    →
+                  </span>
+                </Button>
+              </Link>
+
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={handleOpenVideoModal}
+                className="border-white/30 text-white hover:bg-white/10 hover:text-white hover:border-white/50 px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl group bg-transparent backdrop-blur-sm shadow-lg"
+              >
+                <Play className="w-5 font-[family-name:var(--font-jost)] h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
+                Watch Overview
+              </Button>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Scroll Indicators at Bottom */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-2">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-2 z-30">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
             className={cn(
-              "w-3 h-3 rounded-full transition-all duration-300",
+              "w-3 h-3 rounded-full transition-all duration-300 backdrop-blur-sm",
               index === currentSlide
-                ? "bg-primary scale-125"
-                : "bg-[#E1AF1C] hover:bg-[#eec02b]"
+                ? "bg-[#EAB81E] scale-125 shadow-lg"
+                : "bg-white/60 hover:bg-white/80 hover:scale-110"
             )}
           />
         ))}
       </div>
 
       {/* Progress Bar */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20">
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20 z-30">
         <div
-          className="h-full bg-yellow-400 transition-all duration-300"
+          className="h-full bg-gradient-to-r from-[#EAB81E] to-[#be9416] transition-all duration-300 shadow-sm"
           style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
         />
       </div>
 
       {/* Video Modal */}
       {isVideoModalOpen && (
-        <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-[100] p-4">
+        <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-[100] p-4 backdrop-blur-sm">
           <div
             ref={modalRef}
             className={cn(
@@ -340,7 +365,7 @@ const HeroCarousel = () => {
             <div className="absolute top-4 right-4 flex items-center space-x-2 z-10">
               <button
                 onClick={handleFullscreen}
-                className="p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors duration-200"
+                className="p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors duration-200 backdrop-blur-sm"
                 aria-label={
                   isFullScreen ? "Exit fullscreen" : "Enter fullscreen"
                 }
@@ -353,7 +378,7 @@ const HeroCarousel = () => {
               </button>
               <button
                 onClick={handleCloseModal}
-                className="p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors duration-200"
+                className="p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors duration-200 backdrop-blur-sm"
                 aria-label="Close video"
               >
                 <X className="w-5 h-5" />
@@ -392,6 +417,6 @@ const HeroCarousel = () => {
       )}
     </div>
   );
-};
+}
 
 export default HeroCarousel;

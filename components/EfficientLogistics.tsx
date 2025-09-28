@@ -19,21 +19,23 @@ const EfficientLogistics: React.FC = () => {
             </div>
 
             {/* Description */}
-            <p className="text-white z-50 h-44 backdrop-blur-sm p-6 md:p-4 bg-black/80 text-base md:text-lg leading-relaxed mb-6 md:mb-8 max-w-full md:max-w-xl font-[family-name:var(--font-jost)]">
-              Advanced construction techniques and modern infrastructure
-              development ensure sustainable and efficient transportation
-              networks. Our comprehensive approach integrates cutting-edge
-              technology with environmental considerations to deliver
-              world-class road systems.
-            </p>
+            <div className="flex flex-col gap-4 text-white z-50 h-52 backdrop-blur-sm p-6 md:p-4 bg-black/80 text-base md:text-lg leading-relaxed mb-6 md:mb-8 max-w-full md:max-w-xl font-[family-name:var(--font-jost)]">
+              <p className="">
+                Advanced construction techniques and modern infrastructure
+                development ensure sustainable and efficient transportation
+                networks. Our comprehensive approach integrates cutting-edge
+                technology with environmental considerations to deliver
+                world-class road systems.
+              </p>
 
-            {/* Button */}
-            <Button
-              size="lg"
-              className="bg-[#EAB81E] hover:bg-[#be9416] font-[family-name:var(--font-jost)] text-black font-bold text-sm md:text-base px-6 md:px-8 py-3 rounded-none w-full md:w-auto"
-            >
-              Discover More
-            </Button>
+              {/* Button */}
+              <Button
+                size="lg"
+                className="bg-[#EAB81E] hover:bg-[#be9416] font-[family-name:var(--font-jost)] text-black font-bold text-sm md:text-base px-6 md:px-8 py-3 rounded-none w-full md:w-1/4"
+              >
+                Discover More
+              </Button>
+            </div>
           </div>
 
           {/* Image - Right Side with Overlap on Desktop */}

@@ -30,27 +30,23 @@ const EconomicGrowthCatalyst: React.FC = () => {
             </div>
 
             {/* Description */}
-            <div className="text-left bg-black/80 backdrop-blur-sm p-6 md:p-12 md:text-right mb-6 font-[family-name:var(--font-jost)] md:mb-8">
-              <p className="text-white text-base md:text-lg leading-relaxed mb-4 md:mb-6 font-[family-name:var(--font-jost)]">
+            <div className="flex flex-col gap-4 text-left bg-black/80 backdrop-blur-sm p-6 md:p-12 md:text-right mb-6 font-[family-name:var(--font-jost)] md:mb-8">
+              <p className="text-white text-left text-base md:text-lg leading-relaxed mb-4 md:mb-6 font-[family-name:var(--font-jost)]">
                 Infrastructure development serves as a catalyst for sustainable
                 economic growth, creating opportunities for communities and
                 businesses alike. Our projects are designed to enhance
                 connectivity and promote regional development.
               </p>
 
-              <p className="text-white text-base md:text-lg leading-relaxed mb-6 md:mb-8 font-[family-name:var(--font-jost)]">
+              <p className="text-left text-white">
                 Through strategic infrastructure investments, we bridge
                 communities, facilitate trade, and foster economic prosperity.
                 Our comprehensive approach ensures long-term value creation for
                 all stakeholders while maintaining environmental sustainability.
               </p>
-            </div>
-
-            {/* Button */}
-            <div className="flex justify-start md:justify-end">
               <Button
                 size="lg"
-                className="bg-[#EAB81E] hover:bg-[#be9416] text-black font-bold text-sm md:text-base px-6 md:px-8 py-3 rounded-none w-full md:w-auto font-[family-name:var(--font-jost)]"
+                className="bg-[#EAB81E] hover:bg-[#be9416] text-black font-bold text-sm md:text-base px-6 md:px-8 py-3 rounded-none w-full md:w-1/4 font-[family-name:var(--font-jost)]"
               >
                 Discover More
               </Button>
