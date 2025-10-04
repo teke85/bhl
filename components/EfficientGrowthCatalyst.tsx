@@ -23,26 +23,28 @@ const EconomicGrowthCatalyst: React.FC = () => {
           <div className="relative z-30 max-w-full md:max-w-2xl w-full md:w-auto order-1 md:order-2">
             {/* Title */}
             <div className="flex flex-col md:flex-row items-start md:items-center md:justify-end gap-2 md:gap-4 mb-6 md:mb-8">
-              <h2 className="text-2xl md:text-4xl lg:text-4xl font-black text-black tracking-wider text-left md:text-right font-[family-name:var(--font-outfit)]">
+              <h2 className="text-2xl md:text-4xl lg:text-4xl font-black text-black tracking-wider text-left md:text-right font-heading">
                 ECONOMIC GROWTH CATALYST
               </h2>
-              <ChevronDown className="h-6 w-6 md:h-8 md:w-8 text-white" />
+              <ChevronDown className="h-6 w-6 md:h-8 md:w-8 text-black" />
             </div>
 
             {/* Description */}
             <div className="flex flex-col gap-4 text-left bg-black/80 backdrop-blur-sm p-6 md:p-12 md:text-right mb-6 font-[family-name:var(--font-jost)] md:mb-8">
-              <p className="text-white text-left text-base md:text-lg leading-relaxed mb-4 md:mb-6 font-[family-name:var(--font-jost)]">
-                Infrastructure development serves as a catalyst for sustainable
-                economic growth, creating opportunities for communities and
-                businesses alike. Our projects are designed to enhance
-                connectivity and promote regional development.
+              <p className="text-white text-left text-base md:text-lg leading-relaxed mb-4 md:mb-6 font-sans">
+                The project is expected to significantly contribute to economic
+                growth in both Western and Northwestern provinces, and
+                ultimately translate to improved welfare for the country.
               </p>
 
               <p className="text-left text-white">
-                Through strategic infrastructure investments, we bridge
-                communities, facilitate trade, and foster economic prosperity.
-                Our comprehensive approach ensures long-term value creation for
-                all stakeholders while maintaining environmental sustainability.
+                The primary beneficiaries of the Mutanda to Kaoma road
+                rehabilitation and construction project include the mining
+                industry, businesses, regional trade, local communities, the
+                Government, and the transportation sector. The Project&apos;s
+                services aim to create a positive impact on various
+                stakeholders, fostering economic development and regional
+                connectivity.
               </p>
               <Button
                 size="lg"

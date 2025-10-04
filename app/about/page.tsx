@@ -6,6 +6,7 @@ import { Search, Users, Target, Award, Building } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import NavigationMenu from "@/components/NavigationMenu";
+import CEOProfile from "@/components/CeoProfile";
 
 const About = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -133,21 +134,7 @@ const About = () => {
           {/* Main Content */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-16">
             <div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 font-[family-name:var(--font-outfit)]">
-                Our Story
-              </h2>
-              <p className="text-base md:text-lg text-gray-600 mb-6 font-[family-name:var(--font-jost)] leading-relaxed">
-                For over 25 years, we have been at the forefront of
-                infrastructure development across Africa. Our journey began with
-                a simple vision: to connect communities and drive economic
-                growth through world-class infrastructure solutions.
-              </p>
-              <p className="text-base md:text-lg text-gray-600 font-[family-name:var(--font-jost)] leading-relaxed">
-                Today, we stand as a testament to what&apos;s possible when
-                innovation meets determination. From highways that span
-                continents to bridges that unite nations, our work speaks to our
-                commitment to excellence.
-              </p>
+              <CEOProfile />
             </div>
 
             <div className="relative h-64 md:h-80 lg:h-full min-h-[300px] rounded-lg overflow-hidden shadow-lg">

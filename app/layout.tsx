@@ -1,30 +1,20 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Jost, Inter, Outfit } from "next/font/google";
+import { Montserrat, Open_Sans } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
+// import Preloader from "@/components/Preloader";
 
-const jost = Jost({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-jost",
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-outfit",
-  display: "swap",
-});
-
-const playfair = Playfair_Display({
+const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
-  variable: "--font-playfair",
+  variable: "--font-montserrat",
+  display: "swap",
+});
+
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-open-sans",
   display: "swap",
 });
 
@@ -42,9 +32,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfair.variable} ${jost.variable} ${inter.variable} ${outfit.variable} antialiased`}
+        className={`${montserrat.variable} ${openSans.variable} antialiased`}
       >
-        {children}
+        <Suspense fallback={null}>
+          {/* <Preloader /> */}
+          {children}
+        </Suspense>
       </body>
     </html>
   );

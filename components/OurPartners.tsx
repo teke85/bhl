@@ -1,57 +1,54 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 function PartnersCarousel() {
   const partners = [
     {
       id: 1,
-      name: "TechCorp",
-      logo: "https://via.placeholder.com/120x80/4CAF50/white?text=TechCorp",
-      color: "#4CAF50",
+      name: "BEEFCO",
+      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759433648/BEEFCO_p8vqfh.png",
     },
     {
       id: 2,
-      name: "BEEFCO",
-      logo: "https://via.placeholder.com/120x80/8B4513/white?text=BEEFCO",
-      color: "#8B4513",
+      name: "ADVANTAGE",
+      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430632/d77858_2003e0367fed4cd5aa6c6670acb506f7_mv2_imaqxb.avif",
     },
     {
       id: 3,
-      name: "InnovateLab",
-      logo: "https://via.placeholder.com/120x80/FF9800/white?text=InnovateLab",
-      color: "#FF9800",
+      name: "PANGAEA SECURITIES",
+      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430587/Pangaea-Securities__qbmjbo.png",
     },
     {
       id: 4,
-      name: "BHL",
-      logo: "https://via.placeholder.com/120x80/2E7D32/white?text=BHL",
-      color: "#2E7D32",
+      name: "KONGIWE",
+      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430583/Kongiwe-Logo-for-Header_ciq6du.png",
     },
     {
       id: 5,
-      name: "HealthPlus",
-      logo: "https://via.placeholder.com/120x80/1976D2/white?text=HealthPlus",
-      color: "#1976D2",
+      name: "HERBERT SMITH FREEHILLS",
+      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430583/Herbert_Smith_Freehills_logo.svg_wit9u9.png",
     },
     {
       id: 6,
-      name: "EcoSystems",
-      logo: "https://via.placeholder.com/120x80/00BCD4/white?text=EcoSystems",
-      color: "#00BCD4",
+      name: "FIRST QUANTUM MINERALS",
+      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430581/First_Quantum_Minerals_New_Logo.svg_ivz3bj.png",
     },
     {
       id: 7,
-      name: "FutureTech",
-      logo: "https://via.placeholder.com/120x80/9C27B0/white?text=FutureTech",
-      color: "#9C27B0",
+      name: "MAY AND COMPANY",
+      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430582/MAY-and-Co-teal-logo-1_lcmvcw.jpg",
     },
     {
       id: 8,
-      name: "GlobalCorp",
-      logo: "https://via.placeholder.com/120x80/F44336/white?text=GlobalCorp",
-      color: "#F44336",
+      name: "dhki",
+      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430581/dhki-e1677569611745_d61ec9.jpg",
+    },
+    {
+      id: 9,
+      name: "NYELETI",
+      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430580/nyeleti-logo-dark-bg-star_gmqcy2.png",
     },
   ];
 
@@ -93,127 +90,97 @@ function PartnersCarousel() {
     const absPos = Math.abs(position);
     switch (absPos) {
       case 0:
-        return { scale: 1.0, opacity: 1, zIndex: 50, glow: true };
+        return { scale: 1.1, opacity: 1, zIndex: 50, glow: true };
       case 1:
         return { scale: 1.0, opacity: 0.9, zIndex: 40, glow: false };
       case 2:
-        return { scale: 0.8, opacity: 0.7, zIndex: 30, glow: false };
+        return { scale: 0.85, opacity: 0.7, zIndex: 30, glow: false };
       case 3:
-        return { scale: 0.6, opacity: 0.5, zIndex: 20, glow: false };
+        return { scale: 0.7, opacity: 0.5, zIndex: 20, glow: false };
       default:
-        return { scale: 0.4, opacity: 0.3, zIndex: 10, glow: false };
+        return { scale: 0.5, opacity: 0.3, zIndex: 10, glow: false };
     }
   };
 
   const visibleItems = getVisibleItems();
 
   return (
-    <div className="flex items-center justify-center w-full h-[300px] py-16 px-8">
-      <div className="w-full mx-auto">
-        {/* Header */}
-        <div className="text-left mb-12">
-          <div className="flex flex-col px-8 py-4 font-outfit">
-            <span className="text-2xl font-[family-name:var(--font-outift)] md:text-4xl lg:text-6xl font-black text-[#EAB81E] tracking-wider">
-              OUR
-            </span>
-            <span className="text-2xl font-[family-name:var(--font-outift)] md:text-4xl lg:text-6xl font-black text-[#EAB81E] tracking-wider">
-              PARTNERS
-            </span>
-          </div>
-        </div>
+    <div className="w-full bg-[#EAB81E] relative py-16">
+      {/* OUR PARTNERS text positioned on top edge */}
+      <div className="absolute -top-10 left-8 flex flex-col font-heading">
+        <span className="text-3xl md:text-5xl lg:text-6xl font-black text-[#EAB81E] drop-shadow-lg">
+          OUR
+        </span>
+        <span className="text-3xl md:text-5xl lg:text-6xl font-black text-[#EAB81E] drop-shadow-lg">
+          PARTNERS
+        </span>
+      </div>
 
-        {/* Carousel Container */}
-        <div className="relative flex items-center justify-center">
-          {/* Left Arrow */}
-          <button
-            onClick={handlePrevious}
-            className="absolute left-4 z-60 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-3 transition-all duration-300 hover:scale-110 shadow-lg backdrop-blur-sm"
+      {/* Carousel */}
+      <div className="relative flex items-center justify-center">
+        {/* Left Arrow */}
+        <button onClick={handlePrevious} className="absolute left-4 z-50 p-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="black"
+            viewBox="0 0 24 24"
+            className="w-15 h-15"
           >
-            <div className="flex items-center">
-              <ChevronLeft className="w-6 h-6 text-black" />
-              <ChevronLeft className="w-6 h-6 text-black -ml-3" />
-            </div>
-          </button>
+            <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            <path d="M20.41 7.41 19 6l-6 6 6 6 1.41-1.41L15.83 12z" />
+          </svg>
+        </button>
 
-          {/* Images Container */}
-          <div className="relative w-full max-w-6xl h-32 flex items-center justify-center overflow-hidden">
-            {visibleItems.map((partner, index) => {
-              const { scale, opacity, zIndex, glow } = getScaleAndOpacity(
-                partner.position
-              );
-              const translateX = partner.position * 120; // 120px spacing
+        {/* Logos */}
+        <div className="relative w-full max-w-6xl h-32 flex items-center justify-center overflow-hidden">
+          {visibleItems.map((partner, index) => {
+            const { scale, opacity, zIndex, glow } = getScaleAndOpacity(
+              partner.position
+            );
+            const translateX = partner.position * 140;
 
-              return (
+            return (
+              <div
+                key={`${partner.id}-${index}`}
+                className="absolute transition-all duration-500 ease-out"
+                style={{
+                  transform: `translateX(${translateX}px) scale(${scale})`,
+                  opacity,
+                  zIndex,
+                }}
+                onClick={() => handleImageClick(partner.position)}
+              >
                 <div
-                  key={`${partner.id}-${index}`}
-                  className={`absolute transition-all duration-500 ease-out cursor-pointer transform hover:scale-110 ${
-                    partner.position === 0 ? "cursor-default" : "cursor-pointer"
+                  className={`relative p-4 bg-white rounded-2xl shadow-lg ${
+                    glow ? "ring-4 ring-yellow-400 ring-opacity-60" : ""
                   }`}
-                  style={{
-                    transform: `translateX(${translateX}px) scale(${scale})`,
-                    opacity,
-                    zIndex,
-                  }}
-                  onClick={() => handleImageClick(partner.position)}
                 >
-                  <div
-                    className={`relative bg-white p-4 shadow-xl transition-all duration-500 ${
-                      glow ? "ring-4 ring-yellow-300 ring-opacity-50" : ""
-                    }`}
-                    style={{
-                      boxShadow: glow
-                        ? `0 0 30px ${partner.color}40, 0 10px 25px rgba(0,0,0,0.3)`
-                        : "0 5px 15px rgba(0,0,0,0.2)",
-                    }}
-                  >
-                    <div className="w-24 h-16 flex items-center justify-center">
-                      <div
-                        className="w-full h-full rounded-lg flex items-center justify-center text-white font-bold text-sm"
-                        style={{ backgroundColor: partner.color }}
-                      >
-                        {partner.name}
-                      </div>
-                    </div>
-
-                    {/* Partner Name - Only show for center item */}
-                    {partner.position === 0 && (
-                      <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
-                        <div className="bg-black bg-opacity-75 text-white px-3 py-1 rounded-full text-sm font-medium"></div>
-                      </div>
-                    )}
+                  <div className="w-28 h-20 flex items-center justify-center relative">
+                    <Image
+                      src={partner.logo}
+                      alt={partner.name}
+                      fill
+                      className="object-contain"
+                    />
                   </div>
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
+        </div>
 
-          {/* Right Arrow */}
-          <button
-            onClick={handleNext}
-            className="absolute right-4 z-60 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-3 transition-all duration-300 hover:scale-110 shadow-lg backdrop-blur-sm"
+        {/* Right Arrow */}
+        <button onClick={handleNext} className="absolute right-4 z-50 p-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="black"
+            viewBox="0 0 24 24"
+            className="w-15 h-15"
           >
-            <div className="flex items-center">
-              <ChevronRight className="w-6 h-6 text-black" />
-              <ChevronRight className="w-6 h-6 text-black -ml-3" />
-              <ChevronRight className="w-6 h-6 text-black -ml-6" />
-            </div>
-          </button>
-        </div>
-
-        {/* Navigation Dots */}
-        <div className="flex justify-center mt-12 space-x-2">
-          {partners.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentIndex
-                  ? "bg-white scale-125 shadow-lg"
-                  : "bg-white bg-opacity-50 hover:bg-opacity-75"
-              }`}
-            />
-          ))}
-        </div>
+            <path d="M8.59 16.59 10 18l6-6-6-6-1.41 1.41L13.17 12z" />
+            <path d="M3.59 16.59 5 18l6-6-6-6-1.41 1.41L7.17 12z" />
+          </svg>
+        </button>
       </div>
     </div>
   );

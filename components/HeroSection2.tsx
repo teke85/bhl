@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import type React from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, Play, X, Maximize, Minimize } from "lucide-react";
@@ -206,11 +207,11 @@ function HeroCarousel() {
 
   return (
     <div className="relative h-screen w-full overflow-hidden">
-      {/* Navigation Header - Reduced height */}
-      <nav className="absolute top-0 left-0 right-0 z-40 bg-black/20 backdrop-blur-sm">
+      {/* Navigation Header */}
+      <nav className="absolute top-0 left-0 right-0 z-40 bg-black/20">
         <div className="container mx-auto px-4 py-2">
           <div className="flex items-center justify-between h-16">
-            {/* Logo with higher z-index and reduced size */}
+            {/* Logo */}
             <div className="relative z-50">
               <div className="w-20 h-22 relative overflow-hidden">
                 <Link href="/">
@@ -227,12 +228,12 @@ function HeroCarousel() {
               </div>
             </div>
 
-            {/* Navigation Links - Lower z-index */}
+            {/* Navigation Links */}
             <div className="relative z-30">
               <NavigationMenu />
             </div>
 
-            {/* Search - Same z-index as nav */}
+            {/* Search */}
             <div className="relative z-30">
               <form onSubmit={handleSearch} className="relative">
                 <Input
@@ -249,7 +250,7 @@ function HeroCarousel() {
         </div>
       </nav>
 
-      {/* Carousel Slides with Scaling Effect */}
+      {/* Carousel Slides */}
       <div className="relative h-full">
         {slides.map((slide, index) => (
           <div
@@ -269,66 +270,42 @@ function HeroCarousel() {
                 transformOrigin: "center center",
               }}
             >
-              {/* Gradient overlay for better text readability */}
               <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60" />
-
-              {/* Additional overlay for depth */}
               <div className="absolute inset-0 bg-black/20" />
             </div>
           </div>
         ))}
       </div>
 
+      {/* Static Background Text */}
+      <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+        <h1 className="text-[8rem] md:text-[12rem] lg:text-[14rem] font-extrabold uppercase text-white/20 tracking-widest leading-none select-none">
+          TRANSFORMATION
+        </h1>
+      </div>
+
       {/* Content Overlay */}
       <div className="absolute inset-0 flex items-center justify-center z-30">
         <div className="container mx-auto text-center text-white relative">
-          {/* Content - Adjusted top margin to account for smaller navbar */}
           <div className="relative z-10">
             <h1
               ref={titleRef}
-              className="text-4xl font-[family-name:var(--font-outfit)] mt-6 md:text-6xl lg:text-7xl font-bold mb-6 text-balance leading-tight drop-shadow-lg"
+              className="text-4xl font-heading mt-6 md:text-6xl lg:text-7xl font-bold mb-6 text-balance leading-tight drop-shadow-lg"
             >
               {slides[currentSlide].title}
             </h1>
             <p
               ref={subtitleRef}
-              className="text-lg font-[family-name:var(--font-jost)] md:text-xl lg:text-2xl mb-12 text-pretty max-w-4xl mx-auto opacity-90 drop-shadow-md"
+              className="text-lg font-sans md:text-xl lg:text-2xl mb-12 text-pretty max-w-4xl mx-auto opacity-90 drop-shadow-md"
             >
               {slides[currentSlide].subtitle}
             </p>
-
-            <div
-              ref={ctaRef}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-            >
-              <Link href="/projects">
-                <Button
-                  size="lg"
-                  className="bg-[#EAB81E] hover:bg-[#be9416] font-[family-name:var(--font-jost)] text-primary-foreground px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl group shadow-lg"
-                >
-                  Explore Projects
-                  <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
-                    →
-                  </span>
-                </Button>
-              </Link>
-
-              <Button
-                variant="outline"
-                size="lg"
-                onClick={handleOpenVideoModal}
-                className="border-white/30 text-white hover:bg-white/10 hover:text-white hover:border-white/50 px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl group bg-transparent backdrop-blur-sm shadow-lg"
-              >
-                <Play className="w-5 font-[family-name:var(--font-jost)] h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
-                Watch Overview
-              </Button>
-            </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicators at Bottom */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-2 z-30">
+      {/* Scroll Indicators */}
+      <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 flex items-center space-x-2 z-30">
         {slides.map((_, index) => (
           <button
             key={index}
@@ -341,6 +318,36 @@ function HeroCarousel() {
             )}
           />
         ))}
+      </div>
+
+      {/* CTA Buttons */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30">
+        <div
+          ref={ctaRef}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+        >
+          <Link href="/projects">
+            <Button
+              size="lg"
+              className="bg-[#EAB81E] rounded-none hover:bg-[#be9416] font-[family-name:var(--font-jost)] text-primary-foreground px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl group shadow-lg"
+            >
+              Explore Projects
+              <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
+                →
+              </span>
+            </Button>
+          </Link>
+
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={handleOpenVideoModal}
+            className="border-white/30 rounded-none text-white hover:bg-white/10 hover:text-white hover:border-white/50 px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl group bg-transparent backdrop-blur-sm shadow-lg"
+          >
+            <Play className="w-5 font-[family-name:var(--font-jost)] h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
+            Watch Overview
+          </Button>
+        </div>
       </div>
 
       {/* Progress Bar */}
@@ -407,11 +414,6 @@ function HeroCarousel() {
                 </a>
               </p>
             </video>
-
-            {/* Loading Overlay */}
-            <div className="absolute inset-0 bg-black/50 flex items-center justify-center pointer-events-none opacity-0 transition-opacity duration-300">
-              <div className="w-12 h-12 border-4 border-[#EAB81E] border-t-transparent rounded-full animate-spin"></div>
-            </div>
           </div>
         </div>
       )}
