@@ -40,31 +40,31 @@ const slides = [
 ];
 
 // Custom Arrow Icons
-const ChevronLeftIcon = ({ className = "h-6 w-6" }) => (
+const CustomLeftArrow = () => (
   <svg
-    className={className}
-    fill="currentColor"
-    viewBox="0 0 24 24"
+    width="68"
+    height="50"
+    viewBox="0 0 68 50"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      fillRule="evenodd"
-      d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
-    />
+    <rect width="68" height="50" fill="#D6A800" />
+    <path d="M44 10 L28 25 L44 40 L36 40 L20 25 L36 10 Z" fill="white" />
   </svg>
 );
 
-const ChevronRightIcon = ({ className = "h-6 w-6" }) => (
+// Custom Arrow Icons
+const CustomRightArrow = () => (
   <svg
-    className={className}
-    fill="currentColor"
-    viewBox="0 0 24 24"
+    width="68"
+    height="50"
+    viewBox="0 0 68 50"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      fillRule="evenodd"
-      d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"
-    />
+    {/* Golden background */}
+    <rect width="68" height="50" fill="#D6A800" />
+
+    {/* White chevron arrow - pointing right */}
+    <path d="M24 10 L40 25 L24 40 L32 40 L48 25 L32 10 Z" fill="white" />
   </svg>
 );
 
@@ -239,7 +239,7 @@ const Route = () => {
                     <div
                       className={`absolute inset-0 border-2 transition-all duration-300 ${
                         index === currentSlide
-                          ? "border-[#E6B102] shadow-lg shadow-amber-500/50"
+                          ? "rounded-none"
                           : "border-white/10"
                       }`}
                     />
@@ -268,27 +268,31 @@ const Route = () => {
         </div>
       </div>
 
-      {/* Navigation Arrows */}
+      {/* Navigation Arrows with Custom SVG */}
       <button
         onClick={goToPrevious}
         disabled={isTransitioning}
-        className={`absolute left-2 top-1/2 -translate-y-1/2 z-50 bg-[#E6B102] hover:bg-[#c2970c] text-white p-3 rounded-full transition-all duration-300 shadow-lg hover:scale-110 ${
-          isTransitioning ? "opacity-50 cursor-not-allowed" : "hover:shadow-2xl"
+        className={`absolute left-4 top-1/2 -translate-y-1/2 z-50 transition-all duration-300 ${
+          isTransitioning
+            ? "opacity-50 cursor-not-allowed"
+            : "hover:shadow-2xl cursor-pointer"
         }`}
         aria-label="Previous slide"
       >
-        <ChevronLeftIcon className="h-6 w-6" />
+        <CustomLeftArrow />
       </button>
 
       <button
         onClick={goToNext}
         disabled={isTransitioning}
-        className={`absolute right-2 top-1/2 -translate-y-1/2 z-50 bg-[#EAB81E] hover:bg-[#be9416] text-white p-3 rounded-full transition-all duration-300 shadow-lg hover:scale-110 ${
-          isTransitioning ? "opacity-50 cursor-not-allowed" : "hover:shadow-2xl"
+        className={`absolute right-4 top-1/2 -translate-y-1/2 z-50 transition-all duration-300 ${
+          isTransitioning
+            ? "opacity-50 cursor-not-allowed"
+            : "hover:shadow-2xl cursor-pointer"
         }`}
         aria-label="Next slide"
       >
-        <ChevronRightIcon className="h-6 w-6" />
+        <CustomRightArrow />
       </button>
 
       {/* Content Overlay - positioned over the current card */}
