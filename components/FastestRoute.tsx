@@ -181,87 +181,90 @@ const Route = () => {
 
   return (
     <div className="relative h-screen w-full overflow-hidden bg-white">
-      <div className="absolute inset-0 flex items-center">
-        {/* Left Thumbnail */}
-        <div
-          className="w-1/6 h-1/4 relative overflow-hidden self-center rounded-lg transform transition-all duration-300 hover:scale-105 cursor-pointer"
-          onClick={goToPrevious}
-        >
-          <Image
-            src={slides[getPreviousSlide()].image}
-            alt={slides[getPreviousSlide()].title}
-            fill
-            className="object-cover opacity-70"
-            sizes="(max-width: 768px) 100vw, 16vw"
-            priority={false}
-          />
-          <div className="absolute inset-0 bg-black/40 rounded-lg" />
-          <div className="absolute inset-0 border-2 border-white/20 rounded-lg" />
-        </div>
-
-        {/* Main Card Deck Container */}
-        <div className="w-2/3 h-full relative mx-4 flex items-center justify-center perspective-1000">
-          <div className="relative w-full max-w-4xl h-4/5">
-            {slides.map((slide, index) => {
-              const cardStyles = getCardStyles(index);
-
-              return (
-                <div
-                  key={slide.id}
-                  className="absolute inset-0 transition-all duration-600 ease-out cursor-pointer rounded-2xl overflow-hidden shadow-2xl"
-                  style={{
-                    transform: cardStyles.transform,
-                    zIndex: cardStyles.zIndex,
-                    opacity: cardStyles.opacity,
-                    transformStyle: "preserve-3d",
-                  }}
-                  onClick={() => index !== currentSlide && goToSlide(index)}
-                >
-                  <Image
-                    src={slide.image}
-                    alt={slide.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 66vw"
-                    priority={index === 0}
-                  />
-
-                  {/* Card overlay */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent transition-opacity duration-300 ${
-                      index === currentSlide ? "opacity-100" : "opacity-40"
-                    }`}
-                  />
-
-                  {/* Card border for depth */}
-                  <div
-                    className={`absolute inset-0 border-2 transition-all duration-300 ${
-                      index === currentSlide
-                        ? "border-[#E6B102] shadow-lg shadow-amber-500/50"
-                        : "border-white/10"
-                    }`}
-                  />
-                </div>
-              );
-            })}
+      <div className="absolute inset-0 flex items-center justify-center">
+        {/* Main Card Deck Container with thumbnails positioned relative to it */}
+        <div className="relative w-full max-w-6xl h-4/5 flex items-center justify-center">
+          {/* Left Thumbnail - positioned half in/half out of main container */}
+          <div
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-1/5 h-1/3 z-40 rounded-lg overflow-hidden shadow-2xl cursor-pointer transition-all duration-300 hover:scale-105"
+            onClick={goToPrevious}
+          >
+            <Image
+              src={slides[getPreviousSlide()].image}
+              alt={slides[getPreviousSlide()].title}
+              fill
+              className="object-cover opacity-80"
+              sizes="(max-width: 768px) 100vw, 20vw"
+              priority={false}
+            />
+            <div className="absolute inset-0 bg-black/30 rounded-lg" />
+            <div className="absolute inset-0 border-2 border-white/30 rounded-lg" />
           </div>
-        </div>
 
-        {/* Right Thumbnail */}
-        <div
-          className="w-1/6 h-1/4 relative overflow-hidden self-center transform transition-all duration-300 hover:scale-105 cursor-pointer"
-          onClick={goToNext}
-        >
-          <Image
-            src={slides[getNextSlide()].image}
-            alt={slides[getNextSlide()].title}
-            fill
-            className="object-cover opacity-70"
-            sizes="(max-width: 768px) 100vw, 16vw"
-            priority={false}
-          />
-          <div className="absolute inset-0 bg-black/40 rounded-lg" />
-          <div className="absolute inset-0 border-2 border-white/20 rounded-lg" />
+          {/* Card Deck */}
+          <div className="w-full h-full relative perspective-1000">
+            <div className="relative w-full h-full">
+              {slides.map((slide, index) => {
+                const cardStyles = getCardStyles(index);
+
+                return (
+                  <div
+                    key={slide.id}
+                    className="absolute inset-0 transition-all duration-600 ease-out cursor-pointer rounded-2xl overflow-hidden shadow-2xl"
+                    style={{
+                      transform: cardStyles.transform,
+                      zIndex: cardStyles.zIndex,
+                      opacity: cardStyles.opacity,
+                      transformStyle: "preserve-3d",
+                    }}
+                    onClick={() => index !== currentSlide && goToSlide(index)}
+                  >
+                    <Image
+                      src={slide.image}
+                      alt={slide.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 100vw"
+                      priority={index === 0}
+                    />
+
+                    {/* Card overlay */}
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent transition-opacity duration-300 ${
+                        index === currentSlide ? "opacity-100" : "opacity-40"
+                      }`}
+                    />
+
+                    {/* Card border for depth */}
+                    <div
+                      className={`absolute inset-0 border-2 transition-all duration-300 ${
+                        index === currentSlide
+                          ? "border-[#E6B102] shadow-lg shadow-amber-500/50"
+                          : "border-white/10"
+                      }`}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Right Thumbnail - positioned half in/half out of main container */}
+          <div
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-1/5 h-1/3 z-40 rounded-lg overflow-hidden shadow-2xl cursor-pointer transition-all duration-300 hover:scale-105"
+            onClick={goToNext}
+          >
+            <Image
+              src={slides[getNextSlide()].image}
+              alt={slides[getNextSlide()].title}
+              fill
+              className="object-cover opacity-80"
+              sizes="(max-width: 768px) 100vw, 20vw"
+              priority={false}
+            />
+            <div className="absolute inset-0 bg-black/30 rounded-lg" />
+            <div className="absolute inset-0 border-2 border-white/30 rounded-lg" />
+          </div>
         </div>
       </div>
 
@@ -269,7 +272,7 @@ const Route = () => {
       <button
         onClick={goToPrevious}
         disabled={isTransitioning}
-        className={`absolute left-2 top-1/2 -translate-y-1/2 z-40 bg-[#E6B102] hover:bg-[#c2970c] text-white p-3 rounded-full transition-all duration-300 shadow-lg hover:scale-110 ${
+        className={`absolute left-2 top-1/2 -translate-y-1/2 z-50 bg-[#E6B102] hover:bg-[#c2970c] text-white p-3 rounded-full transition-all duration-300 shadow-lg hover:scale-110 ${
           isTransitioning ? "opacity-50 cursor-not-allowed" : "hover:shadow-2xl"
         }`}
         aria-label="Previous slide"
@@ -280,7 +283,7 @@ const Route = () => {
       <button
         onClick={goToNext}
         disabled={isTransitioning}
-        className={`absolute right-2 top-1/2 -translate-y-1/2 z-40 bg-[#EAB81E] hover:bg-[#be9416] text-white p-3 rounded-full transition-all duration-300 shadow-lg hover:scale-110 ${
+        className={`absolute right-2 top-1/2 -translate-y-1/2 z-50 bg-[#EAB81E] hover:bg-[#be9416] text-white p-3 rounded-full transition-all duration-300 shadow-lg hover:scale-110 ${
           isTransitioning ? "opacity-50 cursor-not-allowed" : "hover:shadow-2xl"
         }`}
         aria-label="Next slide"
