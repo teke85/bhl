@@ -9,6 +9,7 @@ import HeroCarousel from "@/components/HeroSection2";
 
 import KeyStats from "@/components/KeyStats";
 import OurPartners from "@/components/OurPartners";
+import TimelineMarquee from "@/components/TimeLineMarquee";
 
 export default function HomePage() {
   return (
@@ -19,6 +20,7 @@ export default function HomePage() {
       {/* <StatsSection /> */}
       <EfficientLogistics />
       <EfficientGrowthCatalyst />
+      <TimelineMarquee />
       <OurPartners />
       <Route />
       <BigText />
