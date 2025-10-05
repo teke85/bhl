@@ -17,17 +17,17 @@ function BigText() {
     const logisticsElement = logisticsRef.current;
 
     if (efficientElement && logisticsElement && container) {
-      // Set initial positions
-      gsap.set(efficientElement, { x: -200, opacity: 0.3 });
-      gsap.set(logisticsElement, { x: 200, opacity: 0.3 });
+      // Set initial positions - further apart
+      gsap.set(efficientElement, { x: -400, opacity: 0.3 });
+      gsap.set(logisticsElement, { x: 400, opacity: 0.3 });
 
       // Create timeline for the animations
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: container,
           start: "top 80%",
-          end: "bottom 20%",
-          scrub: 1,
+          end: "bottom 60%",
+          scrub: 0.5,
           onEnter: () => {
             gsap.to([efficientElement, logisticsElement], {
               opacity: 1,
@@ -55,22 +55,22 @@ function BigText() {
         },
       });
 
-      // Animate "Efficient" to the left
+      // Animate "Efficient" to the right - completely crossing over
       tl.to(
         efficientElement,
         {
-          x: -100,
+          x: 400,
           duration: 1,
           ease: "power2.out",
         },
         0
       );
 
-      // Animate "Logistics" to the right
+      // Animate "Logistics" to the left - completely crossing over
       tl.to(
         logisticsElement,
         {
-          x: 100,
+          x: -400,
           duration: 1,
           ease: "power2.out",
         },
@@ -86,18 +86,11 @@ function BigText() {
   return (
     <div
       ref={containerRef}
-      className="mx-auto w-full py-8 overflow-hidden relative"
-      // style={{
-      //   backgroundImage:
-      //     "url(https://res.cloudinary.com/dpeg7wc34/image/upload/v1758715424/4_bhefzk.png)",
-      //   backgroundSize: "cover",
-      //   backgroundPosition: "center",
-      //   backgroundRepeat: "no-repeat",
-      // }}
+      className="mx-auto w-full py-20 md:py-32 overflow-hidden relative min-h-[60vh] md:min-h-[70vh] flex items-center justify-center shadow-2xl"
     >
       <div className="absolute"></div>
 
-      <div className="relative z-10">
+      <div className="relative z-10 w-full">
         <div
           ref={efficientRef}
           className="text-center uppercase text-[#8C887F] font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-tight"

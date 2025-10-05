@@ -346,8 +346,10 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-16">
             {/* Contact Column */}
             <div>
-              <h3 className="text-xl font-bold text-white mb-6">Contact</h3>
-              <ul className="space-y-3">
+              <h3 className="text-xl font-heading font-bold text-white mb-6">
+                Contact
+              </h3>
+              <ul className="space-y-3 font-sans">
                 <li>
                   <Link
                     href="/contact#find-us"
@@ -377,7 +379,7 @@ export function Footer() {
 
             {/* Project Overview Column */}
             <div>
-              <h3 className="text-xl font-bold text-white mb-6">
+              <h3 className="text-xl font-heading font-bold text-white mb-6">
                 Project Overview
               </h3>
               <ul className="space-y-3">
@@ -418,10 +420,12 @@ export function Footer() {
 
             {/* Quick Links Column - spans 2 columns */}
             <div className="md:col-span-2">
-              <h3 className="text-xl font-bold text-white mb-6">Quick Links</h3>
+              <h3 className="text-xl font-bold font-heading text-white mb-6">
+                Quick Links
+              </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
                 {/* First Column */}
-                <div className="space-y-3">
+                <div className="space-y-3 font-sans">
                   <Link
                     href="https://www.rda.org.zm"
                     target="_blank"
