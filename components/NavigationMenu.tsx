@@ -28,7 +28,7 @@ function MegaMenuNavigation() {
     About: {
       title: "ABOUT US",
       description:
-        "We are a leading infrastructure development company operating across Africa. With over 25 years of experience, we deliver innovative solutions and sustainable development practices.",
+        "Barotse Highway Limited is a Special Purpose Vehicle (SPV) that was incorporated as a separate legal entity by BeefCo Holdings Limited (BeefCo) and First Quantum Minerals Operations Limited (FQMOL) for the purpose of executing this project. The Road Project stretches 371-kilometres from Mutanda to Kaoma and will be implemented over a 25-year concession period, with two years for construction, and 23 years for operations and maintenance.",
       links: [
         { name: "Our Story", href: "/about/story" },
         { name: "Leadership Team", href: "/about/team" },
