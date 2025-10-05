@@ -2,6 +2,7 @@ import type React from "react";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import AnimatedChevron from "./AnimatedChevron";
 
 const EconomicGrowthCatalyst: React.FC = () => {
   return (
@@ -22,11 +23,11 @@ const EconomicGrowthCatalyst: React.FC = () => {
           {/* Text Column - Right Side */}
           <div className="relative z-30 max-w-full md:max-w-2xl w-full md:w-auto order-1 md:order-2">
             {/* Title */}
-            <div className="flex flex-col md:flex-row items-start md:items-center md:justify-end gap-2 md:gap-4 mb-6 md:mb-8">
+            <div className="flex flex-col md:flex-col items-start md:items-end md:justify-end gap-2 md:gap-4 mb-6 md:mb-8">
               <h2 className="text-2xl md:text-4xl lg:text-4xl font-black text-white tracking-wider text-left md:text-right font-heading">
                 ECONOMIC GROWTH CATALYST
               </h2>
-              <ChevronDown className="h-6 w-6 md:h-8 md:w-8 text-black" />
+              <AnimatedChevron className="h-6 w-6 md:h-10 md:w-10" />
             </div>
 
             {/* Description */}
