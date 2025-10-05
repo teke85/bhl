@@ -21,7 +21,7 @@ export default function HomePage() {
       <EfficientGrowthCatalyst />
       <OurPartners />
       <Route />
-      <BigText />
+      {/* <BigText /> */}
       {/* <ProjectOverview /> */}
       {/* <StrategicImportance /> */}
       {/* <TimelineSection /> */}
