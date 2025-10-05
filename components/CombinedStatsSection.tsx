@@ -10,7 +10,7 @@ const CombinedStatsSection = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/logistics-bg.jpg"
+          src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1759608279/3_b3nlji.png"
           alt="Logistics Background"
           fill
           className="object-cover"

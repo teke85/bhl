@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 const EconomicGrowthCatalyst: React.FC = () => {
   return (
-    <section className="relative min-h-screen bg-background overflow-hidden flex items-center justify-center py-8 md:py-0">
+    <section className="relative min-h-screen overflow-hidden flex items-center justify-center py-8 md:py-0">
       <div className="container mx-auto px-4 md:px-8">
         <div className="relative flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0">
           {/* Image - Left Side with Overlap on Desktop */}
@@ -23,7 +23,7 @@ const EconomicGrowthCatalyst: React.FC = () => {
           <div className="relative z-30 max-w-full md:max-w-2xl w-full md:w-auto order-1 md:order-2">
             {/* Title */}
             <div className="flex flex-col md:flex-row items-start md:items-center md:justify-end gap-2 md:gap-4 mb-6 md:mb-8">
-              <h2 className="text-2xl md:text-4xl lg:text-4xl font-black text-black tracking-wider text-left md:text-right font-heading">
+              <h2 className="text-2xl md:text-4xl lg:text-4xl font-black text-white tracking-wider text-left md:text-right font-heading">
                 ECONOMIC GROWTH CATALYST
               </h2>
               <ChevronDown className="h-6 w-6 md:h-8 md:w-8 text-black" />
@@ -55,15 +55,6 @@ const EconomicGrowthCatalyst: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Bottom Title */}
-      <div className="absolute bottom-4 md:bottom-8 left-4 md:left-8 z-20">
-        <h3 className="text-2xl font-[family-name:var(--font-outift)] md:text-4xl lg:text-6xl font-black text-[#EAB81E] tracking-wider">
-          KEY PROJECT
-          <br />
-          TIMELINES
-        </h3>
       </div>
     </section>
   );

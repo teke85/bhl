@@ -59,17 +59,30 @@ const TimelineMarquee = () => {
 
   return (
     <TooltipProvider>
-      <div className="w-full max-w-full mx-auto">
+      <div className="relative w-full max-w-full mx-auto">
+        {/* KEY PROJECT TIMELINES Text - Positioned like in PartnersCarousel */}
+        <div className="absolute -top-10 left-8 flex flex-col z-50">
+          <span className="text-3xl md:text-5xl lg:text-6xl font-black text-[#EAB81E] drop-shadow-lg font-heading">
+            KEY PROJECT
+          </span>
+          <span className="text-3xl md:text-5xl lg:text-6xl font-black text-[#EAB81E] drop-shadow-lg font-heading">
+            TIMELINES
+          </span>
+        </div>
         <div className="relative h-96 overflow-hidden rounded-lg">
-          <Image
-            src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1759581302/SUSTA_hdo1em.png"
-            alt="Road texture background"
-            fill
-            className="object-cover"
-            priority
-          />
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1759581302/SUSTA_hdo1em.png"
+              alt="Road texture background"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
 
-          <div className="flex items-center justify-center h-full relative z-10 overflow-hidden">
+          {/* Marquee Content */}
+          <div className="flex items-center justify-center h-full relative z-30 overflow-hidden">
             <div className="marquee-container group">
               <div className="marquee-content">
                 {duplicatedData.map((item, index) => (
@@ -121,7 +134,7 @@ const TimelineMarquee = () => {
                         </TooltipTrigger>
                         <TooltipContent
                           side="top"
-                          className="max-w-xs bg-gray-600 text-white border-gray-500"
+                          className="max-w-xs bg-gray-600 text-white border-gray-500 z-50"
                         >
                           <div className="p-3">
                             <p className="font-medium text-sm">

@@ -1,6 +1,7 @@
 "use client";
 
 import BigText from "@/components/BigText";
+import CombinedStatsSection from "@/components/CombinedStatsSection";
 import EfficientGrowthCatalyst from "@/components/EfficientGrowthCatalyst";
 import EfficientLogistics from "@/components/EfficientLogistics";
 import Route from "@/components/FastestRoute";
@@ -15,11 +16,12 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-black">
       <HeroCarousel />
+      <CombinedStatsSection />
       {/* <LogoCarousel /> */}
-      <KeyStats />
+      {/* <KeyStats /> */}
       {/* <StatsSection /> */}
-      <EfficientLogistics />
-      <EfficientGrowthCatalyst />
+      {/* <EfficientLogistics /> */}
+      {/* <EfficientGrowthCatalyst /> */}
       <TimelineMarquee />
       <OurPartners />
       <Route />

@@ -107,7 +107,7 @@ function MegaMenuNavigation() {
       ref={menuRef}
     >
       {Object.keys(menuData).map((menuName) => (
-        <div key={menuName} className="relative font-sans">
+        <div key={menuName} className="relative font-heading">
           <div
             className="relative flex items-center space-x-1 py-2 font-medium text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300"
             onClick={() => handleMenuClick(menuName as MenuKey)}
@@ -142,12 +142,12 @@ function MegaMenuNavigation() {
 
       {/* Dropdown */}
       {activeMenu && (
-        <div className="fixed top-[64px] left-0 right-0 w-screen shadow-2xl transition-all duration-300 z-50 opacity-100 translate-y-0">
+        <div className="fixed top-[64px] left-0 right-0 w-fit shadow-2xl bg-red transition-all duration-300 z-50 opacity-100 translate-y-0">
           <div className="container-fluid mx-auto bg-transparent min-h-[500px]">
             <div className="grid grid-cols-3 gap-0 max-w-7xl mx-auto ">
               {/* Column 1 */}
               <div className="font-heading space-y-6 flex flex-col p-4 bg-[#EDCA51] justify-center">
-                <h2 className="text-4xl font-bold text-gray-900 tracking-tight">
+                <h2 className="text-4xl font-heading font-bold text-gray-900 tracking-tight">
                   {menuData[activeMenu].title}
                 </h2>
                 <p className="text-gray-600 font-sans leading-relaxed text-base">
@@ -161,7 +161,7 @@ function MegaMenuNavigation() {
                   <a
                     key={index}
                     href={link.href}
-                    className="block text-black hover:text-white duration-200 text-base font-medium py-2 hover:translate-x-2 transform transition-transform"
+                    className="block font-heading text-black hover:text-white duration-200 text-base font-medium py-2 hover:translate-x-2 transform transition-transform"
                   >
                     {link.name}
                   </a>

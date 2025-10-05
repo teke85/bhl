@@ -107,11 +107,11 @@ function PartnersCarousel() {
   return (
     <div className="w-full bg-[#EAB81E] relative py-16">
       {/* OUR PARTNERS text positioned on top edge */}
-      <div className="absolute -top-10 left-8 flex flex-col font-heading">
-        <span className="text-3xl md:text-5xl lg:text-6xl font-black text-[#EAB81E] drop-shadow-lg">
+      <div className="absolute -top-10 left-8 flex flex-col">
+        <span className="text-3xl md:text-5xl font-heading lg:text-6xl font-black text-[#EAB81E] drop-shadow-lg">
           OUR
         </span>
-        <span className="text-3xl md:text-5xl lg:text-6xl font-black text-[#EAB81E] drop-shadow-lg">
+        <span className="text-3xl md:text-5xl lg:text-6xl font-heading font-black text-[#EAB81E] drop-shadow-lg">
           PARTNERS
         </span>
       </div>

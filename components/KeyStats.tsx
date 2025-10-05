@@ -2,16 +2,16 @@ import React from "react";
 
 function KeyStats() {
   const stats = [
-    { value: "2025", label: "Founded" },
-    { value: "24", label: "Years" },
-    { value: "371", label: "Projects" },
-    { value: "23", label: "Awards" },
-    { value: "25", label: "Countries" },
+    { value: "2025", label: "Start of Project" },
+    { value: "24", label: "Construction Period" },
+    { value: "371", label: "Total Road Length" },
+    { value: "23", label: "Operation and Maintenance" },
+    { value: "25", label: "Year" },
   ];
 
   return (
-    <section className="bg-white h-full w-full">
-      <div className="relative w-full max-w-4xl mx-auto">
+    <section className="bg-white/20 h-full w-full">
+      <div className="relative w-full max-w-full mx-auto">
         {/* Background with gradient and pattern */}
         <div
           className="relative bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 rounded-bl-3xl rounded-br-3xl shadow-2xl overflow-hidden"
@@ -34,7 +34,7 @@ function KeyStats() {
           <div className="relative z-10 px-6 py-8 sm:px-8 sm:py-10">
             {/* Header */}
             <div className="text-center mb-8">
-              <h3 className="font-bold font-[family-name:var(--font-outfit)] text-[#E6B102] text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-wider drop-shadow-md">
+              <h3 className="font-bold font-heading text-[#E6B102] text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-wider drop-shadow-md">
                 KEY STATISTICS
               </h3>
             </div>
@@ -45,37 +45,28 @@ function KeyStats() {
                 <div
                   key={index}
                   className={`
-                  relative text-center font-[family-name:var(--font-jost)] group transition-all duration-300 hover:scale-105
+                  relative text-center font-[family-name:var(--font-jost)] group transition-all duration-300 hover:scale-105 cursor-pointer
                   ${index < stats.length - 1 ? "border-r-2 border-amber-300" : ""}
                   ${index === 4 && "sm:col-span-2 lg:col-span-1"}
                 `}
                 >
-                  {/* Stat Value */}
-                  <div className="text-4xl font-[family-name:var(--font-jost)] sm:text-5xl lg:text-5xl xl:text-5xl font-extrabold text-gray-800 mb-2 transition-colors duration-300 group-hover:text-amber-600">
-                    {stat.value}
-                  </div>
+                  {/* Container for overlapping text */}
+                  <div className="relative h-20 flex items-center justify-center">
+                    {/* Stat Value - visible by default, grey on hover */}
+                    <div className="absolute inset-0 flex items-center justify-center text-sm font-[family-name:var(--font-jost)] sm:text-5xl lg:text-5xl xl:text-5xl font-extrabold text-gray-800 transition-all duration-300 group-hover:text-gray-400 group-hover:opacity-100">
+                      {stat.value}
+                    </div>
 
-                  {/* Stat Label - Hidden on mobile, shown on larger screens */}
-                  <div className="hidden font-[family-name:var(--font-jost)] sm:block text-sm lg:text-base font-bold text-gray-600 uppercase tracking-wide">
-                    {stat.label}
+                    {/* Stat Label - hidden by default, orange on hover */}
+                    <div className="absolute inset-0  flex items-center justify-center bg-amber-300 rounded-full text-xl sm:text-2xl lg:text-sm font-bold text-black uppercase tracking-wide opacity-0 group-hover:opacity-100 transition-all duration-300 px-2">
+                      {stat.label}
+                    </div>
                   </div>
 
                   {/* Separator line - only between items, not after last */}
                   {index < stats.length - 1 && (
                     <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-px h-16 bg-gradient-to-b from-transparent via-amber-300 to-transparent hidden lg:block"></div>
                   )}
-                </div>
-              ))}
-            </div>
-
-            {/* Mobile Labels Row */}
-            <div className="grid grid-cols-2 sm:hidden gap-4 mt-4 text-xs font-medium text-gray-600 uppercase tracking-wide">
-              {stats.map((stat, index) => (
-                <div
-                  key={index}
-                  className="text-center font-[family-name:var(--font-jost)]"
-                >
-                  {stat.label}
                 </div>
               ))}
             </div>
