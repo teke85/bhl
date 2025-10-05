@@ -10,23 +10,21 @@ const slides = [
     image:
       "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759688787/DJI_0515_j4zeml.jpg",
     title: "FASTEST ROUTE TO WALVIS BAY",
-    subtitle: "Revolutionary Infrastructure Development",
-    buttonText: "VIEW PROJECT HIGHLIGHTS",
   },
   {
     id: 2,
     image:
       "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759688770/DJI_0521_q55ort.jpg",
     title: "CONNECTING COMMUNITIES",
-    subtitle: "Advanced Bridge Engineering",
+
     buttonText: "EXPLORE ENGINEERING",
   },
   {
     id: 3,
     image:
       "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759688770/DJI_0521_q55ort.jpg",
-    title: "MOUNTAIN PASS PROJECT",
-    subtitle: "Sustainable Transportation Solutions",
+    title: "ENHANCING TRADE ROUTES",
+
     buttonText: "DISCOVER MORE",
   },
 ];
@@ -221,9 +219,7 @@ const Route = () => {
           <h1 className="text-4xl md:text-3xl lg:text-4xl font-bold mb-4 text-balance drop-shadow-2xl">
             {slides[currentSlide].title}
           </h1>
-          <p className="text-lg md:text-xl lg:text-xl mb-8 text-balance opacity-90 drop-shadow-lg">
-            {slides[currentSlide].subtitle}
-          </p>
+
           <Button
             size="lg"
             className="bg-[#EAB81E] hover:bg-[#be9416] text-black font-semibold px-8 py-3 text-base md:text-sm transition-all duration-300 hover:scale-105 shadow-2xl pointer-events-auto"
