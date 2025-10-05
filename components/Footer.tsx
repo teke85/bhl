@@ -315,23 +315,23 @@ export function Footer() {
     return (
         <footer className="relative w-full min-h-screen flex flex-col">
             {/* Background Image with Gradient Overlay */}
-            <div className="absolute inset-0 z-0">
+            {/* <div className="absolute inset-0 z-0">
                 <div
                     className="w-full h-full bg-cover bg-center"
                     style={{
                         backgroundImage:
                             "url(https://res.cloudinary.com/dpeg7wc34/image/upload/v1758715424/4_bhefzk.png)",
                     }}
-                />
-                {/* Gradient overlay - darker at top, yellowish at bottom */}
-                <div
+                /> */}
+            {/* Gradient overlay - darker at top, yellowish at bottom */}
+            {/* <div
                     className="absolute inset-0"
                     style={{
                         background:
                             "linear-gradient(to bottom, rgba(45, 40, 20, 0.65) 0%, rgba(60, 52, 25, 0.72) 30%, rgba(85, 70, 30, 0.78) 60%, rgba(110, 90, 35, 0.85) 100%)",
                     }}
                 />
-            </div>
+            </div> */}
 
             {/* Content */}
             <div className="relative z-10 flex flex-col justify-center flex-1 px-8 py-16 lg:px-16">
