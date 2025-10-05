@@ -25,7 +25,7 @@ export default function HomePage() {
       <TimelineMarquee />
       <OurPartners />
       <Route />
-      <BigText />
+      {/* <BigText /> */}
       {/* <ProjectOverview /> */}
       {/* <StrategicImportance /> */}
       {/* <TimelineSection /> */}
