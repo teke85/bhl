@@ -180,7 +180,7 @@ const Route = () => {
   };
 
   return (
-    <div className="relative h-screen w-full overflow-hidden bg-white">
+    <div className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center">
         {/* Main Card Deck Container with thumbnails positioned relative to it */}
         <div className="relative w-full max-w-6xl h-4/5 flex items-center justify-center">

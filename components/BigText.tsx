@@ -86,27 +86,27 @@ function BigText() {
   return (
     <div
       ref={containerRef}
-      className="mx-auto w-full py-20 overflow-hidden relative"
-      style={{
-        backgroundImage:
-          "url(https://res.cloudinary.com/dpeg7wc34/image/upload/v1758715424/4_bhefzk.png)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
+      className="mx-auto w-full py-8 overflow-hidden relative"
+      // style={{
+      //   backgroundImage:
+      //     "url(https://res.cloudinary.com/dpeg7wc34/image/upload/v1758715424/4_bhefzk.png)",
+      //   backgroundSize: "cover",
+      //   backgroundPosition: "center",
+      //   backgroundRepeat: "no-repeat",
+      // }}
     >
-      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+      <div className="absolute"></div>
 
       <div className="relative z-10">
         <div
           ref={efficientRef}
-          className="text-center uppercase text-[#8C887F] font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-relaxed"
+          className="text-center uppercase text-[#8C887F] font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-tight"
         >
           Efficient
         </div>
         <div
           ref={logisticsRef}
-          className="text-center uppercase text-[#8C887F] font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-relaxed"
+          className="text-center uppercase text-[#8C887F] font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-tight"
         >
           Logistics
         </div>
