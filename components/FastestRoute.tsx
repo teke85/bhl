@@ -10,6 +10,7 @@ const slides = [
     image:
       "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759688787/DJI_0515_j4zeml.jpg",
     title: "FASTEST ROUTE TO WALVIS BAY",
+    buttonText: "LEARN MORE",
   },
   {
     id: 2,
@@ -123,7 +124,7 @@ const Route = () => {
         <div className="relative w-full max-w-6xl h-4/5 flex items-center justify-center">
           {/* Left Thumbnail - positioned half in/half out */}
           <div
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-1/5 h-1/3 z-40 overflow-hidden shadow-2xl cursor-pointer transition-all duration-300 hover:scale-105"
+            className="absolute left-0 top-1/2 shadow-2xl -translate-y-1/2 -translate-x-1/2 w-1/5 h-1/3 z-40 overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105"
             onClick={goToPrevious}
           >
             <Image
@@ -169,7 +170,7 @@ const Route = () => {
 
           {/* Right Thumbnail - positioned half in/half out */}
           <div
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-1/5 h-1/3 z-40 overflow-hidden shadow-2xl cursor-pointer transition-all duration-300 hover:scale-105"
+            className="absolute shadow-2xl right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-1/5 h-1/3 z-40 overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105"
             onClick={goToNext}
           >
             <Image
@@ -219,10 +220,13 @@ const Route = () => {
           <h1 className="text-4xl md:text-3xl lg:text-4xl font-bold mb-4 text-balance drop-shadow-2xl">
             {slides[currentSlide].title}
           </h1>
-
+          {/* Divider between text and CTA */}
+          <div className="flex justify-center mb-6">
+            <div className="w-16 h-0.5 bg-[#ffffff]"></div>
+          </div>
           <Button
             size="lg"
-            className="bg-[#EAB81E] hover:bg-[#be9416] text-black font-semibold px-8 py-3 text-base md:text-sm transition-all duration-300 hover:scale-105 shadow-2xl pointer-events-auto"
+            className="bg-[#A08F4B] hover:bg-[#756b40] rounded-none text-black font-semibold px-8 py-3 text-base md:text-sm transition-all duration-300 hover:scale-105 shadow-2xl pointer-events-auto"
           >
             {slides[currentSlide].buttonText}
           </Button>
