@@ -315,41 +315,56 @@ export function Footer() {
   return (
     <footer className="relative w-full min-h-screen flex flex-col">
       {/* Background Image with Gradient Overlay */}
-      <div className="absolute inset-0 z-0">
-        <div
-          className="w-full h-full bg-cover bg-center"
-          // style={{
-          //     backgroundImage:
-          //         "url(https://res.cloudinary.com/dpeg7wc34/image/upload/v1758715424/4_bhefzk.png)",
-          // }}
-        />
-        {/* Gradient overlay - darker at top, yellowish at bottom */}
-        <div
-          className="absolute inset-0"
-          //   style={{
-          //     background:
-          //       "linear-gradient(to bottom, rgba(45, 40, 20, 0.65) 0%, rgba(60, 52, 25, 0.72) 30%, rgba(85, 70, 30, 0.78) 60%, rgba(110, 90, 35, 0.85) 100%)",
-          //   }}
-        />
-      </div>
+      {/* <div className="absolute inset-0 z-0">
+                <div
+                    className="w-full h-full bg-cover bg-center"
+                    style={{
+                        backgroundImage:
+                            "url(https://res.cloudinary.com/dpeg7wc34/image/upload/v1758715424/4_bhefzk.png)",
+                    }}
+                /> */}
+      {/* Gradient overlay - darker at top, yellowish at bottom */}
+      {/* <div
+                    className="absolute inset-0"
+                    style={{
+                        background:
+                            "linear-gradient(to bottom, rgba(45, 40, 20, 0.65) 0%, rgba(60, 52, 25, 0.72) 30%, rgba(85, 70, 30, 0.78) 60%, rgba(110, 90, 35, 0.85) 100%)",
+                    }}
+                />
+            </div> */}
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col justify-center flex-1 px-8 py-16 lg:px-16">
+      <div className="relative z-10 flex flex-col justify-center flex-1 px-8 py-8 lg:px-16">
         {/* Main Heading - Using exact styling and animations from BigText.tsx */}
         <div
           ref={containerRef}
-          className="mx-auto w-full py-10 overflow-hidden relative"
-        ></div>
+          className="mx-auto w-full py-4 md:py-8 overflow-hidden relative px-2"
+        >
+          <div className="relative z-10">
+            <div
+              ref={efficientRef}
+              className="text-center uppercase text-[#A8A395] font-extrabold text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] 2xl:text-[12rem] leading-tight"
+            >
+              Efficient
+            </div>
+            <div
+              ref={logisticsRef}
+              className="text-center uppercase text-[#A8A395] font-extrabold text-4xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] 2xl:text-[12rem] leading-tight mt-1 md:mt-0"
+            >
+              Logistics
+            </div>
+          </div>
+        </div>
 
         {/* Three Column Layout */}
         <div className="max-w-7xl mx-auto w-full mb-20">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-16">
             {/* Contact Column */}
             <div>
-              <h3 className="text-xl font-heading font-bold text-white mb-6">
+              <h3 className="text-xl font-bold text-white mb-6">
                 Contact
               </h3>
-              <ul className="space-y-3 font-sans">
+              <ul className="space-y-3">
                 <li>
                   <Link
                     href="/contact#find-us"
@@ -379,7 +394,7 @@ export function Footer() {
 
             {/* Project Overview Column */}
             <div>
-              <h3 className="text-xl font-heading font-bold text-white mb-6">
+              <h3 className="text-xl font-bold text-white mb-6">
                 Project Overview
               </h3>
               <ul className="space-y-3">
@@ -420,12 +435,12 @@ export function Footer() {
 
             {/* Quick Links Column - spans 2 columns */}
             <div className="md:col-span-2">
-              <h3 className="text-xl font-bold font-heading text-white mb-6">
+              <h3 className="text-xl font-bold text-white mb-6">
                 Quick Links
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
                 {/* First Column */}
-                <div className="space-y-3 font-sans">
+                <div className="space-y-3">
                   <Link
                     href="https://www.rda.org.zm"
                     target="_blank"
@@ -518,10 +533,7 @@ export function Footer() {
                 Cookie Policy
               </Link>
               <span className="text-[#8B8B70]">|</span>
-              <Link
-                href="/legal"
-                className="hover:text-white transition-colors"
-              >
+              <Link href="/legal" className="hover:text-white transition-colors">
                 Legal
               </Link>
             </div>
