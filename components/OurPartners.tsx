@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 function PartnersCarousel() {
@@ -53,11 +53,32 @@ function PartnersCarousel() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const carouselRef = useRef<HTMLDivElement | null>(null);
+
+  // ✅ Auto-scroll logic
+  useEffect(() => {
+    startAutoScroll();
+    return stopAutoScroll;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const startAutoScroll = () => {
+    if (intervalRef.current) return;
+    intervalRef.current = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % partners.length);
+    }, 2500);
+  };
+
+  const stopAutoScroll = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  };
 
   const getVisibleItems = () => {
-    const visibleCount = 7;
     const items = [];
-
     for (let i = -3; i <= 3; i++) {
       const index = (currentIndex + i + partners.length) % partners.length;
       items.push({
@@ -66,7 +87,6 @@ function PartnersCarousel() {
         originalIndex: index,
       });
     }
-
     return items;
   };
 
@@ -105,8 +125,13 @@ function PartnersCarousel() {
   const visibleItems = getVisibleItems();
 
   return (
-    <div className="w-full bg-[#EAB81E] relative py-16">
-      {/* OUR PARTNERS text positioned on top edge */}
+    <div
+      className="w-full bg-[#EAB81E] relative py-16"
+      ref={carouselRef}
+      onMouseEnter={stopAutoScroll}
+      onMouseLeave={startAutoScroll}
+    >
+      {/* OUR PARTNERS text */}
       <div className="absolute -top-10 left-8 flex flex-col">
         <span className="text-3xl md:text-5xl font-heading lg:text-6xl font-black text-[#EAB81E] drop-shadow-lg">
           OUR
@@ -119,12 +144,15 @@ function PartnersCarousel() {
       {/* Carousel */}
       <div className="relative flex items-center justify-center">
         {/* Left Arrow */}
-        <button onClick={handlePrevious} className="absolute left-4 z-50 p-2">
+        <button
+          onClick={handlePrevious}
+          className="absolute left-4 z-50 p-2 cursor-pointer hover:scale-110 transition-transform"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="black"
             viewBox="0 0 24 24"
-            className="w-15 h-15"
+            className="w-10 h-10"
           >
             <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
             <path d="M20.41 7.41 19 6l-6 6 6 6 1.41-1.41L15.83 12z" />
@@ -142,7 +170,7 @@ function PartnersCarousel() {
             return (
               <div
                 key={`${partner.id}-${index}`}
-                className="absolute transition-all duration-500 ease-out"
+                className="absolute transition-all duration-500 ease-out cursor-pointer hover:scale-105"
                 style={{
                   transform: `translateX(${translateX}px) scale(${scale})`,
                   opacity,
@@ -170,12 +198,15 @@ function PartnersCarousel() {
         </div>
 
         {/* Right Arrow */}
-        <button onClick={handleNext} className="absolute right-4 z-50 p-2">
+        <button
+          onClick={handleNext}
+          className="absolute right-4 z-50 p-2 cursor-pointer hover:scale-110 transition-transform"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="black"
             viewBox="0 0 24 24"
-            className="w-15 h-15"
+            className="w-10 h-10"
           >
             <path d="M8.59 16.59 10 18l6-6-6-6-1.41 1.41L13.17 12z" />
             <path d="M3.59 16.59 5 18l6-6-6-6-1.41 1.41L7.17 12z" />

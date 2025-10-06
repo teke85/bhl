@@ -2,6 +2,7 @@ import type React from "react";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import AnimatedChevron from "./AnimatedChevron";
 
 const EfficientLogistics: React.FC = () => {
   return (
@@ -11,11 +12,11 @@ const EfficientLogistics: React.FC = () => {
           {/* Text Column - Left Side */}
           <div className="relative z-30 max-w-full md:max-w-full w-full md:w-auto">
             {/* Title */}
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-4 mb-6 md:mb-8">
-              <h2 className="text-2xl md:text-4xl lg:text-4xl font-black text-white tracking-wider font-[family-name:var(--font-montserrat)]">
+            <div className="flex flex-col md:flex-col items-start md:items-start gap-2 md:gap-4 mb-6 md:mb-8">
+              <h2 className="text-2xl md:text-4xl lg:text-4xl font-black text-white tracking-wider font-heading">
                 EFFICIENT LOGISTICS
               </h2>
-              <ChevronDown className="h-6 w-6 md:h-8 md:w-8 text-white" />
+              <AnimatedChevron className="h-6 w-6 md:h-10 md:w-10" />
             </div>
 
             {/* Description */}

@@ -1,14 +1,15 @@
 "use client";
 
-import BigText from "@/components/BigText";
+// import BigText from "@/components/BigText";
+import CombinedCarouselBigTextSection from "@/components/CombinedCarouselBigTextSection";
 import CombinedStatsSection from "@/components/CombinedStatsSection";
-import EfficientGrowthCatalyst from "@/components/EfficientGrowthCatalyst";
-import EfficientLogistics from "@/components/EfficientLogistics";
+// import EfficientGrowthCatalyst from "@/components/EfficientGrowthCatalyst";
+// import EfficientLogistics from "@/components/EfficientLogistics";
 import Route from "@/components/FastestRoute";
 import { Footer } from "@/components/Footer";
 import HeroCarousel from "@/components/HeroSection2";
 
-import KeyStats from "@/components/KeyStats";
+// import KeyStats from "@/components/KeyStats";
 import OurPartners from "@/components/OurPartners";
 import TimelineMarquee from "@/components/TimeLineMarquee";
 

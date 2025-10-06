@@ -718,33 +718,23 @@ const slides = [
   {
     id: 1,
     image:
-      "https://res.cloudinary.com/dpeg7wc34/image/upload/v1756193625/modern-highway-construction-in-africa-with-mining-_wwaibc.png",
+      "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759688787/DJI_0515_j4zeml.jpg",
     title: "FASTEST ROUTE TO WALVIS BAY",
-    subtitle: "Revolutionary Infrastructure Development",
-    buttonText: "VIEW PROJECT HIGHLIGHTS",
   },
   {
     id: 2,
     image:
-      "https://res.cloudinary.com/dpeg7wc34/image/upload/v1756193625/aerial-view-of-african-highway-construction-site-w_ulux6u.png",
+      "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759688770/DJI_0521_q55ort.jpg",
     title: "CONNECTING COMMUNITIES",
-    subtitle: "Advanced Bridge Engineering",
+
     buttonText: "EXPLORE ENGINEERING",
   },
   {
     id: 3,
     image:
-      "https://res.cloudinary.com/dpeg7wc34/image/upload/v1756193625/aerial-view-of-african-highway-construction-site-w_ulux6u.png",
-    title: "MOUNTAIN PASS PROJECT",
-    subtitle: "Sustainable Transportation Solutions",
-    buttonText: "DISCOVER MORE",
-  },
-  {
-    id: 4,
-    image:
-      "https://res.cloudinary.com/dpeg7wc34/image/upload/v1756193625/aerial-view-of-african-highway-construction-site-w_ulux6u.png",
-    title: "TEST PROJECT",
-    subtitle: "Sustainable Transportation Solutions",
+      "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759688770/DJI_0521_q55ort.jpg",
+    title: "ENHANCING TRADE ROUTES",
+
     buttonText: "DISCOVER MORE",
   },
 ];
@@ -763,7 +753,6 @@ const CustomLeftArrow = () => (
   </svg>
 );
 
-// Custom Arrow Icons
 const CustomRightArrow = () => (
   <svg
     width="68"
@@ -772,10 +761,7 @@ const CustomRightArrow = () => (
     xmlns="http://www.w3.org/2000/svg"
     className="w-12 h-9 md:w-[68px] md:h-[50px]"
   >
-    {/* Golden background */}
     <rect width="68" height="50" fill="#D6A800" />
-
-    {/* White chevron arrow - pointing right */}
     <path d="M24 10 L40 25 L24 40 L32 40 L48 25 L32 10 Z" fill="white" />
   </svg>
 );
@@ -803,11 +789,11 @@ const Route = () => {
     if (!isAutoPlaying) return;
 
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      goToNext();
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying]);
+  }, [isAutoPlaying, currentSlide]);
 
   const goToSlide = (index: number) => {
     if (index === currentSlide || isTransitioning) return;
@@ -820,7 +806,6 @@ const Route = () => {
       setIsTransitioning(false);
     }, 600);
 
-    // Resume auto-play after 10 seconds
     setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
@@ -856,6 +841,7 @@ const Route = () => {
     (currentSlide - 1 + slides.length) % slides.length;
   const getNextSlide = () => (currentSlide + 1) % slides.length;
 
+<<<<<<< HEAD
   // Get card stacking positions and animations
   const getCardStyles = (index: number) => {
     const position = (index - currentSlide + slides.length) % slides.length;
@@ -929,6 +915,16 @@ const Route = () => {
           {/* Left Thumbnail - HIDDEN ON MOBILE */}
           <div
             className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-1/5 h-1/3 z-40 rounded-lg overflow-hidden shadow-2xl cursor-pointer transition-all duration-300 hover:scale-105"
+=======
+  return (
+    <div className="relative h-screen w-full overflow-hidden">
+      <div className="absolute inset-0 flex items-center justify-center">
+        {/* Main Carousel Container */}
+        <div className="relative w-full max-w-6xl h-4/5 flex items-center justify-center">
+          {/* Left Thumbnail - positioned half in/half out */}
+          <div
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-1/5 h-1/3 z-40 overflow-hidden shadow-2xl cursor-pointer transition-all duration-300 hover:scale-105"
+>>>>>>> main
             onClick={goToPrevious}
           >
             <Image
@@ -939,16 +935,29 @@ const Route = () => {
               sizes="(max-width: 768px) 100vw, 20vw"
               priority={false}
             />
-            <div className="absolute inset-0 bg-black/30 rounded-lg" />
-            <div className="absolute inset-0 border-2 border-white/30 rounded-lg" />
+            <div className="absolute inset-0 bg-black/30" />
+            <div className="absolute inset-0 border-2 border-white/30" />
           </div>
 
-          {/* Card Deck */}
-          <div className="w-full h-full relative perspective-1000">
-            <div className="relative w-full h-full">
-              {slides.map((slide, index) => {
-                const cardStyles = getCardStyles(index);
+          {/* Carousel Slides */}
+          <div className="relative w-full h-full overflow-hidden">
+            {slides.map((slide, index) => (
+              <div
+                key={slide.id}
+                className={`absolute inset-0 transition-all duration-600 ease-out overflow-hidden shadow-2xl ${
+                  index === currentSlide ? "opacity-100 z-30" : "opacity-0 z-0"
+                }`}
+              >
+                <Image
+                  src={slide.image}
+                  alt={slide.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 100vw"
+                  priority={index === 0}
+                />
 
+<<<<<<< HEAD
                 return (
                   <div
                     key={slide.id}
@@ -992,6 +1001,22 @@ const Route = () => {
           {/* Right Thumbnail - HIDDEN ON MOBILE */}
           <div
             className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-1/5 h-1/3 z-40 rounded-lg overflow-hidden shadow-2xl cursor-pointer transition-all duration-300 hover:scale-105"
+=======
+                {/* Card overlay */}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-100`}
+                />
+
+                {/* Card border for depth */}
+                <div className="absolute inset-0 border-2 border-white/10" />
+              </div>
+            ))}
+          </div>
+
+          {/* Right Thumbnail - positioned half in/half out */}
+          <div
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-1/5 h-1/3 z-40 overflow-hidden shadow-2xl cursor-pointer transition-all duration-300 hover:scale-105"
+>>>>>>> main
             onClick={goToNext}
           >
             <Image
@@ -1002,8 +1027,8 @@ const Route = () => {
               sizes="(max-width: 768px) 100vw, 20vw"
               priority={false}
             />
-            <div className="absolute inset-0 bg-black/30 rounded-lg" />
-            <div className="absolute inset-0 border-2 border-white/30 rounded-lg" />
+            <div className="absolute inset-0 bg-black/30" />
+            <div className="absolute inset-0 border-2 border-white/30" />
           </div>
         </div>
       </div>
@@ -1039,9 +1064,13 @@ const Route = () => {
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold md:mb-4 mb-3 text-balance drop-shadow-2xl leading-tight">
             {slides[currentSlide].title}
           </h1>
+<<<<<<< HEAD
           <p className="text-sm sm:text-base md:text-lg lg:text-xl md:mb-8 mb-4 text-balance opacity-90 drop-shadow-lg">
             {slides[currentSlide].subtitle}
           </p>
+=======
+
+>>>>>>> main
           <Button
             size="lg"
             className="bg-[#EAB81E] hover:bg-[#be9416] text-black font-semibold md:px-8 px-6 md:py-3 py-2 md:text-base text-sm transition-all duration-300 hover:scale-105 shadow-2xl pointer-events-auto w-full sm:w-auto"
@@ -1058,14 +1087,23 @@ const Route = () => {
             key={index}
             onClick={() => goToSlide(index)}
             disabled={isTransitioning}
+<<<<<<< HEAD
             className={`transition-all duration-300 rounded-full ${index === currentSlide
               ? "bg-[#E6B102] md:w-8 w-6 md:h-3 h-2.5 shadow-lg shadow-amber-500/50"
               : "bg-white/50 hover:bg-white/75 md:w-3 w-2.5 md:h-3 h-2.5 hover:scale-125"
               } ${isTransitioning ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}
+=======
+            className={`transition-all rounded-full duration-300 ${
+              index === currentSlide
+                ? "bg-[#E6B102] w-8 h-3 shadow-lg shadow-amber-500/50"
+                : "bg-white/50 hover:bg-white/75 w-3 h-3 hover:scale-125"
+            } ${isTransitioning ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}
+>>>>>>> main
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
+<<<<<<< HEAD
 
       {/* Add CSS for 3D perspective */}
       <style jsx>{`
@@ -1074,6 +1112,9 @@ const Route = () => {
         }
       `}</style>
     </section>
+=======
+    </div>
+>>>>>>> main
   );
 };
 
