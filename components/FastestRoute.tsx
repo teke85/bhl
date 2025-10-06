@@ -841,81 +841,6 @@ const Route = () => {
     (currentSlide - 1 + slides.length) % slides.length;
   const getNextSlide = () => (currentSlide + 1) % slides.length;
 
-<<<<<<< HEAD
-  // Get card stacking positions and animations
-  const getCardStyles = (index: number) => {
-    const position = (index - currentSlide + slides.length) % slides.length;
-
-    // On mobile, only show current card
-    if (isMobile) {
-      if (index === currentSlide) {
-        return {
-          transform: "translateX(0) translateY(0) scale(1) rotateY(0deg)",
-          zIndex: 30,
-          opacity: 1,
-        };
-      }
-      return {
-        transform: "translateX(0) translateY(0) scale(1) rotateY(0deg)",
-        zIndex: 0,
-        opacity: 0,
-      };
-    }
-
-    // Desktop card stacking (unchanged)
-    switch (position) {
-      case 0: // Current card (top of deck)
-        return {
-          transform: "translateX(0) translateY(0) scale(1) rotateY(0deg)",
-          zIndex: 30,
-          opacity: 1,
-        };
-      case 1: // Next card (slightly behind and to the right)
-        return {
-          transform:
-            "translateX(20px) translateY(10px) scale(0.95) rotateY(-5deg)",
-          zIndex: 20,
-          opacity: 0.8,
-        };
-      case 2: // Second next card (further behind)
-        return {
-          transform:
-            "translateX(40px) translateY(20px) scale(0.9) rotateY(-10deg)",
-          zIndex: 10,
-          opacity: 0.6,
-        };
-      case slides.length - 1: // Previous card (slightly behind and to the left)
-        return {
-          transform:
-            "translateX(-20px) translateY(10px) scale(0.95) rotateY(5deg)",
-          zIndex: 20,
-          opacity: 0.8,
-        };
-      case slides.length - 2: // Second previous card
-        return {
-          transform:
-            "translateX(-40px) translateY(20px) scale(0.9) rotateY(10deg)",
-          zIndex: 10,
-          opacity: 0.6,
-        };
-      default: // Hidden cards
-        return {
-          transform: "translateX(0) translateY(60px) scale(0.8) rotateY(0deg)",
-          zIndex: 0,
-          opacity: 0,
-        };
-    }
-  };
-
-  return (
-    <section className="relative h-screen w-full overflow-hidden">
-      <div className="absolute inset-0 flex items-center justify-center">
-        {/* Main Card Deck Container with thumbnails positioned relative to it */}
-        <div className="relative w-full max-w-6xl md:h-4/5 h-full flex items-center justify-center px-4 md:px-0">
-          {/* Left Thumbnail - HIDDEN ON MOBILE */}
-          <div
-            className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-1/5 h-1/3 z-40 rounded-lg overflow-hidden shadow-2xl cursor-pointer transition-all duration-300 hover:scale-105"
-=======
   return (
     <div className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center">
@@ -924,7 +849,6 @@ const Route = () => {
           {/* Left Thumbnail - positioned half in/half out */}
           <div
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-1/5 h-1/3 z-40 overflow-hidden shadow-2xl cursor-pointer transition-all duration-300 hover:scale-105"
->>>>>>> main
             onClick={goToPrevious}
           >
             <Image
@@ -944,9 +868,8 @@ const Route = () => {
             {slides.map((slide, index) => (
               <div
                 key={slide.id}
-                className={`absolute inset-0 transition-all duration-600 ease-out overflow-hidden shadow-2xl ${
-                  index === currentSlide ? "opacity-100 z-30" : "opacity-0 z-0"
-                }`}
+                className={`absolute inset-0 transition-all duration-600 ease-out overflow-hidden shadow-2xl ${index === currentSlide ? "opacity-100 z-30" : "opacity-0 z-0"
+                  }`}
               >
                 <Image
                   src={slide.image}
@@ -957,51 +880,6 @@ const Route = () => {
                   priority={index === 0}
                 />
 
-<<<<<<< HEAD
-                return (
-                  <div
-                    key={slide.id}
-                    className="absolute inset-0 transition-all duration-600 ease-out cursor-pointer md:rounded-2xl rounded-lg overflow-hidden shadow-2xl"
-                    style={{
-                      transform: cardStyles.transform,
-                      zIndex: cardStyles.zIndex,
-                      opacity: cardStyles.opacity,
-                      transformStyle: "preserve-3d",
-                    }}
-                    onClick={() => index !== currentSlide && goToSlide(index)}
-                  >
-                    <Image
-                      src={slide.image}
-                      alt={slide.title}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 100vw"
-                      priority={index === 0}
-                    />
-
-                    {/* STRONGER Card overlay gradient - makes text more readable */}
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30 transition-opacity duration-300 ${index === currentSlide ? "opacity-100" : "opacity-60"
-                        }`}
-                    />
-
-                    {/* Card border for depth */}
-                    <div
-                      className={`absolute inset-0 border-2 transition-all duration-300 ${index === currentSlide
-                        ? "rounded-none"
-                        : "border-white/10"
-                        }`}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Right Thumbnail - HIDDEN ON MOBILE */}
-          <div
-            className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-1/5 h-1/3 z-40 rounded-lg overflow-hidden shadow-2xl cursor-pointer transition-all duration-300 hover:scale-105"
-=======
                 {/* Card overlay */}
                 <div
                   className={`absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-100`}
@@ -1016,7 +894,6 @@ const Route = () => {
           {/* Right Thumbnail - positioned half in/half out */}
           <div
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-1/5 h-1/3 z-40 overflow-hidden shadow-2xl cursor-pointer transition-all duration-300 hover:scale-105"
->>>>>>> main
             onClick={goToNext}
           >
             <Image
@@ -1064,13 +941,6 @@ const Route = () => {
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold md:mb-4 mb-3 text-balance drop-shadow-2xl leading-tight">
             {slides[currentSlide].title}
           </h1>
-<<<<<<< HEAD
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl md:mb-8 mb-4 text-balance opacity-90 drop-shadow-lg">
-            {slides[currentSlide].subtitle}
-          </p>
-=======
-
->>>>>>> main
           <Button
             size="lg"
             className="bg-[#EAB81E] hover:bg-[#be9416] text-black font-semibold md:px-8 px-6 md:py-3 py-2 md:text-base text-sm transition-all duration-300 hover:scale-105 shadow-2xl pointer-events-auto w-full sm:w-auto"
@@ -1087,34 +957,15 @@ const Route = () => {
             key={index}
             onClick={() => goToSlide(index)}
             disabled={isTransitioning}
-<<<<<<< HEAD
-            className={`transition-all duration-300 rounded-full ${index === currentSlide
-              ? "bg-[#E6B102] md:w-8 w-6 md:h-3 h-2.5 shadow-lg shadow-amber-500/50"
-              : "bg-white/50 hover:bg-white/75 md:w-3 w-2.5 md:h-3 h-2.5 hover:scale-125"
-              } ${isTransitioning ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}
-=======
-            className={`transition-all rounded-full duration-300 ${
-              index === currentSlide
+            className={`transition-all rounded-full duration-300 ${index === currentSlide
                 ? "bg-[#E6B102] w-8 h-3 shadow-lg shadow-amber-500/50"
                 : "bg-white/50 hover:bg-white/75 w-3 h-3 hover:scale-125"
-            } ${isTransitioning ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}
->>>>>>> main
+              } ${isTransitioning ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
-<<<<<<< HEAD
-
-      {/* Add CSS for 3D perspective */}
-      <style jsx>{`
-        .perspective-1000 {
-          perspective: 1000px;
-        }
-      `}</style>
-    </section>
-=======
     </div>
->>>>>>> main
   );
 };
 

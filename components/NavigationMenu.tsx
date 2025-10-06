@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
 import DownArrow from "@/components/DownArrow";
+import Link from "next/link";
 
 type MenuKey = "About" | "Projects" | "Milestones";
 
@@ -18,11 +18,6 @@ function MegaMenuNavigation() {
         name: string;
         href: string;
       }[];
-      featured: {
-        title: string;
-        image: string;
-        href: string;
-      };
     }
   > = {
     About: {
@@ -35,12 +30,6 @@ function MegaMenuNavigation() {
         { name: "Values & Culture", href: "/about/culture" },
         { name: "Sustainability", href: "/about/sustainability" },
       ],
-      featured: {
-        title: "ANNUAL REPORT 2024",
-        image:
-          "https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-        href: "/about/annual-report",
-      },
     },
     Projects: {
       title: "PROJECT",
@@ -51,12 +40,6 @@ function MegaMenuNavigation() {
         { name: "CAREERS", href: "/projects/capabilities" },
         { name: "MULTIMEDIA GALLERY", href: "/projects/operations" },
       ],
-      featured: {
-        title: "ESG REPORT 2024",
-        image:
-          "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-        href: "/projects/esg-report",
-      },
     },
     Milestones: {
       title: "MILESTONES",
@@ -68,12 +51,6 @@ function MegaMenuNavigation() {
         { name: "Completed Projects", href: "/milestones/completed" },
         { name: "Community Impact", href: "/milestones/impact" },
       ],
-      featured: {
-        title: "ACHIEVEMENTS 2024",
-        image:
-          "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-        href: "/milestones/achievements",
-      },
     },
   };
 
@@ -106,95 +83,113 @@ function MegaMenuNavigation() {
       className="hidden md:flex items-center space-x-8 relative z-50 px-4"
       ref={menuRef}
     >
-      {Object.keys(menuData).map((menuName) => (
-        <div key={menuName} className="relative font-heading">
-          <div
-            className="relative flex items-center space-x-1 py-2 font-medium text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300"
-            onClick={() => handleMenuClick(menuName as MenuKey)}
+      {/* About with direct link */}
+      <div className="relative font-heading">
+        <div className="flex items-center space-x-1">
+          <Link
+            href="/about"
+            className="py-2 font-medium text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300"
           >
-            <span>{menuName}</span>
+            About
+          </Link>
+          <div
+            className="flex items-center cursor-pointer hover:text-[#E1AF1C] transition-all duration-300"
+            onClick={() => handleMenuClick("About")}
+          >
             <DownArrow
               className={`w-4 h-4 transition-transform duration-300 ${
-                activeMenu === menuName ? "rotate-180" : ""
+                activeMenu === "About" ? "rotate-180" : ""
               }`}
             />
           </div>
         </div>
-      ))}
+      </div>
+
+      {/* Projects with direct link */}
+      <div className="relative font-heading">
+        <div className="flex items-center space-x-1">
+          <Link
+            href="/projects"
+            className="py-2 font-medium text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300"
+          >
+            Projects
+          </Link>
+          <div
+            className="flex items-center cursor-pointer hover:text-[#E1AF1C] transition-all duration-300"
+            onClick={() => handleMenuClick("Projects")}
+          >
+            <DownArrow
+              className={`w-4 h-4 transition-transform duration-300 ${
+                activeMenu === "Projects" ? "rotate-180" : ""
+              }`}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Milestones (no direct link) */}
+      <div className="relative font-heading">
+        <div
+          className="relative flex items-center space-x-1 py-2 font-medium text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300"
+          onClick={() => handleMenuClick("Milestones")}
+        >
+          <span>Milestones</span>
+          <DownArrow
+            className={`w-4 h-4 transition-transform duration-300 ${
+              activeMenu === "Milestones" ? "rotate-180" : ""
+            }`}
+          />
+        </div>
+      </div>
 
       <div className="relative">
-        <a
+        <Link
           href="/gallery"
           className="text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300 flex items-center space-x-1 py-2 font-medium"
         >
           Gallery
-        </a>
+        </Link>
       </div>
 
       <div className="relative">
-        <a
+        <Link
           href="/news"
           className="text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300 flex items-center space-x-1 py-2 font-medium"
         >
           News
-        </a>
+        </Link>
       </div>
 
       {/* Dropdown */}
       {activeMenu && (
-        <div className="fixed top-[64px] left-0 right-0 w-fit shadow-2xl bg-red transition-all duration-300 z-50 opacity-100 translate-y-0">
-          <div className="container-fluid mx-auto bg-transparent min-h-[500px]">
-            <div className="grid grid-cols-3 gap-0 max-w-7xl mx-auto ">
-              {/* Column 1 */}
-              <div className="font-heading space-y-6 flex flex-col p-4 bg-[#EDCA51] justify-center">
+        <div className="fixed top-[64px] left-1/2 transform -translate-x-1/2 w-full max-w-5xl shadow-2xl bg-red transition-all duration-300 z-50 opacity-100 translate-y-0">
+          <div className="container-fluid mx-auto bg-transparent min-h-[400px]">
+            <div className="grid py-10 grid-cols-2 gap-0 max-w-6xl mx-auto rounded-lg overflow-hidden">
+              {/* Column 1 - Content with vertical divider on the LEFT */}
+              <div className="font-heading px-20 space-y-6 flex flex-col bg-[#EDCA51] justify-center relative">
+                {/* Vertical divider on the LEFT side with proper spacing */}
+                <div className="absolute mr-5 left-8 top-1/2 transform -translate-y-1/2 w-1 h-3/4 bg-gray-900/30"></div>
+
                 <h2 className="text-4xl font-heading font-bold text-gray-900 tracking-tight">
                   {menuData[activeMenu].title}
                 </h2>
+
                 <p className="text-gray-600 font-sans leading-relaxed text-base">
                   {menuData[activeMenu].description}
                 </p>
               </div>
 
-              {/* Column 2 */}
+              {/* Column 2 - Links */}
               <div className="space-y-5 bg-[#E6B40A] p-8 flex flex-col justify-center">
                 {menuData[activeMenu].links.map((link, index) => (
-                  <a
+                  <Link
                     key={index}
                     href={link.href}
                     className="block font-heading text-black hover:text-white duration-200 text-base font-medium py-2 hover:translate-x-2 transform transition-transform"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 ))}
-              </div>
-
-              {/* Column 3 */}
-              <div className="relative flex items-center">
-                <a
-                  href={menuData[activeMenu].featured.href}
-                  className="block group w-full"
-                >
-                  <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
-                    <Image
-                      src={
-                        menuData[activeMenu].featured.image ||
-                        "/placeholder.svg"
-                      }
-                      alt={menuData[activeMenu].featured.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      priority
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                    <div className="absolute bottom-6 left-6 right-6">
-                      <h3 className="text-white font-bold text-xl">
-                        {menuData[activeMenu].featured.title}
-                      </h3>
-                      <p className="text-white/80 text-sm mt-2">Learn more →</p>
-                    </div>
-                  </div>
-                </a>
               </div>
             </div>
           </div>

@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import NavigationMenu from "./NavigationMenu";
+import MobileMenu from "./MobileMenu";
 
 interface CarouselSlide {
   id: number;
@@ -234,7 +235,7 @@ function HeroCarousel() {
             </div>
 
             {/* Search */}
-            <div className="relative z-30">
+            <div className="hidden md:block relative z-30">
               <form onSubmit={handleSearch} className="relative">
                 <Input
                   type="text"
@@ -246,6 +247,8 @@ function HeroCarousel() {
                 <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-white/60" />
               </form>
             </div>
+            {/* Mobile Menu */}
+            <MobileMenu />
           </div>
         </div>
       </nav>
