@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import DownArrow from "@/components/DownArrow";
+import Link from "next/link";
 
 type MenuKey = "About" | "Projects" | "Milestones";
 
@@ -82,38 +83,81 @@ function MegaMenuNavigation() {
       className="hidden md:flex items-center space-x-8 relative z-50 px-4"
       ref={menuRef}
     >
-      {Object.keys(menuData).map((menuName) => (
-        <div key={menuName} className="relative font-heading">
-          <div
-            className="relative flex items-center space-x-1 py-2 font-medium text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300"
-            onClick={() => handleMenuClick(menuName as MenuKey)}
+      {/* About with direct link */}
+      <div className="relative font-heading">
+        <div className="flex items-center space-x-1">
+          <Link
+            href="/about"
+            className="py-2 font-medium text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300"
           >
-            <span>{menuName}</span>
+            About
+          </Link>
+          <div
+            className="flex items-center cursor-pointer hover:text-[#E1AF1C] transition-all duration-300"
+            onClick={() => handleMenuClick("About")}
+          >
             <DownArrow
               className={`w-4 h-4 transition-transform duration-300 ${
-                activeMenu === menuName ? "rotate-180" : ""
+                activeMenu === "About" ? "rotate-180" : ""
               }`}
             />
           </div>
         </div>
-      ))}
+      </div>
+
+      {/* Projects with direct link */}
+      <div className="relative font-heading">
+        <div className="flex items-center space-x-1">
+          <Link
+            href="/projects"
+            className="py-2 font-medium text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300"
+          >
+            Projects
+          </Link>
+          <div
+            className="flex items-center cursor-pointer hover:text-[#E1AF1C] transition-all duration-300"
+            onClick={() => handleMenuClick("Projects")}
+          >
+            <DownArrow
+              className={`w-4 h-4 transition-transform duration-300 ${
+                activeMenu === "Projects" ? "rotate-180" : ""
+              }`}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Milestones (no direct link) */}
+      <div className="relative font-heading">
+        <div
+          className="relative flex items-center space-x-1 py-2 font-medium text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300"
+          onClick={() => handleMenuClick("Milestones")}
+        >
+          <span>Milestones</span>
+          <DownArrow
+            className={`w-4 h-4 transition-transform duration-300 ${
+              activeMenu === "Milestones" ? "rotate-180" : ""
+            }`}
+          />
+        </div>
+      </div>
 
       <div className="relative">
-        <a
+        <Link
           href="/gallery"
           className="text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300 flex items-center space-x-1 py-2 font-medium"
         >
           Gallery
-        </a>
+        </Link>
       </div>
 
       <div className="relative">
-        <a
+        <Link
           href="/news"
           className="text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300 flex items-center space-x-1 py-2 font-medium"
         >
           News
-        </a>
+        </Link>
       </div>
 
       {/* Dropdown */}
@@ -138,13 +182,13 @@ function MegaMenuNavigation() {
               {/* Column 2 - Links */}
               <div className="space-y-5 bg-[#E6B40A] p-8 flex flex-col justify-center">
                 {menuData[activeMenu].links.map((link, index) => (
-                  <a
+                  <Link
                     key={index}
                     href={link.href}
                     className="block font-heading text-black hover:text-white duration-200 text-base font-medium py-2 hover:translate-x-2 transform transition-transform"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
