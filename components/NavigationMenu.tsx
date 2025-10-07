@@ -97,9 +97,8 @@ function MegaMenuNavigation() {
             onClick={() => handleMenuClick("About")}
           >
             <DownArrow
-              className={`w-4 h-4 transition-transform duration-300 ${
-                activeMenu === "About" ? "rotate-180" : ""
-              }`}
+              className={`w-4 h-4 transition-transform duration-300 ${activeMenu === "About" ? "rotate-180" : ""
+                }`}
             />
           </div>
         </div>
@@ -119,26 +118,31 @@ function MegaMenuNavigation() {
             onClick={() => handleMenuClick("Projects")}
           >
             <DownArrow
-              className={`w-4 h-4 transition-transform duration-300 ${
-                activeMenu === "Projects" ? "rotate-180" : ""
-              }`}
+              className={`w-4 h-4 transition-transform duration-300 ${activeMenu === "Projects" ? "rotate-180" : ""
+                }`}
             />
           </div>
         </div>
       </div>
 
-      {/* Milestones (no direct link) */}
+      {/* Milestones with direct link */}
       <div className="relative font-heading">
-        <div
-          className="relative flex items-center space-x-1 py-2 font-medium text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300"
-          onClick={() => handleMenuClick("Milestones")}
-        >
-          <span>Milestones</span>
-          <DownArrow
-            className={`w-4 h-4 transition-transform duration-300 ${
-              activeMenu === "Milestones" ? "rotate-180" : ""
-            }`}
-          />
+        <div className="flex items-center space-x-1">
+          <Link
+            href="/milestones"
+            className="py-2 font-medium text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300"
+          >
+            Milestones
+          </Link>
+          <div
+            className="flex items-center cursor-pointer hover:text-[#E1AF1C] transition-all duration-300"
+            onClick={() => handleMenuClick("Milestones")}
+          >
+            <DownArrow
+              className={`w-4 h-4 transition-transform duration-300 ${activeMenu === "Milestones" ? "rotate-180" : ""
+                }`}
+            />
+          </div>
         </div>
       </div>
 
