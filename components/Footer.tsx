@@ -318,18 +318,10 @@ export function Footer() {
       <div className="absolute inset-0 z-0">
         <div
           className="w-full h-full bg-cover bg-center"
-          // style={{
-          //     backgroundImage:
-          //         "url(https://res.cloudinary.com/dpeg7wc34/image/upload/v1758715424/4_bhefzk.png)",
-          // }}
         />
         {/* Gradient overlay - darker at top, yellowish at bottom */}
         <div
           className="absolute inset-0"
-          //   style={{
-          //     background:
-          //       "linear-gradient(to bottom, rgba(45, 40, 20, 0.65) 0%, rgba(60, 52, 25, 0.72) 30%, rgba(85, 70, 30, 0.78) 60%, rgba(110, 90, 35, 0.85) 100%)",
-          //   }}
         />
       </div>
 
