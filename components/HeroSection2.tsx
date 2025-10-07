@@ -49,7 +49,7 @@ const slides: CarouselSlide[] = [
   },
 ];
 
-// Sample video URL - replace with your actual video
+// Video URL - Actual video
 const SAMPLE_VIDEO_URL =
   "https://pangaeasecurities-my.sharepoint.com/personal/kchipati_pangaea_co_zm/_layouts/15/stream.aspx?id=%2Fpersonal%2Fkchipati%5Fpangaea%5Fco%5Fzm%2FDocuments%2FDesktop%20Work%2FFQM%20Road%2FPICS%2FBHL%20Concession%20Signing%2001%2E12%2E2024%2Emp4&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Ecaa60ad9%2D8d78%2D4c71%2Da992%2D374637aad7e2";
 
