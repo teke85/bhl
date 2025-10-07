@@ -133,10 +133,10 @@ function PartnersCarousel() {
     >
       {/* OUR PARTNERS text */}
       <div className="absolute -top-10 left-8 flex flex-col">
-        <span className="text-3xl md:text-5xl font-heading lg:text-6xl font-black text-[#EAB81E] drop-shadow-lg">
+        <span className="text-2xl md:text-4xl lg:text-6xl font-heading font-black text-[#EAB81E] drop-shadow-lg">
           OUR
         </span>
-        <span className="text-3xl md:text-5xl lg:text-6xl font-heading font-black text-[#EAB81E] drop-shadow-lg">
+        <span className="text-2xl md:text-4xl lg:text-6xl font-heading font-black text-[#EAB81E] drop-shadow-lg">
           PARTNERS
         </span>
       </div>

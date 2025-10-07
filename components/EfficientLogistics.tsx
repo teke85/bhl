@@ -13,7 +13,7 @@ const EfficientLogistics: React.FC = () => {
           <div className="relative z-30 max-w-full md:max-w-full w-full md:w-auto">
             {/* Title */}
             <div className="flex flex-col md:flex-col items-start md:items-start gap-2 md:gap-4 mb-6 md:mb-8">
-              <h2 className="text-2xl md:text-4xl lg:text-4xl font-black text-white tracking-wider font-heading">
+              <h2 className="text-2xl md:text-4xl lg:text-6xl tracking-tight font-heading font-black text-white">
                 EFFICIENT LOGISTICS
               </h2>
               <AnimatedChevron className="h-6 w-6 md:h-10 md:w-10" />
@@ -21,7 +21,7 @@ const EfficientLogistics: React.FC = () => {
 
             {/* Description */}
             <div className="flex flex-col gap-4 text-white z-50 h-full backdrop-blur-sm p-6 md:p-12 bg-black/80 text-base md:text-lg leading-relaxed mb-6 md:mb-8 max-w-full md:max-w-2xl font-[family-name:var(--font-jost)]">
-              <p className="">
+              <p className="text-white text-left text-base md:text-lg leading-relaxeds">
                 The Road also serves as a vital trade corridor, connecting
                 Solwezi to Walvis Bay in Namibia. The current condition of the
                 Road restricts seamless movement of goods, impacting trade

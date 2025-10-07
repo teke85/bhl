@@ -248,7 +248,7 @@ const EconomicGrowthCatalyst: React.FC = () => {
             <div className="flex flex-col md:flex-col items-start md:items-end md:justify-end gap-2 md:gap-4 mb-6 md:mb-8">
               <h2
                 ref={titleRef}
-                className="text-2xl md:text-4xl lg:text-4xl font-black text-white tracking-wider text-left md:text-right font-heading"
+                className="text-2xl md:text-4xl lg:text-6xl font-black text-white tracking-wider text-left md:text-right font-heading"
               >
                 ECONOMIC GROWTH CATALYST
               </h2>

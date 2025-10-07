@@ -24,8 +24,9 @@ const EconomicGrowthCatalyst: React.FC = () => {
           <div className="relative z-30 max-w-full md:max-w-2xl w-full md:w-auto order-1 md:order-2">
             {/* Title */}
             <div className="flex flex-col md:flex-col items-start md:items-end md:justify-end gap-2 md:gap-4 mb-6 md:mb-8">
-              <h2 className="text-2xl md:text-4xl lg:text-4xl font-black text-white tracking-wider text-left md:text-right font-heading">
-                ECONOMIC GROWTH CATALYST
+              <h2 className="text-2xl md:text-4xl lg:text-6xl font-black text-white tracking-tight text-left md:text-left font-heading">
+                ECONOMIC <br />
+                GROWTH CATALYST
               </h2>
               <AnimatedChevron className="h-6 w-6 md:h-10 md:w-10" />
             </div>
@@ -38,7 +39,7 @@ const EconomicGrowthCatalyst: React.FC = () => {
                 ultimately translate to improved welfare for the country.
               </p>
 
-              <p className="text-left text-white">
+              <p className="text-white text-left text-base md:text-lg leading-relaxed font-sans">
                 The primary beneficiaries of the Mutanda to Kaoma road
                 rehabilitation and construction project include the mining
                 industry, businesses, regional trade, local communities, the

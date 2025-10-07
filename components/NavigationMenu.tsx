@@ -80,7 +80,7 @@ function MegaMenuNavigation() {
 
   return (
     <div
-      className="hidden md:flex items-center space-x-8 relative z-50 px-4"
+      className="hidden md:flex items-center space-x-30 relative z-50 px-4"
       ref={menuRef}
     >
       {/* About with direct link */}
@@ -88,7 +88,7 @@ function MegaMenuNavigation() {
         <div className="flex items-center space-x-1">
           <Link
             href="/about"
-            className="py-2 font-medium text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300"
+            className="py-2 font-medium cursor-pointer text-white hover:text-[#E1AF1C] transition-all duration-300"
           >
             About
           </Link>
@@ -97,7 +97,7 @@ function MegaMenuNavigation() {
             onClick={() => handleMenuClick("About")}
           >
             <DownArrow
-              className={`w-4 h-4 transition-transform duration-300 ${
+              className={`w-6 h-6 transition-transform duration-300 ${
                 activeMenu === "About" ? "rotate-180" : ""
               }`}
             />
@@ -119,7 +119,7 @@ function MegaMenuNavigation() {
             onClick={() => handleMenuClick("Projects")}
           >
             <DownArrow
-              className={`w-4 h-4 transition-transform duration-300 ${
+              className={`w-6 h-6 transition-transform duration-300 ${
                 activeMenu === "Projects" ? "rotate-180" : ""
               }`}
             />
@@ -135,7 +135,7 @@ function MegaMenuNavigation() {
         >
           <span>Milestones</span>
           <DownArrow
-            className={`w-4 h-4 transition-transform duration-300 ${
+            className={`w-6 h-6 transition-transform duration-300 ${
               activeMenu === "Milestones" ? "rotate-180" : ""
             }`}
           />
@@ -144,7 +144,7 @@ function MegaMenuNavigation() {
 
       {/* Dropdown */}
       {activeMenu && (
-        <div className="fixed top-[72px] left-1/2 transform -translate-x-1/2 w-full max-w-5xl shadow-2xl bg-red transition-all duration-300 z-50 opacity-100 translate-y-0">
+        <div className="fixed top-[80px] left-1/2 transform -translate-x-1/2 w-full max-w-5xl shadow-2xl bg-red transition-all duration-300 z-50 opacity-100 translate-y-0">
           <div className="container-fluid mx-auto bg-transparent min-h-[400px]">
             <div className="grid py-10 grid-cols-2 gap-0 max-w-6xl mx-auto rounded-lg overflow-hidden">
               {/* Column 1 - Content with vertical divider on the LEFT */}

@@ -62,10 +62,10 @@ const TimelineMarquee = () => {
       <div className="relative w-full max-w-full mx-auto">
         {/* KEY PROJECT TIMELINES Text - Positioned like in PartnersCarousel */}
         <div className="absolute -top-10 left-8 flex flex-col z-50">
-          <span className="text-3xl md:text-5xl lg:text-6xl font-black text-[#EAB81E] drop-shadow-lg font-heading">
+          <span className="text-2xl md:text-4xl lg:text-6xl tracking-tight font-black text-[#EAB81E] drop-shadow-lg font-heading">
             KEY PROJECT
           </span>
-          <span className="text-3xl md:text-5xl lg:text-6xl font-black text-[#EAB81E] drop-shadow-lg font-heading">
+          <span className="text-2xl md:text-4xl lg:text-6xl tracking-tight font-black text-[#EAB81E] drop-shadow-lg font-heading">
             TIMELINES
           </span>
         </div>
