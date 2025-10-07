@@ -93,13 +93,13 @@ function BigText() {
       <div className="relative z-10 w-full">
         <div
           ref={efficientRef}
-          className="text-center uppercase text-[#8C887F] font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-tight"
+          className="text-center font-heading uppercase text-[#8C887F] font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-tight"
         >
           Efficient
         </div>
         <div
           ref={logisticsRef}
-          className="text-center uppercase text-[#8C887F] font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-tight"
+          className="text-center font-heading uppercase text-[#8C887F] font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-tight"
         >
           Logistics
         </div>
