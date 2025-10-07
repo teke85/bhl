@@ -142,27 +142,9 @@ function MegaMenuNavigation() {
         </div>
       </div>
 
-      <div className="relative">
-        <Link
-          href="/gallery"
-          className="text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300 flex items-center space-x-1 py-2 font-medium"
-        >
-          Gallery
-        </Link>
-      </div>
-
-      <div className="relative">
-        <Link
-          href="/news"
-          className="text-white cursor-pointer hover:text-[#E1AF1C] transition-all duration-300 flex items-center space-x-1 py-2 font-medium"
-        >
-          News
-        </Link>
-      </div>
-
       {/* Dropdown */}
       {activeMenu && (
-        <div className="fixed top-[64px] left-1/2 transform -translate-x-1/2 w-full max-w-5xl shadow-2xl bg-red transition-all duration-300 z-50 opacity-100 translate-y-0">
+        <div className="fixed top-[72px] left-1/2 transform -translate-x-1/2 w-full max-w-5xl shadow-2xl bg-red transition-all duration-300 z-50 opacity-100 translate-y-0">
           <div className="container-fluid mx-auto bg-transparent min-h-[400px]">
             <div className="grid py-10 grid-cols-2 gap-0 max-w-6xl mx-auto rounded-lg overflow-hidden">
               {/* Column 1 - Content with vertical divider on the LEFT */}

@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu } from "lucide-react"
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -13,10 +13,10 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
+} from "@/components/ui/navigation-menu";
 
 export function Navigation() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -52,7 +52,9 @@ export function Navigation() {
                       href="/about"
                       className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                     >
-                      <div className="text-sm font-medium leading-none">Company Background</div>
+                      <div className="text-sm font-medium leading-none">
+                        Company Background
+                      </div>
                       <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                         Learn about our history and mission
                       </p>
@@ -61,7 +63,9 @@ export function Navigation() {
                       href="/leadership"
                       className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                     >
-                      <div className="text-sm font-medium leading-none">Leadership Team</div>
+                      <div className="text-sm font-medium leading-none">
+                        Leadership Team
+                      </div>
                       <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                         Meet our experienced leadership
                       </p>
@@ -71,32 +75,27 @@ export function Navigation() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Project</NavigationMenuTrigger>
+                <NavigationMenuTrigger>Projects</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid gap-3 p-6 w-[500px]">
                     <Link
-                      href="/project"
+                      href="/projects"
                       className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                     >
-                      <div className="text-sm font-medium leading-none">Project Overview</div>
+                      <div className="text-sm font-medium leading-none">
+                        Project Overview
+                      </div>
                       <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                         Comprehensive details about the highway project
-                      </p>
-                    </Link>
-                    <Link
-                      href="/timeline"
-                      className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                    >
-                      <div className="text-sm font-medium leading-none">Timeline & Milestones</div>
-                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        Track our progress and upcoming milestones
                       </p>
                     </Link>
                     <Link
                       href="/environmental"
                       className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                     >
-                      <div className="text-sm font-medium leading-none">Environmental Impact</div>
+                      <div className="text-sm font-medium leading-none">
+                        Environmental Impact
+                      </div>
                       <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                         Our commitment to environmental responsibility
                       </p>
@@ -106,44 +105,42 @@ export function Navigation() {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Updates</NavigationMenuTrigger>
+                <NavigationMenuTrigger>Milestones</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid gap-3 p-6 w-[400px]">
                     <Link
-                      href="/news"
+                      href="/milestones"
                       className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                     >
-                      <div className="text-sm font-medium leading-none">News & Announcements</div>
+                      <div className="text-sm font-medium leading-none">
+                        Project Milestones
+                      </div>
                       <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        Latest project updates and news
+                        Key achievements and progress markers
                       </p>
                     </Link>
                     <Link
-                      href="/community"
+                      href="/timeline"
                       className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                     >
-                      <div className="text-sm font-medium leading-none">CSR & Community</div>
+                      <div className="text-sm font-medium leading-none">
+                        Timeline
+                      </div>
                       <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        Community engagement and social responsibility
+                        Track our progress and upcoming milestones
                       </p>
                     </Link>
                   </div>
                 </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <Link href="/contact" legacyBehavior passHref>
-                  <NavigationMenuLink className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50">
-                    Contact
-                  </NavigationMenuLink>
-                </Link>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
 
           {/* CTA Button */}
           <div className="hidden lg:flex">
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90">Download Project Brief</Button>
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
+              Download Project Brief
+            </Button>
           </div>
 
           {/* Mobile Menu */}
@@ -155,23 +152,33 @@ export function Navigation() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <nav className="flex flex-col space-y-4 mt-8">
-                <Link href="/" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
+                <Link
+                  href="/"
+                  className="text-lg font-medium"
+                  onClick={() => setIsOpen(false)}
+                >
                   Home
                 </Link>
-                <Link href="/about" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
+                <Link
+                  href="/about"
+                  className="text-lg font-medium"
+                  onClick={() => setIsOpen(false)}
+                >
                   About
                 </Link>
-                <Link href="/project" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
-                  Project
+                <Link
+                  href="/projects"
+                  className="text-lg font-medium"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Projects
                 </Link>
-                <Link href="/timeline" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
-                  Timeline
-                </Link>
-                <Link href="/news" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
-                  Updates
-                </Link>
-                <Link href="/contact" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
-                  Contact
+                <Link
+                  href="/milestones"
+                  className="text-lg font-medium"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Milestones
                 </Link>
                 <Button className="mt-4 bg-primary text-primary-foreground hover:bg-primary/90">
                   Download Project Brief
@@ -182,5 +189,5 @@ export function Navigation() {
         </div>
       </div>
     </header>
-  )
+  );
 }

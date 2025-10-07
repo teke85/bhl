@@ -65,6 +65,7 @@ function HeroCarousel() {
   const ctaRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
+  const transformationTextRef = useRef<HTMLHeadingElement>(null);
 
   // Auto-advance carousel
   useEffect(() => {
@@ -99,7 +100,47 @@ function HeroCarousel() {
     return () => document.removeEventListener("keydown", handleEscape);
   }, [isVideoModalOpen, isFullScreen]);
 
-  // GSAP-like animations using CSS transitions and transforms
+  // Infinite scroll animation for TRANSFORMATION text
+  useEffect(() => {
+    if (!transformationTextRef.current) return;
+
+    const element = transformationTextRef.current;
+    const textWidth = element.offsetWidth;
+
+    // Set initial position off-screen to the left
+    element.style.transform = `translateY(-50%) translateX(-${textWidth}px)`;
+
+    // Create infinite loop animation
+    const animate = () => {
+      const startX = -textWidth;
+      const endX = window.innerWidth;
+      const distance = endX - startX;
+      const speed = 50; // pixels per second - adjust this to control speed
+      const duration = (distance / speed) * 1000; // convert to milliseconds
+
+      let startTime: number | null = null;
+
+      const animateFrame = (timestamp: number) => {
+        if (!startTime) startTime = timestamp;
+        const elapsed = timestamp - startTime;
+        const progress = (elapsed / duration) % 1; // loop between 0 and 1
+
+        const currentX = startX + distance * progress;
+
+        if (element) {
+          element.style.transform = `translateY(-50%) translateX(${currentX}px)`;
+        }
+
+        requestAnimationFrame(animateFrame);
+      };
+
+      requestAnimationFrame(animateFrame);
+    };
+
+    animate();
+  }, []);
+
+  // Content animations using CSS transitions and transforms
   useEffect(() => {
     const animateElements = () => {
       if (titleRef.current) {
@@ -159,15 +200,14 @@ function HeroCarousel() {
 
   const handleOpenVideoModal = () => {
     setIsVideoModalOpen(true);
-    document.body.style.overflow = "hidden"; // Prevent background scrolling
+    document.body.style.overflow = "hidden";
   };
 
   const handleCloseModal = () => {
     setIsVideoModalOpen(false);
     setIsFullScreen(false);
-    document.body.style.overflow = "unset"; // Restore scrolling
+    document.body.style.overflow = "unset";
 
-    // Pause video when closing modal
     if (videoRef.current) {
       videoRef.current.pause();
     }
@@ -193,7 +233,6 @@ function HeroCarousel() {
     setIsFullScreen(false);
   };
 
-  // Handle fullscreen change events
   useEffect(() => {
     const handleFullscreenChange = () => {
       if (!document.fullscreenElement) {
@@ -209,11 +248,28 @@ function HeroCarousel() {
   return (
     <div className="relative h-screen w-full overflow-hidden">
       {/* Navigation Header */}
-      <nav className="absolute top-0 left-0 right-0 z-40 bg-black/20">
-        <div className="container mx-auto px-4 py-2">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <div className="relative z-50">
+      <nav className="absolute top-0 left-0 right-0 z-40">
+        <div className="container mx-auto px-4 py-4">
+          {/* Search Bar Row - Above Navigation */}
+          <div className="flex justify-end mb-1">
+            <div className="relative z-30">
+              <form onSubmit={handleSearch} className="relative">
+                <Input
+                  type="text"
+                  placeholder="Search"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-64 bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:bg-[#ad8b19] transition-all duration-300 backdrop-blur-sm"
+                />
+                <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-white/60" />
+              </form>
+            </div>
+          </div>
+
+          {/* Main Navigation Row - Three Column Layout */}
+          <div className="grid grid-cols-3 items-center gap-4 h-16">
+            {/* Column 1: Logo - Left */}
+            <div className="relative z-50 justify-self-start">
               <div className="w-20 h-22 relative overflow-hidden">
                 <Link href="/">
                   <Image
@@ -229,26 +285,20 @@ function HeroCarousel() {
               </div>
             </div>
 
-            {/* Navigation Links */}
-            <div className="relative z-30">
+            {/* Column 2: Navigation Menu - Center */}
+            <div className="relative z-30 justify-self-center">
               <NavigationMenu />
             </div>
 
-            {/* Search */}
-            <div className="hidden md:block relative z-30">
-              <form onSubmit={handleSearch} className="relative">
-                <Input
-                  type="text"
-                  placeholder="Search"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-64 bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:bg-[#ad8b19] transition-all duration-300"
-                />
-                <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-white/60" />
-              </form>
+            {/* Column 3: Empty for Future Elements - Right */}
+            <div className="relative z-30 justify-self-end">
+              {/* Reserved space for future elements */}
             </div>
+
             {/* Mobile Menu */}
-            <MobileMenu />
+            <div className="col-span-3 md:hidden">
+              <MobileMenu />
+            </div>
           </div>
         </div>
       </nav>
@@ -280,9 +330,16 @@ function HeroCarousel() {
         ))}
       </div>
 
-      {/* Static Background Text */}
-      <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
-        <h1 className="text-[8rem] md:text-[12rem] lg:text-[14rem] font-extrabold uppercase text-white/20 tracking-widest leading-none select-none">
+      {/* Infinite Scrolling "TRANSFORMATION" Text */}
+      <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none overflow-hidden">
+        <h1
+          ref={transformationTextRef}
+          className="absolute text-[8rem] md:text-[12rem] lg:text-[14rem] font-extrabold uppercase text-white/20 tracking-widest leading-none select-none whitespace-nowrap"
+          style={{
+            top: "50%",
+            willChange: "transform",
+          }}
+        >
           TRANSFORMATION
         </h1>
       </div>
