@@ -59,7 +59,7 @@ const About = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Header Section */}
       <div className="relative h-[100vh] min-h-[400px] md:h-full w-full overflow-hidden">
         <div className="absolute inset-0">
           <Image

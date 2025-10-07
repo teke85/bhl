@@ -273,7 +273,7 @@ function HeroCarousel() {
               <div className="w-20 h-22 relative overflow-hidden">
                 <Link href="/">
                   <Image
-                    src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1758461466/WhatsApp_Image_2025-08-29_at_13.11.42_ciqb2u-removebg-preview_dolid4.png"
+                    src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1759852662/Logo_b0ski3.png"
                     alt="Company Logo"
                     width={500}
                     height={500}
