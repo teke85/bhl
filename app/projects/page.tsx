@@ -8,14 +8,23 @@ import Link from "next/link";
 import NavigationMenu from "@/components/NavigationMenu";
 import { Button } from "@/components/ui/button";
 import MobileMenu from "@/components/MobileMenu";
-import LeadershipExcellence from "@/components/LeadershipExcellence";
+import ProposedScope from "@/components/ProposedScopeOfWorks";
 
-import DirectorProfile from "@/components/DirectorProfile";
-import StrategicPartnerships from "@/components/StrategicPartnerships";
-
-import GetInTouch from "@/components/GetInTouch";
-import { Footer } from "@/components/Footer";
-import CEOProfile from "@/components/CEOProfile";
+// Scope of works data
+const scopeItems = [
+  { id: 1, text: "Project funding" },
+  { id: 2, text: "Feasibility Studies and Design" },
+  { id: 3, text: "371 km of Road Construction/Rehabilitation" },
+  { id: 4, text: "Construction of 3 No. Toll Plaza" },
+  { id: 5, text: "Construction of 2 weighbridges on the Road" },
+  { id: 6, text: "Provision of traffic and toll management systems" },
+  {
+    id: 7,
+    text: "Provision of Environmental Impact Assessment (EIA) studies",
+  },
+  { id: 8, text: "Resettlement Action Plan" },
+  { id: 9, text: "Operations and Maintenance" },
+];
 
 const Project = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -101,7 +110,7 @@ const Project = () => {
         <div className="relative z-10 flex items-center justify-center h-full pt-24 md:pt-0">
           <div className="container mx-auto px-4 text-white relative">
             {/* Large Background Text - Positioned above the title */}
-            <div className="absolute inset-x-0 top-[40%] -translate-y-[60%] pointer-events-none w-full">
+            <div className="absolute inset-x-0 top-[50%] -translate-y-[60%] pointer-events-none w-full">
               <h2 className="text-[6rem] sm:text-[8rem] md:text-[12rem] lg:text-[15rem] xl:text-[16rem] font-black text-white/10 md:text-white/20 font-[family-name:var(--font-outfit)] select-none leading-none whitespace-nowrap pl-4 sm:pl-12 md:pl-24">
                 PROJECT
               </h2>
@@ -145,13 +154,12 @@ const Project = () => {
         </div>
       </div>
 
-      {/* Imported Components */}
-      <LeadershipExcellence />
-      <CEOProfile />
-      <DirectorProfile />
-      <StrategicPartnerships />
-      <GetInTouch />
-      <Footer />
+      {/* Proposed Scope of Works Section */}
+      <ProposedScope
+        items={scopeItems}
+        imageUrl="https://res.cloudinary.com/dpeg7wc34/image/upload/v1759927395/6_neav5t.png"
+        imageAlt="Road construction and infrastructure development"
+      />
     </div>
   );
 };
