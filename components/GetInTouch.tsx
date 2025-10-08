@@ -13,7 +13,7 @@ const GetInTouch = () => {
               </span>
             </div>
             <div className="mt-4">
-              <p className="text-gray-300 font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed max-w-2xl">
+              <p className="text-white font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed max-w-2xl">
                 Connect with us to learn more about Zambia&apos;s
                 transformational infrastructure project
               </p>
