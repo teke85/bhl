@@ -71,12 +71,12 @@ function HeroCarousel() {
     setTimeout(() => {
       if (titleRef.current) {
         titleRef.current.style.transition = "all 0.8s ease";
-        titleRef.current.style.transform = "translateX(0)";
+        titleRef.current.style.transform = "translateY(0)";
         titleRef.current.style.opacity = "1";
       }
       if (subtitleRef.current) {
         subtitleRef.current.style.transition = "all 0.8s ease 0.2s";
-        subtitleRef.current.style.transform = "translateX(0)";
+        subtitleRef.current.style.transform = "translateY(0)";
         subtitleRef.current.style.opacity = "1";
       }
       if (ctaRef.current) {
@@ -182,21 +182,19 @@ function HeroCarousel() {
       </div>
 
       {/* Title & Subtitle */}
-      <div className="absolute inset-0 flex items-center justify-center z-30">
-        <div className="container mx-auto text-center text-white relative">
-          <h1
-            ref={titleRef}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 opacity-0 translate-x-[100px] drop-shadow-lg"
-          >
-            {STATIC_SLIDE.title}
-          </h1>
-          <p
-            ref={subtitleRef}
-            className="text-lg md:text-xl lg:text-2xl mb-12 max-w-4xl mx-auto opacity-0 translate-x-[80px] drop-shadow-md"
-          >
-            {STATIC_SLIDE.subtitle}
-          </p>
-        </div>
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-30 px-4">
+        <h1
+          ref={titleRef}
+          className="max-w-4xl text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 text-white leading-tight opacity-0 translate-y-[40px] drop-shadow-lg"
+        >
+          {STATIC_SLIDE.title}
+        </h1>
+        <p
+          ref={subtitleRef}
+          className="max-w-2xl text-base sm:text-lg md:text-xl lg:text-2xl mb-8 text-white opacity-0 translate-y-[30px] drop-shadow-md"
+        >
+          {STATIC_SLIDE.subtitle}
+        </p>
       </div>
 
       {/* CTA Buttons */}

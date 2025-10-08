@@ -12,9 +12,10 @@ import LeadershipExcellence from "@/components/LeadershipExcellence";
 
 import DirectorProfile from "@/components/DirectorProfile";
 import StrategicPartnerships from "@/components/StrategicPartnerships";
-import CEOProfile from "@/components/CeoProfile";
+
 import GetInTouch from "@/components/GetInTouch";
 import { Footer } from "@/components/Footer";
+import CEOProfile from "@/components/CEOProfile";
 
 const About = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -100,14 +101,14 @@ const About = () => {
         <div className="relative z-10 flex items-center justify-center h-full pt-24 md:pt-0">
           <div className="container mx-auto px-4 text-white relative">
             {/* Large Background Text - Positioned above the title */}
-            <div className="absolute top-[180px] sm:top-[220px] md:top-[250px] -translate-y-1/2 left-0 pointer-events-none overflow-hidden w-full">
-              <h2 className="text-[6rem] sm:text-[8rem] md:text-[12rem] lg:text-[15rem] xl:text-[18rem] font-black text-white/10 md:text-white/20 font-[family-name:var(--font-outfit)] select-none leading-none whitespace-nowrap transform -translate-y-8 sm:-translate-y-12 md:-translate-y-16 lg:-translate-y-20 pl-4 sm:pl-12 md:pl-25">
+            <div className="absolute inset-x-0 top-[40%] -translate-y-[60%] pointer-events-none w-full">
+              <h2 className="text-[6rem] sm:text-[8rem] md:text-[12rem] lg:text-[15rem] xl:text-[16rem] font-black text-white/10 md:text-white/20 font-[family-name:var(--font-outfit)] select-none leading-none whitespace-nowrap pl-4 sm:pl-12 md:pl-24">
                 ABOUT
               </h2>
             </div>
 
             {/* Content Container with Vertical Divider */}
-            <div className="relative flex items-start pt-4 sm:pt-8 md:pt-28">
+            <div className="relative flex items-start pt-12 sm:pt-16 md:pt-36">
               {/* Vertical Divider */}
               <div className="absolute left-0 top-16 sm:top-24 md:top-30 bottom-0 w-1 sm:w-2 h-[50%] sm:h-[60%] bg-white"></div>
 
