@@ -103,10 +103,10 @@ export default function StrategicPartnerships() {
             {/* Left Content */}
             <div className="space-y-8">
               <div className="space-y-6">
-                <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
+                <h2 className="text-4xl font-heading lg:text-6xl font-bold text-white leading-tight">
                   WORLD-CLASS
                   <br />
-                  <span className="text-white">PARTNERSHIP</span>
+                  <span className="text-white font-heading">PARTNERSHIP</span>
                   <br />
                   ECOSYSTEM{" "}
                   <span className="inline-block">
@@ -114,7 +114,7 @@ export default function StrategicPartnerships() {
                   </span>
                 </h2>
 
-                <p className="text-gray-300 text-lg leading-relaxed max-w-lg">
+                <p className="text-gray-300 font-sans text-lg leading-relaxed max-w-lg">
                   Our success is built on strategic partnerships with leading
                   international companies across legal, financial, engineering,
                   and technology sectors.

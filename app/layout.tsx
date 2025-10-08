@@ -19,9 +19,9 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Barotse Highway Limited",
+  title: "Barotse ExpressWay Limited",
   description:
-    "Barotse Highway Limited - Connecting Zambia's Rich mineral resources to the world",
+    "Barotse ExpressWay Limited - Connecting Zambia's Rich mineral resources to the world",
 };
 
 export default function RootLayout({
