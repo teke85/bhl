@@ -97,14 +97,7 @@ export default function StrategicPartnerships() {
         }}
       />
 
-      <div className="relative z-10">
-        <div className="text-center py-8">
-          <h1 className="text-4xl lg:text-5xl font-bold">
-            <span className="text-amber-400">Project</span>{" "}
-            <span className="text-white">COMPONENTS</span>
-          </h1>
-        </div>
-
+      <div className="relative z-10 mx-auto py-16 sm:py-20 md:py-24 lg:py-32">
         <div className="container mx-auto px-6 py-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
@@ -113,11 +106,11 @@ export default function StrategicPartnerships() {
                 <h2 className="text-4xl lg:text-5xl font-bold text-white leading-tight">
                   WORLD-CLASS
                   <br />
-                  <span className="text-amber-400">PARTNERSHIP</span>
+                  <span className="text-white">PARTNERSHIP</span>
                   <br />
                   ECOSYSTEM{" "}
                   <span className="inline-block">
-                    <div className="w-0 h-0 border-l-[20px] border-l-amber-400 border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent"></div>
+                    <div className="w-0 h-0 rotate-90 border-l-[20px] border-l-amber-400 border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent"></div>
                   </span>
                 </h2>
 
