@@ -198,7 +198,7 @@ function HeroCarousel() {
       </div>
 
       {/* CTA Buttons */}
-      <div className="absolute bottom-40 left-1/2 transform -translate-x-1/2 z-30">
+      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-30">
         <div
           ref={ctaRef}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center opacity-0 translate-y-[30px]"
