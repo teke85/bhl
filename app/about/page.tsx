@@ -162,7 +162,7 @@ const About = () => {
 
       {/* Imported Components */}
       <LeadershipExcellence />
-      <CEOProfile />
+      {/* <CEOProfile /> */}
       <DirectorProfile />
       <StrategicPartnerships />
       <GetInTouch />
