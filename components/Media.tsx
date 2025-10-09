@@ -29,7 +29,7 @@ const Media = () => {
           </span>
 
           {/* Video */}
-          <div className="relative w-full max-full mx-auto overflow-hidden shadow-lg border border-white/20">
+          <div className="relative w-full max-h-[50vh] mx-auto overflow-hidden shadow-lg border border-white/20">
             <video
               ref={videoRef}
               src="https://res.cloudinary.com/dpeg7wc34/video/upload/v1760020925/BHL_Concession_Signing_01.12.2024_barvdy.mp4"

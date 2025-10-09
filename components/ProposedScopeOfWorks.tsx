@@ -27,7 +27,7 @@ const ProposedScope: React.FC<ProposedScopeProps> = ({
           <div className="relative z-30 max-w-full md:max-w-full w-full md:w-auto">
             {/* Title */}
             <div className="flex flex-col md:flex-row items-start mb-6 md:mb-8">
-              <h2 className="text-2xl font-heading md:text-4xl lg:text-6xl tracking-tight font-black text-white">
+              <h2 className="text-2xl font-heading md:text-4xl lg:text-6xl tracking-tight text-white">
                 PROPOSED
                 <br /> SCOPE OF WORKS
               </h2>

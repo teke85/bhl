@@ -38,12 +38,12 @@ const StrategicRoute: React.FC = () => {
           <div className="relative bg-[#3a3a3a] min-h-[420px] sm:min-h-[480px] md:min-h-[220px] z-20 md:-ml-20 lg:-ml-32 xl:-ml-40 mt-0">
             {/* Title */}
             <div className="relative md:absolute left-4 sm:left-6 md:left-7 top-4 md:-top-16 lg:-top-20 z-50 mb-4 md:mb-8">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white uppercase leading-tight tracking-tight font-[family-name:var(--font-outfit)]">
+              <h2 className="text-2xl font-heading md:text-4xl lg:text-6xl tracking-tight text-white uppercase leading-tight">
                 STRATEGIC ROUTE
               </h2>
               <div className="flex items-center gap-1 sm:gap-2 mt-1">
                 <AnimatedChevron className="h-5 w-5 sm:h-6 sm:w-6 md:h-8 md:w-8 lg:h-10 lg:w-10" />
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white uppercase leading-tight tracking-tight font-[family-name:var(--font-outfit)]">
+                <h2 className="text-2xl font-heading md:text-4xl lg:text-6xl tracking-tight text-white uppercase leading-tight">
                   FOR TRADE
                 </h2>
               </div>
