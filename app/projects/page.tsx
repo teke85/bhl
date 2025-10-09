@@ -10,6 +10,8 @@ import { Button } from "@/components/ui/button";
 import MobileMenu from "@/components/MobileMenu";
 import ProposedScope from "@/components/ProposedScopeOfWorks";
 import StrategicRoute from "@/components/StrategicRouteForTrade";
+import SustainableInterventions from "@/components/SustainableInterventions";
+import Careers from "@/components/Careers";
 
 // Scope of works data
 const scopeItems = [
@@ -162,6 +164,8 @@ const Project = () => {
         imageAlt="Road construction and infrastructure development"
       />
       <StrategicRoute />
+      <SustainableInterventions />
+      <Careers />
     </div>
   );
 };

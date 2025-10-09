@@ -5,7 +5,7 @@ import AnimatedChevron from "./AnimatedChevron";
 
 const StrategicRoute: React.FC = () => {
   return (
-    <section className="relative bg-black flex items-center justify-center py-12 sm:py-16 md:py-20 overflow-hidden">
+    <section className="relative bg-black min-h-screen flex items-center justify-center py-12 sm:py-16 md:py-20 overflow-visible">
       <div className="container mx-auto w-full px-4 sm:px-6 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-0">
           {/* Left Column - Text Content */}
@@ -61,7 +61,7 @@ const StrategicRoute: React.FC = () => {
             </div>
 
             {/* Bottom Image */}
-            <div className="absolute left-4 sm:left-6 md:-left-20 lg:-left-32 xl:-left-40 top-[240px] sm:top-[280px] md:top-[220px] lg:top-[240px] xl:top-[280px] z-40 w-[300px] sm:w-[340px] md:w-[380px] lg:w-[460px] xl:w-[520px] h-[160px] sm:h-[180px] md:h-[220px] lg:h-[240px] xl:h-[280px]">
+            <div className="absolute z-50 left-4 sm:left-6 md:-left-20 lg:-left-32 xl:-left-40 top-[240px] sm:top-[280px] md:top-[220px] lg:top-[240px] xl:top-[230px] w-[300px] sm:w-[340px] md:w-[380px] lg:w-[460px] xl:w-[520px] h-[160px] sm:h-[180px] md:h-[220px] lg:h-[240px] xl:h-[280px]">
               <Image
                 src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1759927683/DJI_0577_ihxa1q.jpg"
                 alt="Road construction aerial view"
