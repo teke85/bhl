@@ -27,7 +27,7 @@ const ProposedScope: React.FC<ProposedScopeProps> = ({
           <div className="relative z-30 max-w-full md:max-w-full w-full md:w-auto">
             {/* Title */}
             <div className="flex flex-col md:flex-row items-start mb-6 md:mb-8">
-              <h2 className="text-2xl font-heading md:text-4xl lg:text-6xl tracking-tight text-white">
+              <h2 className="text-2xl font-extrabold font-heading md:text-4xl lg:text-6xl tracking-tight text-white">
                 PROPOSED
                 <br /> SCOPE OF WORKS
               </h2>
@@ -50,7 +50,7 @@ const ProposedScope: React.FC<ProposedScopeProps> = ({
           </div>
 
           {/* Image - Right Side with Overlap on Desktop */}
-          <div className="relative md:-ml-12 md:-mt-85 z-30 w-full md:w-auto flex justify-center">
+          <div className="relative md:-ml-4 md:-mt-85 z-30 w-full md:w-auto flex justify-center">
             <Image
               src={imageUrl}
               alt={imageAlt}
