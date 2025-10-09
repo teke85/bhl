@@ -1,7 +1,6 @@
-// app/gallery/page.tsx
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, easeOut } from "framer-motion";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import Image from "next/image";
@@ -13,7 +12,6 @@ const images = [
   "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759918204/DJI_0565_10000_gb099t.jpg",
   "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759715557/DJI_0447_dd75q0.jpg",
   "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759688778/DJI_0483_fbiba6.jpg",
-  // Add more images as needed
 ];
 
 const stagger = {
@@ -24,7 +22,7 @@ const stagger = {
     transition: {
       delay: i * 0.1,
       duration: 0.5,
-      ease: "easeOut",
+      ease: easeOut, // ✅ Fixed here
     },
   }),
 };
