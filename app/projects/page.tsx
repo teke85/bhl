@@ -12,6 +12,7 @@ import ProposedScope from "@/components/ProposedScopeOfWorks";
 import StrategicRoute from "@/components/StrategicRouteForTrade";
 import SustainableInterventions from "@/components/SustainableInterventions";
 import Careers from "@/components/Careers";
+import Media from "@/components/Media";
 
 // Scope of works data
 const scopeItems = [
@@ -166,6 +167,7 @@ const Project = () => {
       <StrategicRoute />
       <SustainableInterventions />
       <Careers />
+      <Media />
     </div>
   );
 };
