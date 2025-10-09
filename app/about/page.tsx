@@ -15,7 +15,7 @@ import StrategicPartnerships from "@/components/StrategicPartnerships";
 
 import GetInTouch from "@/components/GetInTouch";
 import { Footer } from "@/components/Footer";
-import CEOProfile from "@/components/CEOProfile";
+import CeoProfile from "@/components/CeoProfile";
 
 const About = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -162,8 +162,7 @@ const About = () => {
 
       {/* Imported Components */}
       <LeadershipExcellence />
-      <CEOProfile />
-      {/* <CEOProfile /> */}
+      <CeoProfile />
       <DirectorProfile />
       <StrategicPartnerships />
       <GetInTouch />

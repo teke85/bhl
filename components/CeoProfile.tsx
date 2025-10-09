@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-const CEOProfile = () => {
+const CeoProfile = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -87,4 +87,4 @@ const CEOProfile = () => {
   );
 };
 
-export default CEOProfile;
+export default CeoProfile;
