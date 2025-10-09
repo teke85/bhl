@@ -35,7 +35,7 @@ const ProposedScope: React.FC<ProposedScopeProps> = ({
             </div>
 
             {/* Description */}
-            <div className="flex flex-col gap-4 text-white z-50 h-full backdrop-blur-sm p-6 md:py-12 bg-gray-500 text-base md:text-lg leading-relaxed mb-6 md:mb-8 max-w-full md:max-w-2xl font-[family-name:var(--font-jost)]">
+            <div className="flex flex-col gap-4 text-white z-50 h-full backdrop-blur-sm p-6 md:py-12 bg-[#3D3D3D] text-base md:text-lg leading-relaxed mb-6 md:mb-8 max-w-full md:max-w-2xl font-[family-name:var(--font-jost)]">
               <ul className="list-disc list-inside space-y-3 md:space-y-4 font-[family-name:var(--font-jost)]">
                 {items.map((item) => (
                   <li

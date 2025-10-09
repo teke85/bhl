@@ -98,10 +98,10 @@ export default function StrategicPartnerships() {
       />
 
       <div className="relative z-10 mx-auto py-16 sm:py-20 md:py-24 lg:py-32">
-        <div className="container mx-auto px-6 py-8">
+        <div className="container mx-auto max-w-6xl px-6 py-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
-            <div className="space-y-8">
+            <div className="space-y-8 bg-[#3D3D3D] p-6 md:p-12 rounded-lg">
               <div className="space-y-6">
                 <h2 className="text-4xl font-heading lg:text-6xl font-bold text-white leading-tight">
                   WORLD-CLASS
@@ -124,7 +124,7 @@ export default function StrategicPartnerships() {
 
             {/* Right Content - Partnership Cards */}
             <div className="relative">
-              <div className="space-y-0">
+              <div className="space-y-0 absolute md:-top-50 md:-ml-20">
                 {partnershipCards.map((card, index) => (
                   <ExpandableCard
                     key={card.title}

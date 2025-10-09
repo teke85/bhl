@@ -9,6 +9,7 @@ import NavigationMenu from "@/components/NavigationMenu";
 import { Button } from "@/components/ui/button";
 import MobileMenu from "@/components/MobileMenu";
 import ProposedScope from "@/components/ProposedScopeOfWorks";
+import StrategicRoute from "@/components/StrategicRouteForTrade";
 
 // Scope of works data
 const scopeItems = [
@@ -160,6 +161,7 @@ const Project = () => {
         imageUrl="https://res.cloudinary.com/dpeg7wc34/image/upload/v1759927395/6_neav5t.png"
         imageAlt="Road construction and infrastructure development"
       />
+      <StrategicRoute />
     </div>
   );
 };
