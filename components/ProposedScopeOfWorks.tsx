@@ -57,8 +57,8 @@ const ProposedScope: React.FC = () => {
               </ul>
             </div>
 
-            {/* Bottom Image (First image) */}
-            <div className="absolute bottom-20 -right-100 z-50 w-full md:w-auto flex justify-center">
+            {/* Bottom Image (second image) */}
+            <div className="absolute bottom-20 -right-88 z-50 w-full md:w-auto flex justify-center">
               <Image
                 src={scopeData.images.first}
                 alt={`${scopeData.images.alt} - Image 1`}
@@ -69,8 +69,8 @@ const ProposedScope: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Image (Second image) */}
-          <div className="relative md:-ml-4 md:-mt-85 z-20 w-full md:w-auto flex justify-center">
+          {/* Top Image (first image) */}
+          <div className="relative md:-ml-4 md:-mt-85 z-50 w-full md:w-auto flex justify-center">
             <Image
               src={scopeData.images.second}
               alt={`${scopeData.images.alt} - Image 2`}
