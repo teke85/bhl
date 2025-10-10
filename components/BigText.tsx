@@ -17,11 +17,11 @@ function BigText() {
     const logisticsElement = logisticsRef.current;
 
     if (efficientElement && logisticsElement && container) {
-      // Set initial positions - further apart
+      // Set initial positions
       gsap.set(efficientElement, { x: -400, opacity: 0.3 });
       gsap.set(logisticsElement, { x: 400, opacity: 0.3 });
 
-      // Create timeline for the animations
+      // Timeline for scroll-triggered animations
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: container,
@@ -55,27 +55,9 @@ function BigText() {
         },
       });
 
-      // Animate "Efficient" to the right - completely crossing over
-      tl.to(
-        efficientElement,
-        {
-          x: 400,
-          duration: 1,
-          ease: "power2.out",
-        },
-        0
-      );
-
-      // Animate "Logistics" to the left - completely crossing over
-      tl.to(
-        logisticsElement,
-        {
-          x: -400,
-          duration: 1,
-          ease: "power2.out",
-        },
-        0
-      );
+      // Animate text sliding
+      tl.to(efficientElement, { x: 400, duration: 1, ease: "power2.out" }, 0);
+      tl.to(logisticsElement, { x: -400, duration: 1, ease: "power2.out" }, 0);
     }
 
     return () => {
@@ -86,20 +68,25 @@ function BigText() {
   return (
     <div
       ref={containerRef}
-      className="mx-auto w-full py-20 md:py-32 overflow-hidden relative min-h-[60vh] md:min-h-[70vh] flex items-center justify-center shadow-2xl"
+      className="relative mx-auto w-full py-20 md:py-32 overflow-hidden min-h-[60vh] md:min-h-[70vh] flex items-center justify-center shadow-2xl bg-cover bg-center bg-fixed"
+      style={{
+        backgroundImage:
+          "url('https://res.cloudinary.com/dpeg7wc34/image/upload/v1759688770/DJI_0521_q55ort.jpg')",
+      }}
     >
-      <div className="absolute"></div>
+      {/* Dark overlay for better text contrast */}
+      <div className="absolute inset-0 bg-black/90" />
 
       <div className="relative z-10 w-full">
         <div
           ref={efficientRef}
-          className="text-center font-heading uppercase text-[#8C887F] font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-tight"
+          className="text-center font-heading uppercase text-gray-500 font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-tight drop-shadow-[0_4px_6px_rgba(0,0,0,0.6)]"
         >
           Efficient
         </div>
         <div
           ref={logisticsRef}
-          className="text-center font-heading uppercase text-[#8C887F] font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-tight"
+          className="text-center font-heading uppercase text-gray-500 font-extrabold text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-tight drop-shadow-[0_4px_6px_rgba(0,0,0,0.6)]"
         >
           Logistics
         </div>

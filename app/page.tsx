@@ -3,6 +3,7 @@
 // import BigText from "@/components/BigText";
 import CombinedCarouselBigTextSection from "@/components/CombinedCarouselBigTextSection";
 import CombinedStatsSection from "@/components/CombinedStatsSection";
+import { Footer } from "@/components/Footer";
 // import EfficientGrowthCatalyst from "@/components/EfficientGrowthCatalyst";
 // import EfficientLogistics from "@/components/EfficientLogistics";
 // import Route from "@/components/FastestRoute";
@@ -31,7 +32,7 @@ export default function HomePage() {
       {/* <ProjectOverview /> */}
       {/* <StrategicImportance /> */}
       {/* <TimelineSection /> */}
-      {/* <Footer /> */}
+      <Footer />
     </main>
   );
 }

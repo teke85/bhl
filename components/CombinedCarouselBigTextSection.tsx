@@ -8,7 +8,7 @@ const CombinedCarouselBigTextSection = () => {
   return (
     <section className="relative w-full overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute bottom-0 inset-0 z-0">
         <Image
           src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1758715424/4_bhefzk.png"
           alt="Logistics Background"
@@ -47,9 +47,9 @@ const CombinedCarouselBigTextSection = () => {
         </div>
 
         {/* EfficientGrowthCatalyst Section */}
-        <div className="w-full">
+        {/* <div className="w-full">
           <Footer />
-        </div>
+        </div> */}
       </div>
     </section>
   );
