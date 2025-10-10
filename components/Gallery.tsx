@@ -72,56 +72,70 @@ export default function GalleryPage() {
   const visibleImages = images.slice(startIndex, startIndex + itemsPerPage);
 
   return (
-    <main className="px-4 py-12 container-fluid bg-black max-w-full mx-auto relative">
-      <PhotoProvider>
-        <div className="flex flex-wrap justify-center gap-4 mb-8">
-          {visibleImages.map((src, i) => (
-            <motion.div
-              key={src}
-              custom={i}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={stagger}
-              className="overflow-hidden w-60 sm:w-64 md:w-72 lg:w-80"
-            >
-              <PhotoView src={src}>
-                <Image
-                  src={src}
-                  alt={`BHL image ${i + 1}`}
-                  width={600}
-                  height={400}
-                  className="w-full h-auto cursor-pointer hover:scale-105 transition-transform duration-300"
-                />
-              </PhotoView>
-            </motion.div>
-          ))}
+    <main className="relative px-4 py-12 container-fluid max-w-full mx-auto overflow-hidden">
+      {/* ✅ Subtle blackish blurred background image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1759688770/DJI_0521_q55ort.jpg"
+          alt="Background"
+          fill
+          priority
+          className="object-cover w-full h-full brightness-[0.25]"
+        />
+      </div>
+
+      {/* ✅ Content Layer */}
+      <div className="relative z-10">
+        <PhotoProvider>
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            {visibleImages.map((src, i) => (
+              <motion.div
+                key={src}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={stagger}
+                className="overflow-hidden w-60 sm:w-64 md:w-72 lg:w-80"
+              >
+                <PhotoView src={src}>
+                  <Image
+                    src={src}
+                    alt={`BHL image ${i + 1}`}
+                    width={600}
+                    height={400}
+                    className="w-full h-auto cursor-pointer hover:scale-105 transition-transform duration-300"
+                  />
+                </PhotoView>
+              </motion.div>
+            ))}
+          </div>
+        </PhotoProvider>
+
+        {/* ✅ Navigation Arrows */}
+        <div className="flex justify-between items-center gap-8 mt-4">
+          <button
+            onClick={prevSlide}
+            disabled={startIndex === 0}
+            className={`transition-opacity ${
+              startIndex === 0 ? "opacity-50 cursor-not-allowed" : "opacity-100"
+            }`}
+          >
+            <CustomLeftArrow />
+          </button>
+
+          <button
+            onClick={nextSlide}
+            disabled={startIndex + itemsPerPage >= images.length}
+            className={`transition-opacity ${
+              startIndex + itemsPerPage >= images.length
+                ? "opacity-50 cursor-not-allowed"
+                : "opacity-100"
+            }`}
+          >
+            <CustomRightArrow />
+          </button>
         </div>
-      </PhotoProvider>
-
-      {/* ✅ Navigation Arrows */}
-      <div className="flex justify-between items-center gap-8 mt-4">
-        <button
-          onClick={prevSlide}
-          disabled={startIndex === 0}
-          className={`transition-opacity ${
-            startIndex === 0 ? "opacity-50 cursor-not-allowed" : "opacity-100"
-          }`}
-        >
-          <CustomLeftArrow />
-        </button>
-
-        <button
-          onClick={nextSlide}
-          disabled={startIndex + itemsPerPage >= images.length}
-          className={`transition-opacity ${
-            startIndex + itemsPerPage >= images.length
-              ? "opacity-50 cursor-not-allowed"
-              : "opacity-100"
-          }`}
-        >
-          <CustomRightArrow />
-        </button>
       </div>
     </main>
   );

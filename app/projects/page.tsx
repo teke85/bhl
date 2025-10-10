@@ -14,6 +14,7 @@ import SustainableInterventions from "@/components/SustainableInterventions";
 import Careers from "@/components/Careers";
 import Media from "@/components/Media";
 import GalleryPage from "@/components/Gallery";
+import { Footer } from "@/components/Footer";
 
 // Scope of works data
 const scopeItems = [
@@ -166,6 +167,7 @@ const Project = () => {
       <Careers />
       <Media />
       <GalleryPage />
+      <Footer />
     </div>
   );
 };
