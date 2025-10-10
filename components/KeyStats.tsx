@@ -92,7 +92,7 @@ const KeyStats: React.FC = () => {
                 <div
                   key={index}
                   className={`
-                    relative text-center font-[family-name:var(--font-jost)] group transition-all duration-300 hover:scale-105 cursor-pointer bg-transparent
+                    relative text-center font-sans group transition-all duration-300 hover:scale-105 cursor-pointer bg-transparent
                     ${index < stats.length - 1 ? "border-r-2 border-amber-300" : ""}
                     ${index === 4 && "sm:col-span-2 lg:col-span-1"}
                   `}
@@ -104,7 +104,7 @@ const KeyStats: React.FC = () => {
                     </div>
 
                     {/* Label on hover */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-amber-300/70 backdrop-blur-sm rounded-full text-[10px] font-bold text-black uppercase tracking-tight opacity-0 group-hover:opacity-100 transition-all duration-300 px-1 mx-2">
+                    <div className="absolute inset-0 flex items-center justify-center rounded-full text-[10px] font-bold text-black uppercase tracking-tight opacity-0 group-hover:opacity-100 transition-all duration-300 px-1 mx-2">
                       <span className="leading-tight text-center">
                         {stat.label}
                       </span>

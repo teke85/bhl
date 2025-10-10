@@ -46,7 +46,7 @@ function MegaMenuNavigation() {
       description:
         "From small community improvements to major infrastructure projects, we've consistently delivered excellence. Celebrating 371 completed projects and counting.",
       links: [
-        { name: "2025 Expansion", href: "/milestones/2025" },
+        { name: "2025 Expansion", href: "/milestones" },
         { name: "Award Recognition", href: "/milestones/awards" },
         { name: "Completed Projects", href: "/milestones/completed" },
         { name: "Community Impact", href: "/milestones/impact" },
