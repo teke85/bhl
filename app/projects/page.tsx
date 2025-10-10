@@ -160,11 +160,7 @@ const Project = () => {
       </div>
 
       {/* Proposed Scope of Works Section */}
-      <ProposedScope
-        items={scopeItems}
-        imageUrl="https://res.cloudinary.com/dpeg7wc34/image/upload/v1759927395/6_neav5t.png"
-        imageAlt="Road construction and infrastructure development"
-      />
+      <ProposedScope />
       <StrategicRoute />
       <SustainableInterventions />
       <Careers />

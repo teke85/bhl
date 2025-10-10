@@ -13,7 +13,7 @@ const Careers = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto relative">
           {/* Heading */}
-          <span className="absolute font-heading -top-40 text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tight mb-6">
+          <span className="absolute font-extrabold font-heading -top-40 text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase tracking-tight mb-6">
             CAREERS
           </span>
 

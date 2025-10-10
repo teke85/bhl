@@ -52,7 +52,7 @@ const StrategicRoute: React.FC = () => {
             {/* Top Image */}
             <div className="absolute right-4 sm:right-6 md:right-8 lg:right-10 top-24 sm:top-28 md:top-16 lg:top-20 w-[280px] sm:w-[320px] md:w-[340px] lg:w-[420px] xl:w-[520px] h-[140px] sm:h-[160px] md:h-[180px] lg:h-[200px] xl:h-[260px]">
               <Image
-                src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1759927395/6_neav5t.png"
+                src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1759688770/DJI_0521_q55ort.jpg"
                 alt="Bridge construction aerial view"
                 fill
                 className="object-cover shadow-2xl rounded-sm"
@@ -63,7 +63,7 @@ const StrategicRoute: React.FC = () => {
             {/* Bottom Image */}
             <div className="absolute z-50 left-4 sm:left-6 md:-left-20 lg:-left-32 xl:-left-40 top-[240px] sm:top-[280px] md:top-[220px] lg:top-[240px] xl:top-[230px] w-[300px] sm:w-[340px] md:w-[380px] lg:w-[460px] xl:w-[520px] h-[160px] sm:h-[180px] md:h-[220px] lg:h-[240px] xl:h-[280px]">
               <Image
-                src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1759927683/DJI_0577_ihxa1q.jpg"
+                src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760054559/DJI_0515_10000_awfwbp.jpg"
                 alt="Road construction aerial view"
                 fill
                 className="object-cover shadow-2xl rounded-sm"

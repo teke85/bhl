@@ -24,7 +24,7 @@ const Media = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto text-center">
           {/* Heading */}
-          <span className="absolute -top-9 left-0 md:pl-24 text-white text-2xl md:text-4xl lg:text-7xl tracking-tight font-heading font-bold uppercase mb-12">
+          <span className="absolute -top-9 left-0 md:pl-24 text-white text-2xl md:text-4xl lg:text-7xl tracking-tight font-heading font-extrabold uppercase mb-12">
             MULTIMEDIA
           </span>
 
