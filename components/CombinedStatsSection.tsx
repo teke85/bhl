@@ -1,8 +1,8 @@
 "use client";
-import KeyStats from "./KeyStats";
 
 import ExampleComponent from "./ExampleComponent";
 import ExampleComponent2 from "./ExampleComponent2";
+import KeyStats from "./KeyStatsUpdated";
 
 const CombinedStatsSection = () => {
   return (
@@ -15,9 +15,7 @@ const CombinedStatsSection = () => {
       {/* Content Container */}
       <div className="relative z-10">
         {/* KeyStats Section */}
-        <div className="w-full">
-          <KeyStats />
-        </div>
+        <div className="w-full">{/* <KeyStats /> */}</div>
 
         {/* EfficientLogistics Section */}
         <div className="w-full">
