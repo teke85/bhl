@@ -16,28 +16,28 @@ const ScrollTriggeredImage = () => {
 
   const items: ScrollImageItem[] = [
     {
-      title: "Infrastructure Excellence",
+      title: "INFRACSTRUCTURE EXCELLENCE",
       description:
         "Upgrading 371 km of the Mutanda to Kaoma Road to international bituminous standards, creating a world-class transportation corridor.",
       imageUrl:
         "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759918204/DJI_0565_10000_gb099t.jpg",
     },
     {
-      title: "Regional Connectivity",
+      title: "REGIONAL CONNECTIVITY",
       description:
         "Connecting Zambia's Copperbelt and DRC's mining regions to the Port of Walvis Bay, facilitating international trade and economic growth.",
       imageUrl:
         "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759918204/DJI_0565_10000_gb099t.jpg",
     },
     {
-      title: "Community Impact",
+      title: "COMMUNITY IMPACT",
       description:
         "Supporting local communities with comprehensive resettlement policies and creating sustainable economic opportunities across four districts.",
       imageUrl:
         "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759918204/DJI_0565_10000_gb099t.jpg",
     },
     {
-      title: "Sustainable Development",
+      title: "SUSTAINABLE DEVELOPMENT",
       description:
         "Building infrastructure that prioritizes environmental stewardship and long-term sustainability for future generations.",
       imageUrl:
