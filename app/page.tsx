@@ -16,6 +16,7 @@ import OurPartners from "@/components/OurPartners";
 import ScrollTriggeredSection from "@/components/ScrollTriggeredSection";
 import ExpertBuildersSection from "@/components/ExpertBuildersSection";
 import ProjectMilestonesSection from "@/components/ProjectMilestones";
+import CommunityFirstSection from "@/components/CommunityFirst";
 // import TimelineMarquee from "@/components/TimeLineMarquee";
 
 export default function HomePage() {
@@ -26,6 +27,7 @@ export default function HomePage() {
       <ScrollTriggeredSection /> {/* <CombinedStatsSection /> */}
       <ExpertBuildersSection />
       <ProjectMilestonesSection />
+      <CommunityFirstSection />
       {/* <LogoCarousel /> */}
       {/* <KeyStats /> */}
       {/* <StatsSection /> */}
