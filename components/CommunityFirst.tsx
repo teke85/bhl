@@ -16,7 +16,7 @@ const CommunityFirstSection = () => {
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Left Side - Community First */}
           <div className="space-y-6">
-            <h2 className="text-4xl font-heading md:text-5xl font-bold text-white">
+            <h2 className="text-4xl font-heading md:text-6xl font-bold text-white">
               Community First
             </h2>
             <p className="text-[#9ca3af] font-sans text-lg leading-relaxed">
