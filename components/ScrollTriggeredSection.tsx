@@ -16,7 +16,7 @@ const ScrollTriggeredImage = () => {
 
   const items: ScrollImageItem[] = [
     {
-      title: "INFRACSTRUCTURE EXCELLENCE",
+      title: "INFRASTRUCTURE EXCELLENCE",
       description:
         "Upgrading 371 km of the Mutanda to Kaoma Road to international bituminous standards, creating a world-class transportation corridor.",
       imageUrl:
