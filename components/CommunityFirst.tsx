@@ -11,24 +11,25 @@ const CommunityFirstSection = () => {
   ];
 
   return (
-    <section className="bg-[#0a0a0a] py-16 md:py-24 px-4">
+    <section className="bg-[#0a0a0a] py-16 md:py-14 px-4">
       <div className="container mx-auto max-w-7xl">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Left Side - Community First */}
           <div className="space-y-6">
-            <h2 className="text-4xl md:text-5xl font-bold text-white">
+            <h2 className="text-4xl font-heading md:text-5xl font-bold text-white">
               Community First
             </h2>
-            <p className="text-[#9ca3af] text-lg leading-relaxed">
+            <p className="text-[#9ca3af] font-sans text-lg leading-relaxed">
               Our comprehensive Resettlement Policy Framework ensures fair
               treatment and support for all affected communities.
             </p>
             <Button
-              className="bg-[#fdb913] text-black hover:bg-[#fdb913]/90 transition-all duration-300 gap-2 font-semibold"
+              className="bg-[#fdb913] rounded-none text-black hover:bg-[#fdb913]/90 transition-all duration-300 gap-2 font-semibold"
               asChild
             >
               <Link href="/resettlement">
-                Learn About Our Policy <ArrowRight className="h-4 w-4" />
+                Learn About Our Policy{" "}
+                <ArrowRight className="h-4 w-4 rounded-none" />
               </Link>
             </Button>
           </div>

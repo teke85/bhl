@@ -78,7 +78,7 @@ const ScrollTriggeredImage = () => {
             {items.map((item, index) => (
               <div
                 key={index}
-                className={`absolute inset-0 transition-opacity duration-700 ${
+                className={`absolute inset-0 rounded-none transition-opacity duration-700 ${
                   activeIndex === index ? "opacity-100" : "opacity-0"
                 }`}
               >
