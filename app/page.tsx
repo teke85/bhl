@@ -14,6 +14,8 @@ import KeyStats from "@/components/KeyStatsUpdated";
 // import KeyStats from "@/components/KeyStats";
 import OurPartners from "@/components/OurPartners";
 import ScrollTriggeredSection from "@/components/ScrollTriggeredSection";
+import ExpertBuildersSection from "@/components/ExpertBuildersSection";
+import ProjectMilestonesSection from "@/components/ProjectMilestones";
 // import TimelineMarquee from "@/components/TimeLineMarquee";
 
 export default function HomePage() {
@@ -22,6 +24,8 @@ export default function HomePage() {
       <HeroCarousel />
       <KeyStats />
       <ScrollTriggeredSection /> {/* <CombinedStatsSection /> */}
+      <ExpertBuildersSection />
+      <ProjectMilestonesSection />
       {/* <LogoCarousel /> */}
       {/* <KeyStats /> */}
       {/* <StatsSection /> */}
