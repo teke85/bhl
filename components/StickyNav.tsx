@@ -263,7 +263,7 @@ const StickyNavigationMenu = () => {
                 asChild
                 className="bg-[#FDB913] rounded-none p-6 hover:bg-[#E1AF1C] text-black font-semibold uppercase tracking-wide px-8 py-6"
               >
-                <Link className="text-white" href="/contact">
+                <Link className="text-white font-body" href="/contact">
                   Contact Us
                 </Link>
               </Button>
@@ -359,7 +359,7 @@ const StickyNavigationMenu = () => {
               <div className="px-4 mt-4">
                 <Button
                   asChild
-                  className="w-full rounded-none p-6 bg-[#FDB913] hover:bg-[#E1AF1C] text-black font-semibold uppercase"
+                  className="w-full rounded-none p-6 font-body bg-[#FDB913] hover:bg-[#E1AF1C] text-black font-semibold uppercase"
                 >
                   <Link href="/contact">Contact Us</Link>
                 </Button>
