@@ -21,7 +21,7 @@ const ProjectMilestonesSection = () => {
   return (
     <section className="bg-[#0a0a0a] dark:bg-white py-16 md:py-24 px-4">
       <div className="container mx-auto max-w-7xl">
-        <div className="border border-white/10 rounded-lg p-8 md:p-16 space-y-12">
+        <div className="border border-gray-200 rounded-lg p-8 md:p-16 space-y-12">
           <h2 className="text-4xl font-heading md:text-5xl font-bold text-white dark:text-black">
             Project Milestones
           </h2>

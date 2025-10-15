@@ -74,7 +74,7 @@ const KeyStatsUpdated = () => {
 
   return (
     <section
-      className="py-20 border-b-1 dark:border-b-1 border-t-1 border-white/20 dark:border-gray-500 bg-[#0A0A0A] dark:bg-white"
+      className="py-20 dark:border-b-1 border-gray-200  bg-[#0A0A0A] dark:bg-white"
       ref={statsRef}
     >
       <div className="container mx-auto px-4">

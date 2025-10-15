@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const ExpertBuildersSection = () => {
   return (
-    <section className="dark:bg-white border-b-1 border-t-1 dark:border-white/20  py-16 md:py-24 px-4">
+    <section className="dark:bg-white py-16 md:py-24 px-4">
       <div className="container mx-auto max-w-7xl">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           {/* Expert Builders Card */}
