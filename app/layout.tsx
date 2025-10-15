@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
-import { Montserrat, Open_Sans } from "next/font/google";
-import { Inter } from "next/font/google";
+import { Montserrat, Open_Sans, Inter, Jost } from "next/font/google";
 import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/ThemeProvider";
-// import { Suspense } from "react";
 import "./globals.css";
-// import Preloader from "@/components/Preloader";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -18,6 +15,13 @@ const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const jost = Jost({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-jost",
   display: "swap",
 });
 
@@ -69,19 +73,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${montserrat.variable} ${openSans.variable} ${inter.variable} ${larken.variable} antialiased`}
+        className={`${montserrat.variable} ${openSans.variable} ${inter.variable} ${jost.variable} ${larken.variable} antialiased`}
       >
-      
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {/* <Preloader /> */}
-            {children}
-          </ThemeProvider>
-     
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

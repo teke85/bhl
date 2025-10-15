@@ -203,7 +203,7 @@ const StickyNavigationMenu = () => {
                       setShowMoreMenu(!showMoreMenu);
                       setActiveMenu(null);
                     }}
-                    className="flex items-center rounded-none gap-3 text-white hover:text-[#FDB913] transition-colors duration-200 font-medium text-sm tracking-wide uppercase group"
+                    className="flex items-center font-body rounded-none gap-3 text-white hover:text-[#FDB913] transition-colors duration-200 font-medium text-sm tracking-wide uppercase group"
                   >
                     MORE
                     <div className="flex flex-col gap-1.5 w-5">
@@ -218,7 +218,7 @@ const StickyNavigationMenu = () => {
                         <Link
                           key={item.name}
                           href={item.href}
-                          className="block px-4 py-3 text-white hover:bg-[#FDB913]/10 hover:text-[#FDB913] transition-colors font-medium"
+                          className="block px-4 font-body py-3 text-white hover:bg-[#FDB913]/10 hover:text-[#FDB913] transition-colors font-medium"
                           onClick={() => setShowMoreMenu(false)}
                         >
                           {item.name}
@@ -271,7 +271,7 @@ const StickyNavigationMenu = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden text-white bg-[#0A0A0A]/70 backdrop-blur-lg border border-white/5 p-3 rounded-full"
+              className="lg:hidden text-white font-body bg-[#0A0A0A]/70 backdrop-blur-lg border border-white/5 p-3 rounded-full"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? (
@@ -293,7 +293,7 @@ const StickyNavigationMenu = () => {
                     <h2 className="text-4xl font-heading font-bold text-black tracking-tight">
                       {menuData[activeMenu].title}
                     </h2>
-                    <p className="text-gray-800 font-sans leading-relaxed text-base">
+                    <p className="text-gray-800 font-body text-base leading-relaxed">
                       {menuData[activeMenu].description}
                     </p>
                   </div>
@@ -383,7 +383,7 @@ const StickyNavigationMenu = () => {
               ref={searchInputRef}
               type="text"
               placeholder="WHAT ARE YOU LOOKING FOR?"
-              className="flex-1 bg-transparent text-white placeholder:text-gray-500 text-lg uppercase tracking-wide focus:outline-none"
+              className="flex-1 bg-transparent font-body text-white placeholder:text-gray-500 text-lg uppercase tracking-wide focus:outline-none"
             />
           </div>
           <button
@@ -394,7 +394,9 @@ const StickyNavigationMenu = () => {
           </button>
         </div>
         <div className="p-8">
-          <p className="text-gray-400 text-sm">Start typing to search...</p>
+          <p className="text-gray-400 md:text-xl font-body text-sm">
+            Start typing to search...
+          </p>
         </div>
       </div>
 

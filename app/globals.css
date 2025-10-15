@@ -7,6 +7,7 @@
   --font-sans: var(--font-inter);
   --font-paragraph: var(--font-inter);
   --font-heading: var(--font-larken);
+  --font-body: var(--font-jost);
   --font-mono:
     ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo,
     monospace;
@@ -89,8 +90,8 @@
 }
 
 .dark {
-  --background: #0000;
-  --text-color: #ffff;
+  --background: #ffff;
+  --text-color: #0000;
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);

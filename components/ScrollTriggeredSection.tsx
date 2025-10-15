@@ -104,7 +104,7 @@ const ScrollTriggeredImage = () => {
                 <h2 className="text-4xl md:text-6xl capitalize text-white font-heading font-bold mb-6">
                   {item.title}
                 </h2>
-                <p className="text-xl font-sans text-white leading-relaxed">
+                <p className="text-xl font-body text-white leading-relaxed">
                   {item.description}
                 </p>
               </div>

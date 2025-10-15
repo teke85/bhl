@@ -1,29 +1,26 @@
 "use client";
 
-import type React from "react";
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Play, X, Maximize, Minimize } from "lucide-react";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 import MobileMenu from "./MobileMenu";
 import StickyNavigationMenu from "./StickyNav";
-// import StickyNavigation from "./StickyNavigation";
-// import StickyNavigation2 from "./StickyNavigation2";
 
 const STATIC_SLIDE = {
   title: "TRANSFORMATION OF THE WESTERN CORRIDOR",
   subtitle:
     "Connecting Zambia's Rich Natural Resources to the Rest of the World",
   backgroundImage:
-    "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759918204/DJI_0565_10000_gb099t.jpg",
+    "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920/v1759918204/DJI_0565_10000_gb099t.jpg",
 };
 
 const SAMPLE_VIDEO_URL =
   "https://res.cloudinary.com/dpeg7wc34/video/upload/v1760020925/BHL_Concession_Signing_01.12.2024_barvdy.mp4";
 
-function HeroCarousel() {
-  const [searchQuery, setSearchQuery] = useState("");
+const HeroCarousel: React.FC = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
 
@@ -34,10 +31,9 @@ function HeroCarousel() {
   const modalRef = useRef<HTMLDivElement>(null);
   const transformationTextRef = useRef<HTMLHeadingElement>(null);
 
-  // Infinite scroll animation for TRANSFORMATION text - RIGHT TO LEFT
+  // Animate scrolling TRANSFORMATION text
   useEffect(() => {
     if (!transformationTextRef.current) return;
-
     const element = transformationTextRef.current;
     const textWidth = element.offsetWidth;
     element.style.transform = `translateY(-50%) translateX(${window.innerWidth}px)`;
@@ -48,7 +44,6 @@ function HeroCarousel() {
       const distance = Math.abs(endX - startX);
       const speed = 50;
       const duration = (distance / speed) * 1000;
-
       let startTime: number | null = null;
 
       const animateFrame = (timestamp: number) => {
@@ -66,31 +61,18 @@ function HeroCarousel() {
     animate();
   }, []);
 
-  // Animate text & buttons on mount
+  // Animate hero text and buttons
   useEffect(() => {
     setTimeout(() => {
-      if (titleRef.current) {
-        titleRef.current.style.transition = "all 0.8s ease";
-        titleRef.current.style.transform = "translateY(0)";
-        titleRef.current.style.opacity = "1";
-      }
-      if (subtitleRef.current) {
-        subtitleRef.current.style.transition = "all 0.8s ease 0.2s";
-        subtitleRef.current.style.transform = "translateY(0)";
-        subtitleRef.current.style.opacity = "1";
-      }
-      if (ctaRef.current) {
-        ctaRef.current.style.transition = "all 0.6s ease 0.4s";
-        ctaRef.current.style.transform = "translateY(0)";
-        ctaRef.current.style.opacity = "1";
-      }
+      [titleRef, subtitleRef, ctaRef].forEach((ref, index) => {
+        if (ref.current) {
+          ref.current.style.transition = `all 0.8s ease ${index * 0.2}s`;
+          ref.current.style.transform = "translateY(0)";
+          ref.current.style.opacity = "1";
+        }
+      });
     }, 300);
   }, []);
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Searching for:", searchQuery);
-  };
 
   const handleOpenVideoModal = () => {
     setIsVideoModalOpen(true);
@@ -117,28 +99,13 @@ function HeroCarousel() {
 
   return (
     <div className="relative h-screen w-full overflow-hidden">
-      {/* Navigation Header */}
+      {/* Header Navigation */}
       <nav className="absolute top-0 left-0 right-0 z-40">
         <div className="container mx-auto px-4 py-4">
-          {/* Logo + Navigation */}
           <div className="grid grid-cols-3 items-center gap-4 h-16">
-            {/* <div className="relative z-50 justify-self-start">
-              <Link href="/">
-                <Image
-                  src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1759852662/Logo_b0ski3.png"
-                  alt="Company Logo"
-                  width={500}
-                  height={500}
-                  className="object-contain w-20 h-22"
-                  priority
-                />
-              </Link>
-            </div> */}
-
             <div className="relative z-30 justify-self-center">
               <StickyNavigationMenu />
             </div>
-
             <div className="relative z-30 justify-self-end" />
             <div className="col-span-3 md:hidden">
               <MobileMenu />
@@ -147,16 +114,24 @@ function HeroCarousel() {
         </div>
       </nav>
 
-      {/* Static Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
-        style={{ backgroundImage: `url(${STATIC_SLIDE.backgroundImage})` }}
-      >
+      {/* Optimized Background Image */}
+      <div className="absolute inset-0 overflow-hidden">
+        <Image
+          src={STATIC_SLIDE.backgroundImage}
+          alt="Background"
+          fill
+          sizes="100vw"
+          priority // loads early for above-the-fold content
+          quality={75}
+          placeholder="blur"
+          blurDataURL="https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_10,e_blur:1000,w_10/v1759918204/DJI_0565_10000_gb099t.jpg"
+          className="object-cover scale-110"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60" />
         <div className="absolute inset-0 bg-black/20" />
       </div>
 
-      {/* Scrolling TRANSFORMATION text */}
+      {/* Scrolling TRANSFORMATION Text */}
       <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none overflow-hidden">
         <span
           ref={transformationTextRef}
@@ -167,7 +142,7 @@ function HeroCarousel() {
         </span>
       </div>
 
-      {/* Title & Subtitle */}
+      {/* Hero Title & Subtitle */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-30 px-4">
         <h1
           ref={titleRef}
@@ -177,7 +152,7 @@ function HeroCarousel() {
         </h1>
         <p
           ref={subtitleRef}
-          className="max-w-2xl text-base sm:text-lg md:text-xl lg:text-2xl mb-8 text-white opacity-0 translate-y-[30px] drop-shadow-md"
+          className="max-w-2xl font-body text-base sm:text-lg md:text-xl lg:text-2xl mb-8 text-white opacity-0 translate-y-[30px] drop-shadow-md"
         >
           {STATIC_SLIDE.subtitle}
         </p>
@@ -192,7 +167,7 @@ function HeroCarousel() {
           <Link href="/projects">
             <Button
               size="lg"
-              className="bg-[#E1AF1C] rounded-none hover:bg-[#be9416] font-[family-name:var(--font-sans)] text-primary-foreground px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-xl group shadow-lg"
+              className="bg-[#E1AF1C] font-body rounded-none hover:bg-[#be9416] text-primary-foreground px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-xl group shadow-lg"
             >
               Explore Projects
               <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
@@ -207,7 +182,7 @@ function HeroCarousel() {
             onClick={handleOpenVideoModal}
             className="border-white/30 rounded-none text-white hover:bg-white/10 hover:text-white hover:border-white/50 px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-xl group bg-transparent backdrop-blur-sm shadow-lg"
           >
-            <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
+            <Play className="w-5 h-5 font-body mr-2 group-hover:scale-110 transition-transform duration-300" />
             Watch Overview
           </Button>
         </div>
@@ -253,6 +228,6 @@ function HeroCarousel() {
       )}
     </div>
   );
-}
+};
 
 export default HeroCarousel;
