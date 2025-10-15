@@ -73,7 +73,10 @@ const KeyStatsUpdated = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-[#0A0A0A] dark:bg-white" ref={statsRef}>
+    <section
+      className="py-20 border-b-1 dark:border-b-1 border-t-1 border-white/20 dark:border-gray-500 bg-[#0A0A0A] dark:bg-white"
+      ref={statsRef}
+    >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 max-w-7xl mx-auto">
           {stats.map((stat, index) => (

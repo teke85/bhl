@@ -4,15 +4,15 @@ import Link from "next/link";
 
 const ExpertBuildersSection = () => {
   return (
-    <section className="bg-[#0a0a0a] py-16 md:py-24 px-4">
+    <section className="dark:bg-white border-b-1 border-t-1 dark:border-white/20  py-16 md:py-24 px-4">
       <div className="container mx-auto max-w-7xl">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           {/* Expert Builders Card */}
           <div className="space-y-6">
-            <h2 className="text-4xl md:text-5xl font-bold text-white">
+            <h2 className="text-4xl md:text-5xl font-bold text-white dark:text-black">
               Expert Builders
             </h2>
-            <p className="text-[#9ca3af] text-lg leading-relaxed">
+            <p className="text-white font-body dark:text-black text-lg md:text-xl leading-relaxed">
               Upgrading 371 km of the Mutanda to Kaoma Road to international
               bituminous standards, completing Zambia&apos;s Western Corridor.
             </p>
@@ -29,10 +29,10 @@ const ExpertBuildersSection = () => {
 
           {/* Regional Impact Card */}
           <div className="space-y-6">
-            <h2 className="text-4xl md:text-5xl font-bold text-white">
+            <h2 className="text-4xl md:text-5xl font-bold text-white dark:text-black">
               Regional Impact
             </h2>
-            <p className="text-[#9ca3af] text-lg leading-relaxed">
+            <p className="dark:text-black text-white font-body text-lg md:text-xl leading-relaxed">
               Creating a vital link between Zambia&apos;s Copperbelt, DRC&apos;s
               mining regions, and the Port of Walvis Bay on Africa&apos;s West
               Coast.

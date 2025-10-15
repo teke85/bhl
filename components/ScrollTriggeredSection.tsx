@@ -71,7 +71,10 @@ const ScrollTriggeredImage = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-20 bg-black px-4">
+    <section
+      ref={sectionRef}
+      className="relative py-20 bg-black dark:bg-white px-4"
+    >
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="lg:sticky lg:top-32 h-[600px] w-[500px] relative rounded-none overflow-hidden">
@@ -101,10 +104,10 @@ const ScrollTriggeredImage = () => {
                 }}
                 className="min-h-[400px] flex flex-col justify-center"
               >
-                <h2 className="text-4xl md:text-6xl capitalize text-white font-heading font-bold mb-6">
+                <h2 className="text-4xl md:text-6xl capitalize text-white dark:text-black font-heading font-bold mb-6">
                   {item.title}
                 </h2>
-                <p className="text-xl font-body text-white leading-relaxed">
+                <p className="text-xl font-body text-white dark:text-black leading-relaxed">
                   {item.description}
                 </p>
               </div>
