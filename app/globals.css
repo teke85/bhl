@@ -4,9 +4,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: var(--font-open-sans);
-  --font-paragraph: var(--font-open-sans);
-  --font-heading: var(--font-montserrat);
+  --font-sans: var(--font-inter);
+  --font-paragraph: var(--font-inter);
+  --font-heading: var(--font-larken);
   --font-mono:
     ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo,
     monospace;
@@ -80,10 +80,17 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --font-inter: "Inter", sans-serif;
+  --font-larken: "Larken", serif;
+  /* Adding Barotse brand colors */
+  --barotse-gold: #fdb913;
+  --barotse-dark: #0a0a0a;
+  --barotse-gray: #9ca3af;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: #0000;
+  --text-color: #ffff;
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);

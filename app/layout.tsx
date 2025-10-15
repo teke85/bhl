@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Montserrat, Open_Sans } from "next/font/google";
-import { Suspense } from "react";
+import { Inter } from "next/font/google";
+import localFont from "next/font/local";
+import { ThemeProvider } from "@/components/ThemeProvider";
+// import { Suspense } from "react";
 import "./globals.css";
 // import Preloader from "@/components/Preloader";
 
@@ -8,6 +11,40 @@ const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
   variable: "--font-montserrat",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const larken = localFont({
+  src: [
+    {
+      path: "../public/fonts/LarkenDEMO-Light.otf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/LarkenDEMO-Regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/LarkenDEMO-Bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/LarkenDEMO-ExtraBold.otf",
+      weight: "800",
+      style: "normal",
+    },
+  ],
+  variable: "--font-larken",
   display: "swap",
 });
 
@@ -32,12 +69,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${montserrat.variable} ${openSans.variable} antialiased`}
+        className={`${montserrat.variable} ${openSans.variable} ${inter.variable} ${larken.variable} antialiased`}
       >
-        <Suspense fallback={null}>
-          {/* <Preloader /> */}
-          {children}
-        </Suspense>
+      
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {/* <Preloader /> */}
+            {children}
+          </ThemeProvider>
+     
       </body>
     </html>
   );

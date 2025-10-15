@@ -74,7 +74,7 @@ const ScrollTriggeredImage = () => {
     <section ref={sectionRef} className="relative py-20 bg-black px-4">
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <div className="lg:sticky lg:top-32 h-[600px] relative rounded-lg overflow-hidden">
+          <div className="lg:sticky lg:top-32 h-[600px] w-[500px] relative rounded-none overflow-hidden">
             {items.map((item, index) => (
               <div
                 key={index}

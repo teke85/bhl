@@ -3,13 +3,13 @@
 import type React from "react";
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Search, Play, X, Maximize, Minimize } from "lucide-react";
+import { Play, X, Maximize, Minimize } from "lucide-react";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import Link from "next/link";
-import NavigationMenu from "./NavigationMenu";
 import MobileMenu from "./MobileMenu";
+import StickyNavigationMenu from "./StickyNav";
+// import StickyNavigation from "./StickyNavigation";
+// import StickyNavigation2 from "./StickyNavigation2";
 
 const STATIC_SLIDE = {
   title: "TRANSFORMATION OF THE WESTERN CORRIDOR",
@@ -120,23 +120,9 @@ function HeroCarousel() {
       {/* Navigation Header */}
       <nav className="absolute top-0 left-0 right-0 z-40">
         <div className="container mx-auto px-4 py-4">
-          {/* Search Bar */}
-          <div className="flex justify-end mb-1">
-            <form onSubmit={handleSearch} className="relative">
-              <Input
-                type="text"
-                placeholder="Search"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-64 bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:bg-[#ad8b19] transition-all duration-300 backdrop-blur-sm"
-              />
-              <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-white/60" />
-            </form>
-          </div>
-
           {/* Logo + Navigation */}
           <div className="grid grid-cols-3 items-center gap-4 h-16">
-            <div className="relative z-50 justify-self-start">
+            {/* <div className="relative z-50 justify-self-start">
               <Link href="/">
                 <Image
                   src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1759852662/Logo_b0ski3.png"
@@ -147,10 +133,10 @@ function HeroCarousel() {
                   priority
                 />
               </Link>
-            </div>
+            </div> */}
 
             <div className="relative z-30 justify-self-center">
-              <NavigationMenu />
+              <StickyNavigationMenu />
             </div>
 
             <div className="relative z-30 justify-self-end" />
@@ -172,13 +158,13 @@ function HeroCarousel() {
 
       {/* Scrolling TRANSFORMATION text */}
       <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none overflow-hidden">
-        <h1
+        <span
           ref={transformationTextRef}
           className="absolute text-[8rem] md:text-[12rem] lg:text-[14rem] font-extrabold uppercase text-white/20 tracking-widest leading-none select-none whitespace-nowrap"
           style={{ top: "50%" }}
         >
           TRANSFORMATION
-        </h1>
+        </span>
       </div>
 
       {/* Title & Subtitle */}
@@ -206,7 +192,7 @@ function HeroCarousel() {
           <Link href="/projects">
             <Button
               size="lg"
-              className="bg-[#EAB81E] rounded-none hover:bg-[#be9416] font-[family-name:var(--font-jost)] text-primary-foreground px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl group shadow-lg"
+              className="bg-[#E1AF1C] rounded-none hover:bg-[#be9416] font-[family-name:var(--font-sans)] text-primary-foreground px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-xl group shadow-lg"
             >
               Explore Projects
               <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
@@ -219,7 +205,7 @@ function HeroCarousel() {
             variant="outline"
             size="lg"
             onClick={handleOpenVideoModal}
-            className="border-white/30 rounded-none text-white hover:bg-white/10 hover:text-white hover:border-white/50 px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl group bg-transparent backdrop-blur-sm shadow-lg"
+            className="border-white/30 rounded-none text-white hover:bg-white/10 hover:text-white hover:border-white/50 px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-xl group bg-transparent backdrop-blur-sm shadow-lg"
           >
             <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
             Watch Overview

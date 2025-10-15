@@ -18,7 +18,7 @@ const ExpertBuildersSection = () => {
             </p>
             <Button
               variant="outline"
-              className="bg-transparent border-white/20 text-white hover:bg-[#FDB913] hover:border-white/40 transition-all duration-300 gap-2"
+              className="bg-transparent rounded-none border-white/20 text-white hover:bg-[#FDB913] hover:border-white/40 transition-all duration-300 gap-2"
               asChild
             >
               <Link href="/project">
@@ -39,7 +39,7 @@ const ExpertBuildersSection = () => {
             </p>
             <Button
               variant="outline"
-              className="bg-transparent border-white/20 text-white hover:bg-white/10 hover:border-white/40 transition-all duration-300 gap-2"
+              className="bg-transparent rounded-none border-white/20 text-white hover:bg-[#FDB913] hover:border-white/40 transition-all duration-300 gap-2"
               asChild
             >
               <Link href="/regional-impact">

@@ -61,7 +61,7 @@ export const Stats = () => {
                 {stat.value}
                 <span className="text-2xl">{stat.suffix}</span>
               </div>
-              <div className="text-base md:text-lg font-medium text-muted-foreground">
+              <div className="text-base dark:text-black md:text-lg font-medium text-muted-foreground">
                 {stat.label}
               </div>
             </Card>

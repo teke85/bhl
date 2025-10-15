@@ -73,7 +73,7 @@ const KeyStatsUpdated = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-[#0A0A0A]" ref={statsRef}>
+    <section className="py-20 bg-[#0A0A0A] dark:bg-white" ref={statsRef}>
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 max-w-7xl mx-auto">
           {stats.map((stat, index) => (
@@ -87,15 +87,15 @@ const KeyStatsUpdated = () => {
               )}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="text-6xl md:text-7xl font-bold font-heading text-[#FDB913] mb-3 font-heading">
+              <div className="text-6xl md:text-7xl font-bold text-[#FDB913] mb-3">
                 {index === 1 && "$"}
                 {counts[index] !== undefined ? counts[index] : stat.value}
                 {index === 1 && "M+"}
               </div>
-              <div className="text-lg font font-semibold text-white mb-2 uppercase tracking-wide">
+              <div className="text-lg font-sans font-semibold text-white dark:text-black mb-2 uppercase tracking-wide">
                 {stat.label}
               </div>
-              <div className="text-sm text-gray-400 leading-relaxed max-w-xs mx-auto">
+              <div className="text-sm font-sans text-white dark:text-black leading-relaxed max-w-xs mx-auto">
                 {stat.description}
               </div>
             </div>
