@@ -187,7 +187,7 @@ import EnvironmentalImpact from "@/components/projects/EnvironmentalImpact";
 import SafetyStandards from "@/components/projects/SafetyStandards";
 import ProjectTimeline from "@/components/projects/ProjectTimeline";
 import { Footer } from "@/components/Footer";
-import StickyNavigationMenu from "@/components/StickyNav";
+import StickyNavigationMenu from "@/components/StickyNavUpdated";
 import MobileMenu from "@/components/MobileMenu";
 
 const ProjectPage = () => {
