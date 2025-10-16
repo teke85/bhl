@@ -23,10 +23,10 @@ export const Footer = () => {
   ];
 
   const resources = [
-    { href: "/https://www.rda.org.zm/", label: "Road Development Agency" },
-    { href: "//https://www.mofnp.gov.zm/", label: "Ministry of Finance" },
+    { href: "https://www.rda.org.zm", label: "Road Development Agency" },
+    { href: "https://www.mofnp.gov.zm", label: "Ministry of Finance" },
     { href: "https://www.mihud.gov.zm/", label: "Ministry of Infrastructure" },
-    { href: "/https://beefco.com/", label: "Beefco" },
+    { href: "https://beefco.com", label: "Beefco" },
   ];
 
   const legal = [
@@ -36,7 +36,7 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="border-t border-border">
+    <footer className="border-t border-border bg-white dark:bg-black">
       <div className="container mx-auto px-4 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Brand Section */}
@@ -50,11 +50,11 @@ export const Footer = () => {
                   className="object-contain p-1"
                 />
               </div>
-              <span className="font-bold font-heading text-lg text-foreground">
+              <span className="font-bold text-black dark:text-white font-heading text-xl">
                 Barotse Express Highway
               </span>
             </Link>
-            <p className="text-muted-foreground font-body text-lg leading-relaxed mb-6">
+            <p className="text-black dark:text-white font-body text-lg leading-relaxed mb-6">
               Transforming Zambia&apos;s Western Corridor through world-class
               infrastructure development. Building connections, creating
               opportunities, and driving sustainable regional growth.
@@ -89,13 +89,15 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <div className="lg:col-span-2">
-            <h3 className="font-semibold text-foreground mb-4">Quick Links</h3>
+            <h3 className="font-semibold text-black dark:text-white mb-4">
+              Quick Links
+            </h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-sm text-black dark:text-white hover:text-foreground transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -106,13 +108,15 @@ export const Footer = () => {
 
           {/* Resources */}
           <div className="lg:col-span-2">
-            <h3 className="font-semibold text-foreground mb-4">Resources</h3>
+            <h3 className="font-semibold text-black dark:text-white mb-4">
+              Resources
+            </h3>
             <ul className="space-y-3">
               {resources.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-sm text-black dark:text-white hover:text-foreground transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -123,13 +127,15 @@ export const Footer = () => {
 
           {/* Legal */}
           <div className="lg:col-span-2">
-            <h3 className="font-semibold text-foreground mb-4">Legal</h3>
+            <h3 className="font-semibold text-black dark:text-white mb-4">
+              Legal
+            </h3>
             <ul className="space-y-3">
               {legal.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-sm text-black dark:text-white hover:text-black/20 transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -140,11 +146,13 @@ export const Footer = () => {
 
           {/* Contact Info */}
           <div className="lg:col-span-2">
-            <h3 className="font-semibold text-foreground mb-4">Contact Us</h3>
+            <h3 className="font-semibold text-black dark:text-white mb-4">
+              Contact Us
+            </h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground">
+                <span className="text-sm text-black dark:text-white">
                   Lusaka, Zambia
                 </span>
               </li>
@@ -152,7 +160,7 @@ export const Footer = () => {
                 <Mail className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                 <a
                   href="mailto:info@barotsehighway.com"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-sm text-black dark:text-white hover:text-foreground transition-colors"
                 >
                   buksvr@bhl.co.zm
                 </a>
@@ -161,7 +169,7 @@ export const Footer = () => {
                 <Phone className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                 <a
                   href="tel:+260123456789"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-sm text-black dark:text-white hover:text-foreground transition-colors"
                 >
                   +260 123 456 789
                 </a>
@@ -173,11 +181,11 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-muted-foreground text-center md:text-left">
+            <p className="text-sm text-black dark:text-white text-center md:text-left">
               © {new Date().getFullYear()} Barotse Highway Limited. All rights
               reserved.
             </p>
-            <p className="text-sm text-muted-foreground text-center md:text-right">
+            <p className="text-sm text-black dark:text-white text-center md:text-right">
               Powered by{" "}
               <Link href="https://www.maniccreatives.com/">
                 Manic Creatives
