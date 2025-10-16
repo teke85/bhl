@@ -19,10 +19,10 @@ const ProjectMilestonesSection = () => {
   ];
 
   return (
-    <section className="bg-[#0a0a0a] dark:bg-white py-16 md:py-24 px-4">
+    <section className="bg-white dark:bg-black py-16 md:py-24 px-4">
       <div className="container mx-auto max-w-7xl">
         <div className="border border-gray-200 rounded-lg p-8 md:p-16 space-y-12">
-          <h2 className="text-4xl font-heading md:text-5xl font-bold text-white dark:text-black">
+          <h2 className="text-4xl font-heading md:text-5xl font-bold text-black dark:text-white">
             Project Milestones
           </h2>
 
@@ -32,7 +32,7 @@ const ProjectMilestonesSection = () => {
                 <div className="text-[#fdb913] font-bdy dark:text-[#fdb913] text-3xl md:text-4xl font-bold">
                   {milestone.year}
                 </div>
-                <p className="text-white font-body dark:text-black text-base md:text-lg">
+                <p className="font-body text-black dark:text-white text-base md:text-lg">
                   {milestone.description}
                 </p>
               </div>
@@ -41,13 +41,12 @@ const ProjectMilestonesSection = () => {
 
           <div>
             <Button
-              variant="outline"
-              className="bg-transparent font-body rounded-none border-white/20 text-white dark:text-black hover:bg-[#FDB913] hover:border-white/40 transition-all duration-300 gap-2"
+              className="bg-[#fdb913] font-body rounded-none border-white/20 text-black dark:text-white hover:bg-[#FDB913] hover:border-white/40 transition-all duration-300 gap-2"
               asChild
             >
               <Link href="/timeline">
                 Full Project History{" "}
-                <ArrowRight className="h-4 w-4 text-white dark:text-black" />
+                <ArrowRight className="h-4 w-4 text-black dark:text-white" />
               </Link>
             </Button>
           </div>

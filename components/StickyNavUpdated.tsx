@@ -165,7 +165,7 @@ function StickyNavigationMenu() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled
-            ? "bg-black/95 backdrop-blur-md shadow-md"
+            ? "bg-white dark:bg-black/95 backdrop-blur-md shadow-md"
             : "bg-transparent"
         )}
       >
@@ -174,10 +174,10 @@ function StickyNavigationMenu() {
           <div className="flex justify-end items-center gap-6 py-2 border-b border-white/10">
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="text-white hover:text-[#FDB913] transition-colors"
+              className="text-black dark:text-white hover:text-[#FDB913] transition-colors"
               aria-label="Open search"
             >
-              <Search className="h-5 w-5" />
+              <Search className="h-5 w-5 text-black dark:text-white" />
             </button>
 
             <ModeToggle />
@@ -204,7 +204,7 @@ function StickyNavigationMenu() {
                   <div key={item} className="relative group">
                     <button
                       onClick={() => handleMenuClick(item)}
-                      className="relative flex items-center cursor-pointer font-heading gap-1 text-white hover:text-[#FDB913] transition-colors duration-200 py-2 font-medium text-sm tracking-wide uppercase"
+                      className="relative flex items-center cursor-pointer font-heading gap-1 text-black dark:text-white hover:text-[#FDB913] transition-colors duration-200 py-2 font-medium text-sm tracking-wide uppercase"
                     >
                       {item}
                       {/* Underline element using group hover */}
@@ -224,7 +224,7 @@ function StickyNavigationMenu() {
                     setShowMoreMenu((s) => !s);
                     setActiveMenu(null);
                   }}
-                  className="flex items-center font-body gap-3 text-white hover:text-[#FDB913] transition-colors duration-200 font-medium text-sm tracking-wide uppercase group"
+                  className="flex items-center font-body gap-3 text-black dark:text-white hover:text-[#FDB913] transition-colors duration-200 font-medium text-sm tracking-wide uppercase group"
                 >
                   MORE
                   <div className="flex flex-col gap-1.5 w-5">

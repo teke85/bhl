@@ -192,7 +192,7 @@ import MobileMenu from "@/components/MobileMenu";
 
 const ProjectPage = () => {
   return (
-    <main className="min-h-screen bg-background dark:bg-[#0a0a0a]">
+    <main className="min-h-screen ">
       {/* Header Navigation */}
       <nav className="absolute top-0 left-0 right-0 z-40">
         <div className="container mx-auto px-4 py-4">

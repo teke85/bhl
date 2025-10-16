@@ -74,7 +74,7 @@ const KeyStatsUpdated = () => {
 
   return (
     <section
-      className="py-20 dark:border-b-1 border-gray-200  bg-[#0A0A0A] dark:bg-white"
+      className="py-20 dark:border-b-1 border-gray-200  bg-white dark:bg-black"
       ref={statsRef}
     >
       <div className="container mx-auto px-4">
@@ -95,10 +95,10 @@ const KeyStatsUpdated = () => {
                 {counts[index] !== undefined ? counts[index] : stat.value}
                 {index === 1 && "M+"}
               </div>
-              <div className="text-lg md:text-2xl font-body font-bold text-white dark:text-black mb-2 uppercase tracking-wide">
+              <div className="text-lg md:text-2xl font-body font-bold text-black dark:text-white mb-2 uppercase tracking-wide">
                 {stat.label}
               </div>
-              <div className="text-sm md:text-xl font-body text-white dark:text-black leading-relaxed max-w-xs mx-auto">
+              <div className="text-sm md:text-xl font-body text-black dark:text-white leading-relaxed max-w-xs mx-auto">
                 {stat.description}
               </div>
             </div>

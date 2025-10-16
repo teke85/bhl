@@ -167,7 +167,7 @@ const HeroCarousel: React.FC = () => {
           <Link href="/projects">
             <Button
               size="lg"
-              className="bg-[#E1AF1C] font-body rounded-none hover:bg-[#be9416] text-primary-foreground px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-xl group shadow-lg"
+              className="bg-[#FDB913] font-body rounded-none hover:bg-[#be9416] text-primary-foreground px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-xl group shadow-lg"
             >
               Explore Projects
               <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
