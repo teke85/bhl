@@ -30,19 +30,16 @@ export default function MobileMenu() {
           className="flex flex-col space-y-1.5 p-2 rounded-md hover:bg-white/10 transition"
         >
           <span
-            className={`block h-0.5 bg-white rounded-full transition-all duration-300 ${
-              isOpen ? "w-5 rotate-45 translate-y-1.5" : "w-6"
-            }`}
+            className={`block h-0.5 bg-white rounded-full transition-all duration-300 ${isOpen ? "w-5 rotate-45 translate-y-1.5" : "w-6"
+              }`}
           ></span>
           <span
-            className={`block h-0.5 bg-white rounded-full transition-all duration-300 ${
-              isOpen ? "opacity-0 w-4" : "w-4"
-            }`}
+            className={`block h-0.5 bg-white rounded-full transition-all duration-300 ${isOpen ? "opacity-0 w-4" : "w-4"
+              }`}
           ></span>
           <span
-            className={`block h-0.5 bg-white rounded-full transition-all duration-300 ${
-              isOpen ? "w-5 -rotate-45 -translate-y-1" : "w-3"
-            }`}
+            className={`block h-0.5 bg-white rounded-full transition-all duration-300 ${isOpen ? "w-5 -rotate-45 -translate-y-1" : "w-3"
+              }`}
           ></span>
         </button>
       </div>
@@ -68,9 +65,8 @@ export default function MobileMenu() {
 
       {/* Slide-in Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-[#1a1a1a] z-50 transform transition-transform duration-300 md:hidden ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 h-full w-64 bg-[#1a1a1a] z-50 transform transition-transform duration-300 md:hidden ${isOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="flex items-center justify-between px-4 py-4 border-b border-white/10">
           <span className="text-white font-bold text-lg">Menu</span>

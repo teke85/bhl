@@ -75,43 +75,43 @@ function Milestones() {
       <div className="relative min-h-screen w-full bg-black">
         {/* Navigation Header */}
         <nav className="fixed top-0 left-0 right-0 z-40 bg-black/20 backdrop-blur-sm">
-          <div className="container mx-auto px-4 py-2">
-            <div className="flex items-center justify-between h-16">
-              <div className="relative z-50">
-                <div className="w-20 h-22 relative overflow-hidden">
-                  <Link href="/">
-                    <Image
-                      src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1758461466/WhatsApp_Image_2025-08-29_at_13.11.42_ciqb2u-removebg-preview_dolid4.png"
-                      alt="Company Logo"
-                      width={500}
-                      height={500}
-                      className="object-contain w-full h-full"
-                      priority={true}
-                      quality={100}
-                    />
-                  </Link>
-                </div>
-              </div>
-
-              <div className="relative z-30 hidden md:block">
-                <NavigationMenu />
-              </div>
-
-              <div className="relative z-30 hidden sm:block">
-                <form onSubmit={handleSearch} className="relative">
-                  <Input
-                    type="text"
-                    placeholder="Search"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-48 md:w-64 bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:bg-[#ad8b19] transition-all duration-300"
+        <div className="container mx-auto px-4 py-2">
+          <div className="flex items-center justify-between h-16">
+            <div className="relative z-50">
+              <div className="w-20 h-22 relative overflow-hidden">
+                <Link href="/">
+                  <Image
+                    src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1758461466/WhatsApp_Image_2025-08-29_at_13.11.42_ciqb2u-removebg-preview_dolid4.png"
+                    alt="Company Logo"
+                    width={500}
+                    height={500}
+                    className="object-contain w-full h-full"
+                    priority={true}
+                    quality={100}
                   />
-                  <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-white/60" />
-                </form>
+                </Link>
               </div>
             </div>
+
+              <div className="relative z-30 hidden md:block">
+              <NavigationMenu />
+            </div>
+
+              <div className="relative z-30 hidden sm:block">
+              <form onSubmit={handleSearch} className="relative">
+                <Input
+                  type="text"
+                  placeholder="Search"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-48 md:w-64 bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:bg-[#ad8b19] transition-all duration-300"
+                />
+                <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-white/60" />
+              </form>
+            </div>
           </div>
-        </nav>
+        </div>
+      </nav>
 
         {/* Main Content Container */}
         <div className="relative z-10">
@@ -119,14 +119,14 @@ function Milestones() {
           <div className="relative min-h-[85vh] flex items-center">
             {/* Background Image with NEW Gradient Overlay - greenish top to black bottom */}
             <div className="absolute inset-0 z-0">
-              <Image
+          <Image
                 src="https://res.cloudinary.com/dzqxnnayn/image/upload/v1759825974/DJI_0443_tfbdxa.jpg"
                 alt="Milestones background"
-                fill
-                className="object-cover"
-                priority
-                sizes="100vw"
-              />
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
               {/* Updated gradient: greenish/olive at top → darker middle → black at bottom */}
               <div
                 className="absolute inset-0"
@@ -135,7 +135,7 @@ function Milestones() {
                     "linear-gradient(to bottom, rgba(90, 90, 45, 0.50) 0%, rgba(60, 60, 35, 0.65) 25%, rgba(40, 40, 25, 0.80) 50%, rgba(20, 20, 15, 0.90) 75%, rgba(0, 0, 0, 0.95) 100%)",
                 }}
               />
-            </div>
+        </div>
 
             <div className="container mx-auto px-8 lg:px-16 relative z-10">
               {/* Watermark text "MILESTONES" - positioned to the right */}
@@ -147,18 +147,18 @@ function Milestones() {
                     WebkitTextStroke: "1px rgba(255, 255, 255, 0.04)",
                   }}
                 >
-                  MILESTONES
-                </h2>
-              </div>
+                MILESTONES
+              </h2>
+            </div>
 
               {/* Main heading "MILESTONES" - on the left with border */}
               <div className="relative z-30 flex items-center min-h-[50vh]">
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white uppercase tracking-wide leading-none border-l-[6px] border-white pl-6 md:pl-8">
-                  MILESTONES
-                </h1>
-              </div>
+                MILESTONES
+              </h1>
             </div>
           </div>
+        </div>
 
           {/* Bottom Section - CURRENT STATE OF ROAD (card overlays image; taller image + bottom space) */}
           <div className="relative min-h-[60vh] md:min-h-[65vh] lg:min-h-[70vh] bg-black py-12 pb-64 overflow-hidden">
@@ -174,7 +174,7 @@ function Milestones() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent" />
               </div>
-            </div>
+      </div>
 
             {/* Left card */}
             <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10">
@@ -185,7 +185,7 @@ function Milestones() {
                   STATE OF
                   <br />
                   ROAD
-                </h2>
+            </h2>
 
                 {/* Dots inside card */}
                 <div className="mt-8 flex items-center gap-3">
@@ -310,20 +310,20 @@ function Milestones() {
                 <span className="uppercase text-4xl md:text-5xl font-extrabold text-white drop-shadow">
                   Latest
                 </span>
-              </div>
+                </div>
               <div className="bg-[#EAB81E] px-8 py-4">
                 <span className="uppercase text-6xl md:text-7xl font-extrabold text-white drop-shadow">
                   News
                 </span>
-              </div>
+                </div>
               <div className="bg-[#F2D571] px-8 py-8">
                 <p className="text-black/85 max-w-xl text-sm md:text-base leading-relaxed">
                   The signing ceremony marked a significant milestone, bringing
                   together key partners to formalize commitments and strengthen
                   collaboration toward shared goals
                 </p>
+                </div>
               </div>
-            </div>
 
             {/* Right: image */}
             <div className="col-span-12 md:col-span-6">
@@ -336,10 +336,10 @@ function Milestones() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-black/15" />
-              </div>
-            </div>
           </div>
         </div>
+      </div>
+    </div>
 
         {/* Bottom golden fade */}
         <div className="pointer-events-none h-24 w-full bg-gradient-to-b from-transparent via-[rgba(49,44,27,0.60)] to-[rgba(32,30,22,0.95)]" />
