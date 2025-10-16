@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -8,9 +8,9 @@ import { X, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ModeToggle from "./ModeToggle";
 
-type MenuKey = "COMPANY" | "OUR COMMITMENT" | "PROJECT" | "CAREERS";
+type MenuKey = "COMPANY" | "OUR COMMITMENT" | "PROJECT" | "CAREERS" | "GALLERY";
 
-const StickyNavigationMenu: React.FC = () => {
+function StickyNavigationMenu() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -87,9 +87,9 @@ const StickyNavigationMenu: React.FC = () => {
         "Barotse Highway Limited is a Special Purpose Vehicle (SPV) incorporated by BeefCo Holdings Limited and First Quantum Minerals Operations Limited for executing this transformative infrastructure project.",
       links: [
         { name: "Our Story", href: "/about" },
-        { name: "Leadership Team", href: "/leadership" },
         { name: "Multimedia Gallery", href: "/gallery" },
         { name: "Timeline", href: "/timeline" },
+        { name: "Home", href: "/" },
       ],
     },
     "OUR COMMITMENT": {
@@ -99,8 +99,8 @@ const StickyNavigationMenu: React.FC = () => {
       links: [
         { name: "Regional Impact", href: "/regional-impact" },
         { name: "Resettlement", href: "/resettlement" },
-        { name: "Community First", href: "/commitment/community" },
-        { name: "Environmental Impact", href: "/commitment/environment" },
+        { name: "About Us", href: "/about" },
+        { name: "Projects", href: "/projects" },
       ],
     },
     PROJECT: {
@@ -109,8 +109,8 @@ const StickyNavigationMenu: React.FC = () => {
         "The Project encompasses the rehabilitation and upgrade of 371 kilometres of road from Mutanda in Northwestern Province to Kaoma in Western Province, Zambia.",
       links: [
         { name: "Project Overview", href: "/projects" },
-        { name: "Technical Specifications", href: "/projects/specs" },
-        { name: "Progress Updates", href: "/projects/updates" },
+        { name: "Timeline", href: "/timeline" },
+        { name: "Regional Impact", href: "/regional-impact" },
         { name: "Multimedia Gallery", href: "/gallery" },
       ],
     },
@@ -120,14 +120,25 @@ const StickyNavigationMenu: React.FC = () => {
         "Be part of a transformative infrastructure project that's connecting communities and driving economic growth across Zambia's Western Corridor.",
       links: [
         { name: "Current Openings", href: "/careers" },
-        { name: "Life at Barotse Highway", href: "/careers/culture" },
-        { name: "Benefits & Development", href: "/careers/benefits" },
-        { name: "Application Process", href: "/careers/apply" },
+        { name: "About Us", href: "/about" },
+        { name: "Contact Us", href: "/contact" },
+        { name: "Gallery", href: "/gallery" },
+      ],
+    },
+    GALLERY: {
+      title: "GALLERY",
+      description:
+        "Explore our multimedia gallery showcasing the Barotse Highway project.",
+      links: [
+        { name: "View Gallery", href: "/gallery" },
+        { name: "Projects", href: "/projects" },
+        { name: "Timeline", href: "/timeline" },
+        { name: "About", href: "/about" },
       ],
     },
   };
 
-  // "More" dropdown items (used)
+  // "More" dropdown items
   const moreMenuItems = [
     { name: "News & Media", href: "/news" },
     { name: "Contact", href: "/contact" },
@@ -265,7 +276,7 @@ const StickyNavigationMenu: React.FC = () => {
         </div>
       </nav>
 
-      {/* Mega menu panel (restored) */}
+      {/* Mega menu panel */}
       {activeMenu && (
         <div className="fixed top-28 left-6 right-6 shadow-2xl transition-all duration-300 z-50 rounded-xl overflow-hidden">
           <div className="container mx-auto">
@@ -393,6 +404,6 @@ const StickyNavigationMenu: React.FC = () => {
       )}
     </>
   );
-};
+}
 
 export default StickyNavigationMenu;

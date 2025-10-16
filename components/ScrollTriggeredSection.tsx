@@ -20,28 +20,28 @@ const ScrollTriggeredImage = () => {
       description:
         "Upgrading 371 km of the Mutanda to Kaoma Road to international bituminous standards, creating a world-class transportation corridor.",
       imageUrl:
-        "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759918204/DJI_0565_10000_gb099t.jpg",
+        "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760624479/assets_task_01k7pnv5kze3dr3f7ry9vs3k51_1760624003_img_0_byobfb.jpg",
     },
     {
       title: "REGIONAL CONNECTIVITY",
       description:
         "Connecting Zambia's Copperbelt and DRC's mining regions to the Port of Walvis Bay, facilitating international trade and economic growth.",
       imageUrl:
-        "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759918204/DJI_0565_10000_gb099t.jpg",
+        "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760623617/assets_task_01k7pm5wjwfbmsy4xs1f5z5xmy_1760622328_img_1_faz7xf.jpg",
     },
     {
       title: "COMMUNITY IMPACT",
       description:
         "Supporting local communities with comprehensive resettlement policies and creating sustainable economic opportunities across four districts.",
       imageUrl:
-        "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759918204/DJI_0565_10000_gb099t.jpg",
+        "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760621897/assets_task_01k7pk957bfxhsteth1164rt6y_1760621643_img_0_blqwef.jpg",
     },
     {
       title: "SUSTAINABLE DEVELOPMENT",
       description:
         "Building infrastructure that prioritizes environmental stewardship and long-term sustainability for future generations.",
       imageUrl:
-        "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759918204/DJI_0565_10000_gb099t.jpg",
+        "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760619949/assets_task_01k7pf3cy9fg09w2a7ej75a0ha_1760616996_img_1_l8sf2d.jpg",
     },
   ];
 
