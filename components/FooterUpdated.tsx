@@ -178,7 +178,10 @@ export const Footer = () => {
               reserved.
             </p>
             <p className="text-sm text-muted-foreground text-center md:text-right">
-              Building Zambia&apos;s Future, One Kilometer at a Time
+              Powered by{" "}
+              <Link href="https://www.maniccreatives.com/">
+                Manic Creatives
+              </Link>
             </p>
           </div>
         </div>
