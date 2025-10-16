@@ -17,6 +17,7 @@ import ScrollTriggeredSection from "@/components/ScrollTriggeredSection";
 import ExpertBuildersSection from "@/components/ExpertBuildersSection";
 import ProjectMilestonesSection from "@/components/ProjectMilestones";
 import CommunityFirstSection from "@/components/CommunityFirst";
+import VideoHeroSection from "@/components/BigVideoComponent";
 // import TimelineMarquee from "@/components/TimeLineMarquee";
 
 export default function HomePage() {
@@ -28,6 +29,7 @@ export default function HomePage() {
       <ExpertBuildersSection />
       <ProjectMilestonesSection />
       <CommunityFirstSection />
+      <VideoHeroSection />
       {/* <LogoCarousel /> */}
       {/* <KeyStats /> */}
       {/* <StatsSection /> */}

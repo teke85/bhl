@@ -11,12 +11,12 @@ const CommunityFirstSection = () => {
   ];
 
   return (
-    <section className="bg-[#0a0a0a] py-16 md:py-14 px-4">
+    <section className="bg-black dark:bg-white py-16 md:py-14 px-4">
       <div className="container mx-auto max-w-7xl">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Left Side - Community First */}
           <div className="space-y-6">
-            <h2 className="text-4xl font-heading md:text-6xl font-bold text-white">
+            <h2 className="text-4xl font-heading md:text-6xl font-bold text-white dark:text-black">
               Community First
             </h2>
             <p className="text-[#9ca3af] font-sans text-lg leading-relaxed">
@@ -35,13 +35,15 @@ const CommunityFirstSection = () => {
           </div>
 
           {/* Right Side - Policy Points */}
-          <div className="bg-[#1a1a1a] rounded-lg p-8 md:p-12 space-y-6">
+          <div className="dark:bg-[#F5F5F5] rounded-lg p-8 md:p-12 space-y-6">
             {policyPoints.map((point, index) => (
               <div key={index} className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#fdb913] flex items-center justify-center text-black font-bold text-lg">
                   {index + 1}
                 </div>
-                <p className="text-white text-base md:text-lg pt-2">{point}</p>
+                <p className="text-white dark:text-black text-base md:text-lg pt-2">
+                  {point}
+                </p>
               </div>
             ))}
           </div>
