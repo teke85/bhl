@@ -35,13 +35,13 @@ const CommunityFirstSection = () => {
           </div>
 
           {/* Right Side - Policy Points */}
-          <div className="dark:bg-[#F5F5F5] rounded-lg p-8 md:p-12 space-y-6">
+          <div className="dark:bg-[#F5F5F5] bg-black/5 rounded-lg p-8 md:p-12 space-y-6">
             {policyPoints.map((point, index) => (
               <div key={index} className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#fdb913] flex items-center justify-center text-black font-bold text-lg">
                   {index + 1}
                 </div>
-                <p className="text-black dark:text-white text-base md:text-lg pt-2">
+                <p className="text-black dark:text-black text-base md:text-lg pt-2">
                   {point}
                 </p>
               </div>
