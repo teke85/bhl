@@ -50,7 +50,7 @@ export const Footer = () => {
                   className="object-contain p-1"
                 />
               </div>
-              <span className="font-bold text-black dark:text-white font-heading text-xl">
+              <span className="font-bold text-[#DCAF0E] font-heading text-xl">
                 Barotse Express Highway
               </span>
             </Link>
@@ -182,8 +182,8 @@ export const Footer = () => {
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-black dark:text-white text-center md:text-left">
-              © {new Date().getFullYear()} Barotse Highway Limited. All rights
-              reserved.
+              © {new Date().getFullYear()} Barotse Expressway Limited. All
+              rights reserved.
             </p>
             <p className="text-sm text-black dark:text-white text-center md:text-right">
               Powered by{" "}

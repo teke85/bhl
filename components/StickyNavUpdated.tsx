@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -293,7 +293,7 @@ function StickyNavigationMenu() {
 
       {/* Mega menu panel */}
       {activeMenu && (
-        <div className="fixed top-28 left-6 right-6 shadow-2xl transition-all duration-300 z-50 rounded-xl overflow-hidden">
+        <div className="fixed top-28 left-6 right-6 shadow-2xl transition-all duration-300 z-[51] rounded-xl overflow-hidden">
           <div className="container mx-auto">
             <div className="grid grid-cols-2 gap-0 max-w-6xl mx-auto rounded-lg overflow-hidden">
               {/* Left (white) */}
@@ -314,7 +314,9 @@ function StickyNavigationMenu() {
                     key={index}
                     href={link.href}
                     className="block font-heading text-black hover:text-white duration-200 text-base font-medium py-2 hover:translate-x-2 transform transition-transform uppercase tracking-wide"
-                    onClick={() => setActiveMenu(null)}
+                    onClick={() => {
+                      setActiveMenu(null);
+                    }}
                   >
                     {link.name}
                   </Link>
@@ -355,7 +357,6 @@ function StickyNavigationMenu() {
               )}
             </div>
           ))}
-
           {moreMenuItems.map((item) => (
             <Link
               key={item.name}
@@ -366,7 +367,6 @@ function StickyNavigationMenu() {
               {item.name}
             </Link>
           ))}
-
           <div className="px-4 mt-4">
             <Button
               asChild
