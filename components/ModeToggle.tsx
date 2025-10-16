@@ -14,7 +14,7 @@ const ModeToggle = () => {
 
   if (!mounted) {
     return (
-      <button className="hover:text-[#FDB913] transition-colors p-2">
+      <button className="hover:text-[#FDB913] bg-transparent transition-colors p-2">
         <Sun className="h-5 w-5" />
       </button>
     );
@@ -27,7 +27,7 @@ const ModeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="text-white bg-black hover:text-[#FDB913] transition-colors p-2 relative"
+      className="text-[#FDB913] dark:text-white hover:text-[#FDB913] transition-colors p-2 relative"
       aria-label="Toggle theme"
     >
       <Sun className="h-5 w-5 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />

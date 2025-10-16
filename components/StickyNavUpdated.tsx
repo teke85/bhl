@@ -165,8 +165,8 @@ function StickyNavigationMenu() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled
-            ? "bg-white dark:bg-black/95 backdrop-blur-md shadow-md"
-            : "bg-transparent"
+            ? "bg-white text-black dark:bg-black/95 dark:text-white backdrop-blur-md shadow-md"
+            : "bg-transparent text-white"
         )}
       >
         <div className="container mx-auto px-6">
@@ -174,12 +174,19 @@ function StickyNavigationMenu() {
           <div className="flex justify-end items-center gap-6 py-2 border-b border-white/10">
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="text-black dark:text-white hover:text-[#FDB913] transition-colors"
+              className={cn(
+                "transition-colors hover:text-[#FDB913]",
+                isScrolled ? "text-black dark:text-white" : "text-white"
+              )}
               aria-label="Open search"
             >
-              <Search className="h-5 w-5 text-black dark:text-white" />
+              <Search
+                className={cn(
+                  "h-5 w-5 transition-colors duration-300",
+                  isScrolled ? "text-black dark:text-white" : "text-white"
+                )}
+              />
             </button>
-
             <ModeToggle />
           </div>
 
@@ -204,10 +211,14 @@ function StickyNavigationMenu() {
                   <div key={item} className="relative group">
                     <button
                       onClick={() => handleMenuClick(item)}
-                      className="relative flex items-center cursor-pointer font-heading gap-1 text-black dark:text-white hover:text-[#FDB913] transition-colors duration-200 py-2 font-medium text-sm tracking-wide uppercase"
+                      className={cn(
+                        "relative flex items-center cursor-pointer font-heading gap-1 transition-colors duration-200 py-2 font-medium text-sm tracking-wide uppercase group",
+                        isScrolled
+                          ? "text-black dark:text-white hover:text-[#FDB913]"
+                          : "text-white hover:text-[#FDB913]"
+                      )}
                     >
                       {item}
-                      {/* Underline element using group hover */}
                       <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FDB913] group-hover:w-full transition-all duration-300"></span>
                     </button>
                   </div>
@@ -224,7 +235,12 @@ function StickyNavigationMenu() {
                     setShowMoreMenu((s) => !s);
                     setActiveMenu(null);
                   }}
-                  className="flex items-center font-body gap-3 text-black dark:text-white hover:text-[#FDB913] transition-colors duration-200 font-medium text-sm tracking-wide uppercase group"
+                  className={cn(
+                    "flex items-center font-body gap-3 transition-colors duration-200 font-medium text-sm tracking-wide uppercase group",
+                    isScrolled
+                      ? "text-black dark:text-white hover:text-[#FDB913]"
+                      : "text-white hover:text-[#FDB913]"
+                  )}
                 >
                   MORE
                   <div className="flex flex-col gap-1.5 w-5">
@@ -232,7 +248,6 @@ function StickyNavigationMenu() {
                     <span className="h-0.5 bg-current transition-all duration-300"></span>
                   </div>
                 </button>
-
                 {showMoreMenu && (
                   <div className="absolute top-full right-0 mt-2 w-56 bg-[#0A0A0A] border border-white/10 rounded-lg shadow-xl py-2 animate-in fade-in slide-in-from-top-2 duration-200">
                     {moreMenuItems.map((item) => (

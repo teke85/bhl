@@ -11,20 +11,20 @@ const CommunityFirstSection = () => {
   ];
 
   return (
-    <section className="bg-black dark:bg-white py-16 md:py-14 px-4">
+    <section className="bg-white dark:bg-black py-16 md:py-14 px-4">
       <div className="container mx-auto max-w-7xl">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Left Side - Community First */}
           <div className="space-y-6">
-            <h2 className="text-4xl font-heading md:text-6xl font-bold text-white dark:text-black">
+            <h2 className="text-4xl font-heading md:text-6xl font-bold text-black dark:text-white">
               Community First
             </h2>
-            <p className="text-[#9ca3af] font-sans text-lg leading-relaxed">
+            <p className="text-black dark:text-white font-sans text-lg leading-relaxed">
               Our comprehensive Resettlement Policy Framework ensures fair
               treatment and support for all affected communities.
             </p>
             <Button
-              className="bg-[#fdb913] rounded-none text-black hover:bg-[#fdb913]/90 transition-all duration-300 gap-2 font-semibold"
+              className="bg-[#fdb913] font-body rounded-none text-black hover:bg-[#fdb913]/90 transition-all duration-300 gap-2 font-semibold"
               asChild
             >
               <Link href="/resettlement">
@@ -41,7 +41,7 @@ const CommunityFirstSection = () => {
                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#fdb913] flex items-center justify-center text-black font-bold text-lg">
                   {index + 1}
                 </div>
-                <p className="text-white dark:text-black text-base md:text-lg pt-2">
+                <p className="text-black dark:text-white text-base md:text-lg pt-2">
                   {point}
                 </p>
               </div>
