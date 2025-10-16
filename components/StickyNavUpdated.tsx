@@ -163,7 +163,7 @@ function StickyNavigationMenu() {
       <nav
         ref={menuRef}
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-[50 transition-all duration-300",
           isScrolled
             ? "bg-white text-black dark:bg-black/95 dark:text-white backdrop-blur-md shadow-md"
             : "bg-transparent text-white"
@@ -212,7 +212,7 @@ function StickyNavigationMenu() {
                     <button
                       onClick={() => handleMenuClick(item)}
                       className={cn(
-                        "relative flex items-center cursor-pointer font-heading gap-1 transition-colors duration-200 py-2 font-medium text-sm tracking-wide uppercase group",
+                        "relative flex items-center cursor-pointer font-body gap-1 transition-colors duration-200 py-2 font-medium text-md tracking-wide uppercase group",
                         isScrolled
                           ? "text-black dark:text-white hover:text-[#FDB913]"
                           : "text-white hover:text-[#FDB913]"
@@ -236,7 +236,7 @@ function StickyNavigationMenu() {
                     setActiveMenu(null);
                   }}
                   className={cn(
-                    "flex items-center font-body gap-3 transition-colors duration-200 font-medium text-sm tracking-wide uppercase group",
+                    "flex items-center font-body gap-3 transition-colors duration-200 font-medium text-md tracking-wide uppercase group",
                     isScrolled
                       ? "text-black dark:text-white hover:text-[#FDB913]"
                       : "text-white hover:text-[#FDB913]"
