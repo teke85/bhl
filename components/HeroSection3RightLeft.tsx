@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Play, X, Maximize, Minimize } from "lucide-react";
 import { cn } from "@/lib/utils";
 import MobileMenu from "./MobileMenu";
-import StickyNavigationMenu from "./StickyNav";
+import StickyNavigationMenu from "./StickyNavUpdated";
 
 const STATIC_SLIDE = {
   title: "TRANSFORMATION OF THE WESTERN CORRIDOR",

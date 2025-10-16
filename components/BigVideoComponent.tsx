@@ -8,7 +8,7 @@ const VideoHeroSection: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <section className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden bg-black">
+    <section className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden bg-white dark:bg-black">
       {/* Background Image (blurred) */}
       <div className="absolute inset-0">
         <Image

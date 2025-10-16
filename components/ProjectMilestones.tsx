@@ -29,10 +29,10 @@ const ProjectMilestonesSection = () => {
           <div className="grid md:grid-cols-3 gap-8 md:gap-12">
             {milestones.map((milestone, index) => (
               <div key={index} className="space-y-3">
-                <div className="text-[#fdb913] dark:text-[#fdb913] font-sans text-3xl md:text-4xl font-bold">
+                <div className="text-[#fdb913] font-bdy dark:text-[#fdb913] text-3xl md:text-4xl font-bold">
                   {milestone.year}
                 </div>
-                <p className="text-white dark:text-black font-sans text-base md:text-lg">
+                <p className="text-white font-body dark:text-black text-base md:text-lg">
                   {milestone.description}
                 </p>
               </div>
@@ -42,7 +42,7 @@ const ProjectMilestonesSection = () => {
           <div>
             <Button
               variant="outline"
-              className="bg-transparent rounded-none border-white/20 text-white dark:text-black hover:bg-[#FDB913] hover:border-white/40 transition-all duration-300 gap-2"
+              className="bg-transparent font-body rounded-none border-white/20 text-white dark:text-black hover:bg-[#FDB913] hover:border-white/40 transition-all duration-300 gap-2"
               asChild
             >
               <Link href="/timeline">
