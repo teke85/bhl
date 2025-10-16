@@ -18,7 +18,7 @@ const ExpertBuildersSection = () => {
             </p>
             <Button
               variant="outline"
-              className="bg-transparent font-body text-lg rounded-none border-white/20 text-white dark:text-black hover:bg-[#FDB913] hover:border-white/40 transition-all duration-300 gap-2"
+              className="font-body text-lg  border-white/20 text-white dark:text-black bg-[#fdb913] rounded-none hover:bg-[#fdb913]/90 transition-all duration-300 gap-2"
               asChild
             >
               <Link href="/project">
