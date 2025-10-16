@@ -9,7 +9,7 @@ const ExpertBuildersSection = () => {
         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           {/* Expert Builders Card */}
           <div className="space-y-6">
-            <h2 className="text-4xl uppercase md:text-5xl font-bold text-white dark:text-black">
+            <h2 className="text-4xl uppercase md:text-6xl font-bold text-white dark:text-black">
               Expert Builders
             </h2>
             <p className="text-white font-body dark:text-black text-lg md:text-xl leading-relaxed">
@@ -18,7 +18,7 @@ const ExpertBuildersSection = () => {
             </p>
             <Button
               variant="outline"
-              className="bg-transparent rounded-none border-white/20 text-white dark:text-white hover:bg-[#FDB913] hover:border-white/40 transition-all duration-300 gap-2"
+              className="bg-transparent font-body text-lg rounded-none border-white/20 text-white dark:text-black hover:bg-[#FDB913] hover:border-white/40 transition-all duration-300 gap-2"
               asChild
             >
               <Link href="/project">
@@ -29,7 +29,7 @@ const ExpertBuildersSection = () => {
 
           {/* Regional Impact Card */}
           <div className="space-y-6">
-            <h2 className="text-4xl uppercase md:text-5xl font-bold text-white dark:text-black">
+            <h2 className="text-4xl uppercase md:text-6xl font-bold text-white dark:text-black">
               Regional Impact
             </h2>
             <p className="dark:text-black text-white font-body text-lg md:text-xl leading-relaxed">
@@ -39,7 +39,7 @@ const ExpertBuildersSection = () => {
             </p>
             <Button
               variant="outline"
-              className="bg-transparent rounded-none border-white/20 text-white hover:bg-[#FDB913] hover:border-white/40 transition-all duration-300 gap-2"
+              className="bg-transparent font-body text-lg rounded-none border-white/20 text-white dark:text-black hover:bg-[#FDB913] hover:border-white/40 transition-all duration-300 gap-2"
               asChild
             >
               <Link href="/regional-impact">
