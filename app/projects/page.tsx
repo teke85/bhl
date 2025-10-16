@@ -174,23 +174,21 @@
 
 // export default Project;
 
-"use client"
+"use client";
 
-import ProjectHero from "@/components/projects/ProjectHero"
-import ProjectKeyStats from "@/components/projects/ProjectKeyStats"
-import RoadSections from "@/components/projects/RoadSections"
-import RoadDesign from "@/components/projects/RoadDesign"
-import KeyProjectComponents from "@/components/projects/KeyProjectComponents"
-import TechnicalSpecifications from "@/components/projects/TechnicalSpecifications"
-import ProjectGallery from "@/components/projects/ProjectGallery"
-import EnvironmentalImpact from "@/components/projects/EnvironmentalImpact"
-import SafetyStandards from "@/components/projects/SafetyStandards"
-import ProjectTimeline from "@/components/projects/ProjectTimeline"
-import { Footer } from "@/components/Footer"
-import StickyNavigationMenu from "@/components/StickyNav"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import MobileMenu from "@/components/MobileMenu"
+import ProjectHero from "@/components/projects/ProjectHero";
+import ProjectKeyStats from "@/components/projects/ProjectKeyStats";
+import RoadSections from "@/components/projects/RoadSections";
+import RoadDesign from "@/components/projects/RoadDesign";
+import KeyProjectComponents from "@/components/projects/KeyProjectComponents";
+import TechnicalSpecifications from "@/components/projects/TechnicalSpecifications";
+import ProjectGallery from "@/components/projects/ProjectGallery";
+import EnvironmentalImpact from "@/components/projects/EnvironmentalImpact";
+import SafetyStandards from "@/components/projects/SafetyStandards";
+import ProjectTimeline from "@/components/projects/ProjectTimeline";
+import { Footer } from "@/components/Footer";
+import StickyNavigationMenu from "@/components/StickyNav";
+import MobileMenu from "@/components/MobileMenu";
 
 const ProjectPage = () => {
   return (
@@ -223,7 +221,7 @@ const ProjectPage = () => {
       <EnvironmentalImpact />
       <Footer />
     </main>
-  )
-}
+  );
+};
 
-export default ProjectPage
+export default ProjectPage;
