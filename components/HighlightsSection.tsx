@@ -22,7 +22,7 @@ const highlights = [
     title: "EMPOWERING COMMUNITIES THROUGH INFRASTRUCTURE",
     text: "Beyond connecting regions, the Barotse Highway is building opportunities for people. From social infrastructure to improved access to markets and services, our commitment extends to every community along the route.",
     img: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760665364/assets_task_01k7qtsax5e07rk30yd0jmz51n_1760662789_img_0_kpen6d.webp",
-    link: "/impact",
+    link: "/regional-impact",
     btnText: "Learn About Our Impact",
   },
 ];
@@ -102,9 +102,11 @@ const HighlightsSection = () => {
               <h2 className="text-4xl text-black dark:text-white md:text-5xl font-bold mb-6 leading-tight">
                 {item.title}
               </h2>
-              <p className="text-black dark:text-white mb-8">{item.text}</p>
+              <p className="text-black dark:bg-black bg-white dark:text-white mb-8">
+                {item.text}
+              </p>
               <Link href={item.link}>
-                <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold rounded-full px-6 py-3">
+                <Button className="bg-yellow-500 rounded-none hover:bg-yellow-600 text-black font-semibold px-6 py-3">
                   {item.btnText} →
                 </Button>
               </Link>
