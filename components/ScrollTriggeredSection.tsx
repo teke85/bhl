@@ -73,11 +73,13 @@ const ScrollTriggeredImage = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-white dark:bg-black py-20 px-4"
+      className="relative bg-white dark:bg-black py-12 md:py-20 px-4"
     >
       <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <div className="lg:sticky lg:top-32 h-[600px] w-[500px] relative rounded-none overflow-hidden">
+        {/* Desktop Layout - Side by side with sticky image */}
+        <div className="hidden lg:grid lg:grid-cols-2 gap-12 items-start">
+          {/* Sticky Image Container - Desktop */}
+          <div className="lg:sticky lg:top-32 h-[500px] xl:h-[600px] w-full max-w-[500px] relative rounded-none overflow-hidden">
             {items.map((item, index) => (
               <div
                 key={index}
@@ -90,11 +92,13 @@ const ScrollTriggeredImage = () => {
                   alt={item.title}
                   fill
                   className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 500px"
                 />
               </div>
             ))}
           </div>
 
+          {/* Content - Desktop */}
           <div className="space-y-96">
             {items.map((item, index) => (
               <div
@@ -104,15 +108,43 @@ const ScrollTriggeredImage = () => {
                 }}
                 className="min-h-[400px] flex flex-col justify-center"
               >
-                <h2 className="text-4xl md:text-6xl capitalize text-black dark:text-white font-heading font-bold mb-6">
+                <h2 className="text-4xl xl:text-6xl capitalize text-black dark:text-white font-heading font-bold mb-6">
                   {item.title}
                 </h2>
-                <p className="text-xl font-body text-black dark:text-white leading-relaxed">
+                <p className="text-lg xl:text-xl font-body text-black dark:text-white leading-relaxed">
                   {item.description}
                 </p>
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Mobile/Tablet Layout - Stacked cards */}
+        <div className="lg:hidden space-y-8 md:space-y-12">
+          {items.map((item, index) => (
+            <div key={index} className="flex flex-col space-y-6">
+              {/* Image */}
+              <div className="relative w-full h-[250px] sm:h-[300px] md:h-[400px] rounded-none overflow-hidden">
+                <Image
+                  src={item.imageUrl || "/placeholder.svg"}
+                  alt={item.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 500px"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="space-y-4">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl capitalize text-black dark:text-white font-heading font-bold">
+                  {item.title}
+                </h2>
+                <p className="text-base sm:text-lg md:text-xl font-body text-black dark:text-white leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

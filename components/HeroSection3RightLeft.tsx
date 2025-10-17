@@ -99,20 +99,24 @@ const HeroCarousel: React.FC = () => {
 
   return (
     <div className="relative h-screen w-full overflow-hidden">
-      {/* Header Navigation */}
-      <nav className="absolute top-0 left-0 right-0 z-40">
-        <div className="container mx-auto px-4 py-4">
-          <div className="grid grid-cols-3 items-center gap-4 h-16">
-            <div className="relative z-30 justify-self-center">
-              <StickyNavigationMenu />
-            </div>
-            <div className="relative z-30 justify-self-end" />
-            <div className="col-span-3 md:hidden">
-              <MobileMenu />
+      {/* Header Navigation - Hidden on mobile, visible on desktop */}
+      <div className="hidden md:block">
+        <nav className="absolute top-0 left-0 right-0 z-40">
+          <div className="container mx-auto px-4 py-4">
+            <div className="grid grid-cols-3 items-center gap-4 h-16">
+              <div className="relative z-30 justify-self-center">
+                <StickyNavigationMenu />
+              </div>
+              <div className="relative z-30 justify-self-end" />
             </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
+
+      {/* Mobile Menu - Only visible on mobile */}
+      <div className="md:hidden absolute top-4 right-4 z-50">
+        <MobileMenu />
+      </div>
 
       {/* Optimized Background Image */}
       <div className="absolute inset-0 overflow-hidden">
@@ -121,53 +125,53 @@ const HeroCarousel: React.FC = () => {
           alt="Background"
           fill
           sizes="100vw"
-          priority // loads early for above-the-fold content
+          priority
           quality={75}
           placeholder="blur"
           blurDataURL="https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_10,e_blur:1000,w_10/v1759918204/DJI_0565_10000_gb099t.jpg"
           className="object-cover scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60" />
-        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70" />
+        <div className="absolute inset-0 bg-black/30" />
       </div>
 
-      {/* Scrolling TRANSFORMATION Text */}
+      {/* Scrolling TRANSFORMATION Text - Responsive sizing */}
       <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none overflow-hidden">
         <span
           ref={transformationTextRef}
-          className="absolute text-[8rem] md:text-[12rem] lg:text-[14rem] font-extrabold uppercase text-white/20 tracking-widest leading-none select-none whitespace-nowrap"
+          className="absolute text-[4rem] sm:text-[6rem] md:text-[10rem] lg:text-[14rem] font-extrabold uppercase text-white/20 tracking-widest leading-none select-none whitespace-nowrap"
           style={{ top: "50%" }}
         >
           TRANSFORMATION
         </span>
       </div>
 
-      {/* Hero Title & Subtitle */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-30 px-4">
+      {/* Hero Title & Subtitle - Mobile responsive */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-30 px-4 sm:px-6 md:px-8">
         <h1
           ref={titleRef}
-          className="max-w-4xl text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 text-white leading-tight opacity-0 translate-y-[40px] drop-shadow-lg"
+          className="max-w-4xl text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold mb-3 sm:mb-4 md:mb-6 text-white leading-tight opacity-0 translate-y-[40px] drop-shadow-lg"
         >
           {STATIC_SLIDE.title}
         </h1>
         <p
           ref={subtitleRef}
-          className="max-w-2xl font-body text-base sm:text-lg md:text-xl lg:text-2xl mb-8 text-white opacity-0 translate-y-[30px] drop-shadow-md"
+          className="max-w-2xl font-body text-sm sm:text-base md:text-lg lg:text-2xl mb-6 sm:mb-8 text-white opacity-0 translate-y-[30px] drop-shadow-md px-4"
         >
           {STATIC_SLIDE.subtitle}
         </p>
       </div>
 
-      {/* CTA Buttons */}
-      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-30">
+      {/* CTA Buttons - Mobile responsive */}
+      <div className="absolute bottom-16 sm:bottom-20 left-1/2 transform -translate-x-1/2 z-30 w-full px-4">
         <div
           ref={ctaRef}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center opacity-0 translate-y-[30px]"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center opacity-0 translate-y-[30px] max-w-md sm:max-w-none mx-auto"
         >
-          <Link href="/projects">
+          <Link href="/projects" className="w-full sm:w-auto">
             <Button
               size="lg"
-              className="bg-[#FDB913] font-body rounded-none hover:bg-[#be9416] text-primary-foreground px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-xl group shadow-lg"
+              className="w-full sm:w-auto bg-[#FDB913] font-body rounded-none hover:bg-[#be9416] text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-xl group shadow-lg"
             >
               Explore Projects
               <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">
@@ -180,17 +184,17 @@ const HeroCarousel: React.FC = () => {
             variant="outline"
             size="lg"
             onClick={handleOpenVideoModal}
-            className="border-white/30 rounded-none text-white hover:bg-white/10 hover:text-white hover:border-white/50 px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-xl group bg-transparent backdrop-blur-sm shadow-lg"
+            className="w-full sm:w-auto border-white/30 rounded-none text-white hover:bg-white/10 hover:text-white hover:border-white/50 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-xl group bg-transparent backdrop-blur-sm shadow-lg"
           >
-            <Play className="w-5 h-5 font-body mr-2 group-hover:scale-110 transition-transform duration-300" />
+            <Play className="w-4 h-4 sm:w-5 sm:h-5 font-body mr-2 group-hover:scale-110 transition-transform duration-300" />
             Watch Overview
           </Button>
         </div>
       </div>
 
-      {/* Video Modal */}
+      {/* Video Modal - Mobile responsive */}
       {isVideoModalOpen && (
-        <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-[100] p-4 backdrop-blur-sm">
+        <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-[100] p-2 sm:p-4 backdrop-blur-sm">
           <div
             ref={modalRef}
             className={cn(
@@ -198,18 +202,22 @@ const HeroCarousel: React.FC = () => {
               isFullScreen ? "w-full h-full" : "w-full max-w-4xl aspect-video"
             )}
           >
-            <div className="absolute top-4 right-4 flex items-center space-x-2 z-10">
+            <div className="absolute top-2 right-2 sm:top-4 sm:right-4 flex items-center space-x-2 z-10">
               <button
                 onClick={handleFullscreen}
-                className="p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors duration-200 backdrop-blur-sm"
+                className="p-1.5 sm:p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors duration-200 backdrop-blur-sm"
               >
-                {isFullScreen ? <Minimize /> : <Maximize />}
+                {isFullScreen ? (
+                  <Minimize className="w-4 h-4 sm:w-5 sm:h-5" />
+                ) : (
+                  <Maximize className="w-4 h-4 sm:w-5 sm:h-5" />
+                )}
               </button>
               <button
                 onClick={handleCloseModal}
-                className="p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors duration-200 backdrop-blur-sm"
+                className="p-1.5 sm:p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors duration-200 backdrop-blur-sm"
               >
-                <X />
+                <X className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
             </div>
 
