@@ -1,13 +1,12 @@
 "use client";
 
 import ResettlementHero from "@/components/resettlement/ResettlementHero";
-import ResettlementPillars from "@/components/resettlement/ResettlementPillars";
+
 import RPFPurpose from "@/components/resettlement/RPFPurpose";
 import FrameworkApplies from "@/components/resettlement/FrameworkApplies";
 import KeyPrinciples from "@/components/resettlement/KeyPrinciples";
 import CommunityEngagement from "@/components/resettlement/CommunityEngagement";
-import CompensationFramework from "@/components/resettlement/CompensationFramework";
-import SupportPrograms from "@/components/resettlement/SupportPrograms";
+
 import { Footer } from "@/components/FooterUpdated";
 import StickyNavigationMenu from "@/components/StickyNavUpdated";
 
@@ -33,13 +32,10 @@ const ResettlementPage = () => {
 
       {/* Page Content */}
       <ResettlementHero />
-      <ResettlementPillars />
       <RPFPurpose />
       <FrameworkApplies />
       <KeyPrinciples />
       <CommunityEngagement />
-      <CompensationFramework />
-      <SupportPrograms />
       <Footer />
     </main>
   );

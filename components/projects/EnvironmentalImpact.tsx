@@ -1,80 +1,70 @@
-"use client"
+"use client";
 
-import { Leaf, Droplets, Trees, Recycle } from "lucide-react"
+import { motion } from "framer-motion";
 
 const EnvironmentalImpact = () => {
-    const initiatives = [
-        {
-            icon: Leaf,
-            title: "Carbon Footprint Reduction",
-            stat: "30%",
-            description: "Reduction in emissions through efficient machinery and renewable energy use",
-        },
-        {
-            icon: Trees,
-            title: "Reforestation Program",
-            stat: "50,000+",
-            description: "Trees planted along the highway corridor to restore natural habitats",
-        },
-        {
-            icon: Droplets,
-            title: "Water Conservation",
-            stat: "40%",
-            description: "Water savings through recycling and efficient drainage systems",
-        },
-        {
-            icon: Recycle,
-            title: "Material Recycling",
-            stat: "85%",
-            description: "Construction waste recycled and repurposed for sustainable practices",
-        },
-    ]
+  return (
+    <section className="py-20 bg-white text-gray-800">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-3xl md:text-4xl font-bold mb-6 text-[#EAB81E]"
+        >
+          Environmental & Social Impact
+        </motion.h2>
 
-    return (
-        <section className="bg-background dark:bg-[#0a0a0a] py-20 px-4">
-            <div className="container mx-auto max-w-7xl">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground dark:text-white mb-4">
-                        Environmental Commitment
-                    </h2>
-                    <p className="text-lg text-muted-foreground dark:text-[#9ca3af] font-paragraph max-w-3xl mx-auto leading-relaxed">
-                        Building infrastructure responsibly with minimal environmental impact. Our sustainable practices ensure a
-                        greener future for Zambia while delivering world-class road infrastructure.
-                    </p>
-                </div>
+        <div className="space-y-5 leading-relaxed">
+          <p>
+            The <strong>Mutanda–Kaoma Road Project</strong> is being implemented
+            under a rigorous{" "}
+            <strong>Environmental and Social Impact Assessment (ESIA)</strong>{" "}
+            process, in compliance with Zambian and international PPP standards.
+            The assessment ensures that project development aligns with
+            sustainable environmental management, social equity, and economic
+            growth objectives.
+          </p>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {initiatives.map((initiative, index) => (
-                        <div
-                            key={index}
-                            className="bg-card dark:bg-[#1a1a1a] border border-border dark:border-white/10 rounded-lg p-6 hover:border-[#fdb913]/50 transition-all duration-300 group"
-                        >
-                            <div className="w-16 h-16 rounded-full bg-[#fdb913]/10 flex items-center justify-center mb-6 group-hover:bg-[#fdb913]/20 transition-colors">
-                                <initiative.icon className="w-8 h-8 text-[#fdb913]" />
-                            </div>
-                            <div className="text-4xl font-heading font-bold text-[#fdb913] mb-2">{initiative.stat}</div>
-                            <h3 className="text-xl font-heading font-bold text-foreground dark:text-white mb-3">
-                                {initiative.title}
-                            </h3>
-                            <p className="text-muted-foreground dark:text-[#9ca3af] font-paragraph leading-relaxed">
-                                {initiative.description}
-                            </p>
-                        </div>
-                    ))}
-                </div>
+          <p>
+            <strong>DH Engineering Consultants</strong> serve as the Project’s
+            ESG advisors, responsible for conducting the ESIA, ensuring{" "}
+            <strong>ZEMA compliance</strong>, and overseeing land acquisition,
+            geotechnical investigations, and other environmental and social
+            safeguards.
+          </p>
 
-                {/* Environmental Certification Badge */}
-                <div className="mt-16 text-center">
-                    <div className="inline-flex items-center gap-3 px-6 py-3 bg-[#fdb913]/10 border border-[#fdb913]/30 rounded-full">
-                        <Leaf className="w-5 h-5 text-[#fdb913]" />
-                        <span className="text-foreground dark:text-white font-paragraph font-semibold">
-                            ISO 14001 Environmental Management Certified
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    )
-}
+          <p>
+            The ESIA process identifies potential environmental and community
+            impacts along the 371-kilometre corridor, focusing on issues such as
+            vegetation disturbance, soil erosion, waste management, water-course
+            protection, and noise control. Mitigation measures are being
+            incorporated into the project design to minimize these impacts and
+            promote long-term ecological resilience.
+          </p>
 
-export default EnvironmentalImpact
+          <p>
+            On the social side, the Project integrates a{" "}
+            <strong>Resettlement Policy Framework (RPF)</strong> that guides
+            fair and transparent compensation, livelihood restoration, and
+            stakeholder engagement for affected communities in the{" "}
+            <strong>Kalumbila, Kasempa, Mufumbwe, and Kaoma Districts</strong>.
+            The framework ensures that affected persons are consulted,
+            compensated at full replacement cost, and supported in improving
+            their living conditions post-relocation.
+          </p>
+
+          <p>
+            By embedding environmental, social, and governance (ESG) principles
+            throughout the project cycle—from design to construction and
+            operation— the Barotse Highway Limited SPV is committed to ensuring
+            that the Mutanda–Kaoma Road becomes a model for sustainable
+            infrastructure development in Zambia and the wider SADC region.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default EnvironmentalImpact;
