@@ -71,13 +71,16 @@ export default function LeadershipTeam() {
   ];
 
   return (
-    <section ref={sectionRef} className="py-20 md:py-32 bg-[#0A0A0A]">
+    <section
+      ref={sectionRef}
+      className="py-20 md:py-32 bg-white dark:bg-black text-black dark:text-white"
+    >
       <div className="container mx-auto px-4">
         <div ref={titleRef} className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-6">
             Leadership Team
           </h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
             Experienced professionals driving the Barotse Highway vision
           </p>
         </div>
@@ -89,7 +92,7 @@ export default function LeadershipTeam() {
           {leaders.map((leader) => (
             <div
               key={leader.id}
-              className="leadership-card bg-[#1a1a1a] overflow-hidden"
+              className="leadership-card bg-white dark:bg-black overflow-hidden"
             >
               {/* Title Header */}
               <div className="bg-[#EAB81E] py-4 px-6 flex items-center justify-center">
