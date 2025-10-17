@@ -352,14 +352,21 @@ const PartnersGrid: React.FC = () => {
 
                                                 {/* Expand button */}
                                                 <motion.button
-                                                    animate={{
-                                                        rotate: expandedId === partner.id ? 180 : 0,
-                                                    }}
-                                                    transition={{ duration: 0.3 }}
-                                                    className="flex items-center gap-2 text-yellow-600 dark:text-yellow-400 font-semibold text-sm hover:gap-3 transition-all"
+                                                    whileHover={{ scale: 1.05 }}
+                                                    whileTap={{ scale: 0.98 }}
+                                                    transition={{ duration: 0.2 }}
+                                                    className="flex items-center gap-2 text-yellow-600 dark:text-yellow-400 font-semibold text-sm hover:text-yellow-700 dark:hover:text-yellow-300 transition-colors cursor-pointer"
+                                                    onClick={() => setExpandedId(expandedId === partner.id ? null : partner.id)}
                                                 >
                                                     View Details
-                                                    <ChevronDown className="w-4 h-4" />
+                                                    <motion.div
+                                                        animate={{
+                                                            rotate: expandedId === partner.id ? 180 : 0,
+                                                        }}
+                                                        transition={{ duration: 0.3 }}
+                                                    >
+                                                        <ChevronDown className="w-4 h-4" />
+                                                    </motion.div>
                                                 </motion.button>
 
                                                 {/* Expanded content */}
