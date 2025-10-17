@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import React, { useState, useEffect, useRef } from "react";
-import Image from "next/image";
+import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
 
 function PartnersCarousel() {
   const partners = [
@@ -50,171 +50,73 @@ function PartnersCarousel() {
       name: "NYELETI",
       logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430580/nyeleti-logo-dark-bg-star_gmqcy2.png",
     },
-  ];
+  ]
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const carouselRef = useRef<HTMLDivElement | null>(null);
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLDivElement>(null)
 
-  // ✅ Auto-scroll logic
   useEffect(() => {
-    startAutoScroll();
-    return stopAutoScroll;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.1 },
+    )
 
-  const startAutoScroll = () => {
-    if (intervalRef.current) return;
-    intervalRef.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % partners.length);
-    }, 2500);
-  };
-
-  const stopAutoScroll = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
     }
-  };
 
-  const getVisibleItems = () => {
-    const items = [];
-    for (let i = -3; i <= 3; i++) {
-      const index = (currentIndex + i + partners.length) % partners.length;
-      items.push({
-        ...partners[index],
-        position: i,
-        originalIndex: index,
-      });
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
     }
-    return items;
-  };
-
-  const handlePrevious = () => {
-    setCurrentIndex((prev) => (prev - 1 + partners.length) % partners.length);
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % partners.length);
-  };
-
-  const handleImageClick = (position: number) => {
-    if (position !== 0) {
-      setCurrentIndex(
-        (prev) => (prev + position + partners.length) % partners.length
-      );
-    }
-  };
-
-  const getScaleAndOpacity = (position: number) => {
-    const absPos = Math.abs(position);
-    switch (absPos) {
-      case 0:
-        return { scale: 1.1, opacity: 1, zIndex: 50, glow: true };
-      case 1:
-        return { scale: 1.0, opacity: 0.9, zIndex: 40, glow: false };
-      case 2:
-        return { scale: 0.85, opacity: 0.7, zIndex: 30, glow: false };
-      case 3:
-        return { scale: 0.7, opacity: 0.5, zIndex: 20, glow: false };
-      default:
-        return { scale: 0.5, opacity: 0.3, zIndex: 10, glow: false };
-    }
-  };
-
-  const visibleItems = getVisibleItems();
+  }, [])
 
   return (
-    <div
-      className="w-full bg-[#EAB81E] relative py-16"
-      ref={carouselRef}
-      onMouseEnter={stopAutoScroll}
-      onMouseLeave={startAutoScroll}
-    >
-      {/* OUR PARTNERS text */}
-      <div className="absolute -top-10 left-8 flex flex-col">
-        <span className="text-2xl md:text-4xl lg:text-6xl font-heading font-black text-[#EAB81E] drop-shadow-lg">
-          OUR
-        </span>
-        <span className="text-2xl md:text-4xl lg:text-6xl font-heading font-black text-[#EAB81E] drop-shadow-lg">
-          PARTNERS
-        </span>
-      </div>
-
-      {/* Carousel */}
-      <div className="relative flex items-center justify-center">
-        {/* Left Arrow */}
-        <button
-          onClick={handlePrevious}
-          className="absolute left-4 z-50 p-2 cursor-pointer hover:scale-110 transition-transform"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="black"
-            viewBox="0 0 24 24"
-            className="w-10 h-10"
-          >
-            <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-            <path d="M20.41 7.41 19 6l-6 6 6 6 1.41-1.41L15.83 12z" />
-          </svg>
-        </button>
-
-        {/* Logos */}
-        <div className="relative w-full max-w-6xl h-32 flex items-center justify-center overflow-hidden">
-          {visibleItems.map((partner, index) => {
-            const { scale, opacity, zIndex, glow } = getScaleAndOpacity(
-              partner.position
-            );
-            const translateX = partner.position * 140;
-
-            return (
-              <div
-                key={`${partner.id}-${index}`}
-                className="absolute transition-all duration-500 ease-out cursor-pointer hover:scale-105"
-                style={{
-                  transform: `translateX(${translateX}px) scale(${scale})`,
-                  opacity,
-                  zIndex,
-                }}
-                onClick={() => handleImageClick(partner.position)}
-              >
-                <div
-                  className={`relative p-4 bg-white rounded-2xl shadow-lg ${
-                    glow ? "ring-4 ring-yellow-400 ring-opacity-60" : ""
-                  }`}
-                >
-                  <div className="w-28 h-20 flex items-center justify-center relative">
-                    <Image
-                      src={partner.logo}
-                      alt={partner.name}
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+    <section ref={sectionRef} className="w-full bg-white dark:bg-black py-20 md:py-28">
+      <div className="max-w-7xl mx-auto px-6 md:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-sm font-semibold text-black dark:text-white tracking-wider text-gray-500 uppercase mb-3">Trusted By</h2>
+          <h3 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-4">Our Partners</h3>
+          <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
+            Collaborating with industry leaders to deliver exceptional infrastructure solutions
+          </p>
         </div>
 
-        {/* Right Arrow */}
-        <button
-          onClick={handleNext}
-          className="absolute right-4 z-50 p-2 cursor-pointer hover:scale-110 transition-transform"
+        <div
+          className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-10 transition-all duration-1000 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="black"
-            viewBox="0 0 24 24"
-            className="w-10 h-10"
-          >
-            <path d="M8.59 16.59 10 18l6-6-6-6-1.41 1.41L13.17 12z" />
-            <path d="M3.59 16.59 5 18l6-6-6-6-1.41 1.41L7.17 12z" />
-          </svg>
-        </button>
+          {partners.map((partner, index) => (
+            <div
+              key={partner.id}
+              className="group relative"
+              style={{
+                transitionDelay: `${index * 50}ms`,
+              }}
+            >
+              <div className="relative h-32 flex items-center justify-center p-6 rounded-xl border border-gray-200 transition-all duration-300 hover:shadow-lg hover:border-gray-300 hover:-translate-y-1">
+                <div className="relative w-full h-full grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100">
+                  <Image src={partner.logo || "/placeholder.svg"} alt={partner.name} fill className="object-contain" />
+                </div>
+              </div>
+
+              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <span className="text-xs font-medium text-gray-600 whitespace-nowrap bg-white px-3 py-1 rounded-full shadow-sm">
+                  {partner.name}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    </section>
+  )
 }
 
-export default PartnersCarousel;
+export default PartnersCarousel

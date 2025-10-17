@@ -175,8 +175,8 @@
 
 "use client"
 
-import { Footer } from "@/components/Footer"
-import StickyNavigationMenu from "@/components/StickyNav"
+import { Footer } from "@/components/FooterUpdated"
+import StickyNavigationMenu from "@/components/StickyNavUpdated"
 import AboutHero from "@/components/about/AboutHero"
 import CompanyStory from "@/components/about/CompanyStory"
 import OurMission from "@/components/about/OurMission"

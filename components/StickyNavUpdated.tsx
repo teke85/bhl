@@ -171,11 +171,11 @@ function StickyNavigationMenu() {
         className={cn(
           "fixed top-0 left-0 right-0 z-[50] transition-all duration-300",
           isScrolled
-            ? "bg-white text-black dark:bg-black/95 dark:text-white backdrop-blur-md shadow-md"
+            ? "bg-black  dark:bg-black/95 dark:text-white backdrop-blur-md shadow-md"
             : "bg-transparent text-white"
         )}
       >
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4">
           {/* Top bar (Search + Toggle) */}
           <div className="flex justify-end items-center gap-6 py-2 border-b border-white/10">
             <button
@@ -189,7 +189,7 @@ function StickyNavigationMenu() {
               <Search
                 className={cn(
                   "h-5 w-5 transition-colors duration-300",
-                  isScrolled ? "text-black dark:text-white" : "text-white"
+                  isScrolled ? "text-white dark:text-white" : "text-white"
                 )}
               />
             </button>
@@ -197,7 +197,7 @@ function StickyNavigationMenu() {
           </div>
 
           {/* Main Navigation */}
-          <div className="flex items-center justify-between gap-4 py-4">
+          <div className="flex items-center justify-between gap-4 py-2">
             <div className="flex items-center gap-8">
               <Link href="/" className="flex items-center">
                 <Image
@@ -220,7 +220,7 @@ function StickyNavigationMenu() {
                       className={cn(
                         "relative flex items-center cursor-pointer font-body gap-1 transition-colors duration-200 py-2 font-medium text-md tracking-wide uppercase group",
                         isScrolled
-                          ? "text-black dark:text-white hover:text-[#FDB913]"
+                          ? "text-white dark:text-white hover:text-[#FDB913]"
                           : "text-white hover:text-[#FDB913]"
                       )}
                     >
@@ -244,7 +244,7 @@ function StickyNavigationMenu() {
                   className={cn(
                     "flex items-center font-body gap-3 transition-colors duration-200 font-medium text-md tracking-wide uppercase group",
                     isScrolled
-                      ? "text-black dark:text-white hover:text-[#FDB913]"
+                      ? "text-white dark:text-white hover:text-[#FDB913]"
                       : "text-white hover:text-[#FDB913]"
                   )}
                 >
