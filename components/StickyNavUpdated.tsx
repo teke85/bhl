@@ -19,6 +19,7 @@ function StickyNavigationMenu() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const menuRef = useRef<HTMLDivElement>(null);
+  const megaMenuRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   // Handle scroll events
@@ -39,10 +40,15 @@ function StickyNavigationMenu() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menus when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      const target = event.target as Node;
+      const isOutsideMenu =
+        menuRef.current && !menuRef.current.contains(target);
+      const isOutsideMegaMenu =
+        megaMenuRef.current && !megaMenuRef.current.contains(target);
+
+      if (isOutsideMenu && isOutsideMegaMenu) {
         setActiveMenu(null);
         setShowMoreMenu(false);
       }
@@ -163,7 +169,7 @@ function StickyNavigationMenu() {
       <nav
         ref={menuRef}
         className={cn(
-          "fixed top-0 left-0 right-0 z-[50 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-[50] transition-all duration-300",
           isScrolled
             ? "bg-white text-black dark:bg-black/95 dark:text-white backdrop-blur-md shadow-md"
             : "bg-transparent text-white"
@@ -293,7 +299,10 @@ function StickyNavigationMenu() {
 
       {/* Mega menu panel */}
       {activeMenu && (
-        <div className="fixed top-28 left-6 right-6 shadow-2xl transition-all duration-300 z-[51] rounded-xl overflow-hidden">
+        <div
+          ref={megaMenuRef}
+          className="fixed top-28 left-6 right-6 shadow-2xl transition-all duration-300 z-[51] rounded-xl overflow-hidden"
+        >
           <div className="container mx-auto">
             <div className="grid grid-cols-2 gap-0 max-w-6xl mx-auto rounded-lg overflow-hidden">
               {/* Left (white) */}

@@ -26,55 +26,55 @@ export default function HomePage() {
       <div className="w-full mx-auto">
         {/* Each section wrapped in a centered container */}
         <section className="w-full flex justify-center">
-          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-full px-4 sm:px-6 lg:px-0">
             <HeroCarousel />
           </div>
         </section>
 
         <section className="w-full flex justify-center">
-          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-0">
             <KeyStats />
           </div>
         </section>
 
         <section className="w-full flex justify-center">
-          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-0">
             <ScrollTriggeredSection />
           </div>
         </section>
 
         <section className="w-full flex justify-center">
-          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-0">
             <ExpertBuildersSection />
           </div>
         </section>
 
         <section className="w-full flex justify-center">
-          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-0">
             <ProjectMilestonesSection />
           </div>
         </section>
 
         <section className="w-full flex justify-center">
-          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-0">
             <CommunityFirstSection />
           </div>
         </section>
 
         <section className="w-full flex justify-center">
-          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-0">
             <VideoHeroSection />
           </div>
         </section>
 
         <section className="w-full flex justify-center">
-          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-0">
             <OurPartners />
           </div>
         </section>
 
         <section className="w-full flex justify-center">
-          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-0">
             <CombinedCarouselBigTextSection />
           </div>
         </section>
