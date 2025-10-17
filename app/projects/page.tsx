@@ -186,7 +186,7 @@ import ProjectGallery from "@/components/projects/ProjectGallery";
 import EnvironmentalImpact from "@/components/projects/EnvironmentalImpact";
 import SafetyStandards from "@/components/projects/SafetyStandards";
 import ProjectTimeline from "@/components/projects/ProjectTimeline";
-import { Footer } from "@/components/Footer";
+import { Footer } from "@/components/FooterUpdated";
 import StickyNavigationMenu from "@/components/StickyNavUpdated";
 import MobileMenu from "@/components/MobileMenu";
 
