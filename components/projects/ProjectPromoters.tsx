@@ -5,7 +5,6 @@ const ProjectPromoters = () => {
         {
             icon: Building2,
             name: "Buks Haulage Limited (BHL)",
-            status: "To be updated",
             location: "Solwezi, Northwestern Province, Zambia",
             description: "BHL Zambia Limited is a professional logistics service provider specializing in the transport of various commodities with value-added services and facilities. The company boasts an experienced, well-trained, and professional management team, establishing itself as one of Zambia's most successful logistics businesses over the years.",
             highlights: [
@@ -64,11 +63,6 @@ const ProjectPromoters = () => {
                                                 <h3 className="text-2xl font-heading font-bold text-foreground dark:text-white mb-2">
                                                     {promoter.name}
                                                 </h3>
-                                                {promoter.status && (
-                                                    <span className="inline-block bg-[#fdb913]/20 text-[#fdb913] px-3 py-1 rounded-full text-sm font-medium mb-2">
-                                                        {promoter.status}
-                                                    </span>
-                                                )}
                                                 <div className="flex items-center gap-2 text-muted-foreground dark:text-[#9ca3af] text-sm">
                                                     <MapPin className="w-4 h-4" />
                                                     <span>{promoter.location}</span>
