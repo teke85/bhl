@@ -189,6 +189,7 @@ import ProjectTimeline from "@/components/projects/ProjectTimeline";
 import { Footer } from "@/components/FooterUpdated";
 import StickyNavigationMenu from "@/components/StickyNavUpdated";
 import MobileMenu from "@/components/MobileMenu";
+import ProjectPromoters from "@/components/projects/ProjectPromoters";
 
 const ProjectPage = () => {
   return (
@@ -215,6 +216,7 @@ const ProjectPage = () => {
       <RoadSections />
       <RoadDesign />
       <KeyProjectComponents />
+      <ProjectPromoters />
       <ProjectTimeline />
       <TechnicalSpecifications />
       <SafetyStandards />
