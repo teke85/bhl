@@ -373,8 +373,8 @@
 
 "use client"
 
-import { Footer } from "@/components/Footer"
-import StickyNavigationMenu from "@/components/StickyNav"
+import { Footer } from "@/components/FooterUpdated"
+import StickyNavigationMenu from "@/components/StickyNavUpdated"
 import GalleryHero from "@/components/gallery/GalleryHero"
 import GalleryGrid from "@/components/gallery/GalleryGrid"
 import VideoShowcase from "@/components/gallery/VideoShowcase"
