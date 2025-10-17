@@ -22,7 +22,17 @@ const PartnersHero: React.FC = () => {
     }, [])
 
     return (
-        <section className="relative w-full py-20 md:py-32 bg-gradient-to-b from-white to-gray-50 dark:from-black dark:to-gray-900 overflow-hidden">
+        <section className="relative w-full py-20 md:py-32 overflow-hidden">
+            <div
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                style={{
+                    backgroundImage: 'url("https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1400&h=800&fit=crop")',
+                }}
+            />
+
+            {/* Dark overlay for text readability */}
+            <div className="absolute inset-0 bg-black/50 dark:bg-black/60" />
+
             {/* Background decorative elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-400/5 dark:bg-yellow-400/10 rounded-full blur-3xl" />
@@ -35,7 +45,7 @@ const PartnersHero: React.FC = () => {
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black dark:text-white mb-6 leading-tight"
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
                 >
                     Our Partners
                 </motion.h1>
@@ -45,7 +55,7 @@ const PartnersHero: React.FC = () => {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
-                    className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto"
+                    className="text-xl md:text-2xl text-gray-100 mb-8 max-w-3xl mx-auto"
                 >
                     Building Excellence Together
                 </motion.p>
@@ -57,7 +67,7 @@ const PartnersHero: React.FC = () => {
                     transition={{ duration: 0.8, delay: 0.6 }}
                     className="max-w-2xl mx-auto"
                 >
-                    <p className="text-base md:text-lg text-gray-700 dark:text-gray-400 leading-relaxed">
+                    <p className="text-base md:text-lg text-gray-200 leading-relaxed">
                         Our success is built on the expertise and commitment of world-class partners. Together, we're transforming
                         the Western Corridor into a world-class infrastructure that connects Zambia's rich resources to global
                         markets.
