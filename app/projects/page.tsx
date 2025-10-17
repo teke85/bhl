@@ -184,12 +184,14 @@ import KeyProjectComponents from "@/components/projects/KeyProjectComponents";
 import TechnicalSpecifications from "@/components/projects/TechnicalSpecifications";
 import ProjectGallery from "@/components/projects/ProjectGallery";
 import EnvironmentalImpact from "@/components/projects/EnvironmentalImpact";
-import SafetyStandards from "@/components/projects/SafetyStandards";
 import ProjectTimeline from "@/components/projects/ProjectTimeline";
 import { Footer } from "@/components/FooterUpdated";
 import StickyNavigationMenu from "@/components/StickyNavUpdated";
 import MobileMenu from "@/components/MobileMenu";
 import ProjectPromoters from "@/components/projects/ProjectPromoters";
+import ProjectHistory from "@/components/projects/ProjectHIstory";
+import RegionalConnectivity from "@/components/regional-impact/RegionalConnectivity";
+import ResettlementPolicy from "@/components/projects/ResettlementPolicy";
 
 const ProjectPage = () => {
   return (
@@ -210,16 +212,19 @@ const ProjectPage = () => {
       </nav>
 
       {/* Page Content */}
+
       <ProjectHero />
       <ProjectKeyStats />
+      <ProjectHistory />
+      <RegionalConnectivity />
       <ProjectGallery />
       <RoadSections />
       <RoadDesign />
       <KeyProjectComponents />
+      <ResettlementPolicy />
       <ProjectPromoters />
       <ProjectTimeline />
       <TechnicalSpecifications />
-      <SafetyStandards />
       <EnvironmentalImpact />
       <Footer />
     </main>

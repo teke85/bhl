@@ -38,19 +38,17 @@ export default function AboutHero() {
   return (
     <section className="relative w-full py-20 md:py-32 overflow-hidden bg-background dark:bg-[#0a0a0a]">
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0 w-full">
+      <div className="absolute bg-black/ inset-0 z-0 w-full">
         <Image
           src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760058082/DJI_0577_nvakjm.jpg"
           alt="About Barotse Highway"
-          className="w-full h-full object-cover opacity-20 dark:opacity-10"
+          className="w-full h-full object-cover dark:opacity-10"
           sizes="100vw"
           priority
           width={400}
           height={400}
         />
-        <div
-          className={`absolute inset-0 ${theme === "dark" ? "bg-[#0a0a0a]/70" : "bg-white/60"}`}
-        ></div>
+        <div className="absolute inset-0 bg-black/75"></div>
       </div>
 
       <div className="container w-full mx-auto px-4 relative z-10">
@@ -67,17 +65,13 @@ export default function AboutHero() {
             Our Story
           </motion.h1>
           <motion.p
-            className="text-lg md:text-xl w-full text-black dark:text-white text-balance"
+            className="text-lg md:text-xl w-full text-white dark:text-white text-balance"
             variants={itemVariants}
           >
-            On 21 March 2018, Buks Haulage Limited (BHL) entered a 10-year
-            maintenance contract with the Road Development Agency (RDA) for the
-            Kaoma–Kasempa road. This arrangement ensured that BHL trucks, along
-            with other road users, could utilise the road in a maintained gravel
-            state. BHL has invested over $8 million in maintaining the stretch
-            to keep it in a usable condition, underscoring the strategic
-            importance and operational value of the route even before its formal
-            proposed upgrade under the current concession.
+            Barotse Highway Limited is a Special Purpose Vehicle (SPV)
+            incorporated by BeefCo Holdings Limited and First Quantum Minerals
+            Operations Limited for executing this transformative infrastructure
+            project.
           </motion.p>
         </motion.div>
       </div>
