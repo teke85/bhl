@@ -78,12 +78,12 @@ const HighlightsSection = () => {
       {highlights.map((item, index) => (
         <div
           key={index}
-          className={`highlight-item relative flex flex-col md:flex-row ${
+          className={`highlight-item relative flex flex-col ${
             index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-          } h-[80vh]`}
+          } min-h-[600px] md:h-[80vh]`}
         >
           {/* Image Section */}
-          <div className="relative w-full md:w-1/2 h-full overflow-hidden">
+          <div className="relative w-full md:w-1/2 h-[300px] sm:h-[400px] md:h-full overflow-hidden">
             <Image
               src={item.img || "/placeholder.svg"}
               alt={item.title}
@@ -97,16 +97,16 @@ const HighlightsSection = () => {
           </div>
 
           {/* Text Section */}
-          <div className="highlight-content w-full md:w-1/2 flex items-center justify-center bg-white dark:bg-black text-black dark:text-white px-10 py-16 md:px-16">
-            <div className="max-w-md">
-              <h2 className="text-4xl text-black dark:text-white md:text-5xl font-bold mb-6 leading-tight">
+          <div className="highlight-content w-full md:w-1/2 flex items-center justify-center bg-white dark:bg-black text-black dark:text-white px-6 py-12 sm:px-10 sm:py-16 md:px-16">
+            <div className="max-w-md w-full">
+              <h2 className="text-2xl sm:text-3xl text-black dark:text-white md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
                 {item.title}
               </h2>
-              <p className="text-black dark:bg-black bg-white dark:text-white mb-8">
+              <p className="text-sm sm:text-base text-black dark:text-white mb-6 sm:mb-8 leading-relaxed">
                 {item.text}
               </p>
               <Link href={item.link}>
-                <Button className="bg-yellow-500 rounded-none hover:bg-yellow-600 text-black font-semibold px-6 py-3">
+                <Button className="bg-yellow-500 rounded-none hover:bg-yellow-600 text-black font-semibold px-6 py-3 text-sm sm:text-base">
                   {item.btnText} →
                 </Button>
               </Link>
