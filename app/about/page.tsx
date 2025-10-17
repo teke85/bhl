@@ -173,17 +173,16 @@
 
 // export default About;
 
-"use client"
+"use client";
 
-import { Footer } from "@/components/FooterUpdated"
-import StickyNavigationMenu from "@/components/StickyNavUpdated"
-import AboutHero from "@/components/about/AboutHero"
-import CompanyStory from "@/components/about/CompanyStory"
-import OurMission from "@/components/about/OurMission"
-import CoreValues from "@/components/about/CoreValues"
-import LeadershipTeam from "@/components/about/LeadershipTeam"
-import Achievements from "@/components/about/Achievements"
-import MobileMenu from "@/components/MobileMenu"
+import { Footer } from "@/components/FooterUpdated";
+import StickyNavigationMenu from "@/components/StickyNavUpdated";
+import AboutHero from "@/components/about/AboutHero";
+import CompanyStory from "@/components/about/CompanyStory";
+import OurMission from "@/components/about/OurMission";
+import CoreValues from "@/components/about/CoreValues";
+import LeadershipTeam from "@/components/about/LeadershipTeam";
+import Achievements from "@/components/about/Achievements";
 
 export default function AboutPage() {
   return (
@@ -196,9 +195,6 @@ export default function AboutPage() {
               <StickyNavigationMenu />
             </div>
             <div className="relative z-30 justify-self-end" />
-            <div className="col-span-3 md:hidden">
-              <MobileMenu />
-            </div>
           </div>
         </div>
       </nav>
@@ -212,5 +208,5 @@ export default function AboutPage() {
       <Achievements />
       <Footer />
     </main>
-  )
+  );
 }

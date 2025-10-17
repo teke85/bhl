@@ -6,7 +6,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Play, X, Maximize, Minimize } from "lucide-react";
 import { cn } from "@/lib/utils";
-import MobileMenu from "./MobileMenu";
 import StickyNavigationMenu from "./StickyNavUpdated";
 
 const STATIC_SLIDE = {
@@ -99,24 +98,8 @@ const HeroCarousel: React.FC = () => {
 
   return (
     <div className="relative h-screen w-full overflow-hidden">
-      {/* Header Navigation - Hidden on mobile, visible on desktop */}
-      <div className="hidden md:block">
-        <nav className="absolute top-0 left-0 right-0 z-40">
-          <div className="container mx-auto px-4 py-4">
-            <div className="grid grid-cols-3 items-center gap-4 h-16">
-              <div className="relative z-30 justify-self-center">
-                <StickyNavigationMenu />
-              </div>
-              <div className="relative z-30 justify-self-end" />
-            </div>
-          </div>
-        </nav>
-      </div>
-
-      {/* Mobile Menu - Only visible on mobile */}
-      <div className="md:hidden absolute top-4 right-4 z-50">
-        <MobileMenu />
-      </div>
+      {/* Full Navigation with Mega Menu - Using StickyNavigationMenu component */}
+      <StickyNavigationMenu />
 
       {/* Optimized Background Image */}
       <div className="absolute inset-0 overflow-hidden">
