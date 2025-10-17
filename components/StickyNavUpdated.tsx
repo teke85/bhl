@@ -122,7 +122,8 @@ function StickyNavigationMenu() {
         { name: "Project Overview", href: "/projects" },
         { name: "Timeline", href: "/timeline" },
         { name: "Regional Impact", href: "/regional-impact" },
-        { name: "Multimedia Gallery", href: "/gallery" },
+
+        { name: "Project Promoters", href: "/projects" },
       ],
     },
     CAREERS: {
