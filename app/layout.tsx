@@ -3,6 +3,7 @@ import { Montserrat, Open_Sans, Inter, Jost } from "next/font/google";
 import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
+import Preloader from "@/components/Preloader";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -75,6 +76,7 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${openSans.variable} ${inter.variable} ${jost.variable} ${larken.variable} antialiased`}
       >
+        <Preloader />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
