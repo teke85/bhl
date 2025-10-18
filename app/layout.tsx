@@ -76,7 +76,6 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${openSans.variable} ${inter.variable} ${jost.variable} ${larken.variable} antialiased`}
       >
-        <Preloader />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
