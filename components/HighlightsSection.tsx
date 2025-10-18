@@ -15,7 +15,7 @@ const highlights = [
     title: "CONNECTIVITY THAT DRIVES NATIONS",
     text: "The Mutanda–Kaoma Road is transforming Zambia's Western Corridor into a modern trade artery, linking the Copperbelt and North-Western Provinces to Walvis Bay. This connection will unlock new economic frontiers, streamline logistics, and enhance regional integration across the SADC.",
     img: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760807367/assets_task_01k7qv5fyvf4w9z59md1d1nw59_1760663181_img_1_y5zbj4.webp",
-    link: "/Projects",
+    link: "/projects",
     btnText: "Explore the Project",
   },
   {
