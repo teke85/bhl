@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 export default function TimelineHero() {
   return (
@@ -9,19 +9,20 @@ export default function TimelineHero() {
           alt="Highway construction"
           className="w-full h-full object-cover opacity-20 dark:opacity-10"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background dark:from-[#0a0a0a] to-transparent"></div>
+        <div className="absolute inset-0 bg-black/80"></div>
       </div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="space-y-6">
-          <h1 className="text-5xl md:text-6xl font-heading font-bold text-foreground dark:text-white leading-tight">
-            Project History
+          <h1 className="text-5xl mt-5 md:mt-10 md:text-6xl font-heading font-bold text-white dark:text-white leading-tight">
+            Project Key Timelines and Milestones
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground dark:text-gray-400 font-paragraph max-w-2xl">
-            A comprehensive timeline of the Barotse Highway development from inception to present day.
+          <p className="text-lg md:text-xl text-white dark:text-gray-400 font-paragraph max-w-2xl">
+            A comprehensive timeline of the Barotse Highway development from
+            inception to present day.
           </p>
         </div>
       </div>
     </section>
-  )
+  );
 }

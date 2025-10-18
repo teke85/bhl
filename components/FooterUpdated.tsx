@@ -150,10 +150,9 @@ export const Footer = () => {
               Contact Us
             </h3>
             <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+              <li className="w-full text-primary ">
                 <span className="text-sm text-black dark:text-white">
-                  Lusaka, Zambia
+                  Mutanda Road P.O. Box 110086, Solwezi, Zambia.
                 </span>
               </li>
               <li className="flex items-start gap-3">

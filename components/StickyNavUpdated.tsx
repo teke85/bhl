@@ -276,11 +276,12 @@ function StickyNavigationMenu() {
             <div className="lg:hidden flex items-center gap-3">
               <button
                 onClick={() => setIsSearchOpen(true)}
-                className="text-white p-2"
+                className="text-white flex items-center justify-between space-x-4 p-2"
                 aria-label="Open search"
               >
                 <Search className="h-5 w-5" />
               </button>
+              <ModeToggle />
               <button
                 className="text-white bg-[#0A0A0A]/70 border border-white/5 p-2 rounded-lg"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

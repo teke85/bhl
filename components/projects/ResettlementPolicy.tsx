@@ -4,18 +4,18 @@ import { motion } from "framer-motion";
 
 const ResettlementPolicy = () => {
   return (
-    <section className="py-20 bg-white text-gray-800">
-      <div className="container mx-auto px-4 max-w-6xl">
+    <section className="py-20 bg-white dark:bg-black text-black dark:text-white">
+      <div className="container px-10 max-w-6xl">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold mb-6 text-[#EAB81E]"
+          className="text-3xl md:text-5xl font-bold mb-6 text-black dark:text-white"
         >
           Resettlement Policy Framework
         </motion.h2>
 
-        <div className="space-y-5 leading-relaxed">
+        <div className="space-y-5 font-body text-[1.2rem] leading-relaxed">
           <p>
             The project has developed a{" "}
             <strong>Resettlement Policy Framework (RPF)</strong>

@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import Image from "next/image"
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 function PartnersCarousel() {
   const partners = [
@@ -50,40 +50,48 @@ function PartnersCarousel() {
       name: "NYELETI",
       logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430580/nyeleti-logo-dark-bg-star_gmqcy2.png",
     },
-  ]
+  ];
 
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLDivElement>(null)
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setIsVisible(true);
         }
       },
-      { threshold: 0.1 },
-    )
+      { threshold: 0.1 }
+    );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+      observer.observe(sectionRef.current);
     }
 
     return () => {
       if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
+        observer.unobserve(sectionRef.current);
       }
-    }
-  }, [])
+    };
+  }, []);
 
   return (
-    <section ref={sectionRef} className="w-full bg-white dark:bg-black py-20 md:py-28">
+    <section
+      ref={sectionRef}
+      className="w-full bg-white dark:bg-black py-20 md:py-28"
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-sm font-semibold text-black dark:text-white tracking-wider text-gray-500 uppercase mb-3">Trusted By</h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-4">Our Partners</h3>
+          <h2 className="text-sm font-semibold text-black dark:text-white tracking-wider text-gray-500 uppercase mb-3">
+            Trusted By
+          </h2>
+          <h3 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-4">
+            Our Partners
+          </h3>
           <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
-            Collaborating with industry leaders to deliver exceptional infrastructure solutions
+            Collaborating with industry leaders to deliver exceptional
+            infrastructure solutions
           </p>
         </div>
 
@@ -101,8 +109,13 @@ function PartnersCarousel() {
               }}
             >
               <div className="relative h-32 flex items-center justify-center p-6 rounded-xl border border-gray-200 transition-all duration-300 hover:shadow-lg hover:border-gray-300 hover:-translate-y-1">
-                <div className="relative w-full h-full grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100">
-                  <Image src={partner.logo || "/placeholder.svg"} alt={partner.name} fill className="object-contain" />
+                <div className="relative w-full h-full md:grayscale md:group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100">
+                  <Image
+                    src={partner.logo || "/placeholder.svg"}
+                    alt={partner.name}
+                    fill
+                    className="object-contain"
+                  />
                 </div>
               </div>
 
@@ -116,7 +129,7 @@ function PartnersCarousel() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default PartnersCarousel
+export default PartnersCarousel;

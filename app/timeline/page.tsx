@@ -9,8 +9,6 @@ import UpcomingMilestones from "@/components/timeline/UpcomingMilestones";
 import { Footer } from "@/components/FooterUpdated";
 import StickyNavigationMenu from "@/components/StickyNavUpdated";
 
-import MobileMenu from "@/components/MobileMenu";
-
 const TimelinePage = () => {
   return (
     <main className="min-h-screen bg-background dark:bg-[#0a0a0a]">
@@ -22,9 +20,6 @@ const TimelinePage = () => {
               <StickyNavigationMenu />
             </div>
             <div className="relative z-30 justify-self-end" />
-            <div className="col-span-3 md:hidden">
-              <MobileMenu />
-            </div>
           </div>
         </div>
       </nav>
@@ -33,7 +28,7 @@ const TimelinePage = () => {
       <TimelineHero />
       <TimelineVertical />
       <MilestoneHighlights />
-      <ProjectPhases />
+      {/* <ProjectPhases /> */}
       <KeyAchievements />
       <UpcomingMilestones />
       <Footer />

@@ -4,18 +4,18 @@ import { motion } from "framer-motion";
 
 const EnvironmentalImpact = () => {
   return (
-    <section className="py-20 bg-white text-gray-800">
+    <section className="py-10 bg-white text-black dark:bg-black">
       <div className="container mx-auto px-4 max-w-6xl">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold mb-6 text-[#EAB81E]"
+          className="text-3xl md:text-5xl text-center font-bold mb-6 text-black dark:text-white"
         >
           Environmental & Social Impact
         </motion.h2>
 
-        <div className="space-y-5 leading-relaxed">
+        <div className="space-y-5 text-black font-body dark:text-white leading-relaxed">
           <p>
             The <strong>Mutanda–Kaoma Road Project</strong> is being implemented
             under a rigorous{" "}

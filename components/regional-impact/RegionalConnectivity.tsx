@@ -1,56 +1,75 @@
-"use client"
+"use client";
 
-import { useTheme } from "next-themes"
-import { useEffect, useState } from "react"
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export default function RegionalConnectivity() {
-    const { theme } = useTheme()
-    const [mounted, setMounted] = useState(false)
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-    useEffect(() => {
-        setMounted(true)
-    }, [])
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-    if (!mounted) return null
+  if (!mounted) return null;
 
-    return (
-        <section className="w-full py-16 md:py-24 bg-background dark:bg-[#0a0a0a]">
-            <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground dark:text-white mb-6 text-balance">
-                            Regional Connectivity Hub
-                        </h2>
-                        <p className="text-lg text-muted-foreground dark:text-gray-400 mb-6 leading-relaxed">
-                            The Barotse Corridor Connector serves as a vital link in the SADC regional transport network, connecting
-                            key economic zones and facilitating seamless trade flows.
-                        </p>
+  return (
+    <section className="w-full py-16 md:py-24 bg-background dark:bg-[#0a0a0a]">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 justify-between items-center">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground dark:text-white mb-6 text-balance">
+              Regional Connectivity Hub
+            </h2>
+            <p className="text-lg text-black dark:text-white font-body mb-6 leading-relaxed">
+              The Road also serves as a vital trade corridor, connecting Solwezi
+              to Walvis Bay in Namibia. The current condition of the Road
+              restricts seamless movement of goods, impacting trade within
+              Zambia and potentially hindering economic ties with neighbouring
+              countries such as the Congo DRC. The Road will serve as a gateway
+              for trade with Angola, Botswana, Namibia and the Western half of
+              the world. The benefits already being noted, the Road will provide
+              the means for economic growth for both Western and Northwestern
+              provinces. While the Project, as planned, acknowledges that
+              traffic will still use the alternative routes for access to
+              international ports like Durban and Dar es Salaam, there is an
+              expected diversion through the new&quot; route to Walvis Bay
+              through Kaoma.
+            </p>
 
-                        <div className="space-y-4">
-                            {[
-                                "Connects 4 SADC countries",
-                                "Links 8 major economic zones",
-                                "Reduces regional trade barriers",
-                                "Enables cross-border commerce",
-                            ].map((item, index) => (
-                                <div key={index} className="flex items-center gap-3">
-                                    <div className="w-2 h-2 rounded-full bg-[#fdb913]"></div>
-                                    <span className="text-foreground dark:text-white">{item}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className="relative h-96 rounded-lg overflow-hidden">
-                        <img
-                            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=500&fit=crop"
-                            alt="Regional connectivity map"
-                            className="w-full h-full object-cover"
-                        />
-                        <div className={`absolute inset-0 ${theme === "dark" ? "bg-[#0a0a0a]/30" : "bg-white/20"}`}></div>
-                    </div>
+            <div className="space-y-4">
+              {[
+                "Enhance Regional Connectivity",
+                "Foster economic cooperation and development",
+                "benefit the local community and the country in terms of mining, tourism, agriculture, fish trade, timber production, delivery of social services and reduced vehicle operating costs.",
+                "Enables cross-border commerce",
+                "Provide the fastest route between the mineral-rich Provinces of the Copperbelt and Northwestern in Zambia and the Democratic Republic of Congo to the West Coast Regions of Africa.",
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-start md:items-start gap-3"
+                >
+                  <div className="w-2 h-2 rounded-full bg-[#fdb913]"></div>
+                  <span className="text-foreground dark:text-white">
+                    {item}
+                  </span>
                 </div>
+              ))}
             </div>
-        </section>
-    )
+          </div>
+
+          <div className="relative h-full w-[60%] rounded-lg overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=500&fit=crop"
+              alt="Regional connectivity map"
+              className="w-full h-full object-cover"
+            />
+            <div
+              className={`absolute inset-0 ${theme === "dark" ? "bg-[#0a0a0a]/30" : "bg-white/20"}`}
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

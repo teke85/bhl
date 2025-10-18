@@ -32,8 +32,7 @@ const ProjectGallery = () => {
     {
       src: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760699527/WhatsApp_Image_2025-10-10_at_13.00.15_hygpnc.jpg",
       title: "",
-      description:
-        "State-of-the-art equipment and modern construction techniques",
+      description: "Map showing connectivity from mutanda to walvisbay",
     },
     {
       src: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760053175/DJI_0524_10000_jhze1c.jpg",
@@ -59,9 +58,9 @@ const ProjectGallery = () => {
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground dark:text-white mb-4">
-            Project Gallery
+            Project Map
           </h2>
-          <p className="text-lg text-muted-foreground dark:text-[#9ca3af] font-paragraph max-w-2xl mx-auto">
+          <p className="text-lg text-black dark:text-white font-body max-w-2xl mx-auto">
             Witness the transformation of Zambia&apos;s infrastructure through
             our construction journey
           </p>

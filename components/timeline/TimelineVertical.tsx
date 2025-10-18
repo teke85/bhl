@@ -1,57 +1,49 @@
-"use client"
+"use client";
 
-import { CheckCircle2 } from "lucide-react"
+import { CheckCircle2 } from "lucide-react";
 
 interface TimelineEvent {
-  date: string
-  title: string
-  description: string
-  status: "completed" | "current" | "upcoming"
+  date: string;
+  title: string;
+  description: string;
+  status: "completed" | "current" | "upcoming";
 }
 
 const events: TimelineEvent[] = [
   {
-    date: "21 March 2018",
-    title: "Maintenance Contract Initiated",
-    description:
-      "Buks Haulage Limited (BHL) entered a 10-year maintenance contract with the Road Development Agency (RDA) for the Kaoma-Kasempa road. BHL invested over $8 million to maintain the road in a usable gravel state.",
-    status: "completed",
-  },
-  {
-    date: "2023",
-    title: "Upgrade Decision",
-    description:
-      "The Promoters resolved to upgrade the entire stretch to bituminous standard after assessing the corridor's traffic potential.",
-    status: "completed",
-  },
-  {
     date: "16 February 2024",
-    title: "PPP Proposal Submitted",
-    description: "The Promoters submitted an unsolicited PPP proposal to the RDA.",
+    title: "Unsolicited proposal submitted",
+    description:
+      "The Promoters submitted the unsolicited proposal for the Project on 16 February 2024.",
     status: "completed",
   },
   {
-    date: "19 June 2024",
-    title: "Preferred Bidder Status",
-    description: "The RDA granted the Promoters preferred bidder status.",
+    date: "19 June, 2024",
+    title: "Preferred bidder status awarded",
+    description:
+      "On 19 June 2024, the Promoters were awarded the preferred bidder status by the Zambia Road Development Agency.",
     status: "completed",
   },
   {
     date: "10 July 2024",
     title: "SPV Incorporated",
-    description: "The Promoters incorporated the Special Purpose Vehicle, Barotse Express Limited (BEL-TC).",
+    description:
+      "The Promoters incorporated the Special Purpose Vehicle, Barotse Express Limited (BEL-TC). ü	The Promoters engaged in a period of contract negotiations. The Promoters engaged various advisors, legal, financing, engineering, and ESG advisors to assist in the negotiations.",
     status: "completed",
   },
+
   {
     date: "1 December 2024",
     title: "Concession Agreement Signed",
-    description: "The Concession Agreement was signed with the Ministry of Finance and National Planning in Kasempa.",
+    description:
+      "The Concession Agreement was signed with the Ministry of Finance and National Planning in Kasempa.",
     status: "completed",
   },
   {
     date: "Current Status",
     title: "Design & Preparation",
-    description: "The Project is advancing through road design and other preparatory works.",
+    description:
+      "The Project is advancing through road design and other preparatory works.",
     status: "current",
   },
   {
@@ -60,7 +52,7 @@ const events: TimelineEvent[] = [
     description: "Target milestone for achieving financial close.",
     status: "upcoming",
   },
-]
+];
 
 export default function TimelineVertical() {
   return (
@@ -87,7 +79,9 @@ export default function TimelineVertical() {
                 >
                   <div className="bg-card dark:bg-[#1a1a1a] p-6 md:p-8 rounded-lg border border-border dark:border-white/10 hover:shadow-lg transition-shadow">
                     <div className="flex items-center gap-3 mb-3">
-                      <span className="text-[#fdb913] font-heading font-bold text-sm md:text-base">{event.date}</span>
+                      <span className="text-[#fdb913] font-heading font-bold text-sm md:text-base">
+                        {event.date}
+                      </span>
                       {event.status === "current" && (
                         <span className="px-3 py-1 bg-[#fdb913] text-black text-xs font-bold rounded-full">
                           CURRENT
@@ -102,7 +96,7 @@ export default function TimelineVertical() {
                     <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground dark:text-white mb-3">
                       {event.title}
                     </h3>
-                    <p className="text-muted-foreground dark:text-gray-400 font-paragraph leading-relaxed">
+                    <p className="text-black dark:text-white font-body leading-relaxed">
                       {event.description}
                     </p>
                   </div>
@@ -113,5 +107,5 @@ export default function TimelineVertical() {
         </div>
       </div>
     </section>
-  )
+  );
 }

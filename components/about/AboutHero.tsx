@@ -59,7 +59,7 @@ export default function AboutHero() {
           animate="visible"
         >
           <motion.h1
-            className="text-5xl md:text-6xl font-heading font-bold text-foreground dark:text-white mb-6 text-balance"
+            className="text-5xl md:text-6xl font-heading font-bold text-white dark:text-white mb-6 text-balance"
             variants={itemVariants}
           >
             Our Story
