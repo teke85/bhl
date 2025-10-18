@@ -15,7 +15,7 @@ const ResettlementPolicy = () => {
           Resettlement Policy Framework
         </motion.h2>
 
-        <div className="space-y-5 leading-relaxed">
+        <div className="space-y-5 font-body text-xl leading-relaxed">
           <p>
             The project has developed a{" "}
             <strong>Resettlement Policy Framework (RPF)</strong>

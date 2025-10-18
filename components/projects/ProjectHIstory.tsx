@@ -15,18 +15,18 @@ const ProjectHistory = () => {
           Project Background & History
         </motion.h2>
 
-        <div className="space-y-5 text-[1.2rem] leading-relaxed">
-          <p>
+        <div className="space-y-5 leading-tight">
+          <p className="text-lg font-body text-black dark:text-white mb-8 leading-relaxed">
             The Mutanda–Kaoma Road Project traces its origins to{" "}
             <strong>21 March 2018</strong>, when{" "}
             <strong>Buks Haulage Limited (BHL)</strong>
-            entered a ten-year maintenance contract with the{" "}
+            {""}entered a ten-year maintenance contract with the{" "}
             <strong>Road Development Agency (RDA)</strong> for the Kaoma–Kasempa
             road. Over USD 8 million was invested to keep the gravel route
             usable, highlighting its strategic importance even before the formal
             concession.
           </p>
-          <p>
+          <p className="text-lg text-black dark:text-white font-body mb-8 leading-relaxed">
             After assessing the corridor’s traffic potential, the Promoters
             resolved in 2023 to upgrade the entire 371 km stretch to bituminous
             standard. An unsolicited PPP proposal was submitted on{" "}
@@ -34,7 +34,7 @@ const ProjectHistory = () => {
             <strong> preferred-bidder status </strong> was granted on{" "}
             <strong>19 June 2024</strong> .
           </p>
-          <p>
+          <p className="font-body text-lg md:text-xl">
             To deliver the concession, the Special Purpose Vehicle{" "}
             <strong>Barotse Express Limited (BEL-TC)</strong> was incorporated
             on 10 July 2024, followed by the signing of the Concession Agreement

@@ -1,6 +1,7 @@
 "use client";
 
 import { useTheme } from "next-themes";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function RegionalConnectivity() {
@@ -21,7 +22,7 @@ export default function RegionalConnectivity() {
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground dark:text-white mb-6 text-balance">
               Regional Connectivity Hub
             </h2>
-            <p className="text-lg text-black dark:text-white font-body mb-6 leading-relaxed">
+            <p className="text-lg text-black dark:text-white font-body mb-8 leading-relaxed">
               The Road also serves as a vital trade corridor, connecting Solwezi
               to Walvis Bay in Namibia. The current condition of the Road
               restricts seamless movement of goods, impacting trade within
@@ -37,20 +38,17 @@ export default function RegionalConnectivity() {
               through Kaoma.
             </p>
 
-            <div className="space-y-4">
+            <div className="space-y-5">
               {[
                 "Enhance Regional Connectivity",
                 "Foster economic cooperation and development",
-                "benefit the local community and the country in terms of mining, tourism, agriculture, fish trade, timber production, delivery of social services and reduced vehicle operating costs.",
+                "Benefit the local community and the country in terms of mining, tourism, agriculture, fish trade, timber production, delivery of social services and reduced vehicle operating costs",
                 "Enables cross-border commerce",
-                "Provide the fastest route between the mineral-rich Provinces of the Copperbelt and Northwestern in Zambia and the Democratic Republic of Congo to the West Coast Regions of Africa.",
+                "Provide the fastest route between the mineral-rich Provinces of the Copperbelt and Northwestern in Zambia and the Democratic Republic of Congo to the West Coast Regions of Africa",
               ].map((item, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-start md:items-start gap-3"
-                >
-                  <div className="w-2 h-2 rounded-full bg-[#fdb913]"></div>
-                  <span className="text-foreground dark:text-white">
+                <div key={index} className="flex items-start gap-4">
+                  <div className="w-2 h-2 rounded-full bg-[#fdb913] mt-2 flex-shrink-0"></div>
+                  <span className="text-base text-foreground dark:text-white leading-relaxed">
                     {item}
                   </span>
                 </div>
@@ -58,11 +56,13 @@ export default function RegionalConnectivity() {
             </div>
           </div>
 
-          <div className="relative h-full w-[60%] rounded-lg overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=500&fit=crop"
+          <div className="relative h-full w-[60%] mx-auto rounded-lg overflow-hidden">
+            <Image
+              src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760688925/assets_task_01k7rhvvv0edyswpv0an4gz514_1760687005_img_1_wxsqvq.webp"
               alt="Regional connectivity map"
               className="w-full h-full object-cover"
+              priority
+              fill
             />
             <div
               className={`absolute inset-0 ${theme === "dark" ? "bg-[#0a0a0a]/30" : "bg-white/20"}`}
