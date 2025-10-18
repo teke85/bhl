@@ -189,7 +189,7 @@ import { Footer } from "@/components/FooterUpdated";
 import StickyNavigationMenu from "@/components/StickyNavUpdated";
 import MobileMenu from "@/components/MobileMenu";
 import ProjectPromoters from "@/components/projects/ProjectPromoters";
-import ProjectHistory from "@/components/projects/ProjectHistory";
+import ProjectHistory from "@/components/projects/ProjectHIstory";
 import RegionalConnectivity from "@/components/regional-impact/RegionalConnectivity";
 import ResettlementPolicy from "@/components/projects/ResettlementPolicy";
 
