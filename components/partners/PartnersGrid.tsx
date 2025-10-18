@@ -316,8 +316,6 @@ const PartnersGrid: React.FC = () => {
                   <motion.div
                     key={partner.id}
                     variants={itemVariants}
-                    whileHover={{ y: -8 }}
-                    transition={{ duration: 0.3 }}
                     className="w-full"
                   >
                     <Card
@@ -371,14 +369,18 @@ const PartnersGrid: React.FC = () => {
                         {/* Expand button */}
                         <button
                           className="flex items-center gap-2 text-yellow-600 dark:text-yellow-400 font-semibold text-sm hover:text-yellow-700 dark:hover:text-yellow-300 transition-colors cursor-pointer"
-                          onClick={() =>
+                          onClick={(e) => {
+                            e.stopPropagation();
                             setExpandedId(
                               expandedId === partner.id ? null : partner.id
-                            )
-                          }
+                            );
+                          }}
                         >
                           View Details
-                          <ChevronDown className="w-4 h-4" />
+                          <ChevronDown
+                            className="w-4 h-4"
+                            style={{ transform: "none" }}
+                          />
                         </button>
 
                         {/* Expanded content */}
