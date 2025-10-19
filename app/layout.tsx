@@ -53,6 +53,28 @@ const larken = localFont({
   display: "swap",
 });
 
+const aeonik = localFont({
+  src: [
+    {
+      path: "../public/fonts/Aeonik-Light.otf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/Aeonik-Regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/Aeonik-Bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-aeonik",
+  display: "swap",
+});
+
 const openSans = Open_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -74,7 +96,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${montserrat.variable} ${openSans.variable} ${inter.variable} ${jost.variable} ${larken.variable} antialiased`}
+        className={`${montserrat.variable} ${openSans.variable} ${aeonik.variable} ${inter.variable} ${jost.variable} ${larken.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"

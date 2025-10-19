@@ -41,12 +41,12 @@ const ProjectMilestonesSection = () => {
 
           <div>
             <Button
-              className="bg-[#fdb913] font-body rounded-none border-white/20 text-black dark:text-white hover:bg-[#FDB913] hover:border-white/40 transition-all duration-300 gap-2"
+              className=" font-heading text-xl rounded-none dark:hover:bg-black hover:text-white transition-all duration-500 border-white/20 text-black dark:text-white bg-transparent gap-2"
               asChild
             >
               <Link href="/timeline">
-                Full Project History{" "}
-                <ArrowRight className="h-4 w-4 text-black dark:text-white" />
+                See our Project History{" "}
+                <ArrowRight className="h-4 w-4 hover:text-white text-black dark:text-white" />
               </Link>
             </Button>
           </div>
