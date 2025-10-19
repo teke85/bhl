@@ -38,9 +38,9 @@ export default function AboutHero() {
   return (
     <section className="relative w-full py-20 md:py-32 overflow-hidden bg-background dark:bg-[#0a0a0a]">
       {/* Background Image with Overlay */}
-      <div className="absolute bg-black/ inset-0 z-0 w-full">
+      <div className="absolute bg-black/20 inset-0 z-0 w-full">
         <Image
-          src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760058082/DJI_0577_nvakjm.jpg"
+          src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760873944/A_professional__cinematic_image_representing_the_founding_story_of_Barotse_Highway_Limited__a_Zambia_2_s9dqfd.png"
           alt="About Barotse Highway"
           className="w-full h-full object-cover dark:opacity-10"
           sizes="100vw"

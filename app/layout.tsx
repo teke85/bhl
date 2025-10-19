@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 import Preloader from "@/components/Preloader";
+import CookiePrivacyPopup from "@/components/CookiePrivacyPopup";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -106,6 +107,7 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
+        <CookiePrivacyPopup />
       </body>
     </html>
   );
