@@ -32,7 +32,7 @@ const ProjectMilestonesSection = () => {
                 <div className="text-[#fdb913] font-bdy dark:text-[#fdb913] text-3xl md:text-4xl font-bold">
                   {milestone.year}
                 </div>
-                <p className="font-body text-black dark:text-white text-base md:text-lg">
+                <p className="font-body text-[#868584] dark:text-white text-base md:text-lg">
                   {milestone.description}
                 </p>
               </div>

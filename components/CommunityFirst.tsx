@@ -19,7 +19,7 @@ const CommunityFirstSection = () => {
             <h2 className="text-4xl font-heading md:text-6xl font-bold text-black dark:text-white">
               Community First
             </h2>
-            <p className="text-black dark:text-white font-sans text-lg leading-relaxed">
+            <p className="text-[#868584] dark:text-white font-sans text-lg leading-relaxed">
               Our comprehensive Resettlement Policy Framework ensures fair
               treatment and support for all affected communities.
             </p>

@@ -111,7 +111,7 @@ const ScrollTriggeredImage = () => {
                 <h2 className="text-4xl xl:text-6xl capitalize text-black dark:text-white font-heading font-bold mb-6">
                   {item.title}
                 </h2>
-                <p className="text-lg xl:text-xl font-body text-black dark:text-white leading-relaxed">
+                <p className="text-lg xl:text-xl font-body text-[#868584] dark:text-white leading-relaxed">
                   {item.description}
                 </p>
               </div>
@@ -136,10 +136,10 @@ const ScrollTriggeredImage = () => {
 
               {/* Content */}
               <div className="space-y-4">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl capitalize text-black dark:text-white font-heading font-bold">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl capitalize text-black dark:text-[#cfcdcb] font-heading font-bold">
                   {item.title}
                 </h2>
-                <p className="text-base sm:text-lg md:text-xl font-body text-black dark:text-white leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl font-body text-[#cfcdcb] dark:text-[#cfcdcb] leading-relaxed">
                   {item.description}
                 </p>
               </div>

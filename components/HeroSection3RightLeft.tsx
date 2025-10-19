@@ -139,7 +139,7 @@ const HeroCarousel: React.FC = () => {
         </h1>
         <p
           ref={subtitleRef}
-          className="max-w-2xl font-body text-sm sm:text-base md:text-lg lg:text-2xl mb-6 sm:mb-8 text-white opacity-0 translate-y-[30px] drop-shadow-md px-4"
+          className="max-w-2xl text-[#cfcdcb] font-body text-sm sm:text-base md:text-lg lg:text-2xl mb-6 sm:mb-8 opacity-0 translate-y-[30px] drop-shadow-md px-4"
         >
           {STATIC_SLIDE.subtitle}
         </p>

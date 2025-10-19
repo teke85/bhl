@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useState } from "react";
 import { useInView } from "react-intersection-observer";
 
@@ -102,10 +103,11 @@ export default function GalleryGrid() {
               whileHover={{ scale: 1.05 }}
               onClick={() => setSelectedImage(image.src)}
             >
-              <img
+              <Image
                 src={image.src || "/placeholder.svg"}
                 alt={image.title}
                 className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                layout="fill"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-end p-4">
                 <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import {
-  MapPin,
   Mail,
   Phone,
   Facebook,
@@ -13,7 +12,7 @@ import {
 export const Footer = () => {
   const quickLinks = [
     { href: "/about", label: "About Us" },
-    { href: "/project", label: "Project Overview" },
+    { href: "/projects", label: "Project Overview" },
     { href: "/timeline", label: "Timeline" },
     { href: "/regional-impact", label: "Regional Impact" },
     { href: "/resettlement", label: "Resettlement" },
@@ -52,7 +51,7 @@ export const Footer = () => {
                 Barotse Express Highway
               </span>
             </Link>
-            <p className="text-black dark:text-white font-body text-lg leading-relaxed mb-6">
+            <p className="text-[#868584] dark:text-white font-body text-lg leading-relaxed mb-6">
               Transforming Zambia&apos;s Western Corridor through world-class
               infrastructure development. Building connections, creating
               opportunities, and driving sustainable regional growth.
@@ -90,12 +89,12 @@ export const Footer = () => {
             <h3 className="font-semibold text-black dark:text-white mb-4">
               Quick Links
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3 text-[#868584] dark:text-[#868584]">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-black dark:text-white hover:text-foreground transition-colors"
+                    className="text-sm text-[#868584] dark:text-white hover:text-foreground transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -114,7 +113,7 @@ export const Footer = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-black dark:text-white hover:text-foreground transition-colors"
+                    className="text-sm text-[#868584] dark:text-white hover:text-foreground transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -133,7 +132,7 @@ export const Footer = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-black dark:text-white hover:text-black/20 transition-colors"
+                    className="text-sm text-[#868584] dark:text-white hover:text-black/20 transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -149,7 +148,7 @@ export const Footer = () => {
             </h3>
             <ul className="space-y-4">
               <li className="w-full text-primary ">
-                <span className="text-sm text-black dark:text-white">
+                <span className="text-sm text-[#868584] dark:text-white">
                   Mutanda Road P.O. Box 110086, Solwezi, Zambia.
                 </span>
               </li>
@@ -157,7 +156,7 @@ export const Footer = () => {
                 <Mail className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                 <a
                   href="mailto:info@barotsehighway.com"
-                  className="text-sm text-black dark:text-white hover:text-foreground transition-colors"
+                  className="text-sm text-[#868584] dark:text-white hover:text-foreground transition-colors"
                 >
                   buksvr@bhl.co.zm
                 </a>
@@ -166,7 +165,7 @@ export const Footer = () => {
                 <Phone className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                 <a
                   href="tel:+260123456789"
-                  className="text-sm text-black dark:text-white hover:text-foreground transition-colors"
+                  className="text-sm text-[#868584] dark:text-white hover:text-foreground transition-colors"
                 >
                   +260 123 456 789
                 </a>

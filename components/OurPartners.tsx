@@ -83,13 +83,13 @@ function PartnersCarousel() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-sm font-semibold text-black dark:text-white tracking-wider uppercase mb-3">
+          <h2 className="text-sm font-semibold text-[#868584] dark:text-white tracking-wider uppercase mb-3">
             Trusted By
           </h2>
           <h3 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-4">
             Our Partners
           </h3>
-          <p className="text-lg text-black dark:text-white max-w-2xl mx-auto">
+          <p className="text-lg text-[#868584] dark:text-white max-w-2xl mx-auto">
             Collaborating with industry leaders to deliver exceptional
             infrastructure solutions
           </p>

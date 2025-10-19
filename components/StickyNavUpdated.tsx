@@ -8,7 +8,7 @@ import { X, Search, Menu, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ModeToggle from "./ModeToggle";
 
-type MenuKey = "COMPANY" | "OUR COMMITMENT" | "PROJECT" | "CAREERS" | "GALLERY";
+type MenuKey = "company" | "our commitment" | "project" | "careers" | "gallery";
 
 function StickyNavigationMenu() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -24,7 +24,7 @@ function StickyNavigationMenu() {
   const megaMenuRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
-  // Handle scroll events
+  // Handle scroll progress
   useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.scrollY > 100;
@@ -42,15 +42,16 @@ function StickyNavigationMenu() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close menus on outside click
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node;
-      const isOutsideMenu =
-        menuRef.current && !menuRef.current.contains(target);
-      const isOutsideMegaMenu =
-        megaMenuRef.current && !megaMenuRef.current.contains(target);
-
-      if (isOutsideMenu && isOutsideMegaMenu) {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(target) &&
+        megaMenuRef.current &&
+        !megaMenuRef.current.contains(target)
+      ) {
         setActiveMenu(null);
         setShowMoreMenu(false);
       }
@@ -63,14 +64,14 @@ function StickyNavigationMenu() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [activeMenu, showMoreMenu]);
 
-  // Auto focus search input
+  // Focus search input when open
   useEffect(() => {
     if (isSearchOpen && searchInputRef.current) {
       searchInputRef.current.focus();
     }
   }, [isSearchOpen]);
 
-  // ESC to close
+  // ESC key closes all overlays
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -82,7 +83,7 @@ function StickyNavigationMenu() {
     };
     window.addEventListener("keydown", handleEscape);
     return () => window.removeEventListener("keydown", handleEscape);
-  }, [isSearchOpen, activeMenu, showMoreMenu]);
+  }, []);
 
   const menuData: Record<
     MenuKey,
@@ -92,7 +93,7 @@ function StickyNavigationMenu() {
       links: { name: string; href: string }[];
     }
   > = {
-    COMPANY: {
+    company: {
       title: "ABOUT US",
       description:
         "Barotse Highway Limited is a Special Purpose Vehicle (SPV) incorporated by BeefCo Holdings Limited and First Quantum Minerals Operations Limited for executing this transformative infrastructure project.",
@@ -103,7 +104,7 @@ function StickyNavigationMenu() {
         { name: "Home", href: "/" },
       ],
     },
-    "OUR COMMITMENT": {
+    "our commitment": {
       title: "OUR COMMITMENT",
       description:
         "We are committed to delivering world-class infrastructure while prioritizing community welfare, environmental sustainability, and economic development across the Western Corridor.",
@@ -114,7 +115,7 @@ function StickyNavigationMenu() {
         { name: "Projects", href: "/projects" },
       ],
     },
-    PROJECT: {
+    project: {
       title: "PROJECT DETAILS",
       description:
         "The Project encompasses the rehabilitation and upgrade of 371 kilometres of road from Mutanda in Northwestern Province to Kaoma in Western Province, Zambia.",
@@ -122,11 +123,10 @@ function StickyNavigationMenu() {
         { name: "Project Overview", href: "/projects" },
         { name: "Timeline", href: "/timeline" },
         { name: "Regional Impact", href: "/regional-impact" },
-
         { name: "Project Promoters", href: "/projects" },
       ],
     },
-    CAREERS: {
+    careers: {
       title: "JOIN OUR TEAM",
       description:
         "Be part of a transformative infrastructure project that's connecting communities and driving economic growth across Zambia's Western Corridor.",
@@ -137,7 +137,7 @@ function StickyNavigationMenu() {
         { name: "Gallery", href: "/gallery" },
       ],
     },
-    GALLERY: {
+    gallery: {
       title: "GALLERY",
       description:
         "Explore our multimedia gallery showcasing the Barotse Highway project.",
@@ -164,6 +164,10 @@ function StickyNavigationMenu() {
     setActiveMobileSubmenu((prev) => (prev === menu ? null : menu));
   };
 
+  // Capitalize first letter of menu items
+  const formatMenuLabel = (key: MenuKey) =>
+    key.charAt(0).toUpperCase() + key.slice(1);
+
   return (
     <>
       {/* Scroll Progress Bar */}
@@ -185,7 +189,7 @@ function StickyNavigationMenu() {
         )}
       >
         <div className="container mx-auto px-4">
-          {/* Top bar - Desktop only */}
+          {/* Top bar */}
           <div className="hidden md:flex justify-end items-center gap-6 py-2 border-b border-white/10">
             <button
               onClick={() => setIsSearchOpen(true)}
@@ -219,9 +223,9 @@ function StickyNavigationMenu() {
                   <div key={item} className="relative group">
                     <button
                       onClick={() => handleMenuClick(item)}
-                      className="relative flex items-center cursor-pointer font-body gap-1 transition-colors duration-200 py-2 font-medium text-md tracking-wide uppercase group text-white hover:text-[#FDB913]"
+                      className="relative flex items-center cursor-pointer font-body gap-1 transition-colors duration-200 py-2 font-medium text-md tracking-wide group text-white hover:text-[#FDB913]"
                     >
-                      {item}
+                      {formatMenuLabel(item)}
                       <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FDB913] group-hover:w-full transition-all duration-300"></span>
                     </button>
                   </div>
@@ -229,7 +233,7 @@ function StickyNavigationMenu() {
               </div>
             </div>
 
-            {/* Desktop Right side */}
+            {/* Desktop Right Side */}
             <div className="hidden lg:flex items-center gap-6">
               {/* MORE dropdown */}
               <div className="relative">
@@ -238,9 +242,9 @@ function StickyNavigationMenu() {
                     setShowMoreMenu((s) => !s);
                     setActiveMenu(null);
                   }}
-                  className="flex items-center font-body gap-3 transition-colors duration-200 font-medium text-md tracking-wide uppercase group text-white hover:text-[#FDB913]"
+                  className="flex items-center font-body gap-3 transition-colors duration-200 font-medium text-md tracking-wide group text-white hover:text-[#FDB913]"
                 >
-                  MORE
+                  More
                   <div className="flex flex-col gap-1.5 w-5">
                     <span className="h-0.5 bg-current transition-all duration-300 group-hover:w-1/2"></span>
                     <span className="h-0.5 bg-current transition-all duration-300"></span>
@@ -264,7 +268,7 @@ function StickyNavigationMenu() {
 
               <Button
                 asChild
-                className="bg-[#FDB913] rounded-none hover:bg-[#E1AF1C] text-black font-semibold uppercase tracking-wide px-8 py-6"
+                className="bg-[#FDB913] rounded-none hover:bg-[#E1AF1C] text-black font-semibold tracking-wide px-8 py-6"
               >
                 <Link className="font-body" href="/contact">
                   Contact Us
@@ -272,7 +276,7 @@ function StickyNavigationMenu() {
               </Button>
             </div>
 
-            {/* Mobile menu toggle + search */}
+            {/* Mobile menu toggle */}
             <div className="lg:hidden flex items-center gap-3">
               <button
                 onClick={() => setIsSearchOpen(true)}
@@ -298,7 +302,7 @@ function StickyNavigationMenu() {
         </div>
       </nav>
 
-      {/* Desktop Mega menu panel */}
+      {/* Desktop Mega menu */}
       {activeMenu && (
         <div
           ref={megaMenuRef}
@@ -321,7 +325,7 @@ function StickyNavigationMenu() {
                   <Link
                     key={index}
                     href={link.href}
-                    className="block font-heading text-black hover:text-white duration-200 text-base font-medium py-2 hover:translate-x-2 transform transition-transform uppercase tracking-wide"
+                    className="block font-heading text-black hover:text-white duration-200 text-base font-medium py-2 hover:translate-x-2 transform transition-transform tracking-wide"
                     onClick={() => setActiveMenu(null)}
                   >
                     {link.name}
@@ -337,14 +341,13 @@ function StickyNavigationMenu() {
       {isMobileMenuOpen && (
         <div className="lg:hidden fixed inset-0 top-16 bg-[#0A0A0A]/98 z-[49] overflow-y-auto">
           <div className="container mx-auto px-4 py-6">
-            {/* Mobile menu items */}
             {(Object.keys(menuData) as MenuKey[]).map((item) => (
               <div key={item} className="border-b border-white/10">
                 <button
                   onClick={() => toggleMobileSubmenu(item)}
-                  className="w-full flex items-center justify-between px-4 py-4 text-white hover:text-[#FDB913] uppercase tracking-wide font-medium text-sm"
+                  className="w-full flex items-center justify-between px-4 py-4 text-white hover:text-[#FDB913] tracking-wide font-medium text-sm"
                 >
-                  {item}
+                  {formatMenuLabel(item)}
                   <ChevronDown
                     className={cn(
                       "h-4 w-4 transition-transform duration-200",
@@ -372,12 +375,11 @@ function StickyNavigationMenu() {
               </div>
             ))}
 
-            {/* More items */}
             {moreMenuItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="block px-4 py-4 text-white hover:text-[#FDB913] border-b border-white/10 uppercase tracking-wide font-medium text-sm"
+                className="block px-4 py-4 text-white hover:text-[#FDB913] border-b border-white/10 tracking-wide font-medium text-sm"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}
@@ -388,7 +390,7 @@ function StickyNavigationMenu() {
             <div className="px-4 mt-6">
               <Button
                 asChild
-                className="w-full py-6 font-body bg-[#FDB913] hover:bg-[#E1AF1C] text-black font-semibold uppercase rounded-none"
+                className="w-full py-6 font-body bg-[#FDB913] hover:bg-[#E1AF1C] text-black font-semibold rounded-none"
               >
                 <Link
                   href="/contact"
@@ -415,8 +417,8 @@ function StickyNavigationMenu() {
             <input
               ref={searchInputRef}
               type="text"
-              placeholder="SEARCH..."
-              className="flex-1 bg-transparent font-body text-white placeholder:text-gray-500 text-base md:text-lg uppercase tracking-wide focus:outline-none"
+              placeholder="Search..."
+              className="flex-1 bg-transparent font-body text-white placeholder:text-gray-500 text-base md:text-lg tracking-wide focus:outline-none"
             />
           </div>
           <button

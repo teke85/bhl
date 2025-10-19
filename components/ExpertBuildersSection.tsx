@@ -84,7 +84,7 @@ const ExpertBuildersSection = () => {
             <h2 className="animated-title text-4xl uppercase md:text-6xl font-bold text-black dark:text-white">
               Expert Builders
             </h2>
-            <p className="animated-paragraph text-black font-body dark:text-white text-lg md:text-xl leading-relaxed">
+            <p className="animated-paragraph text-[#868584] font-body dark:text-white text-lg md:text-xl leading-relaxed">
               Upgrading 371 km of the Mutanda to Kaoma Road to international
               bituminous standards, completing Zambia&apos;s Western Corridor.
             </p>
@@ -105,7 +105,7 @@ const ExpertBuildersSection = () => {
             <h2 className="animated-title text-4xl uppercase md:text-6xl font-bold text-black dark:text-white">
               Regional Impact
             </h2>
-            <p className="animated-paragraph text-black dark:text-white font-body text-lg md:text-xl leading-relaxed">
+            <p className="animated-paragraph text-[#868584] dark:text-white font-body text-lg md:text-xl leading-relaxed">
               Creating a vital link between Zambia&apos;s Copperbelt, DRC&apos;s
               mining regions, and the Port of Walvis Bay on Africa&apos;s West
               Coast.

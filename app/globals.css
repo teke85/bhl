@@ -5,9 +5,10 @@
 
 @theme inline {
   --font-sans: var(--font-inter);
-  --font-paragraph: var(--font-inter);
+  /* --font-paragraph: var(--font-inter); */
   --font-heading: var(--font-larken);
   --font-body: var(--font-jost);
+  --font-paragraph: var(--font-aeonik);
   --font-mono:
     ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo,
     monospace;
@@ -86,7 +87,7 @@
   /* Barotse brand colors */
   --barotse-gold: #fdb913;
   --barotse-dark: #0a0a0a;
-  --barotse-gray: #9ca3af;
+  --barotse-gray: #4c4b49;
 }
 
 .dark {
