@@ -42,7 +42,7 @@ export default function AboutHero() {
         <Image
           src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760873944/A_professional__cinematic_image_representing_the_founding_story_of_Barotse_Highway_Limited__a_Zambia_2_s9dqfd.png"
           alt="About Barotse Highway"
-          className="w-full h-full object-cover dark:opacity-10"
+          className="w-full h-full object-cover"
           sizes="100vw"
           priority
           width={400}

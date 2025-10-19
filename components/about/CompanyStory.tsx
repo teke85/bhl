@@ -36,25 +36,31 @@ export default function CompanyStory() {
     >
       <div className="container mx-auto px-4">
         <motion.div
-          className="grid md:grid-cols-2 gap-12 h-full items-center"
+          className="grid md:grid-cols-2 gap-12 items-center"
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
-          <motion.div variants={itemVariants}>
+          {/* Image Side */}
+          <motion.div
+            variants={itemVariants}
+            className="relative w-full aspect-[4/3] md:aspect-[3/2] overflow-hidden rounded-none shadow-lg"
+          >
             <Image
               src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760875403/A_simple_land_view_of_a_gravel_road_under_construction_in_Zambia__symbolizing_progress_and_connectiv_b4wnyh.png"
               alt="Company Story"
-              className="rounded-none shadow-lg"
-              width={600}
-              height={800}
+              fill
+              className="object-cover"
+              priority
             />
           </motion.div>
 
+          {/* Text Side */}
           <motion.div variants={itemVariants} className="space-y-6">
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground dark:text-white">
               Building Tomorrow&apos;s Corridors
             </h2>
+
             <p className="text-lg text-muted-foreground dark:text-gray-300">
               The Barotse Corridor Connector represents a transformative vision
               for regional connectivity. Since our inception, we&apos;ve been
@@ -62,14 +68,16 @@ export default function CompanyStory() {
               communities, enables trade, and drives economic growth across
               Southern Africa.
             </p>
+
             <p className="text-lg text-muted-foreground dark:text-gray-300">
               Our journey is defined by our unwavering commitment to excellence,
               sustainability, and community partnership. Every milestone
               achieved reflects our dedication to building infrastructure that
               lasts generations.
             </p>
-            <div className="flex gap-4 pt-4">
-              <div className="flex-1">
+
+            <div className="flex gap-8 pt-4">
+              <div>
                 <h3 className="text-3xl font-bold text-[#fdb913] mb-2">
                   371 km
                 </h3>
@@ -77,7 +85,7 @@ export default function CompanyStory() {
                   Total Corridor Length
                 </p>
               </div>
-              <div className="flex-1">
+              <div>
                 <h3 className="text-3xl font-bold text-[#fdb913] mb-2">2025</h3>
                 <p className="text-muted-foreground dark:text-gray-400">
                   Target Completion
