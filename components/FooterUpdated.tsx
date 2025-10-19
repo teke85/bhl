@@ -17,8 +17,6 @@ export const Footer = () => {
     { href: "/timeline", label: "Timeline" },
     { href: "/regional-impact", label: "Regional Impact" },
     { href: "/resettlement", label: "Resettlement" },
-    { href: "/environmental", label: "Environmental" },
-    { href: "/safety", label: "Safety Standards" },
     { href: "/careers", label: "Careers" },
   ];
 

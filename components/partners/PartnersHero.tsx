@@ -27,7 +27,7 @@ const PartnersHero: React.FC = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage:
-            'url("https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1400&h=800&fit=crop")',
+            'url("https://res.cloudinary.com/dpeg7wc34/image/upload/v1760843603/A_wide_panoramic_hero_image_showcasing_a_newly_constructed_highway_winding_through_a_scenic_Zambian__zxbqhe.png")',
         }}
       />
 

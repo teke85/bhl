@@ -446,11 +446,11 @@ const PartnersGrid: React.FC = () => {
           viewport={{ once: true }}
           className="mt-20 md:mt-32 text-center w-full"
         >
-          <Card className="bg-gradient-to-r from-yellow-400/10 to-yellow-400/5 dark:from-yellow-400/20 dark:to-yellow-400/10 border border-yellow-400/30 dark:border-yellow-400/40 p-8 md:p-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-black dark:text-white mb-4">
+          <Card className="border border-yellow-400/30 dark:border-yellow-400/40 p-8 md:p-12">
+            <h3 className="text-2xl dark:bg-transparent md:text-3xl font-bold text-black dark:text-white mb-4">
               Partnership Excellence
             </h3>
-            <p className="text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-6">
+            <p className="text-black dark:text-white max-w-2xl mx-auto mb-6">
               Our diverse team of world-class partners brings together decades
               of experience in infrastructure development, engineering, finance,
               and project management to deliver the Western Corridor project.

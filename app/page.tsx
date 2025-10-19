@@ -17,6 +17,7 @@ import ExpertBuildersSection from "@/components/ExpertBuildersSection";
 import ProjectMilestonesSection from "@/components/ProjectMilestones";
 import CommunityFirstSection from "@/components/CommunityFirst";
 import VideoHeroSection from "@/components/BigVideoComponent";
+import { BuildingExcellence } from "@/components/BuildingExcellence";
 // import TimelineMarquee from "@/components/TimeLineMarquee";
 
 export default function HomePage() {
@@ -78,7 +79,12 @@ export default function HomePage() {
             <CombinedCarouselBigTextSection />
           </div>
         </section>
-
+        {/* Building excellence section */}
+        <section className="w-full flex justify-center">
+          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-0">
+            <BuildingExcellence />
+          </div>
+        </section>
         {/* Footer typically spans full width */}
         <Footer />
       </div>
