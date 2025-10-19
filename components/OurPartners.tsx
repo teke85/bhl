@@ -83,7 +83,7 @@ function PartnersCarousel() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-sm font-semibold text-black dark:text-white tracking-wider text-gray-500 uppercase mb-3">
+          <h2 className="text-sm font-semibold text-black dark:text-white tracking-wider uppercase mb-3">
             Trusted By
           </h2>
           <h3 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-4">
@@ -126,6 +126,28 @@ function PartnersCarousel() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <a
+            href="/partners"
+            className="inline-flex items-center gap-2 px-12 py-3 rounded-none bg-[#daa41e] text-black dark:text-black font-semibold hover:bg-[#fdb913] dark:hover:bg-[#fdb913] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+          >
+            Read More
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </a>
         </div>
       </div>
     </section>

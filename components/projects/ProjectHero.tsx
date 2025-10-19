@@ -45,7 +45,7 @@ const ProjectHero = () => {
           <h1 className="text-5xl md:text-7xl font-heading font-bold text-white drop-shadow-lg">
             Project Overview
           </h1>
-          <p className="text-xl md:text-2xl font-paragraph text-gray-200 dark:text-gray-300 max-w-4xl leading-relaxed drop-shadow-md">
+          <p className="text-xl md:text-2xl font-paragraph text-white dark:text-white max-w-4xl leading-relaxed drop-shadow-md">
             Rehabilitation and upgrading of 371 km Mutanda to Kaoma Road to
             international bituminous standards, connecting Zambia&apos;s
             mineral-rich regions to global markets.

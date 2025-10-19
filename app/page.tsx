@@ -1,16 +1,9 @@
 "use client";
 
-// import BigText from "@/components/BigText";
 import CombinedCarouselBigTextSection from "@/components/CombinedCarouselBigTextSection";
-// import CombinedStatsSection from "@/components/CombinedStatsSection";
 import { Footer } from "@/components/FooterUpdated";
-// import EfficientGrowthCatalyst from "@/components/EfficientGrowthCatalyst";
-// import EfficientLogistics from "@/components/EfficientLogistics";
-// import Route from "@/components/FastestRoute";
-// import { Footer } from "@/components/Footer";
 import HeroCarousel from "@/components/HeroSection3RightLeft";
 import KeyStats from "@/components/KeyStatsUpdated";
-// import KeyStats from "@/components/KeyStats";
 import OurPartners from "@/components/OurPartners";
 import ScrollTriggeredSection from "@/components/ScrollTriggeredSection";
 import ExpertBuildersSection from "@/components/ExpertBuildersSection";
@@ -18,7 +11,6 @@ import ProjectMilestonesSection from "@/components/ProjectMilestones";
 import CommunityFirstSection from "@/components/CommunityFirst";
 import VideoHeroSection from "@/components/BigVideoComponent";
 import { BuildingExcellence } from "@/components/BuildingExcellence";
-// import TimelineMarquee from "@/components/TimeLineMarquee";
 
 export default function HomePage() {
   return (
@@ -70,21 +62,22 @@ export default function HomePage() {
 
         <section className="w-full flex justify-center">
           <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-0">
+            <CombinedCarouselBigTextSection />
+          </div>
+        </section>
+
+        <section className="w-full flex justify-center">
+          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-0">
             <OurPartners />
           </div>
         </section>
 
         <section className="w-full flex justify-center">
           <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-0">
-            <CombinedCarouselBigTextSection />
-          </div>
-        </section>
-        {/* Building excellence section */}
-        <section className="w-full flex justify-center">
-          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-0">
             <BuildingExcellence />
           </div>
         </section>
+
         {/* Footer typically spans full width */}
         <Footer />
       </div>

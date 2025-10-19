@@ -223,7 +223,7 @@ const ProjectPage = () => {
       <KeyProjectComponents />
       <ResettlementPolicy />
       <ProjectPromoters />
-      <ProjectTimeline />
+      {/* <ProjectTimeline /> */}
       <TechnicalSpecifications />
       <EnvironmentalImpact />
       <Footer />
