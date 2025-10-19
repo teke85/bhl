@@ -93,7 +93,7 @@ const ExpertBuildersSection = () => {
                 className="font-body text-lg border-white/20 text-white dark:text-black bg-[#fdb913] rounded-none hover:bg-[#fdb913]/90 hover:scale-105 transition-transform duration-300 gap-2"
                 asChild
               >
-                <Link href="/project">
+                <Link href="/projects">
                   View Project Details <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
