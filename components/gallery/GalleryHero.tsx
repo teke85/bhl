@@ -40,7 +40,7 @@ export default function GalleryHero() {
       {/* Background Image with Overlay */}
       <div className="absolute bg-black inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop"
+          src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760880463/DJI_0441_formphotoeditor.com_mulaxu.jpg"
           alt="Gallery"
           className="w-full h-full object-cover"
           layout="fill"
