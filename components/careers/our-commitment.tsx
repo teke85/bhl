@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -7,9 +8,9 @@ export const OurCommitment = () => {
     <section className="py-16 lg:py-24 bg-card">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative h-[400px] lg:h-[500px] rounded-lg overflow-hidden">
+          <div className="relative h-[400px] lg:h-[500px] rounded-none overflow-hidden">
             <Image
-              src="/zambian-landscape-with-highway-construction-progre.jpg"
+              src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760934674/A_professional__inspiring_image_representing_a_diverse_team_of_engineers__project_managers__and_prof_1_qjqagg.png"
               alt="Our Commitment"
               fill
               className="object-cover"
