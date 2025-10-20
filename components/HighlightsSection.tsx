@@ -102,7 +102,7 @@ const HighlightsSection = () => {
               <h2 className="text-2xl sm:text-3xl text-black dark:text-white md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
                 {item.title}
               </h2>
-              <p className="text-sm sm:text-base text-[#868584] dark:text-white mb-6 sm:mb-8 leading-relaxed">
+              <p className="text-sm sm:text-base font-paragraph text-[#868584] dark:text-white mb-6 sm:mb-8 leading-relaxed">
                 {item.text}
               </p>
               <Link href={item.link}>
