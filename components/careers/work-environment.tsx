@@ -19,17 +19,17 @@ export const WorkEnvironment = () => {
           <Card className="overflow-hidden border-border group">
             <div className="relative h-[300px]">
               <Image
-                src="/modern-office-workspace-in-lusaka.jpg"
+                src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760934049/An_image_of_simple_yet_corporate_looking_office_spaces_in_Zambia__po7uxf.png"
                 alt="BHL Offices"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="p-6">
-              <h3 className="font-semibold text-foreground mb-2">
+              <h3 className="font-semibold text-black dark:text-white mb-2">
                 Modern Workspaces
               </h3>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-black dark:text-white">
                 State-of-the-art offices designed for collaboration and
                 productivity.
               </p>
@@ -39,17 +39,17 @@ export const WorkEnvironment = () => {
           <Card className="overflow-hidden border-border group">
             <div className="relative h-[300px]">
               <Image
-                src="/team-meeting-discussing-infrastructure-plans.jpg"
+                src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760933868/An_image_of_black_and_a_few_white_Zambian_employees_in_a_team_meeting_discussing_infrastructure_plan_ieqzdz.png"
                 alt="Team Collaboration"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="p-6">
-              <h3 className="font-semibold text-foreground mb-2">
+              <h3 className="font-semibold text-black dark:text-white mb-2">
                 Collaborative Culture
               </h3>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-black dark:text-white">
                 Work alongside talented professionals from diverse backgrounds.
               </p>
             </div>
@@ -58,17 +58,17 @@ export const WorkEnvironment = () => {
           <Card className="overflow-hidden border-border group">
             <div className="relative h-[300px]">
               <Image
-                src="/team-building-activity-outdoors-in-zambia.jpg"
+                src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760933563/An_image_of_black_Zambian_employees_performing_regular_team_building_activities__o44nam.png"
                 alt="Team Building"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="p-6">
-              <h3 className="font-semibold text-foreground mb-2">
+              <h3 className="font-semibold text-black dark:text-white mb-2">
                 Team Building
               </h3>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-black dark:text-white">
                 Regular activities and events that strengthen our team bonds.
               </p>
             </div>

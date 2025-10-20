@@ -10,8 +10,6 @@ import CommunityEngagement from "@/components/resettlement/CommunityEngagement";
 import { Footer } from "@/components/FooterUpdated";
 import StickyNavigationMenu from "@/components/StickyNavUpdated";
 
-import MobileMenu from "@/components/MobileMenu";
-
 const ResettlementPage = () => {
   return (
     <main className="min-h-screen bg-background dark:bg-[#0a0a0a]">
@@ -23,9 +21,6 @@ const ResettlementPage = () => {
               <StickyNavigationMenu />
             </div>
             <div className="relative z-30 justify-self-end" />
-            <div className="col-span-3 md:hidden">
-              <MobileMenu />
-            </div>
           </div>
         </div>
       </nav>

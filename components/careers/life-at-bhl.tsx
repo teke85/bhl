@@ -39,7 +39,7 @@ export const LifeAtBHL = () => {
           </div>
           <div className="relative h-[500px] rounded-lg overflow-hidden">
             <Image
-              src="/diverse-team-working-on-infrastructure-project-in-.jpg"
+              src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760931716/A_friendly_black_female_front_desk_officer_in_a_Zambian_office__smiling__1_rpdexw.png"
               alt="Life at BHL"
               fill
               className="object-cover"
