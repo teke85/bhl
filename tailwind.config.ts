@@ -9,29 +9,31 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "lodge-accent": "#7D6E56",
-        "lodge-accent-hover": "#64584A",
-        "lodge-secondary": "#A3926F",
-        "lodge-secondary-hover": "#8A7B5C",
-        "lodge-bg": "#F8F5F0",
+        primary: "#facc15", // your yellow-500
+        primaryHover: "#eab308", // yellow-600
+        textLight: "#868584",
+        textDark: "#000000",
+        backgroundLight: "#ffffff",
+        backgroundDark: "#000000",
       },
       fontFamily: {
-        aboreto: ["var(--font-aboreto)"],
-        jost: ["var(--font-jost)"],
-        cormorant: ["var(--font-cormorant)"],
-        ibarra: ["var(--font-ibarra)"],
-        playfair: ["var(--font-playfair)"],
-        inter: ["var(--font-inter)"],
-        lora: ["var(--font-lora)"],
-        "geist-sans": ["var(--font-geist-sans)"],
-        "geist-mono": ["var(--font-geist-mono)"],
+        sans: ["Jost", "Inter", "system-ui", "sans-serif"],
       },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+      fontSize: {
+        base: ["1rem", { lineHeight: "1.6" }], // for paragraph
+        lg: ["1.125rem", { lineHeight: "1.7" }],
+        xl: ["1.25rem", { lineHeight: "1.75" }],
+        "2xl": ["1.5rem", { lineHeight: "1.4" }],
+        "3xl": ["1.875rem", { lineHeight: "1.3" }],
+        "4xl": ["2.25rem", { lineHeight: "1.2" }],
+        "5xl": ["3rem", { lineHeight: "1.1" }],
+      },
+      transitionDuration: {
+        DEFAULT: "300ms",
       },
     },
   },
+  plugins: [],
 };
+
 export default config;

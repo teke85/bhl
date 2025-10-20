@@ -4,8 +4,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* Font families */
   --font-sans: var(--font-inter);
-  /* --font-paragraph: var(--font-inter); */
   --font-heading: var(--font-larken);
   --font-body: var(--font-jost);
   --font-paragraph: var(--font-aeonik);
@@ -62,7 +62,7 @@
   --secondary: #f0f0f0;
   --secondary-foreground: #0a0a0a;
   --muted: #e5e5e5;
-  --muted-foreground: #666666;
+  --muted-foreground: #868584;
   --accent: #fdb913;
   --accent-foreground: #000000;
   --destructive: #ef4444;

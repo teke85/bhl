@@ -43,7 +43,7 @@ export const OpenPositions = () => {
           <h2 className="text-3xl lg:text-4xl font-bold text-black dark:text-white mb-4">
             There&apos;s Room for More. Join Us!
           </h2>
-          <p className="text-black dark:text-white max-w-2xl mx-auto mb-8">
+          <p className="text-muted-foreground dark:text-white max-w-2xl mx-auto mb-8">
             Explore our current openings and find the perfect role to advance
             your career in infrastructure development.
           </p>

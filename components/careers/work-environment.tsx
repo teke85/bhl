@@ -9,7 +9,7 @@ export const WorkEnvironment = () => {
           <h2 className="text-3xl lg:text-4xl font-bold text-black dark:text-white mb-4">
             We All Work in This Together
           </h2>
-          <p className="text-black dark:text-white max-w-2xl mx-auto">
+          <p className="text-muted-foreground dark:text-white max-w-2xl mx-auto">
             Our collaborative work environment fosters innovation, teamwork, and
             excellence across all our projects.
           </p>
@@ -29,7 +29,7 @@ export const WorkEnvironment = () => {
               <h3 className="font-semibold text-black dark:text-white mb-2">
                 Modern Workspaces
               </h3>
-              <p className="text-sm text-black dark:text-white">
+              <p className="text-sm text-muted-foreground dark:text-white">
                 State-of-the-art offices designed for collaboration and
                 productivity.
               </p>
@@ -49,7 +49,7 @@ export const WorkEnvironment = () => {
               <h3 className="font-semibold text-black dark:text-white mb-2">
                 Collaborative Culture
               </h3>
-              <p className="text-sm text-black dark:text-white">
+              <p className="text-sm text-muted-foreground dark:text-white">
                 Work alongside talented professionals from diverse backgrounds.
               </p>
             </div>
@@ -68,7 +68,7 @@ export const WorkEnvironment = () => {
               <h3 className="font-semibold text-black dark:text-white mb-2">
                 Team Building
               </h3>
-              <p className="text-sm text-black dark:text-white">
+              <p className="text-sm text-muted-foreground dark:text-white">
                 Regular activities and events that strengthen our team bonds.
               </p>
             </div>
