@@ -1,5 +1,3 @@
-"use client";
-
 import RegionalImpactHero from "@/components/regional-impact/RegionalImpactHero";
 import ImpactAreas from "@/components/regional-impact/ImpactAreas";
 import StrategicPositioning from "@/components/regional-impact/StrategicPositioning";
@@ -9,7 +7,6 @@ import TradeOpportunities from "@/components/regional-impact/TradeOpportunities"
 import RegionalConnectivity from "@/components/regional-impact/RegionalConnectivity";
 import { Footer } from "@/components/FooterUpdated";
 import StickyNavigationMenu from "@/components/StickyNavUpdated";
-import MobileMenu from "@/components/MobileMenu";
 
 const RegionalImpactPage = () => {
   return (
@@ -22,9 +19,6 @@ const RegionalImpactPage = () => {
               <StickyNavigationMenu />
             </div>
             <div className="relative z-30 justify-self-end" />
-            <div className="col-span-3 md:hidden">
-              <MobileMenu />
-            </div>
           </div>
         </div>
       </nav>
