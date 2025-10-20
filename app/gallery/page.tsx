@@ -392,13 +392,16 @@ export default function GalleryPage() {
               <StickyNavigationMenu />
             </div>
             <div className="relative z-30 justify-self-end" />
+            <div className="col-span-3 md:hidden">
+              <MobileMenu />
+            </div>
           </div>
         </div>
       </nav>
 
       {/* Page Content */}
       <GalleryHero />
-      {/* <PhotoCategories /> */}
+      <PhotoCategories />
       <GalleryGrid />
       <VideoShowcase />
       <Footer />
