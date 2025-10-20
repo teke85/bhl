@@ -30,10 +30,10 @@ export const EmployeeTestimonials = () => {
   ];
 
   return (
-    <section className="py-16 lg:py-24 bg-card">
+    <section className="py-16 bg-white dark:bg-black text-[cfcdcb] dark:text-white lg:py-24">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+        <div className="text-center bg-white dark:bg-black text-black dark:txt-white mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold text-black dark:text-white mb-4">
             They Talk About Us
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -56,7 +56,7 @@ export const EmployeeTestimonials = () => {
                 <div className="font-semibold text-foreground">
                   {testimonial.name}
                 </div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-black dark:text-white">
                   {testimonial.role} at BHL
                 </div>
               </div>

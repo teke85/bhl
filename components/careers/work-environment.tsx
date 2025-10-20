@@ -3,13 +3,13 @@ import { Card } from "@/components/ui/card";
 
 export const WorkEnvironment = () => {
   return (
-    <section className="py-16 lg:py-24">
+    <section className="py-16 bg-white dark:bg-black lg:py-24">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-black dark:text-white mb-4">
             We All Work in This Together
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-black dark:text-white max-w-2xl mx-auto">
             Our collaborative work environment fosters innovation, teamwork, and
             excellence across all our projects.
           </p>

@@ -37,17 +37,21 @@ export const OpenPositions = () => {
   ];
 
   return (
-    <section className="py-16 lg:py-24">
+    <section className="py-16 bg-white dark:bg-black lg:py-24">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-black dark:text-white mb-4">
             There&apos;s Room for More. Join Us!
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
+          <p className="text-black dark:text-white max-w-2xl mx-auto mb-8">
             Explore our current openings and find the perfect role to advance
             your career in infrastructure development.
           </p>
-          <Button size="lg" variant="outline" className="gap-2 bg-transparent">
+          <Button
+            size="lg"
+            variant="outline"
+            className="gap-2 bg-transparent text-black dark:text-white"
+          >
             View All Positions on LinkedIn
             <ExternalLink className="h-4 w-4" />
           </Button>

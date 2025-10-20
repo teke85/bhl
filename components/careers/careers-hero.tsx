@@ -2,21 +2,21 @@ import Image from "next/image";
 
 export const CareersHero = () => {
   return (
-    <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 z-0">
+    <section className="relative min-h-[60vh] py-20 bg-white dark:bg-black text-black dark:text-white flex items-center justify-center overflow-hidden">
+      <div className="absolute bg-black/70 inset-0 z-0">
         <Image
-          src="/modern-office-space-with-people-collaborating-in-z.jpg"
+          src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760930139/A_modern_Zambian_office_space_with_black_people_collaborating_in_it__ujqjdy.png"
           alt="Careers at Barotse Highway"
           fill
-          className="object-cover opacity-20"
+          className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+        <div className="absolute bg-black/80 inset-0" />
       </div>
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10 py-16">
-        <div className="max-w-4xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
+      <div className="container-full mx-auto px-4 lg:px-8 relative z-10 py-16">
+        <div className="max-w-full">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white dark:text-white mb-6 text-balance">
             Be Part of the Team Building Zambia&apos;s Future
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
@@ -25,28 +25,22 @@ export const CareersHero = () => {
           </p>
           <div className="flex flex-wrap gap-8 text-center md:text-left">
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">
                 200+
               </div>
-              <div className="text-sm text-muted-foreground">
-                People Working
-              </div>
+              <div className="text-sm text-white">People Working</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">
                 35%
               </div>
-              <div className="text-sm text-muted-foreground">
-                Women in Engineering
-              </div>
+              <div className="text-sm text-white">Women in Engineering</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">
                 5
               </div>
-              <div className="text-sm text-muted-foreground">
-                Languages Spoken
-              </div>
+              <div className="text-sm text-white">Languages Spoken</div>
             </div>
           </div>
         </div>

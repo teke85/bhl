@@ -12,15 +12,13 @@ export default function CareersPage() {
   return (
     <div className="min-h-screen">
       <Navigation />
-      <main className="pt-20">
-        <CareersHero />
-        <LifeAtBHL />
-        <EmployeeTestimonials />
-        <OpenPositions />
-        <OurCommitment />
-        <WorkEnvironment />
-        <FAQSection />
-      </main>
+      <CareersHero />
+      <LifeAtBHL />
+      <EmployeeTestimonials />
+      <OpenPositions />
+      <OurCommitment />
+      <WorkEnvironment />
+      <FAQSection />
       <Footer />
     </div>
   );
