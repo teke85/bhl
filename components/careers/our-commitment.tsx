@@ -17,10 +17,10 @@ export const OurCommitment = () => {
             />
           </div>
           <div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6 text-balance">
+            <h2 className="text-3xl lg:text-4xl font-bold text-black dark:text-white font-heading mb-6 text-balance">
               We Are Constantly Seeking Great Minds. Like Yours.
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+            <p className="text-lg text-[#868584] dark:text-white font-paragraph leading-relaxed mb-8">
               Our commitment goes beyond building infrastructure. We&apos;re
               committed to building a diverse, inclusive workplace where every
               team member can thrive and contribute to Zambia&apos;s
@@ -29,27 +29,27 @@ export const OurCommitment = () => {
             <div className="space-y-4 mb-8">
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <p className="text-muted-foreground">
+                <p className="text-[#868584] dark:text-white font-paragraph">
                   Equal opportunity employer committed to diversity and
                   inclusion
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <p className="text-muted-foreground">
+                <p className="text-[#868584] dark:text-white font-paragraph">
                   Competitive compensation and comprehensive benefits package
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <p className="text-muted-foreground">
+                <p className="text-[#868584] dark:text-white font-paragraph">
                   Professional development and training opportunities for career
                   growth
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                <p className="text-muted-foreground">
+                <p className="text-[#868584] dark:text-white font-paragraph">
                   Work-life balance with flexible working arrangements
                 </p>
               </div>

@@ -57,11 +57,11 @@ export default function CompanyStory() {
 
           {/* Text Side */}
           <motion.div variants={itemVariants} className="space-y-6">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground dark:text-white">
+            <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white font-heading">
               Building Tomorrow&apos;s Corridors
             </h2>
 
-            <p className="text-lg text-muted-foreground dark:text-gray-300">
+            <p className="text-lg text-[#868584] dark:text-white font-paragraph">
               The Barotse Corridor Connector represents a transformative vision
               for regional connectivity. Since our inception, we&apos;ve been
               committed to delivering world-class infrastructure that connects
@@ -69,7 +69,7 @@ export default function CompanyStory() {
               Southern Africa.
             </p>
 
-            <p className="text-lg text-muted-foreground dark:text-gray-300">
+            <p className="text-lg text-[#868584] dark:text-white font-paragraph">
               Our journey is defined by our unwavering commitment to excellence,
               sustainability, and community partnership. Every milestone
               achieved reflects our dedication to building infrastructure that
@@ -87,7 +87,7 @@ export default function CompanyStory() {
               </div>
               <div>
                 <h3 className="text-3xl font-bold text-[#fdb913] mb-2">2025</h3>
-                <p className="text-muted-foreground dark:text-gray-400">
+                <p className="text-[#868584] dark:text-white font-paragraph">
                   Target Completion
                 </p>
               </div>

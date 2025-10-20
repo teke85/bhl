@@ -6,10 +6,10 @@ export const WorkEnvironment = () => {
     <section className="py-16 bg-white dark:bg-black lg:py-24">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-black dark:text-white mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-black dark:text-white font-heading mb-4">
             We All Work in This Together
           </h2>
-          <p className="text-muted-foreground dark:text-white max-w-2xl mx-auto">
+          <p className="text-[#868584] dark:text-white font-paragraph max-w-2xl mx-auto">
             Our collaborative work environment fosters innovation, teamwork, and
             excellence across all our projects.
           </p>
@@ -26,10 +26,10 @@ export const WorkEnvironment = () => {
               />
             </div>
             <div className="p-6">
-              <h3 className="font-semibold text-black dark:text-white mb-2">
+              <h3 className="font-semibold text-black dark:text-white font-heading mb-2">
                 Modern Workspaces
               </h3>
-              <p className="text-sm text-muted-foreground dark:text-white">
+              <p className="text-sm text-[#868584] dark:text-white font-paragraph">
                 State-of-the-art offices designed for collaboration and
                 productivity.
               </p>
@@ -46,10 +46,10 @@ export const WorkEnvironment = () => {
               />
             </div>
             <div className="p-6">
-              <h3 className="font-semibold text-black dark:text-white mb-2">
+              <h3 className="font-semibold text-black dark:text-white font-heading mb-2">
                 Collaborative Culture
               </h3>
-              <p className="text-sm text-muted-foreground dark:text-white">
+              <p className="text-sm text-[#868584] dark:text-white font-paragraph">
                 Work alongside talented professionals from diverse backgrounds.
               </p>
             </div>
@@ -65,10 +65,10 @@ export const WorkEnvironment = () => {
               />
             </div>
             <div className="p-6">
-              <h3 className="font-semibold text-black dark:text-white mb-2">
+              <h3 className="font-semibold text-black dark:text-white font-heading mb-2">
                 Team Building
               </h3>
-              <p className="text-sm text-muted-foreground dark:text-white">
+              <p className="text-sm text-[#868584] dark:text-white font-paragraph">
                 Regular activities and events that strengthen our team bonds.
               </p>
             </div>

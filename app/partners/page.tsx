@@ -6,8 +6,7 @@ import PartnersGrid from "@/components/partners/PartnersGrid"
 
 export default function PartnersPage() {
     return (
-        <main className="min-h-screen bg-white dark:bg-black">
-            {/* Navigation */}
+        <main className="min-h-screen bg-background dark:bg-[#0a0a0a]">            {/* Navigation */}
             <StickyNavigationMenu />
 
             {/* Hero Section */}

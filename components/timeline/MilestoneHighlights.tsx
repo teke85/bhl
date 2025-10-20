@@ -42,7 +42,7 @@ export default function MilestoneHighlights() {
   return (
     <section className="py-20 px-4 bg-card dark:bg-[#1a1a1a]">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground dark:text-white mb-12 text-center">
+        <h2 className="text-4xl md:text-5xl font-heading font-bold text-black dark:text-white mb-12 text-center">
           Key Milestones
         </h2>
 

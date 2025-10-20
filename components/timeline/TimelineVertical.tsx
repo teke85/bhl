@@ -93,10 +93,10 @@ export default function TimelineVertical() {
                         </span>
                       )}
                     </div>
-                    <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground dark:text-white mb-3">
+                    <h3 className="text-xl md:text-2xl font-heading font-bold text-black dark:text-white mb-3">
                       {event.title}
                     </h3>
-                    <p className="text-black dark:text-white font-body leading-relaxed">
+                    <p className="text-[#868584] dark:text-white font-body leading-relaxed">
                       {event.description}
                     </p>
                   </div>

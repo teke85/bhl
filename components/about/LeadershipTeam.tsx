@@ -77,10 +77,10 @@ export default function LeadershipTeam() {
     >
       <div className="container mx-auto px-4">
         <div ref={titleRef} className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl text-black font-bold dark:text-white mb-6">
+          <h2 className="text-4xl md:text-5xl text-black font-bold font-heading dark:text-white mb-6">
             Leadership Team
           </h2>
-          <p className="text-lg text-muted-foreground dark:text-white max-w-2xl mx-auto">
+          <p className="text-lg text-[#868584] dark:text-white font-paragraph max-w-2xl mx-auto">
             Experienced professionals driving the Barotse Highway vision
           </p>
         </div>
@@ -96,7 +96,7 @@ export default function LeadershipTeam() {
             >
               {/* Title Header */}
               <div className="bg-[#EAB81E] py-4 px-6 flex items-center justify-center">
-                <h3 className="text-2xl md:text-3xl font-bold text-black tracking-wider">
+                <h3 className="text-2xl md:text-3xl font-bold text-black dark:text-white font-heading tracking-wider">
                   {leader.title}
                 </h3>
                 <div className="ml-3 w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-black border-b-[12px] border-b-transparent" />
@@ -110,7 +110,7 @@ export default function LeadershipTeam() {
                     <h4 className="text-xl md:text-2xl font-bold text-[#EAB81E] mb-4">
                       {leader.name}
                     </h4>
-                    <p className="text-muted-foreground text-base leading-relaxed mb-6">
+                    <p className="text-[#868584] dark:text-white font-paragraph text-base leading-relaxed mb-6">
                       {expandedBio === leader.id
                         ? leader.fullBio
                         : leader.shortBio}
@@ -127,9 +127,8 @@ export default function LeadershipTeam() {
                   >
                     {expandedBio === leader.id ? "Collapse Bio" : "Expand Bio"}
                     <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-300 ${
-                        expandedBio === leader.id ? "rotate-180" : ""
-                      }`}
+                      className={`w-4 h-4 transition-transform duration-300 ${expandedBio === leader.id ? "rotate-180" : ""
+                        }`}
                     />
                   </button>
                 </div>

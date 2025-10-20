@@ -27,7 +27,7 @@ export default function ContactPage() {
 
           <div className="container py-40 mx-auto px-4 lg:px-8 relative z-10">
             <div className="max-w-3xl">
-              <h1 className="text-4xl text-white md:text-5xl lg:text-6xl font-bold mb-6 text-balance">
+              <h1 className="text-4xl text-white md:text-5xl lg:text-6xl font-bold font-heading mb-6 text-balance">
                 Get in Touch
               </h1>
               <p className="text-lg md:text-xl text-white dark:text-white leading-relaxed">
@@ -248,8 +248,8 @@ export default function ContactPage() {
             </div>
             <div className="relative w-full h-[400px] lg:h-[500px] rounded-lg overflow-hidden border border-border">
               <Image
-                src="/map-of-lusaka-zambia.jpg"
-                alt="Office Location Map"
+                src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80"
+                alt="Office Location Map - Lusaka, Zambia"
                 fill
                 className="object-cover"
               />
