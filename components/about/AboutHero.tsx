@@ -73,12 +73,12 @@ export default function AboutHero() {
             Project, which completes Zambi’s Western Corridor, is a major new
             artery, aiming to streamline the flow of vital resources (like
             minerals) and goods to and from key regional ports. This new artery
-            doesn't just replace old, inefficient routes; it integrates with
-            existing and planned systems, to create a more robust and efficient
-            network. The Government, uses PPPs to attract private capital and
-            expertise for these infrastructure projects, much like a city
-            invites private developers to build and manage new districts, all
-            while adhering to a master plan and strict regulations to ensure
+            doesn&apos;t just replace old, inefficient routes; it integrates
+            with existing and planned systems, to create a more robust and
+            efficient network. The Government, uses PPPs to attract private
+            capital and expertise for these infrastructure projects, much like a
+            city invites private developers to build and manage new districts,
+            all while adhering to a master plan and strict regulations to ensure
             long-term benefits for its citizens and the broader region.
           </motion.p>
         </motion.div>
