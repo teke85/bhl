@@ -68,10 +68,18 @@ export default function AboutHero() {
             className="text-lg md:text-xl w-full text-white dark:text-white text-balance"
             variants={itemVariants}
           >
-            Barotse Highway Limited is a Special Purpose Vehicle (SPV)
-            incorporated by BeefCo Holdings Limited and First Quantum Minerals
-            Operations Limited for executing this transformative infrastructure
-            project.
+            The wider transport and PPP market in Zambia and SADC is akin to a
+            vast, interconnected circulatory system. The Mutanda to Kaoma
+            Project, which completes Zambi’s Western Corridor, is a major new
+            artery, aiming to streamline the flow of vital resources (like
+            minerals) and goods to and from key regional ports. This new artery
+            doesn't just replace old, inefficient routes; it integrates with
+            existing and planned systems, to create a more robust and efficient
+            network. The Government, uses PPPs to attract private capital and
+            expertise for these infrastructure projects, much like a city
+            invites private developers to build and manage new districts, all
+            while adhering to a master plan and strict regulations to ensure
+            long-term benefits for its citizens and the broader region.
           </motion.p>
         </motion.div>
       </div>
