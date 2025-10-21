@@ -33,7 +33,7 @@ export default function KeyAchievements() {
     return (
         <section className="py-20 px-4 bg-card dark:bg-[#1a1a1a]">
             <div className="container mx-auto max-w-6xl">
-                <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground dark:text-white mb-12 text-center">
+                <h2 className="text-4xl md:text-5xl font-heading font-bold text-black dark:text-white mb-12 text-center">
                     Project Achievements
                 </h2>
 
@@ -51,8 +51,8 @@ export default function KeyAchievements() {
                                 <p className="text-4xl md:text-5xl font-heading font-bold text-foreground dark:text-white mb-2">
                                     {item.stat}
                                 </p>
-                                <p className="text-lg font-heading font-bold text-foreground dark:text-white mb-2">{item.label}</p>
-                                <p className="text-sm text-muted-foreground dark:text-gray-400 font-paragraph">{item.description}</p>
+                                <p className="text-lg font-heading font-bold text-[#868584] dark:text-white mb-2">{item.label}</p>
+                                <p className="text-sm text-[#868584] dark:text-white font-paragraph">{item.description}</p>
                             </div>
                         )
                     })}

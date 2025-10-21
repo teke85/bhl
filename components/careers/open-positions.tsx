@@ -40,10 +40,10 @@ export const OpenPositions = () => {
     <section className="py-16 bg-white dark:bg-black lg:py-24">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-black dark:text-white mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-black dark:text-white font-heading mb-4">
             There&apos;s Room for More. Join Us!
           </h2>
-          <p className="text-muted-foreground dark:text-white max-w-2xl mx-auto mb-8">
+          <p className="text-[#868584] dark:text-white font-paragraph max-w-2xl mx-auto mb-8">
             Explore our current openings and find the perfect role to advance
             your career in infrastructure development.
           </p>
@@ -67,13 +67,13 @@ export const OpenPositions = () => {
                 <div className="text-sm text-primary font-medium mb-2">
                   {String(index + 1).padStart(2, "0")}
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-semibold text-black dark:text-white font-heading mb-2 group-hover:text-primary transition-colors">
                   {position.title}
                 </h3>
-                <p className="text-sm text-muted-foreground mb-1">
+                <p className="text-sm text-[#868584] dark:text-white font-paragraph mb-1">
                   {position.location}
                 </p>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-[#868584] dark:text-white font-paragraph">
                   {position.department}
                 </p>
               </div>

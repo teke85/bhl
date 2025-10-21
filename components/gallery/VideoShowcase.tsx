@@ -39,7 +39,7 @@ export default function VideoShowcase() {
             id: 2,
             title: "Construction Progress",
             description: "Latest updates from the construction site",
-            thumbnail: "https://images.unsplash.com/photo-1581092162562-40038f56c239?w=600&h=400&fit=crop",
+            thumbnail: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&h=400&fit=crop",
         },
         {
             id: 3,

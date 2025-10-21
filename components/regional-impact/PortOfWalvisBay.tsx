@@ -36,7 +36,7 @@ export default function PortOfWalvisBay() {
           </div>
 
           <div>
-            <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground dark:text-white mb-6 text-balance">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-black dark:text-white mb-6 text-balance">
               Port of Walvis Bay
             </h2>
             <p className="text-lg text-muted-foreground dark:text-gray-400 mb-4 leading-relaxed">

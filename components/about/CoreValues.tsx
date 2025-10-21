@@ -47,7 +47,7 @@ export default function CoreValues() {
                     animate={inView ? "visible" : "hidden"}
                 >
                     <motion.h2
-                        className="text-4xl md:text-5xl font-heading font-bold text-foreground dark:text-white mb-6"
+                        className="text-4xl md:text-5xl font-heading font-bold text-black dark:text-white mb-6"
                         variants={itemVariants}
                     >
                         Our Core Values
@@ -68,8 +68,8 @@ export default function CoreValues() {
                             whileHover={{ y: -8 }}
                         >
                             <div className="text-5xl mb-4">{value.icon}</div>
-                            <h3 className="text-2xl font-heading font-bold text-foreground dark:text-white mb-3">{value.title}</h3>
-                            <p className="text-muted-foreground dark:text-gray-300">{value.description}</p>
+                            <h3 className="text-2xl font-heading font-bold text-black dark:text-white mb-3">{value.title}</h3>
+                            <p className="text-[#868584] dark:text-white font-paragraph">{value.description}</p>
                         </motion.div>
                     ))}
                 </motion.div>

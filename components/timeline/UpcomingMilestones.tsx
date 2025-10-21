@@ -27,7 +27,7 @@ export default function UpcomingMilestones() {
   return (
     <section className="py-20 px-4 bg-background dark:bg-[#0a0a0a]">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground dark:text-white mb-12 text-center">
+        <h2 className="text-4xl md:text-5xl font-heading font-bold text-black dark:text-white mb-12 text-center">
           Upcoming Milestones
         </h2>
 
@@ -44,7 +44,7 @@ export default function UpcomingMilestones() {
                 </div>
                 <h3 className="text-2xl font-heading font-bold text-foreground dark:text-white mb-2">{item.title}</h3>
                 <p className="text-sm font-bold text-[#fdb913] uppercase tracking-wide mb-3">{item.date}</p>
-                <p className="text-muted-foreground dark:text-gray-400 font-paragraph">{item.description}</p>
+                <p className="text-[#868584] dark:text-white font-paragraph">{item.description}</p>
               </div>
             )
           })}

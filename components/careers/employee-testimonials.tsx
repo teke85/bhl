@@ -33,10 +33,10 @@ export const EmployeeTestimonials = () => {
     <section className="py-16 bg-white dark:bg-black text-[cfcdcb] dark:text-white lg:py-24">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center bg-white dark:bg-black text-black dark:txt-white mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-black dark:text-white mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-black dark:text-white font-heading mb-4">
             They Talk About Us
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-[#868584] dark:text-white font-paragraph max-w-2xl mx-auto">
             Hear from our team members about their experiences working at
             Barotse Highway Limited.
           </p>
@@ -49,7 +49,7 @@ export const EmployeeTestimonials = () => {
               className="p-8 bg-background border-border relative"
             >
               <Quote className="h-8 w-8 text-primary/20 absolute top-6 right-6" />
-              <p className="text-muted-foreground leading-relaxed mb-6 italic">
+              <p className="text-[#868584] dark:text-white font-paragraph leading-relaxed mb-6 italic">
                 {testimonial.quote}
               </p>
               <div>
