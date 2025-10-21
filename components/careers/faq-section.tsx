@@ -45,10 +45,10 @@ export const FAQSection = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-black dark:text-white mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-black dark:text-white font-heading mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-muted-foreground dark:text-white">
+            <p className="text-[#868584] dark:text-white font-paragraph">
               Find answers to common questions about careers at Barotse Highway
               Limited.
             </p>
@@ -66,7 +66,7 @@ export const FAQSection = () => {
                     {faq.question}
                   </span>
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground dark:text-white leading-relaxed">
+                <AccordionContent className="text-[#868584] dark:text-white font-paragraph leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

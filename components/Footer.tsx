@@ -91,8 +91,8 @@ export function Footer() {
             background:
               "linear-gradient(to bottom, rgba(45, 40, 20, 0.95) 0%, rgba(97, 78, 28, 0.9) 35%, rgba(157, 122, 37, 0.85) 70%, rgba(201, 155, 55, 0.9) 100%)",
           }}
-        />
-      </div>
+              />
+            </div>
 
       {/* Content */}
       <div className="relative z-10 flex flex-col justify-center flex-1 px-8 py-16 lg:px-16">
@@ -110,140 +110,140 @@ export function Footer() {
                 Contact
               </h3>
               <ul className="space-y-3 font-sans">
-                <li>
-                  <Link
+              <li>
+                <Link
                     href="/contact#find-us"
                     className="text-[#D0C8B0] hover:text-white transition-colors text-base"
-                  >
-                    Find Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
+                >
+                  Find Us
+                </Link>
+              </li>
+              <li>
+                <Link
                     href="/contact#call-us"
                     className="text-[#D0C8B0] hover:text-white transition-colors text-base"
-                  >
-                    Call Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
+                >
+                  Call Us
+                </Link>
+              </li>
+              <li>
+                <Link
                     href="/contact#email-us"
                     className="text-[#D0C8B0] hover:text-white transition-colors text-base"
-                  >
-                    Email Us
-                  </Link>
-                </li>
-              </ul>
-            </div>
+                >
+                  Email Us
+                </Link>
+              </li>
+            </ul>
+          </div>
 
             {/* Project Overview */}
             <div>
               <h3 className="text-xl font-heading font-bold text-white mb-6">
-                Project Overview
-              </h3>
+              Project Overview
+            </h3>
               <ul className="space-y-3">
-                <li>
-                  <Link
-                    href="/about"
+              <li>
+                <Link
+                  href="/about"
                     className="text-[#D0C8B0] hover:text-white transition-colors text-base"
-                  >
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
                     href="/projects"
                     className="text-[#D0C8B0] hover:text-white transition-colors text-base"
-                  >
-                    Project
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/milestones"
+                >
+                  Project
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/milestones"
                     className="text-[#D0C8B0] hover:text-white transition-colors text-base"
-                  >
-                    Milestones
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/gallery"
+                >
+                  Milestones
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/gallery"
                     className="text-[#D0C8B0] hover:text-white transition-colors text-base"
-                  >
-                    Gallery
-                  </Link>
-                </li>
-              </ul>
-            </div>
+                >
+                  Gallery
+                </Link>
+              </li>
+            </ul>
+          </div>
 
             {/* Quick Links (2 columns) */}
             <div className="md:col-span-2">
               <h3 className="text-xl font-heading font-bold text-white mb-6">
-                Quick Links
-              </h3>
+              Quick Links
+            </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
                 <div className="space-y-3 font-sans">
-                  <Link
+                <Link
                     href="https://www.rda.org.zm"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block text-[#D0C8B0] hover:text-white transition-colors text-base"
-                  >
-                    Road Development Agency
-                  </Link>
-                  <Link
+                >
+                  Road Development Agency
+                </Link>
+                <Link
                     href="https://www.mof.gov.zm"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block text-[#D0C8B0] hover:text-white transition-colors text-base"
-                  >
-                    Ministry of Finance
-                  </Link>
-                  <Link
+                >
+                  Ministry of Finance
+                </Link>
+                <Link
                     href="https://www.mitc.gov.zm"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block text-[#D0C8B0] hover:text-white transition-colors text-base"
-                  >
-                    Ministry of Infrastructure
-                  </Link>
-                  <Link
+                >
+                  Ministry of Infrastructure
+                </Link>
+                <Link
                     href="#"
                     className="block text-[#D0C8B0] hover:text-white transition-colors text-base"
-                  >
-                    Beefco
-                  </Link>
-                </div>
+                >
+                  Beefco
+                </Link>
+              </div>
 
                 <div className="space-y-3">
-                  <Link
+                <Link
                     href="https://www.first-quantum.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block text-[#D0C8B0] hover:text-white transition-colors text-base"
-                  >
-                    First Quantum Minerals Limited
-                  </Link>
-                  <Link
+                >
+                  First Quantum Minerals Limited
+                </Link>
+                <Link
                     href="#"
                     className="block text-[#D0C8B0] hover:text-white transition-colors text-base"
-                  >
-                    Buks Haulage Limited
-                  </Link>
-                  <Link
+                >
+                  Buks Haulage Limited
+                </Link>
+                <Link
                     href="#"
                     className="block text-[#D0C8B0] hover:text-white transition-colors text-base"
-                  >
-                    Hotsheet
-                  </Link>
-                  <Link
+                >
+                  Hotsheet
+                </Link>
+                <Link
                     href="#"
                     className="block text-[#D0C8B0] hover:text-white transition-colors text-base"
-                  >
-                    Pangaea Securities
-                  </Link>
+                >
+                  Pangaea Securities
+                </Link>
                 </div>
               </div>
             </div>
@@ -262,19 +262,19 @@ export function Footer() {
                 Terms of Service
               </Link>
               <span className="text-[#8B8B70]">|</span>
-              <Link
-                href="/privacy"
+            <Link
+              href="/privacy"
                 className="hover:text-white transition-colors"
-              >
-                Privacy Policy
-              </Link>
+            >
+              Privacy Policy
+            </Link>
               <span className="text-[#8B8B70]">|</span>
-              <Link
-                href="/cookies"
+            <Link
+              href="/cookies"
                 className="hover:text-white transition-colors"
-              >
-                Cookie Policy
-              </Link>
+            >
+              Cookie Policy
+            </Link>
               <span className="text-[#8B8B70]">|</span>
               <Link
                 href="/legal"

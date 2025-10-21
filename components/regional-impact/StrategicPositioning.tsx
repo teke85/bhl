@@ -17,7 +17,7 @@ const strategicAreas = [
     description:
       "Designed to integrate with the proposed Lumwana–Kambimba Road, establishing a continuous transport route from Kolwezi in the DRC to Walvis Bay. Targeted for full operational readiness by 2028.",
     image:
-      "https://images.unsplash.com/photo-1581092162562-40038f56c239?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
   },
 ];
 
@@ -34,7 +34,7 @@ export default function StrategicPositioning() {
   return (
     <section className="w-full py-16 md:py-24 bg-background dark:bg-[#0a0a0a]">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground dark:text-white mb-12 text-balance">
+        <h2 className="text-4xl md:text-5xl font-heading font-bold text-black dark:text-white mb-12 text-balance">
           Strategic Positioning
         </h2>
 

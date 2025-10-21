@@ -48,7 +48,7 @@ export default function Achievements() {
           animate={inView ? "visible" : "hidden"}
         >
           <motion.h2
-            className="text-4xl md:text-5xl font-heading font-bold text-foreground dark:text-white mb-6"
+            className="text-4xl md:text-5xl font-heading font-bold text-black dark:text-white mb-6"
             variants={itemVariants}
           >
             By The Numbers
@@ -76,7 +76,7 @@ export default function Achievements() {
               >
                 {achievement.number}
               </motion.h3>
-              <p className="text-lg text-muted-foreground dark:text-gray-300">
+              <p className="text-lg text-[#868584] dark:text-white font-paragraph">
                 {achievement.label}
               </p>
             </motion.div>

@@ -56,13 +56,13 @@ export default function OurMission() {
                     animate={inView ? "visible" : "hidden"}
                 >
                     <motion.h2
-                        className="text-4xl md:text-5xl font-heading font-bold text-foreground dark:text-white mb-6"
+                        className="text-4xl md:text-5xl font-heading font-bold text-black dark:text-white mb-6"
                         variants={itemVariants}
                     >
                         Our Mission & Vision
                     </motion.h2>
                     <motion.p
-                        className="text-lg text-muted-foreground dark:text-gray-300 max-w-2xl mx-auto"
+                        className="text-lg text-[#868584] dark:text-white font-paragraph max-w-2xl mx-auto"
                         variants={itemVariants}
                     >
                         Guided by clear principles and ambitious goals
@@ -83,7 +83,7 @@ export default function OurMission() {
                             whileHover={{ y: -5 }}
                         >
                             <h3 className="text-2xl font-heading font-bold text-[#fdb913] mb-4">{item.title}</h3>
-                            <p className="text-muted-foreground dark:text-gray-300">{item.description}</p>
+                            <p className="text-[#868584] dark:text-white font-paragraph">{item.description}</p>
                         </motion.div>
                     ))}
                 </motion.div>

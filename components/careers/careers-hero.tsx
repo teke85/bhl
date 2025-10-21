@@ -19,7 +19,7 @@ export const CareersHero = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white dark:text-white mb-6 text-balance">
             Be Part of the Team Building Zambia&apos;s Future
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
+          <p className="text-lg md:text-xl text-[#868584] dark:text-white font-paragraph leading-relaxed mb-8">
             Join us in transforming infrastructure and connecting communities
             across the Western Corridor.
           </p>

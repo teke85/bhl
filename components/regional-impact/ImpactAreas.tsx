@@ -40,8 +40,8 @@ export default function ImpactAreas() {
                                 <div className="w-16 h-16 rounded-full bg-[#fdb913]/20 dark:bg-[#fdb913]/10 flex items-center justify-center mb-4">
                                     <Icon className="w-8 h-8 text-[#fdb913]" />
                                 </div>
-                                <h3 className="text-xl font-heading font-bold text-foreground dark:text-white mb-2">{area.title}</h3>
-                                <p className="text-muted-foreground dark:text-gray-400">{area.description}</p>
+                                <h3 className="text-xl font-heading font-bold text-black dark:text-white mb-2">{area.title}</h3>
+                                <p className="text-[#868584] dark:text-white font-paragraph">{area.description}</p>
                             </div>
                         )
                     })}
