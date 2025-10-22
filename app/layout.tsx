@@ -4,7 +4,6 @@ import { Montserrat, Open_Sans, Inter, Jost } from "next/font/google";
 import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
-import Preloader from "@/components/Preloader";
 import CookiePrivacyPopup from "@/components/CookiePrivacyPopup";
 import { siteConfig } from "@/lib/seo-config";
 import StructuredData from "@/components/seo/StructuredData";
