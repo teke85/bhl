@@ -143,7 +143,7 @@ export function BuildingExcellence() {
       className="relative min-h-[600px] w-full overflow-hidden bg-cover bg-center bg-no-repeat py-24 md:py-32"
       style={{
         backgroundImage:
-          "url(https://res.cloudinary.com/dpeg7wc34/image/upload/v1760843604/A_wide_panoramic_hero_image_showcasing_a_newly_constructed_highway_winding_through_a_scenic_Zambian__1_ijdvq9.png)",
+          "url(https://res.cloudinary.com/dpeg7wc34/image/upload/v1761107765/EI3A9507DRM_emgog7.jpg)",
         backgroundPosition: "50% 50%",
       }}
     >
