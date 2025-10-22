@@ -14,7 +14,7 @@ export default function NotFound() {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null;
+  // if (!mounted) return null;
 
   const containerVariants = {
     hidden: { opacity: 0 },
