@@ -57,16 +57,22 @@ export default function CompanyStory() {
 
           {/* Text Side */}
           <motion.div variants={itemVariants} className="space-y-6">
-            <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white font-heading">
-              Building Tomorrow&apos;s Corridors
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground dark:text-white">
+              The Project
             </h2>
 
-            <p className="text-lg text-[#868584] dark:text-white font-paragraph">
-              The Barotse Corridor Connector represents a transformative vision
-              for regional connectivity. Since our inception, we&apos;ve been
-              committed to delivering world-class infrastructure that connects
-              communities, enables trade, and drives economic growth across
-              Southern Africa.
+            <p className="text-lg text-muted-foreground dark:text-gray-300">
+              The Project involves the rehabilitation and upgrading of the 371
+              km Mutanda to Kaoma Road, a road stretch that completes Zambia’s
+              Western Corridor. The Project Highway will be upgraded to
+              international bituminous standards. The road rehabilitation and
+              construction will be executed in two primary sections: Mutanda to
+              Kasempa (150 km) and Kasempa to Kaoma (221 km). The Project’s key
+              components include the construction of three toll plazas, two
+              weighbridges, and the upgrading of key bridges such as the
+              Lalafuta and Chilombo Bridges. The road design will feature a
+              bidirectional single carriageway with 3.5-meter-wide travel lanes,
+              2-meter surfaced shoulders and 0.3-meter gravel shoulders.
             </p>
 
             <p className="text-lg text-[#868584] dark:text-white font-paragraph">

@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-import { pageMetadata, siteConfig } from "@/lib/seo-config";
 import CombinedCarouselBigTextSection from "@/components/CombinedCarouselBigTextSection";
 import { Footer } from "@/components/FooterUpdated";
 import HeroCarousel from "@/components/HeroSection3RightLeft";
@@ -11,37 +9,6 @@ import ProjectMilestonesSection from "@/components/ProjectMilestones";
 import CommunityFirstSection from "@/components/CommunityFirst";
 import VideoHeroSection from "@/components/BigVideoComponent";
 import { BuildingExcellence } from "@/components/BuildingExcellence";
-
-export const metadata: Metadata = {
-  title: pageMetadata.home.title,
-  description: pageMetadata.home.description,
-  keywords: pageMetadata.home.keywords,
-  openGraph: {
-    title: pageMetadata.home.title,
-    description: pageMetadata.home.description,
-    url: siteConfig.url,
-    siteName: siteConfig.name,
-    images: [
-      {
-        url: `${siteConfig.url}/og-image.jpg`,
-        width: 1200,
-        height: 630,
-        alt: "Barotse Highway Limited",
-      },
-    ],
-    locale: "en_ZM",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: pageMetadata.home.title,
-    description: pageMetadata.home.description,
-    images: [`${siteConfig.url}/og-image.jpg`],
-  },
-  alternates: {
-    canonical: siteConfig.url,
-  },
-};
 
 export default function HomePage() {
   return (
