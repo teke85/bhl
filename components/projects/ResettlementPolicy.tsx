@@ -24,20 +24,6 @@ const ResettlementPolicy = () => {
             for preparing Resettlement Action Plans (RAPs) and Livelihood
             Restoration Plans whenever land acquisition or displacement occurs.
           </p>
-          <p>
-            The framework applies where projects cause permanent or temporary
-            social and economic impacts, require land acquisition, or alter land
-            use or access rights. It ensures affected persons are informed of
-            their rights, consulted, compensated at full replacement cost, and
-            assisted in restoring or improving pre-project living standards.
-          </p>
-          <p>
-            Resettlement planning considers demographic and socio-economic
-            conditions in the affected districts of{" "}
-            <strong>Kalumbila, Kasempa, Mufumbwe, and Kaoma</strong>, ensuring
-            that local needs and vulnerabilities are addressed in an equitable
-            and sustainable manner.
-          </p>
         </div>
       </div>
     </section>
