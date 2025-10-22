@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { X, Search, Menu, ChevronDown } from "lucide-react";
+import { X, Search, Menu, ChevronDown, ArrowDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ModeToggle from "./ModeToggle";
 
@@ -223,9 +223,17 @@ function StickyNavigationMenu() {
                   <div key={item} className="relative group">
                     <button
                       onClick={() => handleMenuClick(item)}
-                      className="relative flex items-center cursor-pointer font-body gap-1 transition-colors duration-200 py-2 font-medium text-md tracking-wide group text-white hover:text-[#FDB913]"
+                      className="relative flex items-center cursor-pointer font-body gap-2 transition-colors duration-200 py-2 font-medium text-md tracking-wide group text-white hover:text-[#FDB913]"
                     >
                       {formatMenuLabel(item)}
+                      {/* Animated Arrow */}
+                      <ArrowDown
+                        className={cn(
+                          "h-4 w-4 transition-all duration-300",
+                          activeMenu === item ? "rotate-180 text-[#FDB913]" : "rotate-0",
+                          "group-hover:-translate-y-1 group-hover:text-[#FDB913]"
+                        )}
+                      />
                       <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FDB913] group-hover:w-full transition-all duration-300"></span>
                     </button>
                   </div>
@@ -242,13 +250,17 @@ function StickyNavigationMenu() {
                     setShowMoreMenu((s) => !s);
                     setActiveMenu(null);
                   }}
-                  className="flex items-center font-body gap-3 transition-colors duration-200 font-medium text-md tracking-wide group text-white hover:text-[#FDB913]"
+                  className="flex items-center font-body gap-2 transition-colors duration-200 font-medium text-md tracking-wide group text-white hover:text-[#FDB913]"
                 >
                   More
-                  <div className="flex flex-col gap-1.5 w-5">
-                    <span className="h-0.5 bg-current transition-all duration-300 group-hover:w-1/2"></span>
-                    <span className="h-0.5 bg-current transition-all duration-300"></span>
-                  </div>
+                  {/* Animated Arrow for More menu */}
+                  <ChevronDown
+                    className={cn(
+                      "h-4 w-4 transition-all duration-300",
+                      showMoreMenu ? "rotate-180 text-[#FDB913]" : "rotate-0",
+                      "group-hover:-translate-y-0.5 group-hover:text-[#FDB913]"
+                    )}
+                  />
                 </button>
                 {showMoreMenu && (
                   <div className="absolute top-full right-0 mt-2 w-56 bg-[#0A0A0A] border border-white/10 rounded-lg shadow-xl py-2 animate-in fade-in slide-in-from-top-2 duration-200">
