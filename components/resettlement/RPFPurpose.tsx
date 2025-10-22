@@ -23,15 +23,17 @@ export default function RPFPurpose() {
               Purpose of the RPF
             </h2>
             <p className="text-lg text-black dark:text-white mb-6">
-              The Resettlement Policy Framework (RPF) outlines the process for
-              implementing the BEL-TC Resettlement Policy and guides the
-              preparation of Resettlement Action Plans (RAPs) where land
-              acquisition or displacement occurs.
-            </p>
-            <p className="text-base text-black dark:text-white">
-              This framework ensures that all affected persons are treated
-              fairly, with their rights protected and their livelihoods restored
-              or improved compared to pre-project conditions.
+              The Project has developed a Resettlement Policy Framework (RPF)
+              that outlines the process for implementing the Barotse
+              Resettlement Policy throughout the Project. It guides the
+              preparation of Resettlement Action Plans (RAPs) for locations
+              where land acquisition or displacement occurs. The RPF establishes
+              principles, procedures, and an institutional framework for
+              conducting resettlement activities under the Barotse project, and
+              it serves as the foundation for preparing operational instruments,
+              including multiple RAPs, abbreviated Resettlement Plans, and
+              Livelihood Restoration Plans. A Resettlement Framework applies in
+              cases where:
             </p>
           </div>
           <div className="relative h-96 rounded-lg overflow-hidden">
