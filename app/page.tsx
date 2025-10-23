@@ -9,70 +9,51 @@ import ProjectMilestonesSection from "@/components/ProjectMilestones";
 import CommunityFirstSection from "@/components/CommunityFirst";
 import VideoHeroSection from "@/components/BigVideoComponent";
 import { BuildingExcellence } from "@/components/BuildingExcellence";
+import SectionWrapper from "@/components/SectionWrapper";
 
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-black">
       <div className="w-full mx-auto">
-        <section className="w-full flex justify-center">
-          <div className="w-full max-w-full px-4 sm:px-6 lg:px-0">
-            <HeroCarousel />
-          </div>
-        </section>
+        <SectionWrapper fullWidth>
+          <HeroCarousel />
+        </SectionWrapper>
 
-        <section className="w-full flex justify-center">
-          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-0">
-            <KeyStats />
-          </div>
-        </section>
+        <SectionWrapper>
+          <KeyStats />
+        </SectionWrapper>
 
-        <section className="w-full flex justify-center">
-          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-0">
-            <ScrollTriggeredSection />
-          </div>
-        </section>
+        <SectionWrapper>
+          <ScrollTriggeredSection />
+        </SectionWrapper>
 
-        <section className="w-full flex justify-center">
-          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-0">
-            <ExpertBuildersSection />
-          </div>
-        </section>
+        <SectionWrapper>
+          <ExpertBuildersSection />
+        </SectionWrapper>
 
-        <section className="w-full flex justify-center">
-          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-0">
-            <ProjectMilestonesSection />
-          </div>
-        </section>
+        <SectionWrapper>
+          <ProjectMilestonesSection />
+        </SectionWrapper>
 
-        <section className="w-full flex justify-center">
-          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-0">
-            <CommunityFirstSection />
-          </div>
-        </section>
+        <SectionWrapper>
+          <CommunityFirstSection />
+        </SectionWrapper>
 
-        <section className="w-full flex justify-center">
-          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-0">
-            <VideoHeroSection />
-          </div>
-        </section>
+        <SectionWrapper>
+          <VideoHeroSection />
+        </SectionWrapper>
 
-        <section className="w-full flex justify-center">
-          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-0">
-            <CombinedCarouselBigTextSection />
-          </div>
-        </section>
+        <SectionWrapper>
+          <CombinedCarouselBigTextSection />
+        </SectionWrapper>
 
-        <section className="w-full flex justify-center">
-          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-0">
-            <OurPartners />
-          </div>
-        </section>
+        <SectionWrapper>
+          <OurPartners />
+        </SectionWrapper>
 
-        <section className="w-full flex justify-center">
-          <div className="w-full max-w-[2560px] px-4 sm:px-6 lg:px-0">
-            <BuildingExcellence />
-          </div>
-        </section>
+        <SectionWrapper>
+          <BuildingExcellence />
+        </SectionWrapper>
 
         <Footer />
       </div>
