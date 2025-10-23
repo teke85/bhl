@@ -25,7 +25,7 @@ const ProjectHero = () => {
       {/* Background Image with Dark Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760699030/A_cinematic_aerial_view_showing_the_transformation_of_the_Barotse_Highway_over_time__from_a_dusty_gr_iud62q.png"
+          src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760880457/DJI_0445_formphotoeditor.com_bb4kdl.jpg"
           alt="Barotse Highway Construction"
           fill
           className="object-cover"
