@@ -1,0 +1,95 @@
+[00:00:19.799] Server  LOG      ✓ Ready in 12.9s
+[00:00:22.935] Server  LOG      ○ Compiling / ...
+[00:00:51.237] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760807367/assets_task_01k7qv5fyvf4w9z59md1d1nw59_1760663181_img_1_y5zbj4.webp" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:00:51.255] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760665364/assets_task_01k7qtsax5e07rk30yd0jmz51n_1760662789_img_0_kpen6d.webp" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:00:59.704] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760807367/assets_task_01k7qv5fyvf4w9z59md1d1nw59_1760663181_img_1_y5zbj4.webp" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:00:59.704] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760665364/assets_task_01k7qtsax5e07rk30yd0jmz51n_1760662789_img_0_kpen6d.webp" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:00:59.704] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" suppressHydrationWarning={true}>
+                          <body
+                            className="montserrat_aee0da2b-module__NbqNuq__variable open_sans_a4adf610-module__GpCr6q_..."
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[00:02:15.788] Server  LOG      ✓ Compiled in 3.4s
+[00:46:42.055] Server  LOG      ○ Compiling /contact ...
+[00:47:24.332] Server  LOG      ○ Compiling /_not-found/page ...
+[00:48:02.944] Server  LOG      ○ Compiling /projects ...
+[00:51:54.274] Server  LOG      ✓ Compiled in 15.5s
+[01:34:00.466] Server  LOG      ○ Compiling /gallery ...
+[01:34:05.214] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760880463/DJI_0441_formphotoeditor.com_mulaxu.jpg" has legacy prop "layout". Did you forget to run the codemod?
+Read more: https://nextjs.org/docs/messages/next-image-upgrade-to-13
+[02:02:57.840] Server  LOG      ○ Compiling /about ...
+[03:34:33.483] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/about" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" suppressHydrationWarning={true}>
+                          <body
+                            className="montserrat_aee0da2b-module__NbqNuq__variable open_sans_a4adf610-module__GpCr6q_..."
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+
+[22:33:28.428] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760807367/assets_task_01k7qv5fyvf4w9z59md1d1nw59_1760663181_img_1_y5zbj4.webp" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[22:33:28.465] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760665364/assets_task_01k7qtsax5e07rk30yd0jmz51n_1760662789_img_0_kpen6d.webp" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
