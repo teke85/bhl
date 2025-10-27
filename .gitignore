@@ -13,7 +13,7 @@ frontend/build
 frontend/dist
 
 # Strapi
-backend/.tmp/
+# backend/.tmp/
 backend/.cache/
 backend/build/
 backend/dist/
