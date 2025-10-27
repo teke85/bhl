@@ -40,7 +40,7 @@ export default function AboutHero() {
       {/* Background Image with Overlay */}
       <div className="absolute bg-black/20 inset-0 z-0 w-full">
         <Image
-          src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760873944/A_professional__cinematic_image_representing_the_founding_story_of_Barotse_Highway_Limited__a_Zambia_2_s9dqfd.png"
+          src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761477016/EI3A9561DRM_bbw3jo.jpg"
           alt="About Barotse Highway"
           className="w-full h-full object-cover"
           sizes="100vw"
