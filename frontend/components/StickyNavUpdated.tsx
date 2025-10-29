@@ -206,8 +206,8 @@ function StickyNavigationMenu() {
             {/* Logo */}
             <Link href="/" className="flex items-center z-50">
               <Image
-                src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761681183/westerncorridor_logo_vw731c.jpg"
-                alt="Barotse Highway Limited"
+                src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761708103/westerncorridor_logo_bih0jh.png"
+                alt="Western corridor logo"
                 width={100}
                 height={100}
                 className="h-20 w-20 md:h-20 md:w-20 object-contain"
