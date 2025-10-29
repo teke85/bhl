@@ -19,11 +19,11 @@ const highlights = [
     btnText: "Explore the Project",
   },
   {
-    title: "EMPOWERING COMMUNITIES THROUGH INFRASTRUCTURE",
-    text: "Beyond connecting regions, the Barotse Highway is building opportunities for people. From social infrastructure to improved access to markets and services, our commitment extends to every community along the route.",
-    img: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760665364/assets_task_01k7qtsax5e07rk30yd0jmz51n_1760662789_img_0_kpen6d.webp",
-    link: "/regional-impact",
-    btnText: "Learn About Our Impact",
+    title: "CONNECTING ZAMBIA THROUGH GOVERNMENT-LED INFRASTRUCTURE",
+    text: "The Government of the Republic of Zambia continues to play a vital role in national development through transformative road projects like the Mutanda Road. This strategic initiative strengthens regional connectivity, supports local trade, and improves access to essential services. By partnering with key stakeholders, the government is ensuring that every community along the route benefits from enhanced mobility and economic opportunity.",
+    img: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761481327/EI3A9515DRM_yzoiit.jpg",
+    link: "/projects",
+    btnText: "Learn About the PPP",
   },
 ];
 

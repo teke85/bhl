@@ -41,14 +41,14 @@ export const Footer = () => {
             <Link href="/" className="flex items-center gap-3 mb-6">
               <div className="relative w-22 h-22 rounded-full overflow-hidden">
                 <Image
-                  src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1759852662/Logo_b0ski3.png"
-                  alt="Barotse Highway Limited"
+                  src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761681183/westerncorridor_logo_vw731c.jpg"
+                  alt="Western Corridor Logo"
                   fill
                   className="object-contain p-1"
                 />
               </div>
               <span className="font-bold text-[#DCAF0E] font-heading text-xl">
-                Barotse Express Highway
+                Western Corridor
               </span>
             </Link>
             <p className="text-[#868584] dark:text-white font-body text-lg leading-relaxed mb-6">

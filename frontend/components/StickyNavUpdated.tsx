@@ -206,11 +206,11 @@ function StickyNavigationMenu() {
             {/* Logo */}
             <Link href="/" className="flex items-center z-50">
               <Image
-                src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1759852662/Logo_b0ski3.png"
+                src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761681183/westerncorridor_logo_vw731c.jpg"
                 alt="Barotse Highway Limited"
-                width={60}
-                height={60}
-                className="h-12 w-12 md:h-15 md:w-15 object-contain"
+                width={100}
+                height={100}
+                className="h-20 w-20 md:h-20 md:w-20 object-contain"
               />
             </Link>
 
@@ -230,7 +230,9 @@ function StickyNavigationMenu() {
                       <ArrowDown
                         className={cn(
                           "h-4 w-4 transition-all duration-300",
-                          activeMenu === item ? "rotate-180 text-[#FDB913]" : "rotate-0",
+                          activeMenu === item
+                            ? "rotate-180 text-[#FDB913]"
+                            : "rotate-0",
                           "group-hover:-translate-y-1 group-hover:text-[#FDB913]"
                         )}
                       />

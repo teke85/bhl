@@ -27,7 +27,7 @@ const ScrollTriggeredImage = () => {
       description:
         "Connecting Zambia's Copperbelt and DRC's mining regions to the Port of Walvis Bay, facilitating international trade and economic growth.",
       imageUrl:
-        "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760623617/assets_task_01k7pm5wjwfbmsy4xs1f5z5xmy_1760622328_img_1_faz7xf.jpg",
+        "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761601625/IMG_7101-1024x649_mzybrr.jpg",
     },
     {
       title: "COMMUNITY IMPACT",
