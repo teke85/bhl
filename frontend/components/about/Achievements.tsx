@@ -29,10 +29,11 @@ export default function Achievements() {
   };
 
   const achievements = [
-    { number: "371", label: "Kilometers of Highway" },
-    { number: "2", label: "Main Sections" },
-    { number: "3", label: "Toll Plazas" },
-    { number: "2025", label: "Target Completion" },
+    { number: "371km", label: "Total Stretch" },
+    { number: "3", label: "Toll Gates" },
+    { number: "2025", label: "Start of Early Works" },
+    { number: "2027", label: "Target Completion" },
+    { number: "20km", label: "Urban Roads Planned" },
   ];
 
   return (
@@ -56,7 +57,7 @@ export default function Achievements() {
         </motion.div>
 
         <motion.div
-          className="grid md:grid-cols-3 gap-8"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
@@ -64,19 +65,19 @@ export default function Achievements() {
           {achievements.map((achievement, index) => (
             <motion.div
               key={index}
-              className="text-center p-8 rounded-lg bg-card dark:bg-[#1a1a1a] border border-border dark:border-white/10"
+              className="text-center p-6 rounded-lg bg-card dark:bg-[#1a1a1a] border border-border dark:border-white/10"
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
             >
               <motion.h3
-                className="text-5xl font-bold text-[#fdb913] mb-3"
+                className="text-4xl md:text-5xl font-bold text-[#fdb913] mb-3"
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
               >
                 {achievement.number}
               </motion.h3>
-              <p className="text-lg text-[#868584] dark:text-white font-paragraph">
+              <p className="text-base md:text-lg text-[#868584] dark:text-white font-paragraph leading-tight">
                 {achievement.label}
               </p>
             </motion.div>

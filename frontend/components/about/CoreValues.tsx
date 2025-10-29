@@ -30,34 +30,52 @@ export default function CoreValues() {
 
   const values = [
     {
-      icon: "🏗️",
-      title: "Operate transparently",
+      icon: "🌱",
+      title: "Sustainability",
       description:
-        "guided by robust governance, financial accountability, and public-private collaboration.",
+        "Commitment to environmentally responsible infrastructure development, aligned with IFC Performance Standards and Zambia's Environmental Management Act.",
     },
     {
-      icon: "🤝",
-      title: "Build with Integrity",
+      icon: "⚖️",
+      title: "Inclusivity & Equity",
       description:
-        "ensuring the Mutanda–Kaoma Road meets international quality and safety standards.",
+        "Ensuring fair resettlement, livelihood restoration, and meaningful stakeholder engagement, with special attention to vulnerable groups including women, youth, and informal land users.",
     },
     {
-      icon: "🌍",
-      title: "Empower communities",
+      icon: "🔍",
+      title: "Transparency & Accountability",
       description:
-        "by promoting local employment, fair resettlement, and inclusive development",
-    },
-    {
-      icon: "👥",
-      title: "Protect the environment",
-      description:
-        "through responsible construction practices, biodiversity conservation, and climate-resilient design.",
+        "Upholding clear governance, financial integrity, and public reporting mechanisms throughout the concession lifecycle.",
     },
     {
       icon: "💡",
-      title: "Support Zambia's growth",
+      title: "Innovation & Efficiency",
       description:
-        "by facilitating trade, unlocking mining and agricultural value chains, and aligning with national development strategies.",
+        "Leveraging modern tolling systems, weigh-in-motion technology, and smart project management tools to deliver high-quality infrastructure and services.",
+    },
+    {
+      icon: "🌟",
+      title: "Local Empowerment",
+      description:
+        "Promoting local content, employment, and capacity building through subcontracting to Zambian citizen contractors and suppliers.",
+    },
+    {
+      icon: "🛡️",
+      title: "Resilience & Adaptability",
+      description:
+        "Designing infrastructure and financial models that respond to climate risks, traffic patterns, and evolving regional trade dynamics.",
+    },
+    {
+      icon: "🛣️",
+      title: "Safety & Reliability",
+      description:
+        "Prioritizing road safety, asset durability, and operational excellence to protect users and maintain service levels.",
+    },
+    {
+      icon: "🌍",
+      title: "Regional Integration",
+      description:
+        "Supporting Zambia's role as a transport and logistics hub by connecting mining regions to key ports and trade corridors across SADC.",
     },
   ];
 
@@ -81,13 +99,13 @@ export default function CoreValues() {
           </motion.h2>
         </motion.div>
         <p className="font-body text-center text-lg md:text-xl text-muted-foreground dark:text-gray-300 mb-12 max-w-3xl mx-auto">
-          Our commitment is to not only construct a road, but to create a
-          corridor of opportunity, sustainability, and shared prosperity for
-          Zambia and the region.
+          Guiding principles that drive our commitment to delivering
+          transformative infrastructure while creating lasting value for Zambia
+          and the region.
         </p>
 
         <motion.div
-          className="grid md:grid-cols-3 gap-8"
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
@@ -95,15 +113,15 @@ export default function CoreValues() {
           {values.map((value, index) => (
             <motion.div
               key={index}
-              className="text-center p-8 rounded-lg bg-card dark:bg-[#1a1a1a] border border-border dark:border-white/10 hover:border-[#fdb913] transition-colors"
+              className="text-center p-6 rounded-lg bg-card dark:bg-[#1a1a1a] border border-border dark:border-white/10 hover:border-[#fdb913] transition-colors"
               variants={itemVariants}
               whileHover={{ y: -8 }}
             >
-              <div className="text-5xl mb-4">{value.icon}</div>
-              <h3 className="text-2xl font-heading font-bold text-foreground dark:text-white mb-3">
+              <div className="text-4xl mb-4">{value.icon}</div>
+              <h3 className="text-xl font-heading font-bold text-foreground dark:text-white mb-3">
                 {value.title}
               </h3>
-              <p className="text-muted-foreground dark:text-gray-300">
+              <p className="text-muted-foreground dark:text-gray-300 text-sm leading-relaxed">
                 {value.description}
               </p>
             </motion.div>
