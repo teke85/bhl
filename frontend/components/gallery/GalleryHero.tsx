@@ -6,14 +6,15 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function GalleryHero() {
-  const { theme } = useTheme();
+  const { theme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timer);
   }, []);
 
-  if (!mounted) return null;
+  const currentTheme = mounted ? theme : resolvedTheme || "light";
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -40,13 +41,15 @@ export default function GalleryHero() {
       {/* Background Image with Overlay */}
       <div className="absolute bg-black inset-0 z-0">
         <Image
-          src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760880463/DJI_0441_formphotoeditor.com_mulaxu.jpg"
+          src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760880450/DJI_0442_formphotoeditor.com_bdwonh.jpg"
           alt="Gallery"
           className="w-full h-full object-cover"
-          layout="fill"
+          fill
+          priority
+          quality={100}
         />
         <div
-          className={`absolute inset-0 ${theme === "dark" ? "bg-[#0a0a0a]/70" : "bg-black/60"}`}
+          className={`absolute inset-0 ${currentTheme === "dark" ? "bg-[#0a0a0a]/70" : "bg-black/60"}`}
         ></div>
       </div>
 

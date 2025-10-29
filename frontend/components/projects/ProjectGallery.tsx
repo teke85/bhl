@@ -6,50 +6,22 @@ import { useState } from "react";
 const ProjectGallery = () => {
   const [activeImage, setActiveImage] = useState(0);
 
-  // const images = [
-  //     {
-  //         src: "/modern-highway-construction-site-with-heavy-machin.jpg",
-  //         title: "Construction Progress",
-  //         description: "State-of-the-art equipment and modern construction techniques",
-  //     },
-  //     {
-  //         src: "/newly-paved-highway-road-with-lane-markings-in-afr.jpg",
-  //         title: "Road Quality",
-  //         description: "International standard bituminous surface with precision markings",
-  //     },
-  //     {
-  //         src: "/highway-bridge-construction-over-river-in-zambia.jpg",
-  //         title: "Infrastructure Development",
-  //         description: "Modern bridges and drainage systems for long-term durability",
-  //     },
-  //     {
-  //         src: "/toll-plaza-building-modern-architecture-zambia.jpg",
-  //         title: "Toll Plaza Facilities",
-  //         description: "Modern toll collection infrastructure with digital systems",
-  //     },
-  // ]
   const images = [
     {
       src: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760699527/WhatsApp_Image_2025-10-10_at_13.00.15_hygpnc.jpg",
-      title: "",
-      description: "Map showing connectivity from mutanda to walvisbay",
+      title: "Regional Connectivity Map",
     },
     {
       src: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760053175/DJI_0524_10000_jhze1c.jpg",
-      title: "Road Quality",
-      description:
-        "International standard bituminous surface with precision markings",
+      title: "Road Construction Progress",
     },
     {
       src: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760054559/DJI_0515_10000_awfwbp.jpg",
       title: "Infrastructure Development",
-      description:
-        "Modern bridges and drainage systems for long-term durability",
     },
     {
       src: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759928192/DJI_0551_10000_ptspuh.jpg",
-      title: "Toll Plaza Facilities",
-      description: "Modern toll collection infrastructure with digital systems",
+      title: "Project Overview",
     },
   ];
 
@@ -74,14 +46,11 @@ const ProjectGallery = () => {
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          <div className="absolute inset-0 from-black/80 via-black/20 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-            <h3 className="text-3xl font-heading font-bold mb-2">
+            <h3 className="text-3xl font-heading font-bold">
               {images[activeImage].title}
             </h3>
-            <p className="text-lg font-paragraph text-white/90">
-              {images[activeImage].description}
-            </p>
           </div>
         </div>
 

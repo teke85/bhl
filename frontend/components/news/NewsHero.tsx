@@ -1,90 +1,68 @@
 "use client";
 
-import type React from "react";
-import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
-const NewsHero: React.FC = () => {
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const descriptionRef = useRef<HTMLDivElement>(null);
+export default function NewsHero() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
 
-  useEffect(() => {
-    // Animate hero elements on mount
-    const elements = [titleRef, subtitleRef, descriptionRef];
-    elements.forEach((ref, index) => {
-      if (ref.current) {
-        ref.current.style.transition = `all 0.8s ease ${index * 0.2}s`;
-        ref.current.style.transform = "translateY(0)";
-        ref.current.style.opacity = "1";
-      }
-    });
-  }, []);
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8 },
+    },
+  };
 
   return (
-    <section className="relative w-full py-20 md:py-32 overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage:
-            'url("/modern-news-media-background-with-newspapers-and-d.jpg")',
-        }}
-      />
-
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-black/50 dark:bg-black/60" />
-
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-400/5 dark:bg-yellow-400/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-yellow-400/5 dark:bg-yellow-400/10 rounded-full blur-3xl" />
+    <section className="relative w-full py-20 md:py-32 overflow-hidden bg-background dark:bg-[#0a0a0a]">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0 w-full">
+        <Image
+          src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761744663/5_yoawid.png"
+          alt="News & Updates - Barotse Highway"
+          className="w-full h-full object-cover"
+          sizes="100vw"
+          priority
+          fill
+        />
+        <div className="absolute inset-0 bg-black/60"></div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.h1
-          ref={titleRef}
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
-        >
-          Latest News
-        </motion.h1>
-
-        <motion.p
-          ref={subtitleRef}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xl md:text-2xl text-gray-100 mb-8 max-w-3xl mx-auto"
-        >
-          Stay Updated with Our Latest Developments
-        </motion.p>
-
+      <div className="container w-full mx-auto px-4 relative z-10">
         <motion.div
-          ref={descriptionRef}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="max-w-2xl mx-auto"
+          className="max-w-3xl"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
         >
-          <p className="text-base md:text-lg text-gray-200 leading-relaxed">
-            Discover the latest updates, announcements, and insights from our
-            projects and partnerships. Stay informed about our progress and
-            milestones.
-          </p>
+          <motion.h1
+            className="text-5xl md:text-6xl font-heading font-bold text-white dark:text-white mb-6 text-balance"
+            variants={itemVariants}
+          >
+            News & Updates
+          </motion.h1>
+          <motion.p
+            className="text-lg md:text-xl w-full text-white dark:text-white text-balance leading-relaxed"
+            variants={itemVariants}
+          >
+            Stay informed about the latest developments, milestones, and
+            announcements for the Barotse Highway project. From construction
+            progress to community initiatives, get all the updates straight from
+            the source.
+          </motion.p>
         </motion.div>
-
-        {/* Decorative line */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="w-20 h-1 bg-yellow-400 mx-auto mt-12"
-        />
       </div>
     </section>
   );
-};
-
-export default NewsHero;
+}
