@@ -3,16 +3,50 @@
 import { motion } from "framer-motion";
 
 const ProjectHistory = () => {
+  const signingImages = [
+    "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761737557/EI3A9544DRM_axlqdp.jpg",
+    "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761737555/EI3A9521DRM_p6ppme.jpg",
+    "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761737555/EI3A9549DRM_g4ex3m.jpg",
+  ];
+
+  // Simplified variants without complex transitions in the variant definitions
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+    },
+  };
+
   return (
-    <section className="py-20 bg-white dark:bg-black text-black dark:text-white">
+    <section className="py-10 bg-white dark:bg-black text-black dark:text-white">
       <div className="container text-3xl md:text-5xl mx-auto px-2 max-w-8xl">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-3xl md:text-4xl font-bold mb-6 text-black dark:text-white"
         >
-          Project Background & History
+          Project History
         </motion.h2>
 
         <div className="space-y-5 leading-tight">
@@ -27,7 +61,7 @@ const ProjectHistory = () => {
             concession.
           </p>
           <p className="text-lg text-black dark:text-white font-body mb-8 leading-relaxed">
-            After assessing the corridor’s traffic potential, the Promoters
+            After assessing the corridor&apos;s traffic potential, the Promoters
             resolved in 2023 to upgrade the entire 371 km stretch to bituminous
             standard. An unsolicited PPP proposal was submitted on{" "}
             <strong>16 February 2024</strong> and
@@ -44,6 +78,61 @@ const ProjectHistory = () => {
             Close targeted <strong>for the end of 2025</strong> .
           </p>
         </div>
+
+        {/* Signing Ceremony Images Section */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          className="mt-12"
+        >
+          <motion.h3
+            variants={itemVariants}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-2xl md:text-3xl font-bold mb-8 text-center text-black dark:text-white"
+          >
+            Signing Ceremony
+          </motion.h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {signingImages.map((image, index) => (
+              <motion.div
+                key={index}
+                variants={imageVariants}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                whileHover={{
+                  scale: 1.05,
+                  transition: { duration: 0.3, ease: "easeInOut" },
+                }}
+                className="relative group"
+              >
+                <div className="relative overflow-hidden rounded-lg shadow-lg bg-gray-200 dark:bg-gray-800">
+                  <motion.img
+                    src={image}
+                    alt={`Signing ceremony moment ${index + 1}`}
+                    className="w-full h-64 object-cover"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                  />
+                  <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300" />
+                </div>
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    delay: 0.5 + index * 0.1,
+                    duration: 0.5,
+                    ease: "easeOut",
+                  }}
+                  className="mt-4 text-center"
+                ></motion.div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

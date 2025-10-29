@@ -6,6 +6,7 @@ import OurMission from "@/components/about/OurMission";
 import CoreValues from "@/components/about/CoreValues";
 import LeadershipTeam from "@/components/about/LeadershipTeam";
 import Achievements from "@/components/about/Achievements";
+import OurCommitment from "@/components/OurCommitment";
 
 export default function AboutPage() {
   return (

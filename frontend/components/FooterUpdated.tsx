@@ -41,7 +41,7 @@ export const Footer = () => {
             <Link href="/" className="flex items-center gap-3 mb-6">
               <div className="relative w-22 h-22 rounded-full overflow-hidden">
                 <Image
-                  src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761681183/westerncorridor_logo_vw731c.jpg"
+                  src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761708103/westerncorridor_logo_bih0jh.png"
                   alt="Western Corridor Logo"
                   fill
                   className="object-contain p-1"
@@ -178,8 +178,8 @@ export const Footer = () => {
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-black dark:text-white text-center md:text-left">
-              © {new Date().getFullYear()} Barotse Expressway Limited. All
-              rights reserved.
+              © {new Date().getFullYear()} Western Corridor Limited. All rights
+              reserved.
             </p>
             <p className="text-sm text-black dark:text-white text-center md:text-right">
               Powered by{" "}

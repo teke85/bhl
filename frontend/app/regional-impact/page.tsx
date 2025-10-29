@@ -4,7 +4,7 @@ import StrategicPositioning from "@/components/regional-impact/StrategicPosition
 import PortOfWalvisBay from "@/components/regional-impact/PortOfWalvisBay";
 import TradeOpportunities from "@/components/regional-impact/TradeOpportunities";
 // import EconomicBenefits from "@/components/regional-impact/EconomicBenefits";
-import RegionalConnectivity from "@/components/regional-impact/RegionalConnectivity";
+import RegionalConnectivity from "@/components/regional-impact/ProjectScopeHistory";
 import { Footer } from "@/components/FooterUpdated";
 import StickyNavigationMenu from "@/components/StickyNavUpdated";
 
@@ -30,7 +30,7 @@ const RegionalImpactPage = () => {
       <PortOfWalvisBay />
       <TradeOpportunities />
       {/* <EconomicBenefits /> */}
-      <RegionalConnectivity />
+      {/* <RegionalConnectivity /> */}
       <Footer />
     </main>
   );

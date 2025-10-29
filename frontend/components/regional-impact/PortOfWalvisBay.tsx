@@ -5,14 +5,17 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function PortOfWalvisBay() {
-  const { theme } = useTheme();
+  const { theme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
+  // Set mounted after the component mounts
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timer);
   }, []);
 
-  if (!mounted) return null;
+  // Use resolvedTheme as fallback, or default to 'light'
+  const currentTheme = mounted ? theme : resolvedTheme || "light";
 
   return (
     <section className="w-full py-16 md:py-24 bg-card dark:bg-[#1a1a1a] border-y border-border dark:border-white/10">
@@ -24,14 +27,14 @@ export default function PortOfWalvisBay() {
               alt="Background"
               fill
               sizes="100vw"
-              priority // loads early for above-the-fold content
+              priority
               quality={75}
               placeholder="blur"
               blurDataURL="https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_10,e_blur:1000,w_10/v1759918204/DJI_0565_10000_gb099t.jpg"
               className="object-cover scale-110"
             />
             <div
-              className={`absolute inset-0 ${theme === "dark" ? "bg-[#0a0a0a]/30" : "bg-white/20"}`}
+              className={`absolute inset-0 ${currentTheme === "dark" ? "bg-[#0a0a0a]/30" : "bg-white/20"}`}
             ></div>
           </div>
 

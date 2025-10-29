@@ -9,9 +9,11 @@ import EnvironmentalImpact from "@/components/projects/EnvironmentalImpact";
 import { Footer } from "@/components/FooterUpdated";
 import StickyNavigationMenu from "@/components/StickyNavUpdated";
 import ProjectPromoters from "@/components/projects/ProjectPromoters";
-import ProjectHistory from "@/components/projects/ProjectHIstory";
-import RegionalConnectivity from "@/components/regional-impact/RegionalConnectivity";
+import ProjectHistory from "@/components/projects/ProjectHistory";
+import RegionalConnectivity from "@/components/regional-impact/ProjectScopeHistory";
 import ResettlementPolicy from "@/components/projects/ResettlementPolicy";
+import OurCommitment from "../commitment/page";
+import ProjectScopeAndHistory from "@/components/about/ProjectScopeAndHistory";
 
 export default function ProjectPage() {
   return (
@@ -30,7 +32,8 @@ export default function ProjectPage() {
       <ProjectHero />
       <ProjectKeyStats />
       <ProjectHistory />
-      <RegionalConnectivity />
+      <ProjectScopeAndHistory />
+      {/* <RegionalConnectivity /> */}
       <ProjectGallery />
       <RoadSections />
       <RoadDesign />

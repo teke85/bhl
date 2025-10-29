@@ -1,19 +1,8 @@
 "use client";
 
-import { useTheme } from "next-themes";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 export default function RegionalImpactHero() {
-  const { theme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
-
   return (
     <section className="relative w-full py-20 md:py-32 overflow-hidden bg-background dark:bg-[#0a0a0a]">
       {/* Background Image with Overlay */}
@@ -23,7 +12,7 @@ export default function RegionalImpactHero() {
           alt="Regional Impact"
           fill
           sizes="100vw"
-          priority // loads early for above-the-fold content
+          priority
           quality={90}
           placeholder="blur"
           blurDataURL="https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_10,e_blur:1000,w_10/v1759918204/DJI_0565_10000_gb099t.jpg"

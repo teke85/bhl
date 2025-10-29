@@ -44,10 +44,10 @@ export default function CompanyStory() {
           {/* Image Side */}
           <motion.div
             variants={itemVariants}
-            className="relative w-full aspect-[4/3] md:aspect-[3/2] overflow-hidden rounded-none shadow-lg"
+            className="relative w-full aspect-4/3 md:aspect-3/2 overflow-hidden rounded-none shadow-lg"
           >
             <Image
-              src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760875403/A_simple_land_view_of_a_gravel_road_under_construction_in_Zambia__symbolizing_progress_and_connectiv_b4wnyh.png"
+              src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761706973/DJI_0595_1_xlewwl.jpg"
               alt="Company Story"
               fill
               className="object-cover"
