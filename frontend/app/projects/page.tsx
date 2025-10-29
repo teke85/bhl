@@ -10,9 +10,7 @@ import { Footer } from "@/components/FooterUpdated";
 import StickyNavigationMenu from "@/components/StickyNavUpdated";
 import ProjectPromoters from "@/components/projects/ProjectPromoters";
 import ProjectHistory from "@/components/projects/ProjectHistory";
-import RegionalConnectivity from "@/components/regional-impact/ProjectScopeHistory";
 import ResettlementPolicy from "@/components/projects/ResettlementPolicy";
-import OurCommitment from "../commitment/page";
 import ProjectScopeAndHistory from "@/components/about/ProjectScopeAndHistory";
 
 export default function ProjectPage() {
@@ -33,7 +31,6 @@ export default function ProjectPage() {
       <ProjectKeyStats />
       <ProjectHistory />
       <ProjectScopeAndHistory />
-      {/* <RegionalConnectivity /> */}
       <ProjectGallery />
       <RoadSections />
       <RoadDesign />
