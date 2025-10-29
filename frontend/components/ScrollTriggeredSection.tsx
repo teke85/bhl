@@ -20,28 +20,21 @@ const ScrollTriggeredImage = () => {
       description:
         "Upgrading 371 km of the Mutanda to Kaoma Road to international bituminous standards, creating a world-class transportation corridor.",
       imageUrl:
-        "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760624479/assets_task_01k7pnv5kze3dr3f7ry9vs3k51_1760624003_img_0_byobfb.jpg",
+        "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761706973/DJI_0595_1_xlewwl.jpg",
     },
     {
       title: "REGIONAL CONNECTIVITY",
       description:
         "Connecting Zambia's Copperbelt and DRC's mining regions to the Port of Walvis Bay, facilitating international trade and economic growth.",
       imageUrl:
-        "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761601625/IMG_7101-1024x649_mzybrr.jpg",
+        "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761601625/IMG_7110-1024x599_x4nk8g.jpg",
     },
     {
       title: "COMMUNITY IMPACT",
       description:
-        "Supporting local communities with comprehensive resettlement policies and creating sustainable economic opportunities across four districts.",
+        "Empowering local communities through inclusive development and collaboration. The Western Corridor leadership, in partnership with traditional leaders across four districts, is ensuring that the Mutanda–Kaoma Road benefits every household along its route. Through fair resettlement programs, community engagement, and sustainable economic initiatives, the project is improving livelihoods, preserving cultural heritage, and building a foundation for long-term growth.",
       imageUrl:
-        "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760621897/assets_task_01k7pk957bfxhsteth1164rt6y_1760621643_img_0_blqwef.jpg",
-    },
-    {
-      title: "SUSTAINABLE DEVELOPMENT",
-      description:
-        "Building infrastructure that prioritizes environmental stewardship and long-term sustainability for future generations.",
-      imageUrl:
-        "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760619949/assets_task_01k7pf3cy9fg09w2a7ej75a0ha_1760616996_img_1_l8sf2d.jpg",
+        "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761107765/EI3A9507DRM_emgog7.jpg",
     },
   ];
 
