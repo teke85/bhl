@@ -9,9 +9,9 @@ import EnvironmentalImpact from "@/components/projects/EnvironmentalImpact";
 import { Footer } from "@/components/FooterUpdated";
 import StickyNavigationMenu from "@/components/StickyNavUpdated";
 import ProjectPromoters from "@/components/projects/ProjectPromoters";
-import ProjectHistory from "@/components/projects/ProjectHistory";
 import ResettlementPolicy from "@/components/projects/ResettlementPolicy";
 import ProjectScopeAndHistory from "@/components/about/ProjectScopeAndHistory";
+import ProjectHistory from "@/components/projects/ProjectHistory";
 
 export default function ProjectPage() {
   return (
