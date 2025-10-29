@@ -11,7 +11,7 @@ import StickyNavigationMenu from "@/components/StickyNavUpdated";
 import ProjectPromoters from "@/components/projects/ProjectPromoters";
 import ResettlementPolicy from "@/components/projects/ResettlementPolicy";
 import ProjectScopeAndHistory from "@/components/about/ProjectScopeAndHistory";
-// import ProjectHistory from "@/components/projects/ProjectHistory";
+import ProjectHistory from "@/components/projects/ProjectHistory";
 
 export default function ProjectPage() {
   return (
@@ -29,7 +29,7 @@ export default function ProjectPage() {
 
       <ProjectHero />
       <ProjectKeyStats />
-      {/* <ProjectHistory /> */}
+      <ProjectHistory />
       <ProjectScopeAndHistory />
       <ProjectGallery />
       <RoadSections />
