@@ -51,10 +51,6 @@ export default function HomePage() {
           <OurPartners />
         </SectionWrapper>
 
-        <SectionWrapper>
-          <BuildingExcellence />
-        </SectionWrapper>
-
         <Footer />
       </div>
     </main>
