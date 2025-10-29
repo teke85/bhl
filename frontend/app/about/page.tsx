@@ -7,6 +7,7 @@ import CoreValues from "@/components/about/CoreValues";
 import LeadershipTeam from "@/components/about/LeadershipTeam";
 import Achievements from "@/components/about/Achievements";
 import OurCommitment from "@/components/OurCommitment";
+import ProjectScopeAndHistory from "@/components/about/ProjectScopeAndHistory";
 
 export default function AboutPage() {
   return (
@@ -24,6 +25,7 @@ export default function AboutPage() {
 
       <AboutHero />
       <CompanyStory />
+      <ProjectScopeAndHistory />
       <OurMission />
       <OurCommitment />
       <CoreValues />

@@ -30,27 +30,34 @@ export default function ProjectScopeAndHistory() {
               <h3 className="text-2xl md:text-3xl font-heading font-bold text-foreground dark:text-white mb-4">
                 Brief History of the Project
               </h3>
-              <div className="space-y-5">
-                {[
-                  "On 21 March 2018, The Sponsors entered a 10-year maintenance contract with the Road Development Agency (RDA) for the Kaoma–Kasempa road",
-                  "This arrangement ensured that BHL trucks, along with other road users, could utilise the road in a maintained gravel state",
-                  "BHL has invested over $8 million in maintaining the stretch to keep it in a usable condition, underscoring the strategic importance and operational value of the route even before its formal proposed upgrade under the current concession",
-                  "In 2023, after assessing the corridor's traffic potential, the Promoters resolved to upgrade the entire stretch to bituminous standard",
-                  "Building on this decision, the Promoters submitted an unsolicited PPP proposal to the RDA on 16 February 2024",
-                  "Following the evaluation, the RDA granted the Promoters preferred bidder status on 19 June 2024",
-                  "This was followed by a 2–3-month period of intensive contract negotiations between the Project team and the relevant Government officials (the RDA), representatives from the Attorney General's Office, representatives from the Ministry of Finance and National Planning, and the PPP Unit",
-                  "To deliver the concession, the Promoters incorporated the Special Purpose Vehicle, Barotse on 10 July 2024",
-                  "This was followed by the signing of the Concession Agreement with the Ministry of Finance and National Planning on 1 December 2024 in Kasempa",
-                  "The Project is now advancing through road design and other preparatory works, with Financial Close targeted for the end of 2025",
-                ].map((item, index) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <div className="w-2 h-2 rounded-full bg-[#fdb913] mt-2 shrink-0"></div>
-                    <span className="text-base text-foreground dark:text-white leading-relaxed">
-                      {item}
-                    </span>
-                  </div>
-                ))}
-              </div>
+              <p className="text-lg text-black dark:text-white font-body leading-relaxed">
+                On 21 March 2018, The Sponsors entered a 10-year maintenance
+                contract with the Road Development Agency (RDA) for the
+                Kaoma–Kasempa road. This arrangement ensured that BHL trucks,
+                along with other road users, could utilise the road in a
+                maintained gravel state. BHL has invested over $8 million in
+                maintaining the stretch to keep it in a usable condition,
+                underscoring the strategic importance and operational value of
+                the route even before its formal proposed upgrade under the
+                current concession. In 2023, after assessing the corridor&apos;s
+                traffic potential, the Promoters resolved to upgrade the entire
+                stretch to bituminous standard. Building on this decision, the
+                Promoters submitted an unsolicited PPP proposal to the RDA on 16
+                February 2024. Following the evaluation, the RDA granted the
+                Promoters preferred bidder status on 19 June 2024. This was
+                followed by a 2–3-month period of intensive contract
+                negotiations between the Project team and the relevant
+                Government officials (the RDA), representatives from the
+                Attorney General&apos;s Office, representatives from the
+                Ministry of Finance and National Planning, and the PPP Unit. To
+                deliver the concession, the Promoters incorporated the Special
+                Purpose Vehicle, Barotse on 10 July 2024. This was followed by
+                the signing of the Concession Agreement with the Ministry of
+                Finance and National Planning on 1 December 2024 in Kasempa. The
+                Project is now advancing through road design and other
+                preparatory works, with Financial Close targeted for the end of
+                2025.
+              </p>
             </div>
           </div>
         </div>

@@ -52,30 +52,39 @@ const ProjectHistory = () => {
         <div className="space-y-5 leading-tight">
           <p className="text-lg font-body text-black dark:text-white mb-8 leading-relaxed">
             The Mutanda–Kaoma Road Project traces its origins to{" "}
-            <strong>21 March 2018</strong>, when{" "}
-            <strong>Buks Haulage Limited (BHL)</strong>
+            <strong className="text-[#fdb913]">21 March 2018</strong>, when{" "}
+            <strong className="text-[#fdb913]">
+              Buks Haulage Limited (BHL)
+            </strong>
             {""}entered a ten-year maintenance contract with the{" "}
-            <strong>Road Development Agency (RDA)</strong> for the Kaoma–Kasempa
-            road. Over USD 8 million was invested to keep the gravel route
-            usable, highlighting its strategic importance even before the formal
-            concession.
+            <strong className="text-[#fdb913]">
+              Road Development Agency (RDA)
+            </strong>{" "}
+            for the Kaoma–Kasempa road. Over USD 8 million was invested to keep
+            the gravel route usable, highlighting its strategic importance even
+            before the formal concession.
           </p>
           <p className="text-lg text-black dark:text-white font-body mb-8 leading-relaxed">
             After assessing the corridor&apos;s traffic potential, the Promoters
             resolved in 2023 to upgrade the entire 371 km stretch to bituminous
             standard. An unsolicited PPP proposal was submitted on{" "}
-            <strong>16 February 2024</strong> and
-            <strong> preferred-bidder status </strong> was granted on{" "}
-            <strong>19 June 2024</strong> .
+            <strong className="text-[#fdb913]">16 February 2024</strong> and{" "}
+            <strong className="text-[#fdb913]">preferred-bidder status</strong>{" "}
+            was granted on{" "}
+            <strong className="text-[#fdb913]">19 June 2024</strong>.
           </p>
-          <p className="font-body text-lg md:text-xl">
+          <p className="font-body text-lg">
             To deliver the concession, the Special Purpose Vehicle{" "}
-            <strong>Barotse Express Limited (BEL-TC)</strong> was incorporated
-            on 10 July 2024, followed by the signing of the Concession Agreement
-            with the Ministry of Finance and National Planning on{" "}
-            <strong>1 December 2024</strong> in Kasempa. The project is now
-            advancing through road-design and preparatory works, with Financial
-            Close targeted <strong>for the end of 2025</strong> .
+            <strong className="text-[#fdb913]">
+              Western Corridor Limited (WCL)
+            </strong>{" "}
+            was incorporated on 10 July 2024, followed by the signing of the
+            Concession Agreement with the Ministry of Finance and National
+            Planning on{" "}
+            <strong className="text-[#fdb913]">1 December 2024</strong> in
+            Kasempa. The project is now advancing through road-design and
+            preparatory works, with Financial Close targeted{" "}
+            <strong className="text-[#fdb913]">for the end of 2025</strong>.
           </p>
         </div>
 

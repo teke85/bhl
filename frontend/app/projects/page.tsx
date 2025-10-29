@@ -10,8 +10,8 @@ import { Footer } from "@/components/FooterUpdated";
 import StickyNavigationMenu from "@/components/StickyNavUpdated";
 import ProjectPromoters from "@/components/projects/ProjectPromoters";
 import ResettlementPolicy from "@/components/projects/ResettlementPolicy";
-import ProjectScopeAndHistory from "@/components/about/ProjectScopeAndHistory";
-import ProjectHistory from "@/components/projects/ProjectHistory";
+// import ProjectScopeAndHistory from "@/components/about/ProjectScopeAndHistory";
+import ProjectHistory from "@/components/projects/Project";
 
 export default function ProjectPage() {
   return (
@@ -29,8 +29,8 @@ export default function ProjectPage() {
 
       <ProjectHero />
       <ProjectKeyStats />
+      {/* <ProjectScopeAndHistory /> */}
       <ProjectHistory />
-      <ProjectScopeAndHistory />
       <ProjectGallery />
       <RoadSections />
       <RoadDesign />
