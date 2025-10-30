@@ -1,11 +1,10 @@
-import Image from "next/image";
 import { Card } from "@/components/ui/card";
 
 export const LifeAtBHL = () => {
   return (
     <section className="py-16 bg-white dark:bg-black text-black dark:text-white lg:py-24">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-1 gap-12 items-start">
           <div className="bg-white text-black dark:bg-black dark:text-white">
             <h2 className="text-3xl lg:text-4xl font-bold text-black dark:text-white font-heading mb-6 text-balance">
               Life at Barotse Highway Limited
@@ -36,14 +35,6 @@ export const LifeAtBHL = () => {
                 </p>
               </Card>
             </div>
-          </div>
-          <div className="relative h-[500px] rounded-lg overflow-hidden">
-            <Image
-              src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760931716/A_friendly_black_female_front_desk_officer_in_a_Zambian_office__smiling__1_rpdexw.png"
-              alt="Life at BHL"
-              fill
-              className="object-cover"
-            />
           </div>
         </div>
       </div>

@@ -231,9 +231,9 @@ function StickyNavigationMenu() {
   return (
     <>
       {/* Scroll Progress Bar */}
-      <div className="fixed top-0 left-0 right-0 z-[60] h-1 bg-zinc-900">
+      <div className="fixed top-0 left-0 right-0 z-60 h-1 bg-zinc-900">
         <div
-          className="h-full bg-[#FDB913] transition-all duration-150"
+          className="h-full bg-[#FDDB59] transition-all duration-150"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
@@ -242,7 +242,7 @@ function StickyNavigationMenu() {
       <nav
         ref={menuRef}
         className={cn(
-          "fixed top-0 left-0 right-0 z-[50] transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled
             ? "bg-black dark:bg-black/95 dark:text-white backdrop-blur-md shadow-md"
             : "bg-transparent text-white"
@@ -260,43 +260,42 @@ function StickyNavigationMenu() {
             </button>
             <ModeToggle />
           </div>
-
           {/* Main Navigation */}
-          <div className="flex items-center justify-between gap-4 py-3 md:py-2">
+          <div className="relative flex items-center justify-between gap-4 py-6 md:py-8">
             {/* Logo */}
-            <Link href="/" className="flex items-center z-50">
+            <Link
+              href="/"
+              className="absolute left-6 top-1/2 -translate-y-1/2 z-60 flex items-center"
+            >
               <Image
                 src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761708103/westerncorridor_logo_bih0jh.png"
                 alt="Western corridor logo"
-                width={100}
-                height={100}
-                className="h-20 w-20 md:h-20 md:w-20 object-contain"
+                width={200} // Increased from 100 to 300
+                height={200}
+                className="h-30 w-30 md:h-35 md:w-35 object-contain drop-shadow-lg"
+                priority
               />
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8">
-              <div className="h-8 w-px bg-white/20"></div>
-
+            <div className="hidden lg:flex items-center justify-center flex-1 ml-20 gap-10">
               <div className="flex items-center space-x-6">
                 {(Object.keys(menuData) as MenuKey[]).map((item) => (
                   <div key={item} className="relative group">
                     <button
                       onClick={() => handleMenuClick(item)}
-                      className="relative flex items-center cursor-pointer font-body gap-2 transition-colors duration-200 py-2 font-medium text-md tracking-wide group text-white hover:text-[#FDB913]"
+                      className="relative flex items-center cursor-pointer font-body gap-2 transition-colors duration-200 py-2 font-medium text-lg tracking-wide text-white hover:text-[#FDB913]"
                     >
                       {formatMenuLabel(item)}
-                      {/* Animated Arrow */}
                       <ArrowDown
                         className={cn(
                           "h-4 w-4 transition-all duration-300",
                           activeMenu === item
-                            ? "rotate-180 text-[#FDB913]"
+                            ? "rotate-180 text-[#FDDB59]"
                             : "rotate-0",
-                          "group-hover:-translate-y-1 group-hover:text-[#FDB913]"
+                          "group-hover:-translate-y-1 group-hover:text-[#FDDB59]"
                         )}
                       />
-                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FDB913] group-hover:w-full transition-all duration-300"></span>
                     </button>
                   </div>
                 ))}
@@ -304,45 +303,10 @@ function StickyNavigationMenu() {
             </div>
 
             {/* Desktop Right Side */}
-            <div className="hidden lg:flex items-center gap-6">
-              {/* MORE dropdown */}
-              <div className="relative">
-                <button
-                  onClick={() => {
-                    setShowMoreMenu((s) => !s);
-                    setActiveMenu(null);
-                  }}
-                  className="flex items-center font-body gap-2 transition-colors duration-200 font-medium text-md tracking-wide group text-white hover:text-[#FDB913]"
-                >
-                  More
-                  {/* Animated Arrow for More menu */}
-                  <ChevronDown
-                    className={cn(
-                      "h-4 w-4 transition-all duration-300",
-                      showMoreMenu ? "rotate-180 text-[#FDB913]" : "rotate-0",
-                      "group-hover:-translate-y-0.5 group-hover:text-[#FDB913]"
-                    )}
-                  />
-                </button>
-                {showMoreMenu && (
-                  <div className="absolute top-full right-0 mt-2 w-56 bg-[#0A0A0A] border border-white/10 rounded-lg shadow-xl py-2 animate-in fade-in slide-in-from-top-2 duration-200">
-                    {moreMenuItems.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="block px-4 font-body py-3 text-white hover:bg-[#FDB913]/10 hover:text-[#FDB913] transition-colors font-medium"
-                        onClick={() => setShowMoreMenu(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-
+            <div className="hidden lg:flex items-center gap-6 mr-6">
               <Button
                 asChild
-                className="bg-[#FDB913] rounded-none hover:bg-[#E1AF1C] text-black font-semibold tracking-wide px-8 py-6"
+                className="bg-[#FDDB59] rounded-none hover:bg-[#E1AF1C] text-black font-semibold tracking-wide px-10 py-6"
               >
                 <Link className="font-body" href="/contact">
                   Contact Us
@@ -351,7 +315,7 @@ function StickyNavigationMenu() {
             </div>
 
             {/* Mobile menu toggle */}
-            <div className="lg:hidden flex items-center gap-3">
+            <div className="lg:hidden flex items-center gap-3 ml-auto">
               <button
                 onClick={() => setIsSearchOpen(true)}
                 className="text-white flex items-center justify-between space-x-4 p-2"
@@ -380,7 +344,7 @@ function StickyNavigationMenu() {
       {activeMenu && (
         <div
           ref={megaMenuRef}
-          className="hidden lg:block fixed top-28 left-6 right-6 shadow-2xl transition-all duration-300 z-[51] rounded-xl overflow-hidden"
+          className="hidden lg:block fixed top-28 left-6 right-6 shadow-2xl transition-all duration-300 z-51 rounded-xl overflow-hidden"
         >
           <div className="container mx-auto">
             <div className="grid grid-cols-2 gap-0 max-w-6xl mx-auto rounded-lg overflow-hidden">
@@ -413,13 +377,13 @@ function StickyNavigationMenu() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-16 bg-[#0A0A0A]/98 z-[49] overflow-y-auto">
+        <div className="lg:hidden fixed inset-0 top-16 bg-[#0A0A0A]/98 z-49 overflow-y-auto">
           <div className="container mx-auto px-4 py-6">
             {(Object.keys(menuData) as MenuKey[]).map((item) => (
               <div key={item} className="border-b border-white/10">
                 <button
                   onClick={() => toggleMobileSubmenu(item)}
-                  className="w-full flex items-center justify-between px-4 py-4 text-white hover:text-[#FDB913] tracking-wide font-medium text-sm"
+                  className="w-full flex items-center justify-between px-4 py-4 text-white hover:text-[#FDDB59] tracking-wide font-medium text-sm"
                 >
                   {formatMenuLabel(item)}
                   <ChevronDown
@@ -435,7 +399,7 @@ function StickyNavigationMenu() {
                       <Link
                         key={link.name}
                         href={link.href}
-                        className="block px-4 py-2 text-gray-300 hover:text-[#FDB913] text-sm"
+                        className="block px-4 py-2 text-gray-300 hover:text-[#FDDB59] text-sm"
                         onClick={() => {
                           setActiveMobileSubmenu(null);
                           setIsMobileMenuOpen(false);
@@ -481,13 +445,13 @@ function StickyNavigationMenu() {
       {/* Search Drawer */}
       <div
         className={cn(
-          "fixed top-0 right-0 h-full w-full md:w-[600px] bg-[#0A0A0A]/95 z-[100] transition-transform duration-500 ease-out border-l border-white/10",
+          "fixed top-0 right-0 h-full w-full md:w-[600px] bg-[#0A0A0A]/95 z-100 transition-transform duration-500 ease-out border-l border-white/10",
           isSearchOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
         <div className="flex items-center justify-between h-20 md:h-24 px-4 md:px-8 border-b border-white/10">
           <div className="flex items-center gap-4 flex-1">
-            <Search className="h-5 w-5 md:h-6 md:w-6 text-[#FDB913]" />
+            <Search className="h-5 w-5 md:h-6 md:w-6 text-[#FDDB59]" />
             <input
               ref={searchInputRef}
               type="text"
@@ -513,7 +477,7 @@ function StickyNavigationMenu() {
       {/* Search Overlay */}
       {isSearchOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-[99] transition-opacity duration-300"
+          className="fixed inset-0 bg-black/50 z-99 transition-opacity duration-300"
           onClick={() => setIsSearchOpen(false)}
         />
       )}

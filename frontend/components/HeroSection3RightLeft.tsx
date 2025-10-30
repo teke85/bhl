@@ -154,7 +154,7 @@ const HeroCarousel: React.FC = () => {
           <Link href="/projects" className="w-full sm:w-auto">
             <Button
               size="lg"
-              className="w-full sm:w-auto bg-[#FDB913] font-body rounded-none hover:bg-[#be9416] text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-xl group shadow-lg"
+              className="w-full sm:w-auto bg-[#FDDB59] font-body rounded-none hover:bg-[#be9416] text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-xl group shadow-lg"
             >
               Explore Projects
               <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">

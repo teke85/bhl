@@ -28,7 +28,7 @@ const events: TimelineEvent[] = [
     date: "10 July 2024",
     title: "SPV Incorporated",
     description:
-      "The Promoters incorporated the Special Purpose Vehicle, Barotse Express Limited (BEL-TC). ü	The Promoters engaged in a period of contract negotiations. The Promoters engaged various advisors, legal, financing, engineering, and ESG advisors to assist in the negotiations.",
+      "The Promoters incorporated the Special Purpose Vehicle, Western Corridor. ü	The Promoters engaged in a period of contract negotiations. The Promoters engaged various advisors, legal, financing, engineering, and ESG advisors to assist in the negotiations.",
     status: "completed",
   },
 
@@ -60,7 +60,7 @@ export default function TimelineVertical() {
       <div className="container mx-auto max-w-4xl">
         <div className="relative">
           {/* Vertical Line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-[#fdb913] via-[#fdb913]/50 to-[#fdb913]/20 dark:from-[#fdb913] dark:via-[#fdb913]/50 dark:to-[#fdb913]/20 transform md:-translate-x-1/2"></div>
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-linear-to-b from-[#fdb913] via-[#fdb913]/50 to-[#fdb913]/20 dark:from-[#fdb913] dark:via-[#fdb913]/50 dark:to-[#fdb913]/20 transform md:-translate-x-1/2"></div>
 
           {/* Events */}
           <div className="space-y-12">

@@ -8,7 +8,7 @@ export default function RegionalImpactHero() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760688925/assets_task_01k7rhvvv0edyswpv0an4gz514_1760687005_img_1_wxsqvq.webp"
+          src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761799600/Kasempa_Western_ByPass-DJI_0539_qdpo3f.jpg"
           alt="Regional Impact"
           fill
           sizes="100vw"

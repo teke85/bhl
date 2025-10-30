@@ -7,15 +7,7 @@ export const OurCommitment = () => {
   return (
     <section className="py-16 lg:py-24 bg-card">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative h-[400px] lg:h-[500px] rounded-none overflow-hidden">
-            <Image
-              src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760934674/A_professional__inspiring_image_representing_a_diverse_team_of_engineers__project_managers__and_prof_1_qjqagg.png"
-              alt="Our Commitment"
-              fill
-              className="object-cover"
-            />
-          </div>
+        <div className="grid grid-cols-1 gap-12 items-center">
           <div>
             <h2 className="text-3xl lg:text-4xl font-bold text-black dark:text-white font-heading mb-6 text-balance">
               We Are Constantly Seeking Great Minds. Like Yours.
