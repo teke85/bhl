@@ -26,7 +26,7 @@ const TimelinePage = () => {
       {/* Page Content */}
       <TimelineHero />
       <TimelineVertical />
-      <MilestoneHighlights />
+      {/* <MilestoneHighlights /> */}
       {/* <ProjectPhases /> */}
       <KeyAchievements />
       <UpcomingMilestones />

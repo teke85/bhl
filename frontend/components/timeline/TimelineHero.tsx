@@ -1,13 +1,18 @@
 "use client";
 
+import Image from "next/image";
+
 export default function TimelineHero() {
   return (
     <section className="relative pt-32 pb-16 px-4 bg-background dark:bg-[#0a0a0a] overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=400&fit=crop"
+        <Image
+          src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760880453/DJI_0446_formphotoeditor.com_dtu3s2.jpg"
           alt="Highway construction"
           className="w-full h-full object-cover opacity-20 dark:opacity-10"
+          priority
+          quality={75}
+          fill
         />
         <div className="absolute inset-0 bg-black/80"></div>
       </div>
