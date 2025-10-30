@@ -5,7 +5,7 @@ import { LifeAtBHL } from "@/components/careers/life-at-bhl";
 import { EmployeeTestimonials } from "@/components/careers/employee-testimonials";
 import { OpenPositions } from "@/components/careers/open-positions";
 import { OurCommitment } from "@/components/careers/our-commitment";
-import { WorkEnvironment } from "@/components/careers/work-environment";
+// import { WorkEnvironment } from "@/components/careers/work-environment";
 import { FAQSection } from "@/components/careers/faq-section";
 
 export default function CareersPage() {
@@ -17,7 +17,7 @@ export default function CareersPage() {
       <EmployeeTestimonials />
       <OpenPositions />
       <OurCommitment />
-      <WorkEnvironment />
+      {/* <WorkEnvironment /> */}
       <FAQSection />
       <Footer />
     </div>

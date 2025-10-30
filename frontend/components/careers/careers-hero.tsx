@@ -5,8 +5,8 @@ export const CareersHero = () => {
     <section className="relative min-h-[60vh] py-20 bg-white dark:bg-black text-black dark:text-white flex items-center justify-center overflow-hidden">
       <div className="absolute bg-black/70 inset-0 z-0">
         <Image
-          src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760930139/A_modern_Zambian_office_space_with_black_people_collaborating_in_it__ujqjdy.png"
-          alt="Careers at Barotse Highway"
+          src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761799061/KasempaToll_WB_Area-DJI_0577_cs1c5k.jpg"
+          alt="Careers at Western Corridor Limited"
           fill
           className="object-cover"
           priority
@@ -14,7 +14,7 @@ export const CareersHero = () => {
         <div className="absolute bg-black/80 inset-0" />
       </div>
 
-      <div className="container-full mx-auto px-4 lg:px-8 relative z-10 py-16">
+      <div className="container-full mx-auto px-4 lg:px-8 relative z-10 pt-30">
         <div className="max-w-full">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white dark:text-white mb-6 text-balance">
             Be Part of the Team Building Zambia&apos;s Future
@@ -23,26 +23,6 @@ export const CareersHero = () => {
             Join us in transforming infrastructure and connecting communities
             across the Western Corridor.
           </p>
-          <div className="flex flex-wrap gap-8 text-center md:text-left">
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">
-                200+
-              </div>
-              <div className="text-sm text-white">People Working</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">
-                35%
-              </div>
-              <div className="text-sm text-white">Women in Engineering</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2">
-                5
-              </div>
-              <div className="text-sm text-white">Languages Spoken</div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
