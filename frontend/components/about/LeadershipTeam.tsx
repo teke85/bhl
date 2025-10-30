@@ -53,7 +53,7 @@ export default function LeadershipTeam() {
       image:
         "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759885052/2_n6tp5e.png",
       shortBio:
-        "Buks is an experienced entrepreneur with over 30 years of leadership in the logistics, transport, and agribusiness sectors.",
+        "Buks is an experienced entrepreneur with over 30 years of leadership in logistics, transport, and agribusiness.",
       fullBio:
         "Buks is an experienced entrepreneur with over 30 years of leadership in the logistics, transport, and agribusiness sectors. As the founder and CEO of BHL Zambia, he has grown the company from a small five-truck operation into a major transport enterprise with a fleet of 1000 trucks. Buks also co-founded Beefco Holdings Ltd, a 3000-hectare cattle ranch in Zambia, and Reinsberg Holdings AG, an offshore company in Liechtenstein.",
     },
@@ -64,7 +64,7 @@ export default function LeadershipTeam() {
       image:
         "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759885059/3_sdcuxl.png",
       shortBio:
-        "Chris Dijkstra is a seasoned civil engineer and project management professional with extensive experience in large-scale infrastructure.",
+        "Chris Dijkstra is a seasoned civil engineer and project management professional with extensive infrastructure experience.",
       fullBio:
         "Chris Dijkstra is a seasoned civil engineer and project management professional with extensive experience in large-scale infrastructure, mining, and public-private partnership (PPP) projects. Holding a B.Eng. in Civil Engineering from the University of Pretoria and a Construction Management Programme certificate from Stellenbosch University, Chris has been at the forefront of engineering and project leadership for over 15 years.",
     },
@@ -76,15 +76,17 @@ export default function LeadershipTeam() {
       className="py-20 md:py-32 bg-white dark:bg-black dark:text-white"
     >
       <div className="container mx-auto px-4">
+        {/* Section Header */}
         <div ref={titleRef} className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl text-black font-bold font-heading dark:text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-heading font-bold text-black dark:text-white mb-6">
             Leadership Team
           </h2>
-          <p className="text-lg text-[#868584] dark:text-white font-paragraph max-w-2xl mx-auto">
+          <p className="text-lg text-[#868584] dark:text-gray-300 font-paragraph max-w-2xl mx-auto">
             Experienced professionals driving the Barotse Highway vision
           </p>
         </div>
 
+        {/* Leader Cards */}
         <div
           ref={cardsRef}
           className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto"
@@ -92,25 +94,25 @@ export default function LeadershipTeam() {
           {leaders.map((leader) => (
             <div
               key={leader.id}
-              className="leadership-card bg-white dark:bg-black overflow-hidden"
+              className="leadership-card bg-white dark:bg-black border border-gray-200 dark:border-white/10 transition-all overflow-hidden"
             >
-              {/* Title Header */}
+              {/* Header */}
               <div className="bg-[#EAB81E] py-4 px-6 flex items-center justify-center">
-                <h3 className="text-2xl md:text-3xl font-bold text-black dark:text-white font-heading tracking-wider">
+                <h3 className="text-2xl md:text-3xl font-bold text-black font-heading tracking-wider">
                   {leader.title}
                 </h3>
-                <div className="ml-3 w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-black border-b-[12px] border-b-transparent" />
+                <div className="ml-3 w-0 h-0 border-t-12px border-t-transparent border-l-20 border-l-black border-b-12 border-b-transparent" />
               </div>
 
               {/* Content */}
               <div className="grid md:grid-cols-[1fr,300px] gap-6 p-6">
-                {/* Text Content */}
+                {/* Text Column */}
                 <div className="flex flex-col justify-between">
                   <div>
                     <h4 className="text-xl md:text-2xl font-bold text-[#EAB81E] mb-4">
                       {leader.name}
                     </h4>
-                    <p className="text-[#868584] dark:text-white font-paragraph text-base leading-relaxed mb-6">
+                    <p className="text-[#868584] dark:text-gray-300 font-paragraph text-base leading-relaxed mb-6">
                       {expandedBio === leader.id
                         ? leader.fullBio
                         : leader.shortBio}
@@ -123,24 +125,26 @@ export default function LeadershipTeam() {
                         expandedBio === leader.id ? null : leader.id
                       )
                     }
-                    className="bg-[#EAB81E] text-black font-semibold py-2 px-6 hover:bg-[#d4a617] transition-colors duration-300 flex items-center gap-2 w-fit"
+                    className="bg-[#EAB81E] text-black font-semibold py-2 px-6 hover:bg-[#d4a617] transition-colors flex items-center gap-2 w-fit"
                   >
                     {expandedBio === leader.id ? "Collapse Bio" : "Expand Bio"}
                     <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-300 ${expandedBio === leader.id ? "rotate-180" : ""
-                        }`}
+                      className={`w-4 h-4 transition-transform duration-300 ${
+                        expandedBio === leader.id ? "rotate-180" : ""
+                      }`}
                     />
                   </button>
                 </div>
 
-                {/* Image */}
-                <div className="relative h-[600px] md:h-full min-h-[600px]">
+                {/* Image Column */}
+                <div className="relative h-[500px] md:h-full min-h-[400px]">
                   <Image
-                    src={leader.image || "/placeholder.svg"}
+                    src={leader.image}
                     alt={leader.name}
                     fill
-                    className="object-cover"
+                    priority
                     sizes="(max-width: 768px) 100vw, 300px"
+                    className="object-cover"
                   />
                 </div>
               </div>
