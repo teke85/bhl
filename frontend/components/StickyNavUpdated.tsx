@@ -344,7 +344,8 @@ function StickyNavigationMenu() {
       {activeMenu && (
         <div
           ref={megaMenuRef}
-          className="hidden lg:block fixed top-28 left-6 right-6 shadow-2xl transition-all duration-300 z-51 rounded-xl overflow-hidden"
+          className="hidden lg:block fixed top-36 left-6 right-6 shadow-2xl transition-all duration-300 z-51 rounded-xl overflow-hidden"
+        //                                    ^^^^^^ Changed from top-28 to top-36
         >
           <div className="container mx-auto">
             <div className="grid grid-cols-2 gap-0 max-w-6xl mx-auto rounded-lg overflow-hidden">
