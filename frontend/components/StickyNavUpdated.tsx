@@ -85,6 +85,76 @@ function StickyNavigationMenu() {
     return () => window.removeEventListener("keydown", handleEscape);
   }, []);
 
+  // const menuData: Record<
+  //   MenuKey,
+  //   {
+  //     title: string;
+  //     description: string;
+  //     links: { name: string; href: string }[];
+  //   }
+  // > = {
+  //   company: {
+  //     title: "ABOUT US",
+  //     description:
+  //       "Barotse Highway Limited is a Special Purpose Vehicle (SPV) incorporated by BeefCo Holdings Limited and First Quantum Minerals Operations Limited for executing this transformative infrastructure project.",
+  //     links: [
+  //       { name: "Our Story", href: "/about" },
+  //       { name: "Multimedia Gallery", href: "/gallery" },
+  //       { name: "Timeline", href: "/timeline" },
+  //       { name: "Home", href: "/" },
+  //     ],
+  //   },
+  //   "our commitment": {
+  //     title: "OUR COMMITMENT",
+  //     description:
+  //       "We are committed to delivering world-class infrastructure while prioritizing community welfare, environmental sustainability, and economic development across the Western Corridor.",
+  //     links: [
+  //       { name: "Regional Impact", href: "/regional-impact" },
+  //       { name: "Resettlement", href: "/resettlement" },
+  //       { name: "About Us", href: "/about" },
+  //       { name: "Projects", href: "/projects" },
+  //     ],
+  //   },
+  //   project: {
+  //     title: "PROJECT DETAILS",
+  //     description:
+  //       "The Project encompasses the rehabilitation and upgrade of 371 kilometres of road from Mutanda in Northwestern Province to Kaoma in Western Province, Zambia.",
+  //     links: [
+  //       { name: "Project Overview", href: "/projects" },
+  //       { name: "Timeline", href: "/timeline" },
+  //       { name: "Regional Impact", href: "/regional-impact" },
+  //       { name: "Project Promoters", href: "/projects" },
+  //     ],
+  //   },
+  //   careers: {
+  //     title: "JOIN OUR TEAM",
+  //     description:
+  //       "Be part of a transformative infrastructure project that's connecting communities and driving economic growth across Zambia's Western Corridor.",
+  //     links: [
+  //       { name: "Current Openings", href: "/careers" },
+  //       { name: "About Us", href: "/about" },
+  //       { name: "Contact Us", href: "/contact" },
+  //       { name: "Gallery", href: "/gallery" },
+  //     ],
+  //   },
+  //   gallery: {
+  //     title: "GALLERY",
+  //     description:
+  //       "Explore our multimedia gallery showcasing the Barotse Highway project.",
+  //     links: [
+  //       { name: "View Gallery", href: "/gallery" },
+  //       { name: "Projects", href: "/projects" },
+  //       { name: "Timeline", href: "/timeline" },
+  //       { name: "About", href: "/about" },
+  //     ],
+  //   },
+  // };
+
+  // const moreMenuItems = [
+  //   { name: "News & Media", href: "/news" },
+  //   { name: "Contact", href: "/contact" },
+  // ];
+
   const menuData: Record<
     MenuKey,
     {
@@ -99,8 +169,7 @@ function StickyNavigationMenu() {
         "Barotse Highway Limited is a Special Purpose Vehicle (SPV) incorporated by BeefCo Holdings Limited and First Quantum Minerals Operations Limited for executing this transformative infrastructure project.",
       links: [
         { name: "Our Story", href: "/about" },
-        { name: "Multimedia Gallery", href: "/gallery" },
-        { name: "Timeline", href: "/timeline" },
+        { name: "Partners", href: "/partners" },
         { name: "Home", href: "/" },
       ],
     },
@@ -111,8 +180,7 @@ function StickyNavigationMenu() {
       links: [
         { name: "Regional Impact", href: "/regional-impact" },
         { name: "Resettlement", href: "/resettlement" },
-        { name: "About Us", href: "/about" },
-        { name: "Projects", href: "/projects" },
+        { name: "Our Commitment", href: "/commitment" },
       ],
     },
     project: {
@@ -122,8 +190,6 @@ function StickyNavigationMenu() {
       links: [
         { name: "Project Overview", href: "/projects" },
         { name: "Timeline", href: "/timeline" },
-        { name: "Regional Impact", href: "/regional-impact" },
-        { name: "Project Promoters", href: "/projects" },
       ],
     },
     careers: {
@@ -132,9 +198,7 @@ function StickyNavigationMenu() {
         "Be part of a transformative infrastructure project that's connecting communities and driving economic growth across Zambia's Western Corridor.",
       links: [
         { name: "Current Openings", href: "/careers" },
-        { name: "About Us", href: "/about" },
         { name: "Contact Us", href: "/contact" },
-        { name: "Gallery", href: "/gallery" },
       ],
     },
     gallery: {
@@ -143,16 +207,12 @@ function StickyNavigationMenu() {
         "Explore our multimedia gallery showcasing the Barotse Highway project.",
       links: [
         { name: "View Gallery", href: "/gallery" },
-        { name: "Projects", href: "/projects" },
-        { name: "Timeline", href: "/timeline" },
-        { name: "About", href: "/about" },
       ],
     },
   };
 
   const moreMenuItems = [
     { name: "News & Media", href: "/news" },
-    { name: "Contact", href: "/contact" },
   ];
 
   const handleMenuClick = (menu: MenuKey) => {
