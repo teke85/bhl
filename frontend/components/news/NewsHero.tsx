@@ -30,7 +30,7 @@ export default function NewsHero() {
       <div className="absolute inset-0 z-0 w-full">
         <Image
           src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761744663/5_yoawid.png"
-          alt="News & Updates - Barotse Highway"
+          alt="News & Updates - Western Corridor Limited"
           className="w-full h-full object-cover"
           sizes="100vw"
           priority
@@ -57,7 +57,7 @@ export default function NewsHero() {
             variants={itemVariants}
           >
             Stay informed about the latest developments, milestones, and
-            announcements for the Barotse Highway project. From construction
+            announcements for the Western Corridor project. From construction
             progress to community initiatives, get all the updates straight from
             the source.
           </motion.p>

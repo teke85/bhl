@@ -16,7 +16,7 @@ export default function ContactPage() {
         <div className="relative min-h-[40vh] flex items-center justify-center bg-white dark:bg-black text-black dark:text-white overflow-hidden">
           <div className="absolute inset-0 z-0">
             <Image
-              src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760774766/BHL_trucks_in_Solwezi__Zambia__4K_professional_photography__dusty_road__mining_environment__bright_d_oqi1cq.png"
+              src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761800734/MutandaJunction_DJI_0581_zjk0pv.jpg"
               alt="Contact Us"
               fill
               className="object-cover opacity-20"
@@ -47,15 +47,15 @@ export default function ContactPage() {
               <div className="lg:col-span-1 text-black bg-white dark:text-white dark:bg-black space-y-6">
                 <Card className="p-6 bg-card border-border">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                       <MapPin className="h-6 w-6 text-primary" />
                     </div>
                     <div>
                       <h3 className="font-semibold mb-2">Office Location</h3>
                       <p className="text-sm leading-relaxed">
-                        Barotse Highway Limited
+                        Western Corridor Limited
                         <br />
-                        Cairo Road, Lusaka
+                        Solwezi
                         <br />
                         Zambia
                       </p>
@@ -65,7 +65,7 @@ export default function ContactPage() {
 
                 <Card className="p-6 bg-card border-border">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded-lg flex items-center justify-center shrink-0">
                       <Mail className="h-6 w-6" />
                     </div>
                     <div>
@@ -74,14 +74,14 @@ export default function ContactPage() {
                         href="mailto:info@barotsehighway.com"
                         className="text-sm transition-colors"
                       >
-                        info@barotsehighway.com
+                        info@westerncorridor.com
                       </a>
                       <br />
                       <a
                         href="mailto:projects@barotsehighway.com"
                         className="text-sm transition-colors"
                       >
-                        projects@barotsehighway.com
+                        projects@westerncorridor.com
                       </a>
                     </div>
                   </div>
@@ -89,7 +89,7 @@ export default function ContactPage() {
 
                 <Card className="p-6 border-border">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded-lg flex items-center justify-center shrink-0">
                       <Phone className="h-6 w-6" />
                     </div>
                     <div>
@@ -113,7 +113,7 @@ export default function ContactPage() {
 
                 <Card className="p-6 bg-card border-border">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded-lg flex items-center justify-center shrink-0">
                       <Clock className="h-6 w-6" />
                     </div>
                     <div>

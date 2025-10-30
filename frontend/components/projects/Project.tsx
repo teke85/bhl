@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const ProjectHistory = () => {
   const signingImages = [
@@ -9,7 +10,6 @@ const ProjectHistory = () => {
     "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761737555/EI3A9549DRM_g4ex3m.jpg",
   ];
 
-  // Simplified variants without complex transitions in the variant definitions
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -55,8 +55,8 @@ const ProjectHistory = () => {
             <strong className="text-[#fdb913]">21 March 2018</strong>, when{" "}
             <strong className="text-[#fdb913]">
               Buks Haulage Limited (BHL)
-            </strong>
-            {""}entered a ten-year maintenance contract with the{" "}
+            </strong>{" "}
+            entered a ten-year maintenance contract with the{" "}
             <strong className="text-[#fdb913]">
               Road Development Agency (RDA)
             </strong>{" "}
@@ -64,6 +64,7 @@ const ProjectHistory = () => {
             the gravel route usable, highlighting its strategic importance even
             before the formal concession.
           </p>
+
           <p className="text-lg text-black dark:text-white font-body mb-8 leading-relaxed">
             After assessing the corridor&apos;s traffic potential, the Promoters
             resolved in 2023 to upgrade the entire 371 km stretch to bituminous
@@ -73,6 +74,7 @@ const ProjectHistory = () => {
             was granted on{" "}
             <strong className="text-[#fdb913]">19 June 2024</strong>.
           </p>
+
           <p className="font-body text-lg">
             To deliver the concession, the Special Purpose Vehicle{" "}
             <strong className="text-[#fdb913]">
@@ -117,27 +119,23 @@ const ProjectHistory = () => {
                 }}
                 className="relative group"
               >
-                <div className="relative overflow-hidden rounded-lg shadow-lg bg-gray-200 dark:bg-gray-800">
-                  <motion.img
-                    src={image}
-                    alt={`Signing ceremony moment ${index + 1}`}
-                    className="w-full h-64 object-cover"
+                <div className="relative overflow-hidden rounded-lg shadow-lg bg-gray-200 dark:bg-gray-800 h-64">
+                  <motion.div
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
-                  />
+                    className="relative w-full h-full"
+                  >
+                    <Image
+                      src={image}
+                      alt={`Signing ceremony moment ${index + 1}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover"
+                      loading="lazy"
+                    />
+                  </motion.div>
                   <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300" />
                 </div>
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    delay: 0.5 + index * 0.1,
-                    duration: 0.5,
-                    ease: "easeOut",
-                  }}
-                  className="mt-4 text-center"
-                ></motion.div>
               </motion.div>
             ))}
           </div>

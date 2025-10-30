@@ -4,12 +4,12 @@ import Image from "next/image";
 
 export default function TimelineHero() {
   return (
-    <section className="relative pt-32 pb-16 px-4 bg-background dark:bg-[#0a0a0a] overflow-hidden">
+    <section className="relative pt-32 pb-16 px-4 dark:bg-[#0a0a0a] overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760880453/DJI_0446_formphotoeditor.com_dtu3s2.jpg"
-          alt="Highway construction"
-          className="w-full h-full object-cover opacity-20 dark:opacity-10"
+          src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761799625/Kasempa_Western_ByPass-DJI_0536_qdc2db.jpg"
+          alt="Western Corridor"
+          className="w-full h-full object-cover opacity-70 dark:opacity-10"
           priority
           quality={75}
           fill
@@ -23,7 +23,7 @@ export default function TimelineHero() {
             Project Key Timelines and Milestones
           </h1>
           <p className="text-lg md:text-xl text-white dark:text-gray-400 font-paragraph max-w-2xl">
-            A comprehensive timeline of the Barotse Highway development from
+            A comprehensive timeline of the Western Corridor development from
             inception to present day.
           </p>
         </div>

@@ -8,7 +8,7 @@ import Link from "next/link";
 import StickyNavigationMenu from "@/components/StickyNavUpdated";
 import { Footer } from "@/components/FooterUpdated";
 import NewsHero from "@/components/news/NewsHero";
-import { Calendar, User, ArrowRight } from "lucide-react";
+import { Calendar, ArrowRight } from "lucide-react";
 
 export default function NewsPage() {
   const [news, setNews] = useState<NewsArticle[]>([]);
