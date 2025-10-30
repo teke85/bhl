@@ -7,9 +7,9 @@ const ModeToggle = () => {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // Avoid hydration mismatch
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timer);
   }, []);
 
   if (!mounted) {
@@ -27,7 +27,7 @@ const ModeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="text-[#FDB913] dark:text-white hover:text-[#FDB913] transition-colors p-2 relative"
+      className="text-[#FDDB59] dark:text-white hover:text-[#FDB913] transition-colors p-2 relative"
       aria-label="Toggle theme"
     >
       <Sun className="h-5 w-5 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
