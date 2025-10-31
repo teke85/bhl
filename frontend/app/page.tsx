@@ -8,7 +8,7 @@ import ExpertBuildersSection from "@/components/ExpertBuildersSection";
 import ProjectMilestonesSection from "@/components/ProjectMilestones";
 import CommunityFirstSection from "@/components/CommunityFirst";
 import VideoHeroSection from "@/components/BigVideoComponent";
-import { BuildingExcellence } from "@/components/BuildingExcellence";
+// import { BuildingExcellence } from "@/components/BuildingExcellence";
 import SectionWrapper from "@/components/SectionWrapper";
 
 export default function HomePage() {

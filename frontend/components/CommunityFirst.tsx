@@ -24,7 +24,7 @@ const CommunityFirstSection = () => {
               treatment and support for all affected communities.
             </p>
             <Button
-              className="bg-[#fdb913] font-body rounded-none text-black hover:bg-[#fdb913]/90 transition-all duration-300 gap-2 font-semibold"
+              className="bg-[#FDDB59] font-body rounded-none text-black hover:bg-[#FDDB59]/90 transition-all duration-300 gap-2 font-semibold"
               asChild
             >
               <Link href="/resettlement">
@@ -38,7 +38,7 @@ const CommunityFirstSection = () => {
           <div className="bg-black/5 dark:bg-black/5 rounded-lg p-8 md:p-12 space-y-6">
             {policyPoints.map((point, index) => (
               <div key={index} className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#fdb913] flex items-center justify-center text-black dark:text-white font-bold text-lg">
+                <div className="shrink-0 w-10 h-10 rounded-full bg-[#FDDB59] flex items-center justify-center text-black dark:text-white font-bold text-lg">
                   {index + 1}
                 </div>
                 <p className="text-black dark:text-white text-base md:text-lg pt-2">

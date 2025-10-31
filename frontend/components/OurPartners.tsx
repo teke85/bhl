@@ -131,7 +131,7 @@ function PartnersCarousel() {
         <div className="mt-16 text-center">
           <a
             href="/partners"
-            className="inline-flex items-center gap-2 px-12 py-3 rounded-none bg-[#daa41e] text-black dark:text-black font-semibold hover:bg-[#fdb913] dark:hover:bg-[#fdb913] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 px-12 py-3 rounded-none bg-[#FDDB59] text-black dark:text-black font-semibold hover:bg-[#fdb913] dark:hover:bg-[#fdb913] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
           >
             Read More
             <svg

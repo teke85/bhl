@@ -85,76 +85,6 @@ function StickyNavigationMenu() {
     return () => window.removeEventListener("keydown", handleEscape);
   }, []);
 
-  // const menuData: Record<
-  //   MenuKey,
-  //   {
-  //     title: string;
-  //     description: string;
-  //     links: { name: string; href: string }[];
-  //   }
-  // > = {
-  //   company: {
-  //     title: "ABOUT US",
-  //     description:
-  //       "Barotse Highway Limited is a Special Purpose Vehicle (SPV) incorporated by BeefCo Holdings Limited and First Quantum Minerals Operations Limited for executing this transformative infrastructure project.",
-  //     links: [
-  //       { name: "Our Story", href: "/about" },
-  //       { name: "Multimedia Gallery", href: "/gallery" },
-  //       { name: "Timeline", href: "/timeline" },
-  //       { name: "Home", href: "/" },
-  //     ],
-  //   },
-  //   "our commitment": {
-  //     title: "OUR COMMITMENT",
-  //     description:
-  //       "We are committed to delivering world-class infrastructure while prioritizing community welfare, environmental sustainability, and economic development across the Western Corridor.",
-  //     links: [
-  //       { name: "Regional Impact", href: "/regional-impact" },
-  //       { name: "Resettlement", href: "/resettlement" },
-  //       { name: "About Us", href: "/about" },
-  //       { name: "Projects", href: "/projects" },
-  //     ],
-  //   },
-  //   project: {
-  //     title: "PROJECT DETAILS",
-  //     description:
-  //       "The Project encompasses the rehabilitation and upgrade of 371 kilometres of road from Mutanda in Northwestern Province to Kaoma in Western Province, Zambia.",
-  //     links: [
-  //       { name: "Project Overview", href: "/projects" },
-  //       { name: "Timeline", href: "/timeline" },
-  //       { name: "Regional Impact", href: "/regional-impact" },
-  //       { name: "Project Promoters", href: "/projects" },
-  //     ],
-  //   },
-  //   careers: {
-  //     title: "JOIN OUR TEAM",
-  //     description:
-  //       "Be part of a transformative infrastructure project that's connecting communities and driving economic growth across Zambia's Western Corridor.",
-  //     links: [
-  //       { name: "Current Openings", href: "/careers" },
-  //       { name: "About Us", href: "/about" },
-  //       { name: "Contact Us", href: "/contact" },
-  //       { name: "Gallery", href: "/gallery" },
-  //     ],
-  //   },
-  //   gallery: {
-  //     title: "GALLERY",
-  //     description:
-  //       "Explore our multimedia gallery showcasing the Barotse Highway project.",
-  //     links: [
-  //       { name: "View Gallery", href: "/gallery" },
-  //       { name: "Projects", href: "/projects" },
-  //       { name: "Timeline", href: "/timeline" },
-  //       { name: "About", href: "/about" },
-  //     ],
-  //   },
-  // };
-
-  // const moreMenuItems = [
-  //   { name: "News & Media", href: "/news" },
-  //   { name: "Contact", href: "/contact" },
-  // ];
-
   const menuData: Record<
     MenuKey,
     {
@@ -205,15 +135,11 @@ function StickyNavigationMenu() {
       title: "GALLERY",
       description:
         "Explore our multimedia gallery showcasing the Barotse Highway project.",
-      links: [
-        { name: "View Gallery", href: "/gallery" },
-      ],
+      links: [{ name: "View Gallery", href: "/gallery" }],
     },
   };
 
-  const moreMenuItems = [
-    { name: "News & Media", href: "/news" },
-  ];
+  const moreMenuItems = [{ name: "News & Media", href: "/news" }];
 
   const handleMenuClick = (menu: MenuKey) => {
     setActiveMenu((prev) => (prev === menu ? null : menu));
@@ -345,7 +271,7 @@ function StickyNavigationMenu() {
         <div
           ref={megaMenuRef}
           className="hidden lg:block fixed top-36 left-6 right-6 shadow-2xl transition-all duration-300 z-51 rounded-xl overflow-hidden"
-        //                                    ^^^^^^ Changed from top-28 to top-36
+          //                                    ^^^^^^ Changed from top-28 to top-36
         >
           <div className="container mx-auto">
             <div className="grid grid-cols-2 gap-0 max-w-6xl mx-auto rounded-lg overflow-hidden">

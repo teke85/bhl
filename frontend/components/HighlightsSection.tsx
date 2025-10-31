@@ -106,7 +106,7 @@ const HighlightsSection = () => {
                 {item.text}
               </p>
               <Link href={item.link}>
-                <Button className="bg-yellow-500 rounded-none hover:bg-yellow-600 text-black font-semibold px-6 py-3 text-sm sm:text-base">
+                <Button className="bg-[#FDDB59] rounded-none hover:bg-[#FDDB59]/90 text-black font-semibold px-6 py-3 text-sm sm:text-base">
                   {item.btnText} →
                 </Button>
               </Link>

@@ -90,7 +90,7 @@ const ExpertBuildersSection = () => {
             </p>
             <div className="animated-button">
               <Button
-                className="font-body text-lg border-white/20 text-white dark:text-black bg-[#fdb913] rounded-none hover:bg-[#fdb913]/90 hover:scale-105 transition-transform duration-300 gap-2"
+                className="font-body text-lg border-white/20 text-white dark:text-black bg-[#FDDB59] rounded-none hover:bg-[#FDDB59]/90 hover:scale-105 transition-transform duration-300 gap-2"
                 asChild
               >
                 <Link href="/projects">
@@ -112,7 +112,7 @@ const ExpertBuildersSection = () => {
             </p>
             <div className="animated-button">
               <Button
-                className="bg-[#fdb913] font-body text-lg rounded-none border-white/20 text-white dark:text-black hover:bg-[#fdb913]/90 hover:scale-105 hover:border-white/40 transition-transform duration-300 gap-2"
+                className="bg-[#FDDB59] hover:bg-[#FDDB59]/90 font-body text-lg rounded-none border-white/20 text-white dark:text-black hover:scale-105 hover:border-white/40 transition-transform duration-300 gap-2"
                 asChild
               >
                 <Link href="/regional-impact">

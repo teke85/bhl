@@ -158,7 +158,7 @@ const KeyStatsUpdated = () => {
           <h2 className="text-sm font-body tracking-[0.3em] text-black dark:text-white mb-4">
             OUR KEY STATS
           </h2>
-          <div className="w-24 h-px bg-[#FDB913] mx-auto" />
+          <div className="w-24 h-px bg-[#FDDB59] mx-auto" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
@@ -167,7 +167,7 @@ const KeyStatsUpdated = () => {
               key={index}
               className={`stat-card relative group p-8 rounded-lg transition-all duration-700 ${
                 stat.highlight
-                  ? "highlight-card bg-[#FDB913]/90 dark:bg-[#FDB913]/95"
+                  ? "highlight-card bg-[#FDDB59] dark:bg-[#FDDB59]/95"
                   : "bg-transparent"
               }`}
             >
@@ -220,7 +220,7 @@ const KeyStatsUpdated = () => {
 
                 <div
                   className={`stat-icon opacity-60 group-hover:opacity-100 transition-opacity ${
-                    stat.highlight ? "text-black" : "text-[#FDB913]"
+                    stat.highlight ? "text-black" : "text-[#FDDB59]"
                   }`}
                 >
                   {stat.icon}
