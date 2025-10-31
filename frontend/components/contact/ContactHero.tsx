@@ -46,16 +46,16 @@ export default function ContactHero() {
                 <div className={`absolute inset-0 ${theme === "dark" ? "bg-[#0a0a0a]/70" : "bg-white/60"}`}></div>
             </div>
 
-            <div className="container mx-auto px-4 relative z-10">
-                <motion.div className="max-w-3xl" variants={containerVariants} initial="hidden" animate="visible">
+            <div className="container mx-auto px-4 relative z-10 pt-20">
+                <motion.div className="max-w-4xl mx-auto text-center" variants={containerVariants} initial="hidden" animate="visible">
                     <motion.h1
-                        className="text-5xl md:text-6xl font-heading font-bold text-foreground dark:text-white mb-6 text-balance"
+                        className="text-5xl md:text-6xl font-heading font-bold text-foreground dark:text-white mb-6"
                         variants={itemVariants}
                     >
                         Get in Touch
                     </motion.h1>
                     <motion.p
-                        className="text-lg md:text-xl text-muted-foreground dark:text-gray-300 text-balance"
+                        className="text-lg md:text-xl text-muted-foreground dark:text-gray-300"
                         variants={itemVariants}
                     >
                         Have questions about the Barotse Corridor Connector? We'd love to hear from you. Reach out to our team

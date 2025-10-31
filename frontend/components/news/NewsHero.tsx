@@ -39,21 +39,21 @@ export default function NewsHero() {
         <div className="absolute inset-0 bg-black/60"></div>
       </div>
 
-      <div className="container w-full mx-auto px-4 relative z-10">
+      <div className="container w-full mx-auto px-4 relative z-10 pt-20">
         <motion.div
-          className="max-w-3xl"
+          className="max-w-4xl mx-auto text-center"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           <motion.h1
-            className="text-5xl md:text-6xl font-heading font-bold text-white dark:text-white mb-6 text-balance"
+            className="text-5xl md:text-6xl font-heading font-bold text-white mb-6"
             variants={itemVariants}
           >
             News & Updates
           </motion.h1>
           <motion.p
-            className="text-lg md:text-xl w-full text-white dark:text-white text-balance leading-relaxed"
+            className="text-lg md:text-xl text-white leading-relaxed"
             variants={itemVariants}
           >
             Stay informed about the latest developments, milestones, and
