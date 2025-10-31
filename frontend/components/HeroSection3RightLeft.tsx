@@ -13,7 +13,7 @@ const STATIC_SLIDE = {
   subtitle:
     "Connecting Zambia's Rich Natural Resources to the Rest of the World",
   backgroundImage:
-    "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920/v1759918204/DJI_0565_10000_gb099t.jpg",
+    "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_1920,c_limit/v1759918204/DJI_0565_10000_gb099t.jpg",
 };
 
 const SAMPLE_VIDEO_URL =
@@ -110,11 +110,12 @@ const HeroCarousel: React.FC = () => {
           sizes="100vw"
           priority
           quality={75}
+          loading="eager"
           placeholder="blur"
           blurDataURL="https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_10,e_blur:1000,w_10/v1759918204/DJI_0565_10000_gb099t.jpg"
           className="object-cover scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/70" />
+        <div className="absolute inset-0 from-black/40 via-black/50 to-black/70" />
         <div className="absolute inset-0 bg-black/30" />
       </div>
 

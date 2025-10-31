@@ -29,7 +29,10 @@ const ProjectHero = () => {
           alt="Barotse Highway Construction"
           fill
           className="object-cover"
-          priority
+          loading="eager"
+          placeholder="blur"
+          blurDataURL="https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q-10,w-100,c_limit/v1760880457/DJI_0445_formphotoeditor.com_bb4kdl.jpg"
+          quality={70}
         />
         <div className="absolute inset-0 bg-black/70 dark:bg-black/80" />
       </div>

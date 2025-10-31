@@ -1,8 +1,8 @@
 "use client";
 
-import type React from "react";
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const PartnersHero: React.FC = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -10,7 +10,6 @@ const PartnersHero: React.FC = () => {
   const descriptionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Animate hero elements on mount
     const elements = [titleRef, subtitleRef, descriptionRef];
     elements.forEach((ref, index) => {
       if (ref.current) {
@@ -23,23 +22,31 @@ const PartnersHero: React.FC = () => {
 
   return (
     <section className="relative w-full py-20 md:py-32 overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage:
-            'url("https://res.cloudinary.com/dpeg7wc34/image/upload/v1760843603/A_wide_panoramic_hero_image_showcasing_a_newly_constructed_highway_winding_through_a_scenic_Zambian__zxbqhe.png")',
-        }}
-      />
+      {/* Optimized hero image */}
+      <div className="absolute inset-0">
+        <Image
+          src="https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_1920,c_limit/v1761799064/KasempaToll_WB_Area-DJI_0573_svtpxp.jpg"
+          alt="Kasempa Toll area aerial view"
+          fill
+          loading="eager"
+          placeholder="blur"
+          blurDataURL="https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_10,w_100,c_limit/v1761799064/KasempaToll_WB_Area-DJI_0573_svtpxp.jpg"
+          quality={85}
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
 
-      {/* Dark overlay for text readability */}
+      {/* Overlay for readability */}
       <div className="absolute inset-0 bg-black/50 dark:bg-black/60" />
 
-      {/* Background decorative elements */}
+      {/* Background glow effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-400/5 dark:bg-yellow-400/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-yellow-400/5 dark:bg-yellow-400/10 rounded-full blur-3xl" />
       </div>
 
+      {/* Hero text */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
         <motion.h1
           ref={titleRef}

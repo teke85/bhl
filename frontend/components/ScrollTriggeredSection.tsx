@@ -20,21 +20,21 @@ const ScrollTriggeredImage = () => {
       description:
         "Upgrading 371 km of the Mutanda to Kaoma Road to international bituminous standards, creating a world-class transportation corridor.",
       imageUrl:
-        "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761706973/DJI_0595_1_xlewwl.jpg",
+        "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1761706973/DJI_0595_1_xlewwl.jpg",
     },
     {
       title: "REGIONAL CONNECTIVITY",
       description:
         "Connecting Zambia's Copperbelt and DRC's mining regions to the Port of Walvis Bay, facilitating international trade and economic growth.",
       imageUrl:
-        "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761601625/IMG_7101-1024x649_mzybrr.jpg",
+        "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1761601625/IMG_7101-1024x649_mzybrr.jpg",
     },
     {
       title: "COMMUNITY IMPACT",
       description:
         "Empowering local communities through inclusive development and collaboration. The Western Corridor leadership, in partnership with traditional leaders across four districts, is ensuring that the Mutanda–Kaoma Road benefits every household along its route. Through fair resettlement programs, community engagement, and sustainable economic initiatives, the project is improving livelihoods, preserving cultural heritage, and building a foundation for long-term growth.",
       imageUrl:
-        "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761107765/EI3A9507DRM_emgog7.jpg",
+        "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1761107765/EI3A9507DRM_emgog7.jpg",
     },
   ];
 
@@ -124,6 +124,7 @@ const ScrollTriggeredImage = () => {
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 500px"
+                  quality={90}
                 />
               </div>
 

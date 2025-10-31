@@ -51,7 +51,7 @@ export default function LeadershipTeam() {
       name: "Nicolaas Marthinus Janse van Rensburg",
       title: "CEO",
       image:
-        "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759885052/2_n6tp5e.png",
+        "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_1920,c_limit/v1759885052/2_n6tp5e.png",
       shortBio:
         "Buks is an experienced entrepreneur with over 30 years of leadership in logistics, transport, and agribusiness.",
       fullBio:
@@ -62,7 +62,7 @@ export default function LeadershipTeam() {
       name: "Chris Dijkstra",
       title: "Director",
       image:
-        "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759885059/3_sdcuxl.png",
+        "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_1920,c_limit/v1759885059/3_sdcuxl.png",
       shortBio:
         "Chris Dijkstra is a seasoned civil engineer and project management professional with extensive infrastructure experience.",
       fullBio:
@@ -142,7 +142,9 @@ export default function LeadershipTeam() {
                     src={leader.image}
                     alt={leader.name}
                     fill
-                    priority
+                    loading="eager"
+                    placeholder="blur"
+                    blurDataURL="https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_10,w_100,c_limit/v1759885059/3_sdcuxl.png"
                     sizes="(max-width: 768px) 100vw, 300px"
                     className="object-cover"
                   />
