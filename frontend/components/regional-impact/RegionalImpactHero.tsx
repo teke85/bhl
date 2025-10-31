@@ -18,16 +18,15 @@ export default function RegionalImpactHero() {
           blurDataURL="https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_10,e_blur:1000,w_10/v1759918204/DJI_0565_10000_gb099t.jpg"
           className="object-cover scale-110"
         />
-        {/* Dark black overlay */}
         <div className="absolute inset-0 bg-black/70"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-3xl">
-          <h1 className="text-5xl md:text-6xl font-heading font-bold text-white mb-6 text-balance">
+      <div className="container mx-auto px-4 relative z-10 pt-20">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl font-heading font-bold text-white mb-6">
             Regional Impact
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 text-balance">
+          <p className="text-lg md:text-xl text-gray-300">
             Transforming trade flows and connectivity across the SADC region.
           </p>
         </div>

@@ -31,12 +31,11 @@ const ProjectHero = () => {
           className="object-cover"
           priority
         />
-        {/* Dark overlay - much darker than before */}
         <div className="absolute inset-0 bg-black/70 dark:bg-black/80" />
       </div>
 
-      <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="space-y-6">
+      <div className="container mx-auto max-w-7xl relative z-10 pt-20">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
           <div className="inline-block px-4 py-2 bg-[#fdb913]/10 border border-[#fdb913]/30 rounded-full backdrop-blur-sm">
             <span className="text-[#fdb913] font-paragraph font-semibold text-sm">
               371 KM PROJECT
@@ -45,7 +44,7 @@ const ProjectHero = () => {
           <h1 className="text-5xl md:text-7xl font-heading font-bold text-white drop-shadow-lg">
             Project Overview
           </h1>
-          <p className="text-xl md:text-2xl font-paragraph text-white dark:text-white max-w-4xl leading-relaxed drop-shadow-md">
+          <p className="text-xl md:text-2xl font-paragraph text-white leading-relaxed drop-shadow-md">
             Rehabilitation and upgrading of 371 km Mutanda to Kaoma Road to
             international bituminous standards, connecting Zambia&apos;s
             mineral-rich regions to global markets.

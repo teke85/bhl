@@ -14,12 +14,12 @@ export const CareersHero = () => {
         <div className="absolute bg-black/80 inset-0" />
       </div>
 
-      <div className="container-full mx-auto px-4 lg:px-8 relative z-10 pt-30">
-        <div className="max-w-full">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white dark:text-white mb-6 text-balance">
+      <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-30">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             Be Part of the Team Building Zambia&apos;s Future
           </h1>
-          <p className="text-lg md:text-xl text-[#868584] dark:text-white font-paragraph leading-relaxed mb-8">
+          <p className="text-lg md:text-xl text-gray-300 font-paragraph leading-relaxed mb-8">
             Join us in transforming infrastructure and connecting communities
             across the Western Corridor.
           </p>

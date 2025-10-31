@@ -40,7 +40,7 @@ const PartnersHero: React.FC = () => {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-yellow-400/5 dark:bg-yellow-400/10 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
         <motion.h1
           ref={titleRef}
           initial={{ opacity: 0, y: 40 }}

@@ -17,12 +17,12 @@ export default function TimelineHero() {
         <div className="absolute inset-0 bg-black/80"></div>
       </div>
 
-      <div className="container mx-auto max-w-6xl relative z-10">
-        <div className="space-y-6">
-          <h1 className="text-5xl mt-5 md:mt-10 md:text-6xl font-heading font-bold text-white dark:text-white leading-tight">
+      <div className="container mx-auto max-w-6xl relative z-10 pt-20">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <h1 className="text-5xl mt-5 md:mt-10 md:text-6xl font-heading font-bold text-white leading-tight">
             Project Key Timelines and Milestones
           </h1>
-          <p className="text-lg md:text-xl text-white dark:text-gray-400 font-paragraph max-w-2xl">
+          <p className="text-lg md:text-xl text-white font-paragraph">
             A comprehensive timeline of the Western Corridor development from
             inception to present day.
           </p>

@@ -37,12 +37,12 @@ export default function AboutHero() {
         <div className="absolute inset-0 bg-black/75" />
       </div>
 
-      <div className="container w-full mx-auto px-4 relative z-10">
-        <div className="max-w-3xl">
-          <h1 className="text-5xl md:text-6xl font-heading font-bold text-white mb-6 text-balance">
+      <div className="container w-full mx-auto px-6 relative z-10 pt-20">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl font-heading font-bold text-white mb-6">
             Our Story
           </h1>
-          <p className="text-lg md:text-xl w-full text-white text-balance">
+          <p className="text-lg md:text-xl text-white">
             The wider transport and PPP market in Zambia and SADC is akin to a
             vast, interconnected circulatory system. The Mutanda to Kaoma
             Project, which completes Zambia&apos;s Western Corridor, is a major

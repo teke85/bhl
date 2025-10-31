@@ -53,21 +53,21 @@ export default function GalleryHero() {
         ></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 pt-20">
         <motion.div
-          className="max-w-3xl"
+          className="max-w-4xl mx-auto text-center"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           <motion.h1
-            className="text-5xl md:text-6xl font-heading mt-12 font-bold text-white dark:text-white mb-6 text-balance"
+            className="text-5xl md:text-6xl font-heading mt-12 font-bold text-white mb-6"
             variants={itemVariants}
           >
             Project Gallery
           </motion.h1>
           <motion.p
-            className="text-lg md:text-xl text-white dark:text-white text-balance"
+            className="text-lg md:text-xl text-white"
             variants={itemVariants}
           >
             Explore the progress and milestones of the Barotse Corridor
