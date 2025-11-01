@@ -39,7 +39,7 @@ export const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-4">
             <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className="relative w-22 h-22 rounded-full overflow-hidden">
+              <div className="relative w-32 h-32 rounded-full overflow-hidden">
                 <Image
                   src="https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_300,c_limit/v1761708103/westerncorridor_logo_bih0jh.png"
                   alt="Western Corridor logo"
@@ -50,7 +50,7 @@ export const Footer = () => {
                   quality={70}
                 />
               </div>
-              <span className="font-bold text-[#DCAF0E] font-heading text-xl">
+              <span className="font-bold text-[#FFDE59] font-heading text-xl">
                 Western Corridor
               </span>
             </Link>
@@ -97,7 +97,7 @@ export const Footer = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[#868584] dark:text-white hover:text-foreground transition-colors"
+                    className="text-sm text-[#868584] dark:text-white hover:text-[#FFDE59] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -116,7 +116,7 @@ export const Footer = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[#868584] dark:text-white hover:text-foreground transition-colors"
+                    className="text-sm text-[#868584] dark:text-white hover:text-[#FFDE59] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -135,7 +135,7 @@ export const Footer = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[#868584] dark:text-white hover:text-black/20 transition-colors"
+                    className="text-sm text-[#868584] dark:text-white hover:text-[#FFDE59] transition-colors"
                   >
                     {link.label}
                   </Link>
