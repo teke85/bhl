@@ -31,9 +31,9 @@ export default function ContactPage() {
                 Get in Touch
               </h1>
               <p className="text-lg md:text-xl text-white dark:text-white leading-relaxed">
-                Have questions about the Barotse Highway project? We&apos;re
-                here to help. Reach out to our team for inquiries, partnerships,
-                or general information.
+                Have questions about the Western Corridor Limited project?
+                We&apos;re here to help. Reach out to our team for inquiries,
+                partnerships, or general information.
               </p>
             </div>
           </div>

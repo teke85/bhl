@@ -7,13 +7,13 @@ export const LifeAtBHL = () => {
         <div className="grid grid-cols-1 lg:grid-cols-1 gap-12 items-start">
           <div className="bg-white text-black dark:bg-black dark:text-white">
             <h2 className="text-3xl lg:text-4xl font-bold text-black dark:text-white font-heading mb-6 text-balance">
-              Life at Barotse Highway Limited
+              Life at Western Corridor Limited
             </h2>
             <p className="text-lg text-[#868584] dark:text-white font-paragraph leading-relaxed mb-6">
-              Life at BHL is fulfilling and dynamic. The environment here is
-              vibrant and our culture is empowering. We&apos;re building more
-              than roads—we&apos;re building careers, communities, and a
-              sustainable future for Zambia.
+              Life at Western Corridor Limited is fulfilling and dynamic. The
+              environment here is vibrant and our culture is empowering.
+              We&apos;re building more than roads—we&apos;re building careers,
+              communities, and a sustainable future for Zambia.
             </p>
             <div className="space-y-4">
               <Card className="p-6 bg-card border-border">
