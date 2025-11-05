@@ -108,7 +108,7 @@ const HeroCarousel: React.FC = () => {
           alt="Background"
           fill
           sizes="100vw"
-          priority
+          priority={true}
           quality={75}
           loading="eager"
           placeholder="blur"

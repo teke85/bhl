@@ -51,7 +51,10 @@ export default function CompanyStory() {
               alt="Company Story"
               fill
               className="object-cover"
-              priority
+              loading="lazy"
+              quality={75}
+              placeholder="blur"
+              blurDataURL="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761706973/DJI_0595_1_xlewwl.jpg"
             />
           </motion.div>
 

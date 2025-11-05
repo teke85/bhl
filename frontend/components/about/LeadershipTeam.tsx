@@ -142,8 +142,9 @@ export default function LeadershipTeam() {
                     src={leader.image}
                     alt={leader.name}
                     fill
-                    loading="eager"
+                    loading="lazy"
                     placeholder="blur"
+                    quality={75}
                     blurDataURL="https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_10,w_100,c_limit/v1759885059/3_sdcuxl.png"
                     sizes="(max-width: 768px) 100vw, 300px"
                     className="object-cover"

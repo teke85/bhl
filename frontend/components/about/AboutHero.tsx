@@ -27,10 +27,12 @@ export default function AboutHero() {
       <div className="absolute inset-0 z-0 w-full h-full">
         <Image
           src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761477016/EI3A9561DRM_bbw3jo.jpg"
-          alt="About Barotse Highway"
+          alt="About western corridor limited"
           fill
           priority
-          quality={90}
+          placeholder="blur"
+          blurDataURL="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761477016/EI3A9561DRM_bbw3jo.jpg"
+          quality={75}
           sizes="100vw"
           className="object-cover"
         />

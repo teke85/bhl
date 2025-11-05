@@ -9,7 +9,10 @@ export const CareersHero = () => {
           alt="Careers at Western Corridor Limited"
           fill
           className="object-cover"
-          priority
+          priority={true}
+          quality={75}
+          placeholder="blur"
+          blurDataURL="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761799061/KasempaToll_WB_Area-DJI_0577_cs1c5k.jpg"
         />
         <div className="absolute bg-black/80 inset-0" />
       </div>
