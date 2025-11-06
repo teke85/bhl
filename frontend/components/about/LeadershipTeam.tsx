@@ -34,6 +34,7 @@ export default function LeadershipTeam() {
         y: 30,
         duration: 0.6,
         stagger: 0.2,
+        clearProps: "all", // Add clearProps to ensure animations don't leave styles on elements after completion
         scrollTrigger: {
           trigger: cardsRef.current,
           start: "top 80%",
@@ -94,7 +95,7 @@ export default function LeadershipTeam() {
           {leaders.map((leader) => (
             <div
               key={leader.id}
-              className="leadership-card bg-white dark:bg-black border border-gray-200 dark:border-white/10 transition-all overflow-hidden"
+              className="leadership-card dark:bg-black border border-gray-200 dark:border-white/10 transition-all overflow-hidden"
             >
               {/* Header */}
               <div className="bg-[#EAB81E] py-4 px-6 flex items-center justify-center">
@@ -139,10 +140,10 @@ export default function LeadershipTeam() {
                 {/* Image Column */}
                 <div className="relative h-[500px] md:h-full min-h-[400px]">
                   <Image
-                    src={leader.image}
+                    src={leader.image || "/placeholder.svg"}
                     alt={leader.name}
                     fill
-                    loading="lazy"
+                    loading="eager"
                     placeholder="blur"
                     quality={75}
                     blurDataURL="https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_10,w_100,c_limit/v1759885059/3_sdcuxl.png"
