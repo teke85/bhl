@@ -58,7 +58,7 @@ function PartnersCarousel() {
     {
       id: 11,
       name: "Brian Colquhoun, Hugh O'Donnell & Partners (BCHOD)",
-      logo: "",
+      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1762425986/BCHOD_col4d9.jpg",
     },
   ];
 

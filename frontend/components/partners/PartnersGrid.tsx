@@ -26,7 +26,7 @@ const PartnersGrid: React.FC = () => {
       role: "Lead Project Manager",
       category: "Project Management",
       description:
-        "A South African-based civil engineering, project and construction management, and infrastructure quantity surveying firm with a strong focus on large-scale civil engineering infrastructure and PPP projects.",
+        "Hotsheet is a South African-based civil engineering, project and construction management, and infrastructure quantity surveying firm. With a strong focus on large-scale civil engineering infrastructure and PPP projects. Hotsheet provides comprehensive project management services, including EPC contracting. Hotsheet holds the role of lead project and construction manager for the SPV and will play a pivotal role in overseeing the successful implementation of the Project.",
       expertise: [
         "Civil Engineering",
         "Project Management",
@@ -46,7 +46,7 @@ const PartnersGrid: React.FC = () => {
       role: "Local EPC Contractor",
       category: "Engineering & Construction",
       description:
-        "A Zambian-based civil engineering firm with over 75 years of experience operating in the African region, offering comprehensive consultancy services.",
+        "BCHOD is a Zambian-based civil engineering firm with over 75 years of experience operating in the African region. The company offers a wide range of consultancy services, including civil, environmental, structural, electrical, and mechanical engineering, as well as building infrastructure and information technology. BCHOD plays a crucial role in planning, designing, and supervising construction projects, ensuring their successful delivery and meeting the highest standards of quality.",
       expertise: [
         "Civil Engineering",
         "Environmental Engineering",
@@ -68,7 +68,7 @@ const PartnersGrid: React.FC = () => {
       role: "Local ESG Advisor",
       category: "Environmental & Social",
       description:
-        "A Zambian-based engineering services consultancy firm specializing in electrical, mechanical, and water-related projects with over two decades of combined experience.",
+        "DH is a Zambian-based engineering services consultancy firm specialising in electrical, mechanical, and water-related projects. With over two decades of combined experience, their team of engineers offers expertise in design, project management, and final commissioning. As part of their role in the PPP transaction, DH will provide essential services such as Social and Environmental Impact Assessments (EIA), ZEMA compliance, land acquisition, and geotechnical engineering investigations.",
       expertise: [
         "Electrical Engineering",
         "Mechanical Engineering",
@@ -91,7 +91,7 @@ const PartnersGrid: React.FC = () => {
       role: "Toll Operator",
       category: "Operations & Technology",
       description:
-        "A multinational technology company headquartered in Mauritius, specializing in innovative solutions for the logistics and transport industries.",
+        "Korridor is a multinational technology company headquartered in Mauritius, specialising in providing innovative solutions to the logistics and transport industries. With a focus on simplifying en route and cross-border processes. Korridor will implement Turnkey Systems (“TKS”) during the construction phase and manage revenue collection at toll plazas, weighbridges, and potentially the Sesheke One-Stop Border Post (“OSBP”) during the operational and maintenance stage.",
       expertise: [
         "Toll Management Systems",
         "Revenue Collection",
@@ -112,7 +112,7 @@ const PartnersGrid: React.FC = () => {
       role: "Lead Legal Advisor",
       category: "Legal & Finance",
       description:
-        "A leading international law firm with a strong presence in Africa and over 40 years of experience on the continent.",
+        "HSFK is a leading international law firm with a strong presence in Africa. As the International SPV legal counsel, they play a crucial role in facilitating the drafting and conclusion of all PPP and Project Agreements. With over 40 years of experience in Africa, Herbert Smith Freehills boasts a team of highly skilled lawyers who possess a deep understanding of the continent's legal systems, business practices, and cultural nuances.",
       expertise: [
         "International Law",
         "PPP Agreements",
