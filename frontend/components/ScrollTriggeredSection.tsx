@@ -18,14 +18,14 @@ const ScrollTriggeredImage = () => {
     {
       title: "INFRASTRUCTURE EXCELLENCE",
       description:
-        "Upgrading 371 km of the Mutanda to Kaoma Road to international bituminous standards, creating a world-class transportation corridor.",
+        "The Western Corridor Project represents a transformative infrastructure initiative aimed at upgrading the 371 km Mutanda to Kaoma Road to international bituminous standards. Delivered under a 25-year Public-Private Partnership concession, the project includes the construction of three toll plazas, two weighbridges, upgraded bridges, and 20 km of urban roads, forming a critical trade artery between Zambia’s mineral-rich regions and the West Coast of Africa. With a phased pavement design, climate-resilient drainage systems, and electronic tolling infrastructure, the project is engineered for long-term durability, safety, and efficiency. It is strategically aligned with Zambia’s national infrastructure and economic development goals, and is expected to significantly enhance regional connectivity, reduce transport costs, and support sustainable growth across the SADC region.",
       imageUrl:
-        "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1761706973/DJI_0595_1_xlewwl.jpg",
+        "https://res.cloudinary.com/dpeg7wc34/image/upload/v1762357419/Toll_plaza_ls71wg.jpg",
     },
     {
       title: "REGIONAL CONNECTIVITY",
       description:
-        "Connecting Zambia's Copperbelt and DRC's mining regions to the Port of Walvis Bay, facilitating international trade and economic growth.",
+        "The Western Corridor Project is a strategic infrastructure initiative that significantly enhances regional connectivity by linking Zambia’s mineral-rich Copperbelt and North-Western Provinces with the West Coast of Africa via Walvis Bay in Namibia. By upgrading the 371 km Mutanda to Kaoma Road and integrating it with key trade routes such as the Lumwana–Kambimba and Kipushi–Solwezi corridors, the project creates a seamless transport network that bypasses congested urban centres and reduces travel distances by up to 400 km for cross-border freight. This improved corridor facilitates efficient trade flows between Zambia, the Democratic Republic of Congo, Angola, Botswana, and Namibia, positioning Zambia as a pivotal logistics hub in the Southern African Development Community (SADC) region.",
       imageUrl:
         "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1761601625/IMG_7101-1024x649_mzybrr.jpg",
     },

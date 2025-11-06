@@ -7,48 +7,58 @@ function PartnersCarousel() {
   const partners = [
     {
       id: 1,
-      name: "BEEFCO",
-      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759433648/BEEFCO_p8vqfh.png",
-    },
-    {
-      id: 2,
-      name: "ADVANTAGE",
-      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430632/d77858_2003e0367fed4cd5aa6c6670acb506f7_mv2_imaqxb.avif",
-    },
-    {
-      id: 3,
-      name: "PANGAEA SECURITIES",
-      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430587/Pangaea-Securities__qbmjbo.png",
-    },
-    {
-      id: 4,
-      name: "KONGIWE",
-      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430583/Kongiwe-Logo-for-Header_ciq6du.png",
-    },
-    {
-      id: 5,
-      name: "HERBERT SMITH FREEHILLS",
-      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430583/Herbert_Smith_Freehills_logo.svg_wit9u9.png",
-    },
-    {
-      id: 6,
       name: "FIRST QUANTUM MINERALS",
       logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430581/First_Quantum_Minerals_New_Logo.svg_ivz3bj.png",
     },
     {
+      id: 2,
+      name: "BEEFCO",
+      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1762357921/Beefco_iarvhw.jpg",
+    },
+    {
+      id: 3,
+      name: "BHL",
+      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1762393329/BHL_Logo_dqkfqa.png",
+    },
+    {
+      id: 4,
+      name: "HOTSHEET PROJECT MANAGERS",
+      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1762393622/Hotsheet_logo_hz645n.jpg",
+    },
+    {
+      id: 5,
+      name: "PANGAEA SECURITIES",
+      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430587/Pangaea-Securities__qbmjbo.png",
+    },
+    {
+      id: 6,
+      name: "HERBERT SMITH FREEHILLS KRAMER",
+      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430583/Herbert_Smith_Freehills_logo.svg_wit9u9.png",
+    },
+    {
       id: 7,
-      name: "MAY AND COMPANY",
+      name: "MAY AND CO",
       logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430582/MAY-and-Co-teal-logo-1_lcmvcw.jpg",
     },
     {
       id: 8,
-      name: "dhki",
+      name: "KORRIDOR",
       logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430581/dhki-e1677569611745_d61ec9.jpg",
     },
     {
       id: 9,
-      name: "NYELETI",
-      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430580/nyeleti-logo-dark-bg-star_gmqcy2.png",
+      name: "KONGIWE",
+      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430583/Kongiwe-Logo-for-Header_ciq6du.png",
+    },
+    {
+      id: 10,
+      name: "DH Engineering Consultants",
+      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430581/dhki-e1677569611745_d61ec9.jpg",
+    },
+    {
+      id: 11,
+      name: "Brian Colquhoun, Hugh O'Donnell & Partners (BCHOD)",
+      logo: "",
     },
   ];
 

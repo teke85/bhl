@@ -10,6 +10,7 @@ import CommunityFirstSection from "@/components/CommunityFirst";
 import VideoHeroSection from "@/components/BigVideoComponent";
 // import { BuildingExcellence } from "@/components/BuildingExcellence";
 import SectionWrapper from "@/components/SectionWrapper";
+import NewsUpdatesSection from "@/components/home/NewsUpdates";
 
 export default function HomePage() {
   return (
@@ -49,6 +50,10 @@ export default function HomePage() {
 
         <SectionWrapper>
           <OurPartners />
+        </SectionWrapper>
+
+        <SectionWrapper>
+          <NewsUpdatesSection />
         </SectionWrapper>
 
         <Footer />

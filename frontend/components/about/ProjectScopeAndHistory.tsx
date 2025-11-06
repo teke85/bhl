@@ -55,8 +55,9 @@ export default function ProjectScopeAndHistory() {
                 the signing of the Concession Agreement with the Ministry of
                 Finance and National Planning on 1 December 2024 in Kasempa. The
                 Project is now advancing through road design and other
-                preparatory works, with Financial Close targeted for the end of
-                2025.
+                preparatory works. The Project&apos;s groundbreaking ceremony
+                was on 31 October 2025 in Kasempa district of Northwestern
+                Province.
               </p>
             </div>
           </div>
