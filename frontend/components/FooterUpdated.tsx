@@ -23,7 +23,6 @@ export const Footer = () => {
     { href: "https://www.rda.org.zm", label: "Road Development Agency" },
     { href: "https://www.mofnp.gov.zm", label: "Ministry of Finance" },
     { href: "https://www.mihud.gov.zm/", label: "Ministry of Infrastructure" },
-    { href: "https://beefco.com", label: "Beefco" },
   ];
 
   const legal = [
@@ -156,7 +155,7 @@ export const Footer = () => {
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <Mail className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                <Mail className="h-5 w-5 text-primary mt-0.5 shrink-0" />
                 <a
                   href="mailto:info@barotsehighway.com"
                   className="text-sm text-[#868584] dark:text-white hover:text-foreground transition-colors"
@@ -165,7 +164,7 @@ export const Footer = () => {
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <Phone className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                <Phone className="h-5 w-5 text-primary mt-0.5 shrink-0" />
                 <a
                   href="tel:+260123456789"
                   className="text-sm text-[#868584] dark:text-white hover:text-foreground transition-colors"
