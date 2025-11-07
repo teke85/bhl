@@ -1,126 +1,238 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import {
+  Users,
+  FileText,
+  ArrowRight,
+  ExternalLink,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
-function NewsUpdatesSection() {
-  const news = [
+const NewsUpdatesSlider = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [autoScroll, setAutoScroll] = useState(true);
+  const autoScrollIntervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  const newsItems = [
     {
-      id: 1,
+      category: "Infrastructure",
       title: "Major Infrastructure Milestone Reached",
       description:
         "The Barotse Highway project achieves completion of phase two, bringing modern connectivity to the region.",
-      image: "/infrastructure-project-milestone.jpg",
       date: "November 2024",
+      icon: FileText,
+      badge: "Latest",
+      badgeVariant: "default" as const,
+      image: "/infrastructure-project-milestone.jpg",
     },
     {
-      id: 2,
+      category: "Community Impact",
       title: "Community Impact Report Released",
       description:
         "New report highlights the positive economic and social impacts of improved road infrastructure across local communities.",
-      image: "/community-infrastructure-impact.jpg",
       date: "October 2024",
+      icon: Users,
+      badge: "Report",
+      badgeVariant: "secondary" as const,
+      image: "/community-infrastructure-impact.jpg",
     },
     {
-      id: 3,
+      category: "Partnership",
       title: "Partnership Expansion Announced",
       description:
         "Strategic partnerships with leading engineering firms strengthen project delivery and regional development initiatives.",
-      image: "/business-partnership-announcement.png",
       date: "September 2024",
+      icon: ExternalLink,
+      badge: "Partnership",
+      badgeVariant: "outline" as const,
+      image: "/business-partnership-announcement.png",
     },
   ];
 
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const loadGSAP = async () => {
+      const { gsap } = await import("gsap");
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const ctx = gsap.context(() => {
+        gsap.fromTo(
+          titleRef.current,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: titleRef.current,
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }, sectionRef);
+
+      return () => ctx.revert();
+    };
+
+    loadGSAP();
+  }, []);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
+    if (!autoScroll) return;
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    autoScrollIntervalRef.current = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % newsItems.length);
+    }, 5000);
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (autoScrollIntervalRef.current) {
+        clearInterval(autoScrollIntervalRef.current);
       }
     };
-  }, []);
+  }, [autoScroll, newsItems.length]);
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % newsItems.length);
+    setAutoScroll(false);
+    setTimeout(() => setAutoScroll(true), 8000); // Resume after 8 seconds
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? newsItems.length - 1 : prevIndex - 1
+    );
+    setAutoScroll(false);
+    setTimeout(() => setAutoScroll(true), 8000);
+  };
+
+  const currentItem = newsItems[currentIndex];
 
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-gray-50 dark:bg-neutral-900 py-20 md:py-28"
+      className="py-24 bg-gradient-to-b from-background to-muted/30"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-8">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400 tracking-wider uppercase mb-3">
-            Latest Updates
+          <h2
+            ref={titleRef}
+            className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6"
+          >
+            Latest News & Updates
           </h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-4">
-            News & Updates
-          </h3>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Stay informed about the latest developments and milestones in our
-            infrastructure projects
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Stay informed about project milestones, community initiatives, and
+            opportunities as we build Zambia&apos;s gateway to the west.
           </p>
         </div>
 
-        <div
-          className={`grid grid-cols-1 md:grid-cols-3 gap-8 transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-        >
-          {news.map((article, index) => (
-            <div
-              key={article.id}
-              className="group flex flex-col h-full bg-white dark:bg-neutral-800 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
-              style={{
-                transitionDelay: `${index * 100}ms`,
-              }}
+        <div className="relative">
+          {/* Navigation Arrows - Top Right */}
+          <div className="absolute -top-20 right-0 flex gap-2 z-10">
+            <Button
+              onClick={handlePrev}
+              variant="outline"
+              size="icon"
+              className="rounded-full border-2 hover:bg-primary hover:text-primary-foreground transition-all bg-transparent"
+              aria-label="Previous news item"
             >
-              <div className="relative h-48 overflow-hidden bg-gray-200 dark:bg-neutral-700">
+              <ChevronLeft className="w-5 h-5" />
+            </Button>
+            <Button
+              onClick={handleNext}
+              variant="outline"
+              size="icon"
+              className="rounded-full border-2 hover:bg-primary hover:text-primary-foreground transition-all bg-transparent"
+              aria-label="Next news item"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </Button>
+          </div>
+
+          {/* Slider Card */}
+          <Card className="group hover:shadow-xl transition-all duration-300 border-0 bg-white dark:bg-neutral-800 rounded-lg">
+            <CardHeader className="pb-0">
+              <div className="relative h-48 md:h-96 overflow-hidden bg-gray-200 dark:bg-neutral-700 rounded-t-lg -m-6 mb-6">
                 <Image
-                  src={article.image || "/placeholder.svg"}
-                  alt={article.title}
+                  src={currentItem.image || "/placeholder.svg"}
+                  alt={currentItem.title}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-
-              <div className="flex flex-col grow p-6">
-                <p className="text-sm font-semibold text-[#FDDB59] mb-2">
-                  {article.date}
+              <div className="flex items-center justify-between mb-3">
+                <p className="text-sm font-semibold text-[#FDDB59]">
+                  {currentItem.date}
                 </p>
-                <h4 className="text-xl font-bold text-black dark:text-white mb-3 group-hover:text-[#FDDB59] transition-colors duration-300">
-                  {article.title}
-                </h4>
-                <p className="text-gray-600 dark:text-gray-400 mb-6 grow">
-                  {article.description}
-                </p>
-
+              </div>
+              <CardTitle className="text-2xl md:text-3xl font-bold text-black dark:text-white group-hover:text-[#FDDB59] transition-colors">
+                {currentItem.title}
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="pt-4">
+              <CardDescription className="text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                {currentItem.description}
+              </CardDescription>
+              <div className="flex justify-center">
                 <Link href="/news">
-                  <Button className="w-full bg-[#FDDB59] text-black dark:text-black hover:bg-[#fdb913] dark:hover:bg-[#fdb913] font-semibold rounded-none transition-all duration-300">
+                  <Button className="w-32 bg-[#FDDB59] text-black dark:text-black hover:bg-[#fdb913] dark:hover:bg-[#fdb913] font-semibold rounded-none transition-all duration-300">
                     Read More
                   </Button>
                 </Link>
               </div>
-            </div>
-          ))}
+            </CardContent>
+          </Card>
+
+          <div className="flex justify-center gap-2 mt-6">
+            {newsItems.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setCurrentIndex(index);
+                  setAutoScroll(false);
+                  setTimeout(() => setAutoScroll(true), 8000);
+                }}
+                className={`h-2 rounded-full transition-all ${
+                  index === currentIndex
+                    ? "bg-primary w-8"
+                    : "bg-muted-foreground/30 w-2 hover:bg-muted-foreground/50"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="text-center mt-12">
+          <Button
+            size="lg"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3"
+          >
+            View All Updates
+            <ArrowRight className="w-5 h-5 ml-2" />
+          </Button>
         </div>
       </div>
     </section>
   );
-}
+};
 
-export default NewsUpdatesSection;
+export default NewsUpdatesSlider;
