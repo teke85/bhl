@@ -1,6 +1,33 @@
 {
   "version": 3,
-  "middleware": {},
-  "sortedMiddleware": [],
+  "middleware": {
+    "/": {
+      "files": [
+        "server/edge/chunks/_933bd871._.js",
+        "server/edge/chunks/[root-of-the-server]__8978dbac._.js",
+        "server/edge/chunks/turbopack-Teke_New bhl_new-bhl_edge-wrapper_c5b37c63.js"
+      ],
+      "name": "middleware",
+      "page": "/",
+      "matchers": [
+        {
+          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?(?:\\/((?!api|_next\\/static|_next\\/image|favicon.ico).*))(\\\\.json)?[\\/#\\?]?$",
+          "originalSource": "/((?!api|_next/static|_next/image|favicon.ico).*)"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "development",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "kJX27EaTm1DJ75xVZKB7MACNJHWtt0Hvoli6MtxwTEE=",
+        "__NEXT_PREVIEW_MODE_ID": "d0f4c9cff278114ecb27fbdd5e3c8d1a",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "d0e0b4294ae237fea44e002a62e0f315ce994ecc62d68622cae60e7848423325",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "fafc0e6dc9dc6d9bf516f2d88386a2cfd0c99cce24778961b61f86a38890c137"
+      }
+    }
+  },
+  "sortedMiddleware": [
+    "/"
+  ],
   "functions": {}
 }

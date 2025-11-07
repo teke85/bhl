@@ -1,14 +1,32 @@
-[00:00:19.799] Server  LOG      ✓ Ready in 12.9s
-[00:00:22.935] Server  LOG      ○ Compiling / ...
-[00:00:51.237] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760807367/assets_task_01k7qv5fyvf4w9z59md1d1nw59_1760663181_img_1_y5zbj4.webp" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+[00:00:11.612] Server  LOG      ✓ Ready in 8.6s
+[00:00:36.692] Server  LOG      ○ Compiling /news ...
+[00:00:54.072] Browser LOG     🔍 Fetching news via GraphQL...
+[00:01:04.993] Browser LOG     ✅ GraphQL Response: [{"content":"\n<p>Western Corridor Limited has announced the successful recruitment of over 500 local workers as part of its commitment to community development and empowerment. The employment initiative prioritizes hiring from communities along the highway corridor.</p>\n\n\n\n<p>The program includes comprehensive training in construction techniques, safety protocols, and skills development that will benefit workers beyond the project&#8217;s completion. Training sessions are conducted in partnership with the Technical Education, Vocational and Entrepreneurship Training Authority (TEVETA).</p>\n\n\n\n<p>Local resident Grace Mwape, who secured employment as a site supervisor, shared her experience: &#8220;This opportunity has transformed my family&#8217;s future. The skills I&#8217;m gaining will open doors for years to come.&#8221;</p>\n\n\n\n<p>The project continues to prioritize local employment and has committed to maintaining at least 70% local workforce throughout the construction phases.</p>\n","date":"2025-11-07T11:37:44","excerpt":"<p>Western Corridor Limited announces the successful recruitment of over 500 local workers, prioritizing community employment and skills development. The program includes comprehensive training in construction and safety, creating opportunities that extend beyond project completion.</p>\n","featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/2-scaled.jpg"}},"id":"cG9zdDoyOQ==","newsFields":{"author":"Sarah Nkandu","category":["Community"],"publishedDate":"2025-11-07T00:00:00+00:00","tags":"employment, local jobs, training, community development"},"slug":"community-employment-program-creates-500-local-jobs","title":"Community Employment Program Creates 500 Local Jobs"},{"content":"\n<p>The Western Corridor project has achieved a significant milestone with the successful completion of 100 kilometers of road rehabilitation. This achievement marks a major step forward in connecting the Northwestern and Western provinces of Zambia.</p>\n\n\n\n<p>The rehabilitation work includes complete road surface renewal, drainage system upgrades, and the installation of modern road safety features. Local communities have already begun to experience the benefits of improved connectivity and reduced travel times.</p>\n\n\n\n<p>&#8220;This milestone represents not just physical infrastructure, but a commitment to the economic development of the region,&#8221; said Project Manager Michael Banda. &#8220;We&#8217;re creating a corridor that will facilitate trade and improve the lives of thousands of Zambians.&#8221;</p>\n\n\n\n<p>The project is expected to be completed by 2026, with the full 371km stretch transforming regional connectivity across the SADC region.</p>\n\n\n\n<p></p>\n","date":"2025-11-07T11:07:40","excerpt":"<p>The Western Corridor project celebrates a major achievement with 100 kilometers of road rehabilitation completed. This milestone marks significant progress in connecting Northwestern and Western provinces, bringing improved connectivity and economic opportunities to local communities.</p>\n","featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/1-scaled.jpg"}},"id":"cG9zdDoyNg==","newsFields":{"author":"Michael Banda","category":["Project Update"],"publishedDate":"2025-11-07T00:00:00+00:00","tags":"milestone, infrastructure, progress, construction"},"slug":"western-corridor-project-reaches-100km-milestone","title":"Western Corridor Project Reaches 100km Milestone"}]
+[00:01:04.993] Browser LOG     📊 Number of articles: 2
+[00:01:04.993] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_300,c_limit/v1761708103/westerncorridor_logo_bih0jh.png" is using quality "70" which is not configured in images.qualities [75]. Please update your config to [70, 75].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:00:51.255] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760665364/assets_task_01k7qtsax5e07rk30yd0jmz51n_1760662789_img_0_kpen6d.webp" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+[00:01:40.173] Browser LOG     🔍 Fetching news via GraphQL...
+[00:01:47.070] Browser LOG     ✅ GraphQL Response: [{"content":"\n<p>Western Corridor Limited has announced the successful recruitment of over 500 local workers as part of its commitment to community development and empowerment. The employment initiative prioritizes hiring from communities along the highway corridor.</p>\n\n\n\n<p>The program includes comprehensive training in construction techniques, safety protocols, and skills development that will benefit workers beyond the project&#8217;s completion. Training sessions are conducted in partnership with the Technical Education, Vocational and Entrepreneurship Training Authority (TEVETA).</p>\n\n\n\n<p>Local resident Grace Mwape, who secured employment as a site supervisor, shared her experience: &#8220;This opportunity has transformed my family&#8217;s future. The skills I&#8217;m gaining will open doors for years to come.&#8221;</p>\n\n\n\n<p>The project continues to prioritize local employment and has committed to maintaining at least 70% local workforce throughout the construction phases.</p>\n","date":"2025-11-07T11:37:44","excerpt":"<p>Western Corridor Limited announces the successful recruitment of over 500 local workers, prioritizing community employment and skills development. The program includes comprehensive training in construction and safety, creating opportunities that extend beyond project completion.</p>\n","featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/2-scaled.jpg"}},"id":"cG9zdDoyOQ==","newsFields":{"author":"Sarah Nkandu","category":["Community"],"publishedDate":"2025-11-07T00:00:00+00:00","tags":"employment, local jobs, training, community development"},"slug":"community-employment-program-creates-500-local-jobs","title":"Community Employment Program Creates 500 Local Jobs"},{"content":"\n<p>The Western Corridor project has achieved a significant milestone with the successful completion of 100 kilometers of road rehabilitation. This achievement marks a major step forward in connecting the Northwestern and Western provinces of Zambia.</p>\n\n\n\n<p>The rehabilitation work includes complete road surface renewal, drainage system upgrades, and the installation of modern road safety features. Local communities have already begun to experience the benefits of improved connectivity and reduced travel times.</p>\n\n\n\n<p>&#8220;This milestone represents not just physical infrastructure, but a commitment to the economic development of the region,&#8221; said Project Manager Michael Banda. &#8220;We&#8217;re creating a corridor that will facilitate trade and improve the lives of thousands of Zambians.&#8221;</p>\n\n\n\n<p>The project is expected to be completed by 2026, with the full 371km stretch transforming regional connectivity across the SADC region.</p>\n\n\n\n<p></p>\n","date":"2025-11-07T11:07:40","excerpt":"<p>The Western Corridor project celebrates a major achievement with 100 kilometers of road rehabilitation completed. This milestone marks significant progress in connecting Northwestern and Western provinces, bringing improved connectivity and economic opportunities to local communities.</p>\n","featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/1-scaled.jpg"}},"id":"cG9zdDoyNg==","newsFields":{"author":"Michael Banda","category":["Project Update"],"publishedDate":"2025-11-07T00:00:00+00:00","tags":"milestone, infrastructure, progress, construction"},"slug":"western-corridor-project-reaches-100km-milestone","title":"Western Corridor Project Reaches 100km Milestone"}]
+[00:01:47.071] Browser LOG     📊 Number of articles: 2
+[00:01:47.072] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_300,c_limit/v1761708103/westerncorridor_logo_bih0jh.png" is using quality "70" which is not configured in images.qualities [75]. Please update your config to [70, 75].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:00:59.704] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760807367/assets_task_01k7qv5fyvf4w9z59md1d1nw59_1760663181_img_1_y5zbj4.webp" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+[00:13:55.980] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760880450/DJI_0442_formphotoeditor.com_bdwonh.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:00:59.704] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760665364/assets_task_01k7qtsax5e07rk30yd0jmz51n_1760662789_img_0_kpen6d.webp" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+[00:13:55.980] Browser LOG     🔍 Fetching gallery via GraphQL...
+[00:13:55.980] Browser LOG     [2;38;2;124;124;124m%s[0m 🔍 Fetching gallery via GraphQL...
+[00:14:01.022] Browser LOG     ✅ GraphQL Gallery Response: [{"featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/2-scaled.jpg"}},"galleryFields":{"category":["Equipment"],"description":"State-of-the-art earthmoving equipment in operation during road base preparation. The project utilizes modern machinery to ensure precision and efficiency in construction work.","order":3},"id":"cG9zdDozNg==","slug":"heavy-earthmoving-equipment-at-work","title":"Heavy Earthmoving Equipment at Work"},{"featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/1-scaled.jpg"}},"galleryFields":{"category":["Landscape"],"description":"The stunning landscape along the Western Corridor route showcasing Zambia's natural beauty. The highway winds through diverse terrain including forests, grasslands, and river valleys.","order":2},"id":"cG9zdDozNQ==","slug":"western-corridor-scenic-landscape","title":"Western Corridor Scenic Landscape"},{"featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/2-scaled.jpg"}},"galleryFields":{"category":["Chilombo"],"description":"Aerial photograph showing the Chilombo River Bridge construction progress. The 300-meter bridge is a critical component of the Western Corridor, spanning the Chilombo River and connecting communities on both sides.","order":1},"id":"cG9zdDozMw==","slug":"chilombo-river-bridge-aerial-view","title":"Chilombo River Bridge – Aerial View"}]
+[00:14:01.022] Browser LOG     📊 Number of items: 3
+[00:14:01.022] Browser LOG     ✅ GraphQL Gallery Response: [{"featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/2-scaled.jpg"}},"galleryFields":{"category":["Equipment"],"description":"State-of-the-art earthmoving equipment in operation during road base preparation. The project utilizes modern machinery to ensure precision and efficiency in construction work.","order":3},"id":"cG9zdDozNg==","slug":"heavy-earthmoving-equipment-at-work","title":"Heavy Earthmoving Equipment at Work"},{"featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/1-scaled.jpg"}},"galleryFields":{"category":["Landscape"],"description":"The stunning landscape along the Western Corridor route showcasing Zambia's natural beauty. The highway winds through diverse terrain including forests, grasslands, and river valleys.","order":2},"id":"cG9zdDozNQ==","slug":"western-corridor-scenic-landscape","title":"Western Corridor Scenic Landscape"},{"featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/2-scaled.jpg"}},"galleryFields":{"category":["Chilombo"],"description":"Aerial photograph showing the Chilombo River Bridge construction progress. The 300-meter bridge is a critical component of the Western Corridor, spanning the Chilombo River and connecting communities on both sides.","order":1},"id":"cG9zdDozMw==","slug":"chilombo-river-bridge-aerial-view","title":"Chilombo River Bridge – Aerial View"}]
+[00:14:01.022] Browser LOG     📊 Number of items: 3
+[00:15:21.916] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_300,c_limit/v1761708103/westerncorridor_logo_bih0jh.png" is using quality "70" which is not configured in images.qualities [75]. Please update your config to [70, 75].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:00:59.704] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:15:21.933] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760880450/DJI_0442_formphotoeditor.com_bdwonh.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:15:25.008] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_300,c_limit/v1761708103/westerncorridor_logo_bih0jh.png" is using quality "70" which is not configured in images.qualities [75]. Please update your config to [70, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:15:25.972] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760880450/DJI_0442_formphotoeditor.com_bdwonh.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:15:25.972] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -21,39 +39,44 @@ It can also happen if the client has a browser extension installed which messes 
 %s%s https://react.dev/link/hydration-mismatch 
 
   ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+    <ScrollAndFocusHandler segmentPath={[...]}>
+      <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="gallery/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
               <RedirectBoundary>
                 <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                  <InnerLayoutRouter url="/gallery" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="/Teke/New ...">
                       <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <script>
-                      <RootLayout>
-                        <html lang="en" suppressHydrationWarning={true}>
-                          <body
-                            className="montserrat_aee0da2b-module__NbqNuq__variable open_sans_a4adf610-module__GpCr6q_..."
--                           cz-shortcut-listen="true"
-                          >
+                      <GalleryPage>
+                        <main className="min-h-scre...">
+                          <nav>
+                          <GalleryHero>
+                            <section className="relative w...">
+                              <div className="absolute b...">
+                                <img>
+                                <ImagePreload>
+                                <div
++                                 className="absolute inset-0 bg-[#0a0a0a]/70"
+-                                 className="absolute inset-0 bg-black/60"
+                                >
+                              ...
+                          ...
+                    ...
                   ...
+        ...
 
-[00:02:15.788] Server  LOG      ✓ Compiled in 3.4s
-[00:46:42.055] Server  LOG      ○ Compiling /contact ...
-[00:47:24.332] Server  LOG      ○ Compiling /_not-found/page ...
-[00:48:02.944] Server  LOG      ○ Compiling /projects ...
-[00:51:54.274] Server  LOG      ✓ Compiled in 15.5s
-[01:34:00.466] Server  LOG      ○ Compiling /gallery ...
-[01:34:05.214] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760880463/DJI_0441_formphotoeditor.com_mulaxu.jpg" has legacy prop "layout". Did you forget to run the codemod?
-Read more: https://nextjs.org/docs/messages/next-image-upgrade-to-13
-[02:02:57.840] Server  LOG      ○ Compiling /about ...
-[03:34:33.483] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:15:25.972] Browser LOG     🔍 Fetching gallery via GraphQL...
+[00:15:30.979] Browser LOG     ✅ GraphQL Gallery Response: [{"featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/1-scaled.jpg"}},"galleryFields":{"category":["Community"],"description":"Local community members participating in a stakeholder engagement session in Kaoma District. The project prioritizes transparent communication and community involvement in all development phases.","order":4},"id":"cG9zdDozNw==","slug":"community-engagement-meeting-kaoma-district","title":"Community Engagement Meeting – Kaoma District"},{"featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/2-scaled.jpg"}},"galleryFields":{"category":["Equipment"],"description":"State-of-the-art earthmoving equipment in operation during road base preparation. The project utilizes modern machinery to ensure precision and efficiency in construction work.","order":3},"id":"cG9zdDozNg==","slug":"heavy-earthmoving-equipment-at-work","title":"Heavy Earthmoving Equipment at Work"},{"featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/1-scaled.jpg"}},"galleryFields":{"category":["Landscape"],"description":"The stunning landscape along the Western Corridor route showcasing Zambia's natural beauty. The highway winds through diverse terrain including forests, grasslands, and river valleys.","order":2},"id":"cG9zdDozNQ==","slug":"western-corridor-scenic-landscape","title":"Western Corridor Scenic Landscape"},{"featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/2-scaled.jpg"}},"galleryFields":{"category":["Chilombo"],"description":"Aerial photograph showing the Chilombo River Bridge construction progress. The 300-meter bridge is a critical component of the Western Corridor, spanning the Chilombo River and connecting communities on both sides.","order":1},"id":"cG9zdDozMw==","slug":"chilombo-river-bridge-aerial-view","title":"Chilombo River Bridge – Aerial View"}]
+[00:15:30.979] Browser LOG     📊 Number of items: 4
+[00:17:28.488] Browser WARN    Image with src "https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/2-scaled.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[00:17:35.534] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_300,c_limit/v1761708103/westerncorridor_logo_bih0jh.png" is using quality "70" which is not configured in images.qualities [75]. Please update your config to [70, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:17:35.534] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760880450/DJI_0442_formphotoeditor.com_bdwonh.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:17:35.534] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -66,30 +89,82 @@ It can also happen if the client has a browser extension installed which messes 
 %s%s https://react.dev/link/hydration-mismatch 
 
   ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/about" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+    <ScrollAndFocusHandler segmentPath={[...]}>
+      <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="gallery/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
               <RedirectBoundary>
                 <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                  <InnerLayoutRouter url="/gallery" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="/Teke/New ...">
                       <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <script>
-                      <RootLayout>
-                        <html lang="en" suppressHydrationWarning={true}>
-                          <body
-                            className="montserrat_aee0da2b-module__NbqNuq__variable open_sans_a4adf610-module__GpCr6q_..."
--                           cz-shortcut-listen="true"
-                          >
+                      <GalleryPage>
+                        <main className="min-h-scre...">
+                          <nav>
+                          <GalleryHero>
+                            <section className="relative w...">
+                              <div className="absolute b...">
+                                <img>
+                                <ImagePreload>
+                                <div
++                                 className="absolute inset-0 bg-[#0a0a0a]/70"
+-                                 className="absolute inset-0 bg-black/60"
+                                >
+                              ...
+                          ...
+                    ...
                   ...
+        ...
 
-[22:33:28.428] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760807367/assets_task_01k7qv5fyvf4w9z59md1d1nw59_1760663181_img_1_y5zbj4.webp" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+[00:17:35.534] Browser LOG     🔍 Fetching gallery via GraphQL...
+[00:17:40.974] Browser LOG     ✅ GraphQL Gallery Response: [{"featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/1-scaled.jpg"}},"galleryFields":{"category":["Community"],"description":"Local community members participating in a stakeholder engagement session in Kaoma District. The project prioritizes transparent communication and community involvement in all development phases.","order":4},"id":"cG9zdDozNw==","slug":"community-engagement-meeting-kaoma-district","title":"Community Engagement Meeting – Kaoma District"},{"featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/2-scaled.jpg"}},"galleryFields":{"category":["Equipment"],"description":"State-of-the-art earthmoving equipment in operation during road base preparation. The project utilizes modern machinery to ensure precision and efficiency in construction work.","order":3},"id":"cG9zdDozNg==","slug":"heavy-earthmoving-equipment-at-work","title":"Heavy Earthmoving Equipment at Work"},{"featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/1-scaled.jpg"}},"galleryFields":{"category":["Landscape"],"description":"The stunning landscape along the Western Corridor route showcasing Zambia's natural beauty. The highway winds through diverse terrain including forests, grasslands, and river valleys.","order":2},"id":"cG9zdDozNQ==","slug":"western-corridor-scenic-landscape","title":"Western Corridor Scenic Landscape"},{"featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/2-scaled.jpg"}},"galleryFields":{"category":["Chilombo"],"description":"Aerial photograph showing the Chilombo River Bridge construction progress. The 300-meter bridge is a critical component of the Western Corridor, spanning the Chilombo River and connecting communities on both sides.","order":1},"id":"cG9zdDozMw==","slug":"chilombo-river-bridge-aerial-view","title":"Chilombo River Bridge – Aerial View"}]
+[00:17:40.974] Browser LOG     📊 Number of items: 4
+[00:18:25.861] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_300,c_limit/v1761708103/westerncorridor_logo_bih0jh.png" is using quality "70" which is not configured in images.qualities [75]. Please update your config to [70, 75].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[22:33:28.465] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760665364/assets_task_01k7qtsax5e07rk30yd0jmz51n_1760662789_img_0_kpen6d.webp" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+[00:18:25.861] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760880450/DJI_0442_formphotoeditor.com_bdwonh.jpg" is using quality "100" which is not configured in images.qualities [75]. Please update your config to [100, 75].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:18:25.861] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <ScrollAndFocusHandler segmentPath={[...]}>
+      <InnerScrollAndFocusHandler segmentPath={[...]} focusAndScrollRef={{apply:false, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="gallery/" loading={null}>
+            <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url="/gallery" tree={[...]} params={{}} cacheNode={{lazyData:null, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="/Teke/New ...">
+                      <SegmentTrieNode>
+                      <GalleryPage>
+                        <main className="min-h-scre...">
+                          <nav>
+                          <GalleryHero>
+                            <section className="relative w...">
+                              <div className="absolute b...">
+                                <img>
+                                <ImagePreload>
+                                <div
++                                 className="absolute inset-0 bg-[#0a0a0a]/70"
+-                                 className="absolute inset-0 bg-black/60"
+                                >
+                              ...
+                          ...
+                    ...
+                  ...
+        ...
+
+[00:18:25.861] Browser LOG     🔍 Fetching gallery via GraphQL...
+[00:18:29.981] Browser LOG     ✅ GraphQL Gallery Response: [{"featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/1-scaled.jpg"}},"galleryFields":{"category":["Community"],"description":"Local community members participating in a stakeholder engagement session in Kaoma District. The project prioritizes transparent communication and community involvement in all development phases.","order":4},"id":"cG9zdDozNw==","slug":"community-engagement-meeting-kaoma-district","title":"Community Engagement Meeting – Kaoma District"},{"featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/2-scaled.jpg"}},"galleryFields":{"category":["Equipment"],"description":"State-of-the-art earthmoving equipment in operation during road base preparation. The project utilizes modern machinery to ensure precision and efficiency in construction work.","order":3},"id":"cG9zdDozNg==","slug":"heavy-earthmoving-equipment-at-work","title":"Heavy Earthmoving Equipment at Work"},{"featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/1-scaled.jpg"}},"galleryFields":{"category":["Landscape"],"description":"The stunning landscape along the Western Corridor route showcasing Zambia's natural beauty. The highway winds through diverse terrain including forests, grasslands, and river valleys.","order":2},"id":"cG9zdDozNQ==","slug":"western-corridor-scenic-landscape","title":"Western Corridor Scenic Landscape"},{"featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/2-scaled.jpg"}},"galleryFields":{"category":["Chilombo"],"description":"Aerial photograph showing the Chilombo River Bridge construction progress. The 300-meter bridge is a critical component of the Western Corridor, spanning the Chilombo River and connecting communities on both sides.","order":1},"id":"cG9zdDozMw==","slug":"chilombo-river-bridge-aerial-view","title":"Chilombo River Bridge – Aerial View"}]
+[00:18:29.981] Browser LOG     📊 Number of items: 4
