@@ -17,6 +17,8 @@ export const Footer = () => {
     { href: "/regional-impact", label: "Regional Impact" },
     { href: "/resettlement", label: "Resettlement" },
     { href: "/careers", label: "Careers" },
+    { href: "/news", label: "News" },
+    { href: "/gallery", label: "Gallery" },
   ];
 
   const resources = [
@@ -161,15 +163,6 @@ export const Footer = () => {
                   className="text-sm text-[#868584] dark:text-white hover:text-foreground transition-colors"
                 >
                   buksvr@bhl.co.zm
-                </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <Phone className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                <a
-                  href="tel:+260123456789"
-                  className="text-sm text-[#868584] dark:text-white hover:text-foreground transition-colors"
-                >
-                  +260 123 456 789
                 </a>
               </li>
             </ul>

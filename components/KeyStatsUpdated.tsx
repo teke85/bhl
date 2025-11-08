@@ -38,7 +38,7 @@ const KeyStatsUpdated = () => {
     },
     {
       value: "2025",
-      label: "FINANCIAL CLOSE",
+      label: "START OF CONSTRUCTION",
       description: "TARGET YEAR",
       icon: <Zap className="w-8 h-8" />,
       highlight: true,

@@ -2,7 +2,6 @@
 
 import TimelineHero from "@/components/timeline/TimelineHero";
 import TimelineVertical from "@/components/timeline/TimelineVertical";
-import MilestoneHighlights from "@/components/timeline/MilestoneHighlights";
 import KeyAchievements from "@/components/timeline/KeyAchievements";
 import UpcomingMilestones from "@/components/timeline/UpcomingMilestones";
 import { Footer } from "@/components/FooterUpdated";

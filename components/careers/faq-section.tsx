@@ -8,14 +8,14 @@ import {
 export const FAQSection = () => {
   const faqs = [
     {
-      question: "How can I send my resume to Barotse Highway Limited?",
+      question: "How can I send my resume to Western Corridor Limited?",
       answer:
-        "You can send your resume directly through our employment platform on LinkedIn, selecting the offer that best fits your profile. If you do not find an offer that matches your professional experience or interests, you can share your CV with us by sending an email to careers@barotsehighway.com",
+        "You can send your resume directly through our employment platform on LinkedIn, selecting the offer that best fits your profile. If you do not find an offer that matches your professional experience or interests, you can share your CV with us by sending an email to careers@westerncorridor.com",
     },
     {
-      question: "What kind of profiles is BHL looking for?",
+      question: "What kind of profiles is Western Corridor looking for?",
       answer:
-        "At BHL we are looking for professionals passionate about infrastructure development, with experience in areas such as civil engineering, project management, finance, construction, or environmental management. We also value multidisciplinary profiles interested in sustainable development and community impact.",
+        "At Western Corridor we are looking for professionals passionate about infrastructure development, with experience in areas such as civil engineering, project management, finance, construction, or environmental management. We also value multidisciplinary profiles interested in sustainable development and community impact.",
     },
     {
       question:
@@ -24,7 +24,7 @@ export const FAQSection = () => {
         "Yes, we have specific programs for students and recent graduates who wish to gain experience in the infrastructure and transportation sector. You can check our internship vacancies in the employment section or contact our HR department for more information.",
     },
     {
-      question: "What benefits does BHL offer?",
+      question: "What benefits does Western Corridor offer?",
       answer:
         "We offer competitive compensation packages including health insurance, retirement benefits, professional development opportunities, performance bonuses, and flexible working arrangements. Our HR team is available to explain every detail and answer any questions you may have once we start the selection process.",
     },
@@ -34,7 +34,7 @@ export const FAQSection = () => {
         "Our recruitment process typically includes: initial application review, phone screening, technical assessment (if applicable), in-person or virtual interviews with the hiring team, and final offer. The entire process usually takes 3-4 weeks, though this may vary depending on the position.",
     },
     {
-      question: "Does BHL support professional development?",
+      question: "Does Western Corridor support professional development?",
       answer:
         "We are committed to the continuous growth of our team members. We offer training programs, mentorship opportunities, conference attendance, professional certifications support, and clear career progression paths within the organization.",
     },
@@ -49,7 +49,7 @@ export const FAQSection = () => {
               Frequently Asked Questions
             </h2>
             <p className="text-[#868584] dark:text-white font-paragraph">
-              Find answers to common questions about careers at Barotse Highway
+              Find answers to common questions about careers at Western Corridor
               Limited.
             </p>
           </div>

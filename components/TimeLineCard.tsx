@@ -56,7 +56,7 @@ const TimelineCard = ({
             </div>
 
             {/* Year (rotated on the side) */}
-            <div className="absolute right-[-1.5rem] top-1/2 -translate-y-1/2 rotate-90">
+            <div className="absolute -right-6 top-1/2 -translate-y-1/2 rotate-90">
               <span className="text-white text-xl font-semibold">{year}</span>
             </div>
           </div>
