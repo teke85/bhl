@@ -11,6 +11,7 @@ import VideoHeroSection from "@/components/BigVideoComponent";
 // import { BuildingExcellence } from "@/components/BuildingExcellence";
 import SectionWrapper from "@/components/SectionWrapper";
 import NewsUpdatesSection from "@/components/home/NewsUpdates";
+import PressReleaseSection from "@/components/home/PressReleaseSection";
 
 export default function HomePage() {
   return (
@@ -18,6 +19,10 @@ export default function HomePage() {
       <div className="w-full mx-auto">
         <SectionWrapper fullWidth>
           <HeroCarousel />
+        </SectionWrapper>
+
+        <SectionWrapper>
+          <PressReleaseSection />
         </SectionWrapper>
 
         <SectionWrapper>

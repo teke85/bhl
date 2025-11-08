@@ -21,16 +21,33 @@ export default function NewsPage() {
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
+  // Categories from WordPress ACF - matching exactly
+  const categories = [
+    "Project Update",
+    "Press Release",
+    "Announcement",
+    "Community",
+  ];
+
   useEffect(() => {
     const fetchNews = async () => {
       try {
         console.log("🔍 Fetching news via GraphQL...");
+        console.log("🎯 Selected category:", selectedCategory);
+
         const data = selectedCategory
           ? await getNewsByCategory(selectedCategory)
           : await getAllNews();
 
         console.log("✅ GraphQL Response:", data);
         console.log("📊 Number of articles:", data?.length);
+
+        // Debug: Log categories from fetched data
+        if (data && data.length > 0) {
+          console.log("📁 Categories in data:",
+            data.map(article => article.newsFields?.category)
+          );
+        }
 
         setNews(data || []);
       } catch (error) {
@@ -43,13 +60,6 @@ export default function NewsPage() {
 
     fetchNews();
   }, [selectedCategory]);
-
-  const categories = [
-    "Project Update",
-    "Press Release",
-    "Announcement",
-    "Community",
-  ];
 
   if (loading) {
     return (
@@ -67,11 +77,14 @@ export default function NewsPage() {
       {/* Category Filter */}
       <section className="px-4 py-12">
         <div className="container mx-auto max-w-7xl">
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap justify-center gap-4">
             <button
-              onClick={() => setSelectedCategory(null)}
+              onClick={() => {
+                console.log("🔄 Resetting to All News");
+                setSelectedCategory(null);
+              }}
               className={`px-6 py-3 rounded-full font-paragraph transition-all duration-300 ${!selectedCategory
-                ? "bg-[#fdb913] text-black scale-105"
+                ? "bg-[#fdb913] text-black scale-105 shadow-lg"
                 : "bg-card dark:bg-[#1a1a1a] text-foreground dark:text-white hover:bg-[#fdb913]/20 border border-border dark:border-white/10"
                 }`}
             >
@@ -80,9 +93,12 @@ export default function NewsPage() {
             {categories.map((cat) => (
               <button
                 key={cat}
-                onClick={() => setSelectedCategory(cat)}
+                onClick={() => {
+                  console.log("🔄 Filtering by category:", cat);
+                  setSelectedCategory(cat);
+                }}
                 className={`px-6 py-3 rounded-full font-paragraph transition-all duration-300 ${selectedCategory === cat
-                  ? "bg-[#fdb913] text-black scale-105"
+                  ? "bg-[#fdb913] text-black scale-105 shadow-lg"
                   : "bg-card dark:bg-[#1a1a1a] text-foreground dark:text-white hover:bg-[#fdb913]/20 border border-border dark:border-white/10"
                   }`}
               >
@@ -118,7 +134,9 @@ export default function NewsPage() {
                         />
                         <div className="absolute top-4 left-4">
                           <span className="px-3 py-1 bg-[#fdb913] text-black text-sm font-semibold rounded-full">
-                            {article.newsFields?.category || "News"}
+                            {Array.isArray(article.newsFields?.category)
+                              ? article.newsFields.category.join(', ')
+                              : article.newsFields?.category || "News"}
                           </span>
                         </div>
                       </div>
@@ -153,7 +171,9 @@ export default function NewsPage() {
           ) : (
             <div className="text-center py-20">
               <p className="text-xl text-[#868584] dark:text-white font-paragraph">
-                No news articles found in this category.
+                {selectedCategory
+                  ? `No news articles found in "${selectedCategory}" category.`
+                  : "No news articles found."}
               </p>
             </div>
           )}

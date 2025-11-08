@@ -22,16 +22,28 @@ export default function GalleryGrid() {
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
+  // Gallery categories - VERIFY these match your WordPress ACF exactly!
+  const categories = ["Chilombo", "Landscape", "Equipment", "Community"];
+
   useEffect(() => {
     const fetchGallery = async () => {
       try {
         console.log("🔍 Fetching gallery via GraphQL...");
+        console.log("🎯 Selected category:", selectedCategory);
+
         const data = selectedCategory
           ? await getGalleryByCategory(selectedCategory)
           : await getAllGallery();
 
         console.log("✅ GraphQL Gallery Response:", data);
         console.log("📊 Number of items:", data?.length);
+
+        // Debug: Log categories from fetched data
+        if (data && data.length > 0) {
+          console.log("📁 Categories in gallery data:",
+            data.map(item => item.galleryFields?.category)
+          );
+        }
 
         setGalleryImages(data || []);
       } catch (error) {
@@ -43,8 +55,6 @@ export default function GalleryGrid() {
 
     fetchGallery();
   }, [selectedCategory]);
-
-  const categories = ["Chilombo", "Landscape", "Equipment", "Community"];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -90,11 +100,15 @@ export default function GalleryGrid() {
           </p>
         </div>
 
+        {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           <button
-            onClick={() => setSelectedCategory(null)}
+            onClick={() => {
+              console.log("🔄 Resetting to All Gallery");
+              setSelectedCategory(null);
+            }}
             className={`px-6 py-3 rounded-full font-paragraph transition-all duration-300 ${!selectedCategory
-              ? "bg-[#fdb913] text-black scale-105"
+              ? "bg-[#fdb913] text-black scale-105 shadow-lg"
               : "bg-card dark:bg-[#1a1a1a] text-foreground dark:text-white hover:bg-[#fdb913]/20 border border-border dark:border-white/10"
               }`}
           >
@@ -103,9 +117,12 @@ export default function GalleryGrid() {
           {categories.map((cat) => (
             <button
               key={cat}
-              onClick={() => setSelectedCategory(cat)}
+              onClick={() => {
+                console.log("🔄 Filtering gallery by category:", cat);
+                setSelectedCategory(cat);
+              }}
               className={`px-6 py-3 rounded-full font-paragraph transition-all duration-300 ${selectedCategory === cat
-                ? "bg-[#fdb913] text-black scale-105"
+                ? "bg-[#fdb913] text-black scale-105 shadow-lg"
                 : "bg-card dark:bg-[#1a1a1a] text-foreground dark:text-white hover:bg-[#fdb913]/20 border border-border dark:border-white/10"
                 }`}
             >
@@ -114,6 +131,7 @@ export default function GalleryGrid() {
           ))}
         </div>
 
+        {/* Gallery Grid */}
         {galleryImages.length > 0 ? (
           <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
@@ -143,7 +161,9 @@ export default function GalleryGrid() {
                     <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <p className="font-heading font-semibold">{item.title}</p>
                       <p className="text-sm font-paragraph capitalize">
-                        {item.galleryFields?.category || "Gallery"}
+                        {Array.isArray(item.galleryFields?.category)
+                          ? item.galleryFields.category.join(', ')
+                          : item.galleryFields?.category || "Gallery"}
                       </p>
                     </div>
                   </div>
@@ -154,12 +174,15 @@ export default function GalleryGrid() {
         ) : (
           <div className="text-center py-20">
             <p className="text-xl text-[#868584] dark:text-white font-paragraph">
-              No images found in this category.
+              {selectedCategory
+                ? `No images found in "${selectedCategory}" category.`
+                : "No gallery images found."}
             </p>
           </div>
         )}
       </div>
 
+      {/* Image Modal */}
       {selectedImage && (
         <motion.div
           className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
