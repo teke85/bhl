@@ -1,12 +1,226 @@
-[00:00:19.371] Server  LOG      ✓ Ready in 16.2s
-[00:30:22.049] Server  LOG      ○ Compiling /news/[slug] ...
-[00:32:13.766] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:32:15.799] Browser DEBUG   TSS: Counted history being replaced
-[00:32:15.799] Browser DEBUG   TSS: Caught history
-[00:32:15.799] Browser DEBUG   TSS: Checking if repeated 500 times for interval 1000 against data:  {}
-[00:32:15.799] Browser LOG     🔍 Fetching article: president-hakainde-launches-landmark-western-corridor-transformation-project
-[00:32:22.959] Browser ERROR   ❌ GraphQL Error filtering news: {}
-[00:32:22.959] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_300,c_limit/v1761708103/westerncorridor_logo_bih0jh.png" is using quality "70" which is not configured in images.qualities [75]. Please update your config to [70, 75].
-Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[01:00:09.551] Server  LOG      ✓ Compiled in 66.3s
-[01:18:57.253] Server  LOG      ✓ Compiled in 20.8s
+[00:00:34.658] Server  LOG      ✓ Ready in 21.9s
+[00:00:37.784] Server  LOG      ○ Compiling / ...
+[00:01:14.198] Server  ERROR    ⨯ ./app/page.tsx:14:1
+Parsing ecmascript source code failed
+  12 | import SectionWrapper from "@/components/SectionWrapper";
+  13 | import NewsUpdatesSection from "@/components/home/NewsUpdates";
+> 14 | <<<<<<< HEAD:app/page.tsx
+     | ^^^^^^^
+  15 | import PressReleaseSection from "@/components/home/PressReleaseSection";
+  16 | =======
+  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
+
+Merge conflict marker encountered.
+
+
+
+./app/page.tsx:16:1
+Parsing ecmascript source code failed
+  14 | <<<<<<< HEAD:app/page.tsx
+  15 | import PressReleaseSection from "@/components/home/PressReleaseSection";
+> 16 | =======
+     | ^^^^^^^
+  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
+  18 | >>>>>>> origin/CleanUpCareersPage:frontend/app/page.tsx
+  19 |
+
+Merge conflict marker encountered.
+
+
+
+./app/page.tsx:18:1
+Parsing ecmascript source code failed
+  16 | =======
+  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
+> 18 | >>>>>>> origin/CleanUpCareersPage:frontend/app/page.tsx
+     | ^^^^^^^
+  19 |
+  20 | export default function HomePage() {
+  21 |   return (
+
+Merge conflict marker encountered.
+
+
+[00:01:17.104] Server  ERROR    ⨯ Error: Cannot find module 'critters'
+Require stack:
+- D:\2025\bhl\node_modules\next\dist\server\post-process.js
+- D:\2025\bhl\node_modules\next\dist\server\render.js
+- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\module.js
+- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\builtin\_error.js
+- D:\2025\bhl\node_modules\next\dist\server\load-default-error-components.js
+- D:\2025\bhl\node_modules\next\dist\server\dev\next-dev-server.js
+- D:\2025\bhl\node_modules\next\dist\server\next.js
+- D:\2025\bhl\node_modules\next\dist\server\lib\start-server.js
+[00:01:17.164] Server  ERROR   ModuleBuildError: ./app/page.tsx:14:1
+Parsing ecmascript source code failed
+  12 | import SectionWrapper from "@/components/SectionWrapper";
+  13 | import NewsUpdatesSection from "@/components/home/NewsUpdates";
+> 14 | <<<<<<< HEAD:app/page.tsx
+     | ^^^^^^^
+  15 | import PressReleaseSection from "@/components/home/PressReleaseSection";
+  16 | =======
+  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
+
+Merge conflict marker encountered.
+
+
+
+./app/page.tsx:16:1
+Parsing ecmascript source code failed
+  14 | <<<<<<< HEAD:app/page.tsx
+  15 | import PressReleaseSection from "@/components/home/PressReleaseSection";
+> 16 | =======
+     | ^^^^^^^
+  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
+  18 | >>>>>>> origin/CleanUpCareersPage:frontend/app/page.tsx
+  19 |
+
+Merge conflict marker encountered.
+
+
+
+./app/page.tsx:18:1
+Parsing ecmascript source code failed
+  16 | =======
+  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
+> 18 | >>>>>>> origin/CleanUpCareersPage:frontend/app/page.tsx
+     | ^^^^^^^
+  19 |
+  20 | export default function HomePage() {
+  21 |   return (
+
+Merge conflict marker encountered.
+
+
+[00:01:17.255] Server  ERROR    ⨯ Error: Cannot find module 'critters'
+Require stack:
+- D:\2025\bhl\node_modules\next\dist\server\post-process.js
+- D:\2025\bhl\node_modules\next\dist\server\render.js
+- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\module.js
+- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\builtin\_error.js
+- D:\2025\bhl\node_modules\next\dist\server\load-default-error-components.js
+- D:\2025\bhl\node_modules\next\dist\server\dev\next-dev-server.js
+- D:\2025\bhl\node_modules\next\dist\server\next.js
+- D:\2025\bhl\node_modules\next\dist\server\lib\start-server.js
+[00:01:17.290] Server  ERROR   Error: Cannot find module 'critters'
+Require stack:
+- D:\2025\bhl\node_modules\next\dist\server\post-process.js
+- D:\2025\bhl\node_modules\next\dist\server\render.js
+- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\module.js
+- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\builtin\_error.js
+- D:\2025\bhl\node_modules\next\dist\server\load-default-error-components.js
+- D:\2025\bhl\node_modules\next\dist\server\dev\next-dev-server.js
+- D:\2025\bhl\node_modules\next\dist\server\next.js
+- D:\2025\bhl\node_modules\next\dist\server\lib\start-server.js
+[00:08:15.954] Server  ERROR    ⨯ ./app/page.tsx:14:1
+Parsing ecmascript source code failed
+  12 | import SectionWrapper from "@/components/SectionWrapper";
+  13 | import NewsUpdatesSection from "@/components/home/NewsUpdates";
+> 14 | <<<<<<< HEAD:app/page.tsx
+     | ^^^^^^^
+  15 | import PressReleaseSection from "@/components/home/PressReleaseSection";
+  16 | =======
+  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
+
+Merge conflict marker encountered.
+
+
+
+./app/page.tsx:16:1
+Parsing ecmascript source code failed
+  14 | <<<<<<< HEAD:app/page.tsx
+  15 | import PressReleaseSection from "@/components/home/PressReleaseSection";
+> 16 | =======
+     | ^^^^^^^
+  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
+  18 | >>>>>>> origin/CleanUpCareersPage:frontend/app/page.tsx
+  19 |
+
+Merge conflict marker encountered.
+
+
+
+./app/page.tsx:18:1
+Parsing ecmascript source code failed
+  16 | =======
+  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
+> 18 | >>>>>>> origin/CleanUpCareersPage:frontend/app/page.tsx
+     | ^^^^^^^
+  19 |
+  20 | export default function HomePage() {
+  21 |   return (
+
+Merge conflict marker encountered.
+
+
+[00:08:18.114] Server  ERROR    ⨯ Error: Cannot find module 'critters'
+Require stack:
+- D:\2025\bhl\node_modules\next\dist\server\post-process.js
+- D:\2025\bhl\node_modules\next\dist\server\render.js
+- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\module.js
+- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\builtin\_error.js
+- D:\2025\bhl\node_modules\next\dist\server\load-default-error-components.js
+- D:\2025\bhl\node_modules\next\dist\server\dev\next-dev-server.js
+- D:\2025\bhl\node_modules\next\dist\server\next.js
+- D:\2025\bhl\node_modules\next\dist\server\lib\start-server.js
+[00:08:18.189] Server  ERROR   ModuleBuildError: ./app/page.tsx:14:1
+Parsing ecmascript source code failed
+  12 | import SectionWrapper from "@/components/SectionWrapper";
+  13 | import NewsUpdatesSection from "@/components/home/NewsUpdates";
+> 14 | <<<<<<< HEAD:app/page.tsx
+     | ^^^^^^^
+  15 | import PressReleaseSection from "@/components/home/PressReleaseSection";
+  16 | =======
+  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
+
+Merge conflict marker encountered.
+
+
+
+./app/page.tsx:16:1
+Parsing ecmascript source code failed
+  14 | <<<<<<< HEAD:app/page.tsx
+  15 | import PressReleaseSection from "@/components/home/PressReleaseSection";
+> 16 | =======
+     | ^^^^^^^
+  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
+  18 | >>>>>>> origin/CleanUpCareersPage:frontend/app/page.tsx
+  19 |
+
+Merge conflict marker encountered.
+
+
+
+./app/page.tsx:18:1
+Parsing ecmascript source code failed
+  16 | =======
+  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
+> 18 | >>>>>>> origin/CleanUpCareersPage:frontend/app/page.tsx
+     | ^^^^^^^
+  19 |
+  20 | export default function HomePage() {
+  21 |   return (
+
+Merge conflict marker encountered.
+
+
+[00:08:18.310] Server  ERROR    ⨯ Error: Cannot find module 'critters'
+Require stack:
+- D:\2025\bhl\node_modules\next\dist\server\post-process.js
+- D:\2025\bhl\node_modules\next\dist\server\render.js
+- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\module.js
+- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\builtin\_error.js
+- D:\2025\bhl\node_modules\next\dist\server\load-default-error-components.js
+- D:\2025\bhl\node_modules\next\dist\server\dev\next-dev-server.js
+- D:\2025\bhl\node_modules\next\dist\server\next.js
+- D:\2025\bhl\node_modules\next\dist\server\lib\start-server.js
+[00:08:18.351] Server  ERROR   Error: Cannot find module 'critters'
+Require stack:
+- D:\2025\bhl\node_modules\next\dist\server\post-process.js
+- D:\2025\bhl\node_modules\next\dist\server\render.js
+- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\module.js
+- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\builtin\_error.js
+- D:\2025\bhl\node_modules\next\dist\server\load-default-error-components.js
+- D:\2025\bhl\node_modules\next\dist\server\dev\next-dev-server.js
+- D:\2025\bhl\node_modules\next\dist\server\next.js
+- D:\2025\bhl\node_modules\next\dist\server\lib\start-server.js
