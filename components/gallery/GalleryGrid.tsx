@@ -23,7 +23,7 @@ export default function GalleryGrid() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   // Gallery categories - VERIFY these match your WordPress ACF exactly!
-  const categories = ["Chilombo", "Landscape", "Equipment", "Community"];
+  const categories = ["Chilombo", "Landscape", "Equipment", "Community", "Groundbreaking"];
 
   useEffect(() => {
     const fetchGallery = async () => {
