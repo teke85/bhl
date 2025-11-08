@@ -11,11 +11,7 @@ import VideoHeroSection from "@/components/BigVideoComponent";
 // import { BuildingExcellence } from "@/components/BuildingExcellence";
 import SectionWrapper from "@/components/SectionWrapper";
 import NewsUpdatesSection from "@/components/home/NewsUpdates";
-<<<<<<< HEAD:app/page.tsx
 import PressReleaseSection from "@/components/home/PressReleaseSection";
-=======
-import { NoOpenings } from "@/components/careers/no-jobopenings";
->>>>>>> origin/CleanUpCareersPage:frontend/app/page.tsx
 
 export default function HomePage() {
   return (
