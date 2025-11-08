@@ -7,15 +7,17 @@ import { OpenPositions } from "@/components/careers/open-positions";
 import { OurCommitment } from "@/components/careers/our-commitment";
 // import { WorkEnvironment } from "@/components/careers/work-environment";
 import { FAQSection } from "@/components/careers/faq-section";
+import { NoOpenings } from "@/components/careers/no-jobopenings";
 
 export default function CareersPage() {
   return (
     <div className="min-h-screen">
       <Navigation />
       <CareersHero />
-      <LifeAtBHL />
-      <EmployeeTestimonials />
-      <OpenPositions />
+      {/* <LifeAtBHL /> */}
+      <NoOpenings />
+      {/* <EmployeeTestimonials /> */}
+      {/* <OpenPositions /> */}
       <OurCommitment />
       {/* <WorkEnvironment /> */}
       <FAQSection />

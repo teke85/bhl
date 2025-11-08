@@ -11,6 +11,7 @@ import VideoHeroSection from "@/components/BigVideoComponent";
 // import { BuildingExcellence } from "@/components/BuildingExcellence";
 import SectionWrapper from "@/components/SectionWrapper";
 import NewsUpdatesSection from "@/components/home/NewsUpdates";
+import { NoOpenings } from "@/components/careers/no-jobopenings";
 
 export default function HomePage() {
   return (

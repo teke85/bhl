@@ -47,9 +47,9 @@ const events: TimelineEvent[] = [
     status: "current",
   },
   {
-    date: "End of 2025",
-    title: "Financial Close",
-    description: "Target milestone for achieving financial close.",
+    date: "End of 2028",
+    title: "Project Completion",
+    description: "Target milestone for project completion.",
     status: "upcoming",
   },
 ];
