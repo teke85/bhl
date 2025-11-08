@@ -3,352 +3,358 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import {
-    getNewsBySlug,
-    getRelatedNews,
-    getImageUrl,
-    stripHtml,
-    formatDate,
-    type NewsArticle,
+  getNewsBySlug,
+  getRelatedNews,
+  getImageUrl,
+  stripHtml,
+  formatDate,
+  type NewsArticle,
 } from "@/lib/wordpress-graphql";
 import Image from "next/image";
 import Link from "next/link";
 import StickyNavigationMenu from "@/components/StickyNavUpdated";
 import { Footer } from "@/components/FooterUpdated";
 import {
-    Calendar,
-    User,
-    Tag,
-    ArrowLeft,
-    Facebook,
-    Twitter,
-    Linkedin,
-    Link2,
-    Clock,
-    Mail,
-    Share2,
+  Calendar,
+  User,
+  Tag,
+  ArrowLeft,
+  Facebook,
+  Twitter,
+  Linkedin,
+  Link2,
+  Clock,
+  Mail,
+  Share2,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import NewsHero from "@/components/news/NewsHero";
 
 export default function NewsArticlePage() {
-    const params = useParams();
-    const router = useRouter();
-    const slug = params.slug as string;
+  const params = useParams();
+  const router = useRouter();
+  const slug = params.slug as string;
 
-    const [article, setArticle] = useState<NewsArticle | null>(null);
-    const [relatedArticles, setRelatedArticles] = useState<NewsArticle[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [copied, setCopied] = useState(false);
-    const [stickyShareVisible, setStickyShareVisible] = useState(false);
+  const [article, setArticle] = useState<NewsArticle | null>(null);
+  const [relatedArticles, setRelatedArticles] = useState<NewsArticle[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [copied, setCopied] = useState(false);
+  const [stickyShareVisible, setStickyShareVisible] = useState(false);
 
-    useEffect(() => {
-        const fetchArticle = async () => {
-            try {
-                console.log("🔍 Fetching article:", slug);
-                const data = await getNewsBySlug(slug);
+  useEffect(() => {
+    const fetchArticle = async () => {
+      try {
+        console.log("🔍 Fetching article:", slug);
+        const data = await getNewsBySlug(slug);
 
-                if (!data) {
-                    router.push("/news");
-                    return;
-                }
-
-                setArticle(data);
-
-                // Fetch related articles
-                if (data.newsFields?.category) {
-                    const related = await getRelatedNews(
-                        slug,
-                        data.newsFields.category,
-                        3
-                    );
-                    setRelatedArticles(related);
-                }
-            } catch (error) {
-                console.error("❌ Error fetching article:", error);
-                router.push("/news");
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        if (slug) {
-            fetchArticle();
+        if (!data) {
+          router.push("/news");
+          return;
         }
-    }, [slug, router]);
 
-    // Sticky share bar visibility
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY;
-            setStickyShareVisible(scrollPosition > 500);
-        };
+        setArticle(data);
 
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+        // Fetch related articles
+        if (data.newsFields?.category) {
+          // Handle category as either string or array
+          const category = Array.isArray(data.newsFields.category)
+            ? data.newsFields.category[0]
+            : data.newsFields.category;
 
-    const shareUrl = typeof window !== "undefined" ? window.location.href : "";
-
-    const handleCopyLink = () => {
-        navigator.clipboard.writeText(shareUrl);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
+          const related = await getRelatedNews(slug, category, 3);
+          setRelatedArticles(related);
+        }
+      } catch (error) {
+        console.error("❌ Error fetching article:", error);
+        router.push("/news");
+      } finally {
+        setLoading(false);
+      }
     };
 
-    const handleShare = (platform: string) => {
-        const title = article?.title || "";
-        const url = encodeURIComponent(shareUrl);
-        const text = encodeURIComponent(title);
+    if (slug) {
+      fetchArticle();
+    }
+  }, [slug, router]);
 
-        const shareUrls: Record<string, string> = {
-            facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
-            twitter: `https://twitter.com/intent/tweet?url=${url}&text=${text}`,
-            linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
-        };
-
-        if (shareUrls[platform]) {
-            window.open(shareUrls[platform], "_blank", "width=600,height=400");
-        }
+  // Sticky share bar visibility
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setStickyShareVisible(scrollPosition > 500);
     };
 
-    if (loading) {
-        return (
-            <main className="min-h-screen bg-background dark:bg-[#0a0a0a] flex items-center justify-center">
-                <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#fdb913]"></div>
-            </main>
-        );
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const shareUrl = typeof window !== "undefined" ? window.location.href : "";
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(shareUrl);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleShare = (platform: string) => {
+    const title = article?.title || "";
+    const url = encodeURIComponent(shareUrl);
+    const text = encodeURIComponent(title);
+
+    const shareUrls: Record<string, string> = {
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+      twitter: `https://twitter.com/intent/tweet?url=${url}&text=${text}`,
+      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
+    };
+
+    if (shareUrls[platform]) {
+      window.open(shareUrls[platform], "_blank", "width=600,height=400");
     }
+  };
 
-    if (!article) {
-        return null;
-    }
-
-    const imageUrl = getImageUrl(article);
-    const readingTime = Math.ceil(
-        stripHtml(article.content).split(" ").length / 200
-    );
-
+  if (loading) {
     return (
-        <main className="min-h-screen bg-background dark:bg-[#0a0a0a]">
-            <StickyNavigationMenu />
+      <main className="min-h-screen bg-background dark:bg-[#0a0a0a] flex items-center justify-center">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#fdb913]"></div>
+      </main>
+    );
+  }
 
-            {/* Sticky Share Bar */}
-            <motion.div
-                className={`fixed left-8 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col gap-3 ${stickyShareVisible ? "opacity-100" : "opacity-0 pointer-events-none"
-                    }`}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{
-                    opacity: stickyShareVisible ? 1 : 0,
-                    x: stickyShareVisible ? 0 : -20,
-                }}
-                transition={{ duration: 0.3 }}
+  if (!article) {
+    return null;
+  }
+
+  const imageUrl = getImageUrl(article);
+  const readingTime = Math.ceil(
+    stripHtml(article.content).split(" ").length / 200
+  );
+
+  return (
+    <main className="min-h-screen bg-background dark:bg-[#0a0a0a]">
+      <StickyNavigationMenu />
+      <NewsHero />
+
+      {/* Sticky Share Bar */}
+      <motion.div
+        className={`fixed left-8 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col gap-3 ${
+          stickyShareVisible ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+        initial={{ opacity: 0, x: -20 }}
+        animate={{
+          opacity: stickyShareVisible ? 1 : 0,
+          x: stickyShareVisible ? 0 : -20,
+        }}
+        transition={{ duration: 0.3 }}
+      >
+        <div className="flex flex-col items-center gap-3 bg-card dark:bg-[#1a1a1a] p-3 rounded-xl border border-border dark:border-white/10 shadow-lg">
+          <span className="text-xs font-semibold text-[#868584] dark:text-gray-400 mb-1">
+            <Share2 className="h-4 w-4" />
+          </span>
+          <button
+            onClick={() => handleShare("facebook")}
+            className="p-2.5 rounded-lg hover:bg-[#fdb913]/20 transition-colors group"
+            aria-label="Share on Facebook"
+          >
+            <Facebook className="h-5 w-5 text-[#868584] dark:text-gray-400 group-hover:text-[#fdb913]" />
+          </button>
+          <button
+            onClick={() => handleShare("twitter")}
+            className="p-2.5 rounded-lg hover:bg-[#fdb913]/20 transition-colors group"
+            aria-label="Share on Twitter"
+          >
+            <Twitter className="h-5 w-5 text-[#868584] dark:text-gray-400 group-hover:text-[#fdb913]" />
+          </button>
+          <button
+            onClick={() => handleShare("linkedin")}
+            className="p-2.5 rounded-lg hover:bg-[#fdb913]/20 transition-colors group"
+            aria-label="Share on LinkedIn"
+          >
+            <Linkedin className="h-5 w-5 text-[#868584] dark:text-gray-400 group-hover:text-[#fdb913]" />
+          </button>
+          <button
+            onClick={handleCopyLink}
+            className="p-2.5 rounded-lg hover:bg-[#fdb913]/20 transition-colors relative group"
+            aria-label="Copy link"
+          >
+            <Link2 className="h-5 w-5 text-[#868584] dark:text-gray-400 group-hover:text-[#fdb913]" />
+            {copied && (
+              <span className="absolute left-full ml-2 px-3 py-1.5 bg-black text-white text-xs rounded-lg whitespace-nowrap">
+                Copied!
+              </span>
+            )}
+          </button>
+        </div>
+      </motion.div>
+
+      {/* Hero Section */}
+      <section className="relative pt-64 pb-12 px-4">
+        <div className="container mx-auto max-w-4xl">
+          {/* Back Button */}
+          <Link
+            href="/news"
+            className="inline-flex items-center gap-2 text-[#868584] dark:text-gray-400 hover:text-[#fdb913] transition-colors mb-8 group"
+          >
+            <ArrowLeft className="h-5 w-5 group-hover:-translate-x-1 transition-transform" />
+            <span className="font-medium">Back to News</span>
+          </Link>
+
+          {/* Category Badge */}
+          <div className="mb-6">
+            <span className="inline-block px-4 py-2 bg-[#fdb913] text-black text-sm font-semibold rounded-full uppercase tracking-wide">
+              {Array.isArray(article.newsFields?.category)
+                ? article.newsFields.category[0]
+                : article.newsFields?.category || "News"}
+            </span>
+          </div>
+
+          {/* Title */}
+          <motion.h1
+            className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-black dark:text-white mb-8 leading-tight"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            {article.title}
+          </motion.h1>
+
+          {/* Excerpt */}
+          {article.excerpt && (
+            <motion.p
+              className="text-xl text-[#868584] dark:text-gray-300 leading-relaxed mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
             >
-                <div className="flex flex-col items-center gap-3 bg-card dark:bg-[#1a1a1a] p-3 rounded-xl border border-border dark:border-white/10 shadow-lg">
-                    <span className="text-xs font-semibold text-[#868584] dark:text-gray-400 mb-1">
-                        <Share2 className="h-4 w-4" />
-                    </span>
-                    <button
-                        onClick={() => handleShare("facebook")}
-                        className="p-2.5 rounded-lg hover:bg-[#fdb913]/20 transition-colors group"
-                        aria-label="Share on Facebook"
-                    >
-                        <Facebook className="h-5 w-5 text-[#868584] dark:text-gray-400 group-hover:text-[#fdb913]" />
-                    </button>
-                    <button
-                        onClick={() => handleShare("twitter")}
-                        className="p-2.5 rounded-lg hover:bg-[#fdb913]/20 transition-colors group"
-                        aria-label="Share on Twitter"
-                    >
-                        <Twitter className="h-5 w-5 text-[#868584] dark:text-gray-400 group-hover:text-[#fdb913]" />
-                    </button>
-                    <button
-                        onClick={() => handleShare("linkedin")}
-                        className="p-2.5 rounded-lg hover:bg-[#fdb913]/20 transition-colors group"
-                        aria-label="Share on LinkedIn"
-                    >
-                        <Linkedin className="h-5 w-5 text-[#868584] dark:text-gray-400 group-hover:text-[#fdb913]" />
-                    </button>
-                    <button
-                        onClick={handleCopyLink}
-                        className="p-2.5 rounded-lg hover:bg-[#fdb913]/20 transition-colors relative group"
-                        aria-label="Copy link"
-                    >
-                        <Link2 className="h-5 w-5 text-[#868584] dark:text-gray-400 group-hover:text-[#fdb913]" />
-                        {copied && (
-                            <span className="absolute left-full ml-2 px-3 py-1.5 bg-black text-white text-xs rounded-lg whitespace-nowrap">
-                                Copied!
-                            </span>
-                        )}
-                    </button>
-                </div>
+              {stripHtml(article.excerpt)}
+            </motion.p>
+          )}
+
+          {/* Meta Information */}
+          <motion.div
+            className="flex flex-wrap items-center gap-6 text-[#868584] dark:text-gray-400 mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <div className="flex items-center gap-2">
+              <User className="h-4 w-4" />
+              <span className="text-sm font-medium">
+                {article.newsFields?.author || "Admin"}
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Calendar className="h-4 w-4" />
+              <span className="text-sm">
+                {formatDate(article.newsFields?.publishedDate || article.date)}
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Clock className="h-4 w-4" />
+              <span className="text-sm">{readingTime} min read</span>
+            </div>
+          </motion.div>
+
+          {/* Tags */}
+          {article.newsFields?.tags && (
+            <motion.div
+              className="flex items-start gap-3 mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <Tag className="h-4 w-4 text-[#868584] dark:text-gray-400 mt-1" />
+              <div className="flex flex-wrap gap-2">
+                {article.newsFields.tags.split(",").map((tag, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1.5 bg-card dark:bg-[#1a1a1a] text-[#868584] dark:text-gray-300 text-xs font-medium rounded-lg border border-border dark:border-white/10 hover:border-[#fdb913] transition-colors"
+                  >
+                    {tag.trim()}
+                  </span>
+                ))}
+              </div>
             </motion.div>
+          )}
 
-            {/* Hero Section */}
-            <section className="relative pt-64 pb-12 px-4">
-                <div className="container mx-auto max-w-4xl">
-                    {/* Back Button */}
-                    <Link
-                        href="/news"
-                        className="inline-flex items-center gap-2 text-[#868584] dark:text-gray-400 hover:text-[#fdb913] transition-colors mb-8 group"
-                    >
-                        <ArrowLeft className="h-5 w-5 group-hover:-translate-x-1 transition-transform" />
-                        <span className="font-medium">Back to News</span>
-                    </Link>
+          {/* Share Buttons */}
+          <motion.div
+            className="flex items-center gap-3 pb-8 border-b border-border dark:border-white/10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <span className="text-sm font-semibold text-[#868584] dark:text-gray-400">
+              Share:
+            </span>
+            <button
+              onClick={() => handleShare("facebook")}
+              className="p-2.5 rounded-lg bg-card dark:bg-[#1a1a1a] hover:bg-[#fdb913] transition-all duration-300 group"
+              aria-label="Share on Facebook"
+            >
+              <Facebook className="h-5 w-5 text-[#868584] dark:text-gray-400 group-hover:text-black" />
+            </button>
+            <button
+              onClick={() => handleShare("twitter")}
+              className="p-2.5 rounded-lg bg-card dark:bg-[#1a1a1a] hover:bg-[#fdb913] transition-all duration-300 group"
+              aria-label="Share on Twitter"
+            >
+              <Twitter className="h-5 w-5 text-[#868584] dark:text-gray-400 group-hover:text-black" />
+            </button>
+            <button
+              onClick={() => handleShare("linkedin")}
+              className="p-2.5 rounded-lg bg-card dark:bg-[#1a1a1a] hover:bg-[#fdb913] transition-all duration-300 group"
+              aria-label="Share on LinkedIn"
+            >
+              <Linkedin className="h-5 w-5 text-[#868584] dark:text-gray-400 group-hover:text-black" />
+            </button>
+            <button
+              onClick={handleCopyLink}
+              className="p-2.5 rounded-lg bg-card dark:bg-[#1a1a1a] hover:bg-[#fdb913] transition-all duration-300 relative group"
+              aria-label="Copy link"
+            >
+              <Link2 className="h-5 w-5 text-[#868584] dark:text-gray-400 group-hover:text-black" />
+              {copied && (
+                <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-black text-white text-xs rounded-lg whitespace-nowrap">
+                  Copied!
+                </span>
+              )}
+            </button>
+          </motion.div>
+        </div>
+      </section>
 
-                    {/* Category Badge */}
-                    <div className="mb-6">
-                        <span className="inline-block px-4 py-2 bg-[#fdb913] text-black text-sm font-semibold rounded-full uppercase tracking-wide">
-                            {article.newsFields?.category || "News"}
-                        </span>
-                    </div>
+      {/* Featured Image */}
+      <section className="px-4 mb-16">
+        <motion.div
+          className="container mx-auto max-w-5xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          <div className="relative w-full h-[400px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
+            <Image
+              src={imageUrl}
+              alt={article.title}
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+          </div>
+        </motion.div>
+      </section>
 
-                    {/* Title */}
-                    <motion.h1
-                        className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-black dark:text-white mb-8 leading-tight"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        {article.title}
-                    </motion.h1>
-
-                    {/* Excerpt */}
-                    {article.excerpt && (
-                        <motion.p
-                            className="text-xl text-[#868584] dark:text-gray-300 leading-relaxed mb-8"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.1 }}
-                        >
-                            {stripHtml(article.excerpt)}
-                        </motion.p>
-                    )}
-
-                    {/* Meta Information */}
-                    <motion.div
-                        className="flex flex-wrap items-center gap-6 text-[#868584] dark:text-gray-400 mb-8"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                    >
-                        <div className="flex items-center gap-2">
-                            <User className="h-4 w-4" />
-                            <span className="text-sm font-medium">
-                                {article.newsFields?.author || "Admin"}
-                            </span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <Calendar className="h-4 w-4" />
-                            <span className="text-sm">
-                                {formatDate(article.newsFields?.publishedDate || article.date)}
-                            </span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <Clock className="h-4 w-4" />
-                            <span className="text-sm">{readingTime} min read</span>
-                        </div>
-                    </motion.div>
-
-                    {/* Tags */}
-                    {article.newsFields?.tags && (
-                        <motion.div
-                            className="flex items-start gap-3 mb-8"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.3 }}
-                        >
-                            <Tag className="h-4 w-4 text-[#868584] dark:text-gray-400 mt-1" />
-                            <div className="flex flex-wrap gap-2">
-                                {article.newsFields.tags.split(",").map((tag, index) => (
-                                    <span
-                                        key={index}
-                                        className="px-3 py-1.5 bg-card dark:bg-[#1a1a1a] text-[#868584] dark:text-gray-300 text-xs font-medium rounded-lg border border-border dark:border-white/10 hover:border-[#fdb913] transition-colors"
-                                    >
-                                        {tag.trim()}
-                                    </span>
-                                ))}
-                            </div>
-                        </motion.div>
-                    )}
-
-                    {/* Share Buttons */}
-                    <motion.div
-                        className="flex items-center gap-3 pb-8 border-b border-border dark:border-white/10"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
-                    >
-                        <span className="text-sm font-semibold text-[#868584] dark:text-gray-400">
-                            Share:
-                        </span>
-                        <button
-                            onClick={() => handleShare("facebook")}
-                            className="p-2.5 rounded-lg bg-card dark:bg-[#1a1a1a] hover:bg-[#fdb913] transition-all duration-300 group"
-                            aria-label="Share on Facebook"
-                        >
-                            <Facebook className="h-5 w-5 text-[#868584] dark:text-gray-400 group-hover:text-black" />
-                        </button>
-                        <button
-                            onClick={() => handleShare("twitter")}
-                            className="p-2.5 rounded-lg bg-card dark:bg-[#1a1a1a] hover:bg-[#fdb913] transition-all duration-300 group"
-                            aria-label="Share on Twitter"
-                        >
-                            <Twitter className="h-5 w-5 text-[#868584] dark:text-gray-400 group-hover:text-black" />
-                        </button>
-                        <button
-                            onClick={() => handleShare("linkedin")}
-                            className="p-2.5 rounded-lg bg-card dark:bg-[#1a1a1a] hover:bg-[#fdb913] transition-all duration-300 group"
-                            aria-label="Share on LinkedIn"
-                        >
-                            <Linkedin className="h-5 w-5 text-[#868584] dark:text-gray-400 group-hover:text-black" />
-                        </button>
-                        <button
-                            onClick={handleCopyLink}
-                            className="p-2.5 rounded-lg bg-card dark:bg-[#1a1a1a] hover:bg-[#fdb913] transition-all duration-300 relative group"
-                            aria-label="Copy link"
-                        >
-                            <Link2 className="h-5 w-5 text-[#868584] dark:text-gray-400 group-hover:text-black" />
-                            {copied && (
-                                <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-black text-white text-xs rounded-lg whitespace-nowrap">
-                                    Copied!
-                                </span>
-                            )}
-                        </button>
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* Featured Image */}
-            <section className="px-4 mb-16">
-                <motion.div
-                    className="container mx-auto max-w-5xl"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.5 }}
-                >
-                    <div className="relative w-full h-[400px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
-                        <Image
-                            src={imageUrl}
-                            alt={article.title}
-                            fill
-                            className="object-cover"
-                            priority
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                    </div>
-                </motion.div>
-            </section>
-
-            {/* Article Content */}
-            <section className="px-4 pb-16">
-                <div className="container mx-auto max-w-4xl">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.6 }}
-                    >
-                        {/* Professional Content Styling */}
-                        <article
-                            className="
+      {/* Article Content */}
+      <section className="px-4 pb-16">
+        <div className="container mx-auto max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
+            {/* Professional Content Styling */}
+            <article
+              className="
                                 prose prose-lg lg:prose-xl dark:prose-invert max-w-none
                                 
                                 /* Headings */
@@ -421,152 +427,152 @@ export default function NewsArticlePage() {
                                 prose-hr:border-border dark:prose-hr:border-white/10
                                 prose-hr:my-12
                             "
-                            dangerouslySetInnerHTML={{ __html: article.content }}
-                        />
+              dangerouslySetInnerHTML={{ __html: article.content }}
+            />
 
-                        {/* Newsletter CTA within article */}
-                        <div className="my-16 p-8 bg-gradient-to-br from-[#fdb913]/10 to-transparent border-2 border-[#fdb913]/30 rounded-2xl">
-                            <div className="max-w-2xl mx-auto text-center">
-                                <Mail className="h-12 w-12 text-[#fdb913] mx-auto mb-4" />
-                                <h3 className="text-2xl font-heading font-bold text-black dark:text-white mb-3">
-                                    Stay Updated
-                                </h3>
-                                <p className="text-[#868584] dark:text-gray-300 mb-6 leading-relaxed">
-                                    Get the latest news and updates from Western Corridor Limited
-                                    delivered directly to your inbox.
-                                </p>
-                                <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                                    <input
-                                        type="email"
-                                        placeholder="Enter your email"
-                                        className="flex-1 px-4 py-3 rounded-lg border border-border dark:border-white/10 bg-background dark:bg-[#0a0a0a] text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#fdb913]"
-                                        required
-                                    />
-                                    <button
-                                        type="submit"
-                                        className="px-6 py-3 bg-[#fdb913] text-black font-semibold rounded-lg hover:bg-[#e5a711] transition-colors whitespace-nowrap"
-                                    >
-                                        Subscribe
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
+            {/* Newsletter CTA within article */}
+            <div className="my-16 p-8 bg-gradient-to-br from-[#fdb913]/10 to-transparent border-2 border-[#fdb913]/30 rounded-2xl">
+              <div className="max-w-2xl mx-auto text-center">
+                <Mail className="h-12 w-12 text-[#fdb913] mx-auto mb-4" />
+                <h3 className="text-2xl font-heading font-bold text-black dark:text-white mb-3">
+                  Stay Updated
+                </h3>
+                <p className="text-[#868584] dark:text-gray-300 mb-6 leading-relaxed">
+                  Get the latest news and updates from Western Corridor Limited
+                  delivered directly to your inbox.
+                </p>
+                <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    className="flex-1 px-4 py-3 rounded-lg border border-border dark:border-white/10 bg-background dark:bg-[#0a0a0a] text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-[#fdb913]"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="px-6 py-3 bg-[#fdb913] text-black font-semibold rounded-lg hover:bg-[#e5a711] transition-colors whitespace-nowrap"
+                  >
+                    Subscribe
+                  </button>
+                </form>
+              </div>
+            </div>
 
-                        {/* Author Info */}
-                        {article.newsFields?.author && (
-                            <div className="mt-12 p-6 bg-card dark:bg-[#1a1a1a] rounded-xl border border-border dark:border-white/10">
-                                <div className="flex items-start gap-4">
-                                    <div className="flex-shrink-0">
-                                        <div className="w-16 h-16 rounded-full bg-[#fdb913] flex items-center justify-center">
-                                            <User className="h-8 w-8 text-black" />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h4 className="text-lg font-heading font-bold text-black dark:text-white mb-2">
-                                            Written by {article.newsFields.author}
-                                        </h4>
-                                        <p className="text-[#868584] dark:text-gray-300 text-sm leading-relaxed">
-                                            Contributing writer at Western Corridor Limited,
-                                            covering infrastructure development, regional impact,
-                                            and community initiatives.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* Related Articles */}
-            {relatedArticles.length > 0 && (
-                <section className="px-4 py-20 bg-card dark:bg-[#1a1a1a]">
-                    <div className="container mx-auto max-w-6xl">
-                        <div className="mb-12">
-                            <h2 className="text-3xl md:text-4xl font-heading font-bold text-black dark:text-white mb-3">
-                                Related Articles
-                            </h2>
-                            <p className="text-[#868584] dark:text-gray-400 text-lg">
-                                Continue reading more news and updates
-                            </p>
-                        </div>
-
-                        <div className="grid md:grid-cols-3 gap-8">
-                            {relatedArticles.map((relatedArticle) => {
-                                const relatedImageUrl = getImageUrl(relatedArticle);
-                                const relatedExcerpt = stripHtml(
-                                    relatedArticle.excerpt || ""
-                                );
-
-                                return (
-                                    <Link
-                                        key={relatedArticle.id}
-                                        href={`/news/${relatedArticle.slug}`}
-                                        className="group"
-                                    >
-                                        <article className="bg-background dark:bg-[#0a0a0a] rounded-xl overflow-hidden border border-border dark:border-white/10 hover:border-[#fdb913] transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 h-full">
-                                            <div className="relative h-52 overflow-hidden">
-                                                <Image
-                                                    src={relatedImageUrl}
-                                                    alt={relatedArticle.title}
-                                                    fill
-                                                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                                                />
-                                                <div className="absolute top-4 left-4">
-                                                    <span className="px-3 py-1 bg-[#fdb913] text-black text-xs font-semibold rounded-full">
-                                                        {relatedArticle.newsFields?.category || "News"}
-                                                    </span>
-                                                </div>
-                                            </div>
-
-                                            <div className="p-6">
-                                                <h3 className="text-xl font-heading font-bold text-black dark:text-white mb-3 group-hover:text-[#fdb913] transition-colors line-clamp-2 leading-tight">
-                                                    {relatedArticle.title}
-                                                </h3>
-                                                <p className="text-[#868584] dark:text-gray-300 text-sm line-clamp-3 leading-relaxed mb-4">
-                                                    {relatedExcerpt}
-                                                </p>
-                                                <div className="flex items-center gap-4 text-xs text-[#868584] dark:text-gray-400">
-                                                    <span className="flex items-center gap-1">
-                                                        <Calendar className="h-3 w-3" />
-                                                        {formatDate(
-                                                            relatedArticle.newsFields?.publishedDate ||
-                                                            relatedArticle.date
-                                                        )}
-                                                    </span>
-                                                    <span className="flex items-center gap-1">
-                                                        <Clock className="h-3 w-3" />
-                                                        {Math.ceil(
-                                                            stripHtml(relatedArticle.content).split(" ")
-                                                                .length / 200
-                                                        )}{" "}
-                                                        min
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </Link>
-                                );
-                            })}
-                        </div>
+            {/* Author Info */}
+            {article.newsFields?.author && (
+              <div className="mt-12 p-6 bg-card dark:bg-[#1a1a1a] rounded-xl border border-border dark:border-white/10">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-16 h-16 rounded-full bg-[#fdb913] flex items-center justify-center">
+                      <User className="h-8 w-8 text-black" />
                     </div>
-                </section>
-            )}
-
-            {/* Back to News CTA */}
-            <section className="px-4 py-16">
-                <div className="container mx-auto max-w-4xl text-center">
-                    <Link
-                        href="/news"
-                        className="inline-flex items-center gap-3 px-8 py-4 bg-[#fdb913] text-black font-semibold rounded-xl hover:bg-[#e5a711] transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5"
-                    >
-                        <ArrowLeft className="h-5 w-5" />
-                        View All News Articles
-                    </Link>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-heading font-bold text-black dark:text-white mb-2">
+                      Written by {article.newsFields.author}
+                    </h4>
+                    <p className="text-[#868584] dark:text-gray-300 text-sm leading-relaxed">
+                      Contributing writer at Western Corridor Limited, covering
+                      infrastructure development, regional impact, and community
+                      initiatives.
+                    </p>
+                  </div>
                 </div>
-            </section>
+              </div>
+            )}
+          </motion.div>
+        </div>
+      </section>
 
-            <Footer />
-        </main>
-    );
+      {/* Related Articles */}
+      {relatedArticles.length > 0 && (
+        <section className="px-4 py-20 bg-card dark:bg-[#1a1a1a]">
+          <div className="container mx-auto max-w-6xl">
+            <div className="mb-12">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-black dark:text-white mb-3">
+                Related Articles
+              </h2>
+              <p className="text-[#868584] dark:text-gray-400 text-lg">
+                Continue reading more news and updates
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {relatedArticles.map((relatedArticle) => {
+                const relatedImageUrl = getImageUrl(relatedArticle);
+                const relatedExcerpt = stripHtml(relatedArticle.excerpt || "");
+
+                return (
+                  <Link
+                    key={relatedArticle.id}
+                    href={`/news/${relatedArticle.slug}`}
+                    className="group"
+                  >
+                    <article className="bg-background dark:bg-[#0a0a0a] rounded-xl overflow-hidden border border-border dark:border-white/10 hover:border-[#fdb913] transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 h-full">
+                      <div className="relative h-52 overflow-hidden">
+                        <Image
+                          src={relatedImageUrl}
+                          alt={relatedArticle.title}
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                        <div className="absolute top-4 left-4">
+                          <span className="px-3 py-1 bg-[#fdb913] text-black text-xs font-semibold rounded-full">
+                            {Array.isArray(relatedArticle.newsFields?.category)
+                              ? relatedArticle.newsFields.category[0]
+                              : relatedArticle.newsFields?.category || "News"}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="p-6">
+                        <h3 className="text-xl font-heading font-bold text-black dark:text-white mb-3 group-hover:text-[#fdb913] transition-colors line-clamp-2 leading-tight">
+                          {relatedArticle.title}
+                        </h3>
+                        <p className="text-[#868584] dark:text-gray-300 text-sm line-clamp-3 leading-relaxed mb-4">
+                          {relatedExcerpt}
+                        </p>
+                        <div className="flex items-center gap-4 text-xs text-[#868584] dark:text-gray-400">
+                          <span className="flex items-center gap-1">
+                            <Calendar className="h-3 w-3" />
+                            {formatDate(
+                              relatedArticle.newsFields?.publishedDate ||
+                                relatedArticle.date
+                            )}
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <Clock className="h-3 w-3" />
+                            {Math.ceil(
+                              stripHtml(relatedArticle.content).split(" ")
+                                .length / 200
+                            )}{" "}
+                            min
+                          </span>
+                        </div>
+                      </div>
+                    </article>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Back to News CTA */}
+      <section className="px-4 py-16">
+        <div className="container mx-auto max-w-4xl text-center">
+          <Link
+            href="/news"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-[#fdb913] text-black font-semibold rounded-xl hover:bg-[#e5a711] transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5"
+          >
+            <ArrowLeft className="h-5 w-5" />
+            View All News Articles
+          </Link>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
 }
