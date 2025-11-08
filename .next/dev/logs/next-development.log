@@ -9,3 +9,4 @@
 [00:32:22.959] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_300,c_limit/v1761708103/westerncorridor_logo_bih0jh.png" is using quality "70" which is not configured in images.qualities [75]. Please update your config to [70, 75].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
 [01:00:09.551] Server  LOG      ✓ Compiled in 66.3s
+[01:18:57.253] Server  LOG      ✓ Compiled in 20.8s
