@@ -1,226 +1,49 @@
-[00:00:34.658] Server  LOG      ✓ Ready in 21.9s
-[00:00:37.784] Server  LOG      ○ Compiling / ...
-[00:01:14.198] Server  ERROR    ⨯ ./app/page.tsx:14:1
-Parsing ecmascript source code failed
-  12 | import SectionWrapper from "@/components/SectionWrapper";
-  13 | import NewsUpdatesSection from "@/components/home/NewsUpdates";
-> 14 | <<<<<<< HEAD:app/page.tsx
-     | ^^^^^^^
-  15 | import PressReleaseSection from "@/components/home/PressReleaseSection";
-  16 | =======
-  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
-
-Merge conflict marker encountered.
-
-
-
-./app/page.tsx:16:1
-Parsing ecmascript source code failed
-  14 | <<<<<<< HEAD:app/page.tsx
-  15 | import PressReleaseSection from "@/components/home/PressReleaseSection";
-> 16 | =======
-     | ^^^^^^^
-  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
-  18 | >>>>>>> origin/CleanUpCareersPage:frontend/app/page.tsx
-  19 |
-
-Merge conflict marker encountered.
-
-
-
-./app/page.tsx:18:1
-Parsing ecmascript source code failed
-  16 | =======
-  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
-> 18 | >>>>>>> origin/CleanUpCareersPage:frontend/app/page.tsx
-     | ^^^^^^^
-  19 |
-  20 | export default function HomePage() {
-  21 |   return (
-
-Merge conflict marker encountered.
-
-
-[00:01:17.104] Server  ERROR    ⨯ Error: Cannot find module 'critters'
-Require stack:
-- D:\2025\bhl\node_modules\next\dist\server\post-process.js
-- D:\2025\bhl\node_modules\next\dist\server\render.js
-- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\module.js
-- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\builtin\_error.js
-- D:\2025\bhl\node_modules\next\dist\server\load-default-error-components.js
-- D:\2025\bhl\node_modules\next\dist\server\dev\next-dev-server.js
-- D:\2025\bhl\node_modules\next\dist\server\next.js
-- D:\2025\bhl\node_modules\next\dist\server\lib\start-server.js
-[00:01:17.164] Server  ERROR   ModuleBuildError: ./app/page.tsx:14:1
-Parsing ecmascript source code failed
-  12 | import SectionWrapper from "@/components/SectionWrapper";
-  13 | import NewsUpdatesSection from "@/components/home/NewsUpdates";
-> 14 | <<<<<<< HEAD:app/page.tsx
-     | ^^^^^^^
-  15 | import PressReleaseSection from "@/components/home/PressReleaseSection";
-  16 | =======
-  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
-
-Merge conflict marker encountered.
-
-
-
-./app/page.tsx:16:1
-Parsing ecmascript source code failed
-  14 | <<<<<<< HEAD:app/page.tsx
-  15 | import PressReleaseSection from "@/components/home/PressReleaseSection";
-> 16 | =======
-     | ^^^^^^^
-  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
-  18 | >>>>>>> origin/CleanUpCareersPage:frontend/app/page.tsx
-  19 |
-
-Merge conflict marker encountered.
-
-
-
-./app/page.tsx:18:1
-Parsing ecmascript source code failed
-  16 | =======
-  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
-> 18 | >>>>>>> origin/CleanUpCareersPage:frontend/app/page.tsx
-     | ^^^^^^^
-  19 |
-  20 | export default function HomePage() {
-  21 |   return (
-
-Merge conflict marker encountered.
-
-
-[00:01:17.255] Server  ERROR    ⨯ Error: Cannot find module 'critters'
-Require stack:
-- D:\2025\bhl\node_modules\next\dist\server\post-process.js
-- D:\2025\bhl\node_modules\next\dist\server\render.js
-- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\module.js
-- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\builtin\_error.js
-- D:\2025\bhl\node_modules\next\dist\server\load-default-error-components.js
-- D:\2025\bhl\node_modules\next\dist\server\dev\next-dev-server.js
-- D:\2025\bhl\node_modules\next\dist\server\next.js
-- D:\2025\bhl\node_modules\next\dist\server\lib\start-server.js
-[00:01:17.290] Server  ERROR   Error: Cannot find module 'critters'
-Require stack:
-- D:\2025\bhl\node_modules\next\dist\server\post-process.js
-- D:\2025\bhl\node_modules\next\dist\server\render.js
-- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\module.js
-- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\builtin\_error.js
-- D:\2025\bhl\node_modules\next\dist\server\load-default-error-components.js
-- D:\2025\bhl\node_modules\next\dist\server\dev\next-dev-server.js
-- D:\2025\bhl\node_modules\next\dist\server\next.js
-- D:\2025\bhl\node_modules\next\dist\server\lib\start-server.js
-[00:08:15.954] Server  ERROR    ⨯ ./app/page.tsx:14:1
-Parsing ecmascript source code failed
-  12 | import SectionWrapper from "@/components/SectionWrapper";
-  13 | import NewsUpdatesSection from "@/components/home/NewsUpdates";
-> 14 | <<<<<<< HEAD:app/page.tsx
-     | ^^^^^^^
-  15 | import PressReleaseSection from "@/components/home/PressReleaseSection";
-  16 | =======
-  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
-
-Merge conflict marker encountered.
-
-
-
-./app/page.tsx:16:1
-Parsing ecmascript source code failed
-  14 | <<<<<<< HEAD:app/page.tsx
-  15 | import PressReleaseSection from "@/components/home/PressReleaseSection";
-> 16 | =======
-     | ^^^^^^^
-  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
-  18 | >>>>>>> origin/CleanUpCareersPage:frontend/app/page.tsx
-  19 |
-
-Merge conflict marker encountered.
-
-
-
-./app/page.tsx:18:1
-Parsing ecmascript source code failed
-  16 | =======
-  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
-> 18 | >>>>>>> origin/CleanUpCareersPage:frontend/app/page.tsx
-     | ^^^^^^^
-  19 |
-  20 | export default function HomePage() {
-  21 |   return (
-
-Merge conflict marker encountered.
-
-
-[00:08:18.114] Server  ERROR    ⨯ Error: Cannot find module 'critters'
-Require stack:
-- D:\2025\bhl\node_modules\next\dist\server\post-process.js
-- D:\2025\bhl\node_modules\next\dist\server\render.js
-- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\module.js
-- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\builtin\_error.js
-- D:\2025\bhl\node_modules\next\dist\server\load-default-error-components.js
-- D:\2025\bhl\node_modules\next\dist\server\dev\next-dev-server.js
-- D:\2025\bhl\node_modules\next\dist\server\next.js
-- D:\2025\bhl\node_modules\next\dist\server\lib\start-server.js
-[00:08:18.189] Server  ERROR   ModuleBuildError: ./app/page.tsx:14:1
-Parsing ecmascript source code failed
-  12 | import SectionWrapper from "@/components/SectionWrapper";
-  13 | import NewsUpdatesSection from "@/components/home/NewsUpdates";
-> 14 | <<<<<<< HEAD:app/page.tsx
-     | ^^^^^^^
-  15 | import PressReleaseSection from "@/components/home/PressReleaseSection";
-  16 | =======
-  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
-
-Merge conflict marker encountered.
-
-
-
-./app/page.tsx:16:1
-Parsing ecmascript source code failed
-  14 | <<<<<<< HEAD:app/page.tsx
-  15 | import PressReleaseSection from "@/components/home/PressReleaseSection";
-> 16 | =======
-     | ^^^^^^^
-  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
-  18 | >>>>>>> origin/CleanUpCareersPage:frontend/app/page.tsx
-  19 |
-
-Merge conflict marker encountered.
-
-
-
-./app/page.tsx:18:1
-Parsing ecmascript source code failed
-  16 | =======
-  17 | import { NoOpenings } from "@/components/careers/no-jobopenings";
-> 18 | >>>>>>> origin/CleanUpCareersPage:frontend/app/page.tsx
-     | ^^^^^^^
-  19 |
-  20 | export default function HomePage() {
-  21 |   return (
-
-Merge conflict marker encountered.
-
-
-[00:08:18.310] Server  ERROR    ⨯ Error: Cannot find module 'critters'
-Require stack:
-- D:\2025\bhl\node_modules\next\dist\server\post-process.js
-- D:\2025\bhl\node_modules\next\dist\server\render.js
-- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\module.js
-- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\builtin\_error.js
-- D:\2025\bhl\node_modules\next\dist\server\load-default-error-components.js
-- D:\2025\bhl\node_modules\next\dist\server\dev\next-dev-server.js
-- D:\2025\bhl\node_modules\next\dist\server\next.js
-- D:\2025\bhl\node_modules\next\dist\server\lib\start-server.js
-[00:08:18.351] Server  ERROR   Error: Cannot find module 'critters'
-Require stack:
-- D:\2025\bhl\node_modules\next\dist\server\post-process.js
-- D:\2025\bhl\node_modules\next\dist\server\render.js
-- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\module.js
-- D:\2025\bhl\node_modules\next\dist\server\route-modules\pages\builtin\_error.js
-- D:\2025\bhl\node_modules\next\dist\server\load-default-error-components.js
-- D:\2025\bhl\node_modules\next\dist\server\dev\next-dev-server.js
-- D:\2025\bhl\node_modules\next\dist\server\next.js
-- D:\2025\bhl\node_modules\next\dist\server\lib\start-server.js
+[00:00:36.043] Server  LOG      ✓ Ready in 17.7s
+[00:00:39.172] Server  LOG      ○ Compiling / ...
+[00:01:07.165] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_300,c_limit/v1761708103/westerncorridor_logo_bih0jh.png" is using quality "70" which is not configured in images.qualities [75]. Please update your config to [70, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:01:07.316] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1762357419/Toll_plaza_ls71wg.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:01:07.339] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1761601625/IMG_7101-1024x649_mzybrr.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:01:07.343] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1761107765/EI3A9507DRM_emgog7.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:01:07.405] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761481328/EI3A9529DRM_exisuy.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:01:07.411] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761481327/EI3A9515DRM_yzoiit.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:01:10.516] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:11.850] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_300,c_limit/v1761708103/westerncorridor_logo_bih0jh.png" is using quality "70" which is not configured in images.qualities [75]. Please update your config to [70, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:01:11.850] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1762357419/Toll_plaza_ls71wg.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:01:11.850] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1761601625/IMG_7101-1024x649_mzybrr.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:01:11.850] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1761107765/EI3A9507DRM_emgog7.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:01:11.850] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761481328/EI3A9529DRM_exisuy.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:01:11.850] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761481327/EI3A9515DRM_yzoiit.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:01:13.012] Browser LOG     TSS: Received response from checkDomainAndRun: {"isAllowListed":false,"isProtectionEnabled":true,"isScamsProtectionEnabled":true}
+[00:01:13.012] Browser DEBUG   injection-tss TSS: hosted page injected
+[00:01:13.012] Browser DEBUG   injection-tss MBTSS: Nonce:  nonce
+[00:02:32.538] Server  LOG      ○ Compiling /news/[slug] ...
+[00:02:45.006] Browser DEBUG   TSS: Counted history being pushed
+[00:02:45.007] Browser DEBUG   TSS: Caught history
+[00:02:45.007] Browser DEBUG   TSS: Checking if repeated 500 times for interval 1000 against data:  {}
+[00:02:45.007] Browser LOG     🔍 Fetching article: president-hakainde-launches-landmark-western-corridor-transformation-project
+[00:02:45.008] Browser LOG     🔍 Fetching article: president-hakainde-launches-landmark-western-corridor-transformation-project
+[00:04:11.656] Browser DEBUG   TSS: Counted history being pushed
+[00:04:11.656] Browser DEBUG   TSS: Caught history
+[00:04:11.656] Browser DEBUG   TSS: Checking if repeated 500 times for interval 1000 against data:  {"lastCount":1,"lastTime":1762633324234}
+[00:04:11.656] Browser LOG     🔍 Fetching news via GraphQL...
+[00:04:11.656] Browser LOG     🎯 Selected category: null
+[00:04:11.656] Browser LOG     🔍 Fetching news via GraphQL...
+[00:04:11.656] Browser LOG     🎯 Selected category: null
+[00:04:16.188] Browser LOG     ✅ GraphQL Response: [{"content":"\n<p><strong>FOR IMMEDIATE RELEASE</strong></p>\n\n\n\n<h2 class=\"wp-block-heading\">PRESIDENT HAKAINDE LAUNCHES LANDMARK WESTERN CORRIDOR TRANSFORMATION PROJECT OF MUTANDA-KASEMPA-KAOMA ROAD</h2>\n\n\n\n<p>Western Corridor Limited&#8217;s multi-faceted project set to unlock economic potential and create jobs opportunities in Zambia</p>\n\n\n\n<p><strong>KASEMPA, ZAMBIA – 31st October 2025</strong> – His Excellency, the President of the Republic of Zambia, Mr. Hakainde Hichilema, today officiated at the groundbreaking ceremony of the Western Corridor Transformation Project, marking the official commencement of a landmark development initiative undertaken through a Public-Private-Partnership (PPP) with Western Corridor Limited (WCL). Executed as a Special Purpose Vehicle (SPV), the Western Corridor Limited is the concessionnaire incorporated by BeefCo Limited and First Quantum Minerals (FQM) Limited.</p>\n\n\n\n<p>The groundbreaking ceremony, held in Kasempa, was attended by key Government Officials such as the Minister of Finance and National Planning, Dr. Situmbeko Musokotwane, the Minister of Commerce, Trade and Industry, Mr. Chipoka Mulenga, the Minister of Infrastructure and Urban Development, Mr. Charles Milupi, the Road Development Agency (RDA) officials, senior government personnel, traditional leaders, private sector partners and members of the electorate.</p>\n\n\n\n<h3 class=\"wp-block-heading\">Strategic Infrastructure Investment</h3>\n\n\n\n<p>This project is a strategic private sector-led initiative, aligned with the government&#8217;s Eighth National Development Plan (8NDP). It is poised to unlock the vast economic potential of the Western Corridor through strategic investments in key sectors, including integrated agriculture, infrastructure development, and value addition.</p>\n\n\n\n<p>Western Corridor Limited (WCL) is set to upgrade the current gravel alignment to bituminous standard, including two new bridges over the Lalafuta and Luena rivers and selected urban road works in Kasempa and Kaoma Districts. The 371km road project promises improved road standards which will significantly reduce travel times, create jobs and boost export potential. The road will link key mining zones and boost agricultural capacity, as well as being the fastest trade route to the port at Walvis Bay in Namibia.</p>\n\n\n\n<h3 class=\"wp-block-heading\">Presidential Endorsement</h3>\n\n\n\n<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\">\n<p>&#8220;This road means business, business to move goods from Zambia to the world through the port of Walvis Bay, and from the world, through Walvis Bay, back to Zambia.&#8221;</p>\n</blockquote>\n\n\n\n<p>Speaking at the ceremony, President Hakainde Hichilema highlighted the project&#8217;s alignment with government priorities in driving economic growth, particularly in agriculture and mining. The President highlighted the vast potential that awaits in regional connectivity and international trade. The President emphasized that even when the country was bankrupt, the main priority was to help the people of Zambia through interventions such as the Public-Private-Partnership (PPP) to unlock investment.</p>\n\n\n\n<p>&#8220;This is a great day because infrastructure, roads in particular, open up investment. From Mutanda to Kasempa, Kaoma to Mongu, Senanga to Sesheke upto Katima Mulilo; this will be the fastest route to Walvis Bay. Since Independence, the residents of Kasempa can for the first time travel shorter distances to Lusaka through Kaoma and Mumbwa,&#8221; he said.</p>\n\n\n\n<h3 class=\"wp-block-heading\">Job Creation and Local Participation</h3>\n\n\n\n<p>The President further expressed contentment at the prospect of the improved road infrastructure directly addressing issues of unemployment by providing jobs to the local community and the youth as well as providing support for MSMEs through opportunities for local contractors and suppliers, with at least 20% of project works reserved for Zambian citizen contractors, service providers and/or suppliers.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Leadership Perspectives</h2>\n\n\n\n<p>Western Corridor Limited&#8217;s CEO, Buks Jansen Van Rensburg reiterated the importance of working as a team to actualise the vision of the Mutanda to Kaoma road. He stated, &#8220;Let&#8217;s build more roads, let&#8217;s protect our roads and infrastructure and give support to the country and to all the communities,&#8221; he emphasised. &#8220;Do not look for outside help, let&#8217;s look for Zambian solutions to Zambian challenges. Honourable Milupi gave Western Corridor Limited an opportunity, he pushed us out of our limits and now this road is a reality through Public-Private-Partnership,&#8221; he added.</p>\n\n\n\n<p>First Quantum Minerals (FQM) Limited Country Manager, Dr. Godwin Beene, said the initiative reflects FQM&#8217;s belief that mining must act as a catalyst for inclusive and sustainable development. &#8220;We understand that a thriving mining sector depends on a robust and well-maintained road network — one that connects production centers to markets, communities to opportunities, and people to prosperity&#8221;, Dr. Beene asserted.</p>\n\n\n\n<p>He added that, &#8220;over the past decade, First Quantum Minerals has invested in road infrastructure within Solwezi and Kalumbila. These projects, like this one, were designed to improve accessibility, enhance safety, and stimulate local enterprise. The Mutanda–Kaoma Road builds upon that legacy; demonstrating how responsible private investment can meaningfully complement public infrastructure priorities.&#8221;</p>\n\n\n\n<h3 class=\"wp-block-heading\">A New Era of Development</h3>\n\n\n\n<p>The groundbreaking ceremony signifies the beginning of major development works, heralding a new era of economic and social prosperity for the Western Corridor. This event underscores the Government&#8217;s commitment to fostering sustainable development, creating significant employment opportunities, and improving livelihoods throughout the province.</p>\n\n\n\n<p></p>\n\n\n\n<h3 class=\"wp-block-heading\">About Western Corridor Limited (WCL)</h3>\n\n\n\n<p>WCL is a Special Purpose Vehicle (SPV) established as the Concessionaire for the Mutanda–Kasempa–Kaoma Road under a Public-Private-Partnership (PPP) model. The concession integrates design, financing, construction, operations and maintenance to deliver a safe, reliable Western Corridor.</p>\n\n\n\n<p><strong>Concessionaire:</strong> Western Corridor Limited (WCL), incorporated by BeefCo Holdings Limited (BeefCo) and First Quantum Minerals (FQM) Limited.</p>\n\n\n\n<p><strong>Governance:</strong> Western Corridor Limited (WCL) and the Government of the Republic of Zambia through the Ministry of Finance and National Planning, the Ministry of Infrastructure, Housing and Urban Development and the Road Development Agency.</p>\n\n\n\n<p></p>\n\n\n\n<h3 class=\"wp-block-heading\">For more information</h3>\n\n\n\n<p><strong>Contact:</strong></p>\n\n\n\n<p>Name: Kasole Sakavuyi</p>\n\n\n\n<p>Title: Media Liaison</p>\n\n\n\n<p>Agency: Manic Creatives</p>\n\n\n\n<p>Phone Number: +260 974607451</p>\n\n\n\n<p>Email: socialmedia@manic.co.zm</p>\n\n\n\n<p></p>\n","date":"2025-11-08T02:25:07","excerpt":"<p>His Excellency, President Hakainde Hichilema, officially launched the Western Corridor Transformation Project in Kasempa on 31st October 2025. The landmark Public-Private-Partnership initiative, executed through Western Corridor Limited, will upgrade 371km of the Mutanda-Kasempa-Kaoma Road to bituminous standard, unlocking economic potential and creating significant employment opportunities across the Western Corridor.</p>\n","featuredImage":{"node":{"altText":"","mediaDetails":{"height":2541,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/3Z3A9299-scaled.jpg"}},"id":"cG9zdDo0NA==","newsFields":{"author":"Kasole Sakavuyi","category":["Press Release"],"publishedDate":"2025-10-31T00:00:00+00:00","tags":"presidential launch, press release, groundbreaking, public-private-partnership, infrastructure"},"slug":"president-hakainde-launches-landmark-western-corridor-transformation-project","title":"President Hakainde Launches Landmark Western Corridor Transformation Project"},{"content":"\n<p>Construction has officially commenced on the Kasempa Toll Plaza, one of three major toll facilities planned along the Western Corridor. The modern facility will incorporate state-of-the-art electronic toll collection systems and will serve as a key revenue point for highway maintenance.</p>\n\n\n\n<p>The plaza design includes 8 toll lanes, rest areas, fuel stations, and emergency services facilities. The project is being constructed to international standards with a focus on efficient traffic flow and user convenience.</p>\n\n\n\n<p>&#8220;The Kasempa Toll Plaza represents a critical component of the highway&#8217;s financial sustainability model,&#8221; noted Finance Director James Phiri. &#8220;Revenue generated will fund ongoing maintenance and improvements, ensuring the highway remains a world-class facility.&#8221;</p>\n\n\n\n<p>The facility is expected to be operational by mid-2025, coinciding with the completion of the surrounding highway sections. The toll plaza will create an additional 50 permanent jobs for local residents.</p>\n","date":"2025-11-07T11:58:14","excerpt":"<p>Construction begins on the Kasempa Toll Plaza, featuring 8 modern lanes and electronic toll collection systems. The facility will serve as a key revenue point for highway maintenance while creating 50 permanent jobs for local residents.</p>\n","featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/2-scaled.jpg"}},"id":"cG9zdDozMg==","newsFields":{"author":"James Phiri","category":["Announcement"],"publishedDate":"2025-11-01T00:00:00+00:00","tags":"toll plaza, kasempa, construction, infrastructure"},"slug":"kasempa-toll-plaza-construction-begins-in-q4-2024","title":"Kasempa Toll Plaza Construction Begins in Q4 2024"},{"content":"\n<p>The Western Corridor project&#8217;s Environmental and Social Impact Assessment (ESIA) has been recognized by the International Finance Corporation (IFC) for its comprehensive approach to environmental protection and biodiversity conservation.</p>\n\n\n\n<p>The assessment, conducted over 18 months, identified critical habitats, water sources, and wildlife corridors along the 371km route. The project team has implemented mitigation measures including wildlife crossings, erosion control systems, and wetland protection zones.</p>\n\n\n\n<p>Dr. Patrick Mulenga, Environmental Specialist, explained: &#8220;We&#8217;ve integrated international best practices with local ecological knowledge to create a sustainable development framework that protects Zambia&#8217;s natural heritage while delivering essential infrastructure.&#8221;</p>\n\n\n\n<p>The ESIA includes ongoing monitoring programs and has established partnerships with local conservation organizations to ensure long-term environmental stewardship.</p>\n","date":"2025-11-07T11:55:44","excerpt":"<p>The Western Corridor&#8217;s comprehensive Environmental and Social Impact Assessment has been recognized by the International Finance Corporation for its innovative approach to environmental protection and biodiversity conservation along the 371km route.</p>\n","featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/1-scaled.jpg"}},"id":"cG9zdDozMQ==","newsFields":{"author":"Patrick Mulenga","category":["Press Release"],"publishedDate":"2025-11-04T00:00:00+00:00","tags":"environment, sustainability, conservation, IFC"},"slug":"environmental-impact-assessment-receives-international-recognition","title":"Environmental Impact Assessment Receives International Recognition"},{"content":"\n<p>Western Corridor Limited has announced the successful recruitment of over 500 local workers as part of its commitment to community development and empowerment. The employment initiative prioritizes hiring from communities along the highway corridor.</p>\n\n\n\n<p>The program includes comprehensive training in construction techniques, safety protocols, and skills development that will benefit workers beyond the project&#8217;s completion. Training sessions are conducted in partnership with the Technical Education, Vocational and Entrepreneurship Training Authority (TEVETA).</p>\n\n\n\n<p>Local resident Grace Mwape, who secured employment as a site supervisor, shared her experience: &#8220;This opportunity has transformed my family&#8217;s future. The skills I&#8217;m gaining will open doors for years to come.&#8221;</p>\n\n\n\n<p>The project continues to prioritize local employment and has committed to maintaining at least 70% local workforce throughout the construction phases.</p>\n","date":"2025-11-07T11:37:44","excerpt":"<p>Western Corridor Limited announces the successful recruitment of over 500 local workers, prioritizing community employment and skills development. The program includes comprehensive training in construction and safety, creating opportunities that extend beyond project completion.</p>\n","featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/2-scaled.jpg"}},"id":"cG9zdDoyOQ==","newsFields":{"author":"Sarah Nkandu","category":["Community"],"publishedDate":"2025-11-07T00:00:00+00:00","tags":"employment, local jobs, training, community development"},"slug":"community-employment-program-creates-500-local-jobs","title":"Community Employment Program Creates 500 Local Jobs"},{"content":"\n<p>The Western Corridor project has achieved a significant milestone with the successful completion of 100 kilometers of road rehabilitation. This achievement marks a major step forward in connecting the Northwestern and Western provinces of Zambia.</p>\n\n\n\n<p>The rehabilitation work includes complete road surface renewal, drainage system upgrades, and the installation of modern road safety features. Local communities have already begun to experience the benefits of improved connectivity and reduced travel times.</p>\n\n\n\n<p>&#8220;This milestone represents not just physical infrastructure, but a commitment to the economic development of the region,&#8221; said Project Manager Michael Banda. &#8220;We&#8217;re creating a corridor that will facilitate trade and improve the lives of thousands of Zambians.&#8221;</p>\n\n\n\n<p>The project is expected to be completed by 2026, with the full 371km stretch transforming regional connectivity across the SADC region.</p>\n\n\n\n<p></p>\n","date":"2025-11-07T11:07:40","excerpt":"<p>The Western Corridor project celebrates a major achievement with 100 kilometers of road rehabilitation completed. This milestone marks significant progress in connecting Northwestern and Western provinces, bringing improved connectivity and economic opportunities to local communities.</p>\n","featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/1-scaled.jpg"}},"id":"cG9zdDoyNg==","newsFields":{"author":"Michael Banda","category":["Project Update"],"publishedDate":"2025-11-07T00:00:00+00:00","tags":"milestone, infrastructure, progress, construction"},"slug":"western-corridor-project-reaches-100km-milestone","title":"Western Corridor Project Reaches 100km Milestone"}]
+[00:04:16.188] Browser LOG     📊 Number of articles: 5
+[00:04:16.188] Browser LOG     📁 Categories in data: [["Press Release"],["Announcement"],["Press Release"],["Community"],["Project Update"]]
+[00:04:16.511] Browser LOG     ✅ GraphQL Response: [{"content":"\n<p><strong>FOR IMMEDIATE RELEASE</strong></p>\n\n\n\n<h2 class=\"wp-block-heading\">PRESIDENT HAKAINDE LAUNCHES LANDMARK WESTERN CORRIDOR TRANSFORMATION PROJECT OF MUTANDA-KASEMPA-KAOMA ROAD</h2>\n\n\n\n<p>Western Corridor Limited&#8217;s multi-faceted project set to unlock economic potential and create jobs opportunities in Zambia</p>\n\n\n\n<p><strong>KASEMPA, ZAMBIA – 31st October 2025</strong> – His Excellency, the President of the Republic of Zambia, Mr. Hakainde Hichilema, today officiated at the groundbreaking ceremony of the Western Corridor Transformation Project, marking the official commencement of a landmark development initiative undertaken through a Public-Private-Partnership (PPP) with Western Corridor Limited (WCL). Executed as a Special Purpose Vehicle (SPV), the Western Corridor Limited is the concessionnaire incorporated by BeefCo Limited and First Quantum Minerals (FQM) Limited.</p>\n\n\n\n<p>The groundbreaking ceremony, held in Kasempa, was attended by key Government Officials such as the Minister of Finance and National Planning, Dr. Situmbeko Musokotwane, the Minister of Commerce, Trade and Industry, Mr. Chipoka Mulenga, the Minister of Infrastructure and Urban Development, Mr. Charles Milupi, the Road Development Agency (RDA) officials, senior government personnel, traditional leaders, private sector partners and members of the electorate.</p>\n\n\n\n<h3 class=\"wp-block-heading\">Strategic Infrastructure Investment</h3>\n\n\n\n<p>This project is a strategic private sector-led initiative, aligned with the government&#8217;s Eighth National Development Plan (8NDP). It is poised to unlock the vast economic potential of the Western Corridor through strategic investments in key sectors, including integrated agriculture, infrastructure development, and value addition.</p>\n\n\n\n<p>Western Corridor Limited (WCL) is set to upgrade the current gravel alignment to bituminous standard, including two new bridges over the Lalafuta and Luena rivers and selected urban road works in Kasempa and Kaoma Districts. The 371km road project promises improved road standards which will significantly reduce travel times, create jobs and boost export potential. The road will link key mining zones and boost agricultural capacity, as well as being the fastest trade route to the port at Walvis Bay in Namibia.</p>\n\n\n\n<h3 class=\"wp-block-heading\">Presidential Endorsement</h3>\n\n\n\n<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\">\n<p>&#8220;This road means business, business to move goods from Zambia to the world through the port of Walvis Bay, and from the world, through Walvis Bay, back to Zambia.&#8221;</p>\n</blockquote>\n\n\n\n<p>Speaking at the ceremony, President Hakainde Hichilema highlighted the project&#8217;s alignment with government priorities in driving economic growth, particularly in agriculture and mining. The President highlighted the vast potential that awaits in regional connectivity and international trade. The President emphasized that even when the country was bankrupt, the main priority was to help the people of Zambia through interventions such as the Public-Private-Partnership (PPP) to unlock investment.</p>\n\n\n\n<p>&#8220;This is a great day because infrastructure, roads in particular, open up investment. From Mutanda to Kasempa, Kaoma to Mongu, Senanga to Sesheke upto Katima Mulilo; this will be the fastest route to Walvis Bay. Since Independence, the residents of Kasempa can for the first time travel shorter distances to Lusaka through Kaoma and Mumbwa,&#8221; he said.</p>\n\n\n\n<h3 class=\"wp-block-heading\">Job Creation and Local Participation</h3>\n\n\n\n<p>The President further expressed contentment at the prospect of the improved road infrastructure directly addressing issues of unemployment by providing jobs to the local community and the youth as well as providing support for MSMEs through opportunities for local contractors and suppliers, with at least 20% of project works reserved for Zambian citizen contractors, service providers and/or suppliers.</p>\n\n\n\n<h2 class=\"wp-block-heading\">Leadership Perspectives</h2>\n\n\n\n<p>Western Corridor Limited&#8217;s CEO, Buks Jansen Van Rensburg reiterated the importance of working as a team to actualise the vision of the Mutanda to Kaoma road. He stated, &#8220;Let&#8217;s build more roads, let&#8217;s protect our roads and infrastructure and give support to the country and to all the communities,&#8221; he emphasised. &#8220;Do not look for outside help, let&#8217;s look for Zambian solutions to Zambian challenges. Honourable Milupi gave Western Corridor Limited an opportunity, he pushed us out of our limits and now this road is a reality through Public-Private-Partnership,&#8221; he added.</p>\n\n\n\n<p>First Quantum Minerals (FQM) Limited Country Manager, Dr. Godwin Beene, said the initiative reflects FQM&#8217;s belief that mining must act as a catalyst for inclusive and sustainable development. &#8220;We understand that a thriving mining sector depends on a robust and well-maintained road network — one that connects production centers to markets, communities to opportunities, and people to prosperity&#8221;, Dr. Beene asserted.</p>\n\n\n\n<p>He added that, &#8220;over the past decade, First Quantum Minerals has invested in road infrastructure within Solwezi and Kalumbila. These projects, like this one, were designed to improve accessibility, enhance safety, and stimulate local enterprise. The Mutanda–Kaoma Road builds upon that legacy; demonstrating how responsible private investment can meaningfully complement public infrastructure priorities.&#8221;</p>\n\n\n\n<h3 class=\"wp-block-heading\">A New Era of Development</h3>\n\n\n\n<p>The groundbreaking ceremony signifies the beginning of major development works, heralding a new era of economic and social prosperity for the Western Corridor. This event underscores the Government&#8217;s commitment to fostering sustainable development, creating significant employment opportunities, and improving livelihoods throughout the province.</p>\n\n\n\n<p></p>\n\n\n\n<h3 class=\"wp-block-heading\">About Western Corridor Limited (WCL)</h3>\n\n\n\n<p>WCL is a Special Purpose Vehicle (SPV) established as the Concessionaire for the Mutanda–Kasempa–Kaoma Road under a Public-Private-Partnership (PPP) model. The concession integrates design, financing, construction, operations and maintenance to deliver a safe, reliable Western Corridor.</p>\n\n\n\n<p><strong>Concessionaire:</strong> Western Corridor Limited (WCL), incorporated by BeefCo Holdings Limited (BeefCo) and First Quantum Minerals (FQM) Limited.</p>\n\n\n\n<p><strong>Governance:</strong> Western Corridor Limited (WCL) and the Government of the Republic of Zambia through the Ministry of Finance and National Planning, the Ministry of Infrastructure, Housing and Urban Development and the Road Development Agency.</p>\n\n\n\n<p></p>\n\n\n\n<h3 class=\"wp-block-heading\">For more information</h3>\n\n\n\n<p><strong>Contact:</strong></p>\n\n\n\n<p>Name: Kasole Sakavuyi</p>\n\n\n\n<p>Title: Media Liaison</p>\n\n\n\n<p>Agency: Manic Creatives</p>\n\n\n\n<p>Phone Number: +260 974607451</p>\n\n\n\n<p>Email: socialmedia@manic.co.zm</p>\n\n\n\n<p></p>\n","date":"2025-11-08T02:25:07","excerpt":"<p>His Excellency, President Hakainde Hichilema, officially launched the Western Corridor Transformation Project in Kasempa on 31st October 2025. The landmark Public-Private-Partnership initiative, executed through Western Corridor Limited, will upgrade 371km of the Mutanda-Kasempa-Kaoma Road to bituminous standard, unlocking economic potential and creating significant employment opportunities across the Western Corridor.</p>\n","featuredImage":{"node":{"altText":"","mediaDetails":{"height":2541,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/3Z3A9299-scaled.jpg"}},"id":"cG9zdDo0NA==","newsFields":{"author":"Kasole Sakavuyi","category":["Press Release"],"publishedDate":"2025-10-31T00:00:00+00:00","tags":"presidential launch, press release, groundbreaking, public-private-partnership, infrastructure"},"slug":"president-hakainde-launches-landmark-western-corridor-transformation-project","title":"President Hakainde Launches Landmark Western Corridor Transformation Project"},{"content":"\n<p>Construction has officially commenced on the Kasempa Toll Plaza, one of three major toll facilities planned along the Western Corridor. The modern facility will incorporate state-of-the-art electronic toll collection systems and will serve as a key revenue point for highway maintenance.</p>\n\n\n\n<p>The plaza design includes 8 toll lanes, rest areas, fuel stations, and emergency services facilities. The project is being constructed to international standards with a focus on efficient traffic flow and user convenience.</p>\n\n\n\n<p>&#8220;The Kasempa Toll Plaza represents a critical component of the highway&#8217;s financial sustainability model,&#8221; noted Finance Director James Phiri. &#8220;Revenue generated will fund ongoing maintenance and improvements, ensuring the highway remains a world-class facility.&#8221;</p>\n\n\n\n<p>The facility is expected to be operational by mid-2025, coinciding with the completion of the surrounding highway sections. The toll plaza will create an additional 50 permanent jobs for local residents.</p>\n","date":"2025-11-07T11:58:14","excerpt":"<p>Construction begins on the Kasempa Toll Plaza, featuring 8 modern lanes and electronic toll collection systems. The facility will serve as a key revenue point for highway maintenance while creating 50 permanent jobs for local residents.</p>\n","featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/2-scaled.jpg"}},"id":"cG9zdDozMg==","newsFields":{"author":"James Phiri","category":["Announcement"],"publishedDate":"2025-11-01T00:00:00+00:00","tags":"toll plaza, kasempa, construction, infrastructure"},"slug":"kasempa-toll-plaza-construction-begins-in-q4-2024","title":"Kasempa Toll Plaza Construction Begins in Q4 2024"},{"content":"\n<p>The Western Corridor project&#8217;s Environmental and Social Impact Assessment (ESIA) has been recognized by the International Finance Corporation (IFC) for its comprehensive approach to environmental protection and biodiversity conservation.</p>\n\n\n\n<p>The assessment, conducted over 18 months, identified critical habitats, water sources, and wildlife corridors along the 371km route. The project team has implemented mitigation measures including wildlife crossings, erosion control systems, and wetland protection zones.</p>\n\n\n\n<p>Dr. Patrick Mulenga, Environmental Specialist, explained: &#8220;We&#8217;ve integrated international best practices with local ecological knowledge to create a sustainable development framework that protects Zambia&#8217;s natural heritage while delivering essential infrastructure.&#8221;</p>\n\n\n\n<p>The ESIA includes ongoing monitoring programs and has established partnerships with local conservation organizations to ensure long-term environmental stewardship.</p>\n","date":"2025-11-07T11:55:44","excerpt":"<p>The Western Corridor&#8217;s comprehensive Environmental and Social Impact Assessment has been recognized by the International Finance Corporation for its innovative approach to environmental protection and biodiversity conservation along the 371km route.</p>\n","featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/1-scaled.jpg"}},"id":"cG9zdDozMQ==","newsFields":{"author":"Patrick Mulenga","category":["Press Release"],"publishedDate":"2025-11-04T00:00:00+00:00","tags":"environment, sustainability, conservation, IFC"},"slug":"environmental-impact-assessment-receives-international-recognition","title":"Environmental Impact Assessment Receives International Recognition"},{"content":"\n<p>Western Corridor Limited has announced the successful recruitment of over 500 local workers as part of its commitment to community development and empowerment. The employment initiative prioritizes hiring from communities along the highway corridor.</p>\n\n\n\n<p>The program includes comprehensive training in construction techniques, safety protocols, and skills development that will benefit workers beyond the project&#8217;s completion. Training sessions are conducted in partnership with the Technical Education, Vocational and Entrepreneurship Training Authority (TEVETA).</p>\n\n\n\n<p>Local resident Grace Mwape, who secured employment as a site supervisor, shared her experience: &#8220;This opportunity has transformed my family&#8217;s future. The skills I&#8217;m gaining will open doors for years to come.&#8221;</p>\n\n\n\n<p>The project continues to prioritize local employment and has committed to maintaining at least 70% local workforce throughout the construction phases.</p>\n","date":"2025-11-07T11:37:44","excerpt":"<p>Western Corridor Limited announces the successful recruitment of over 500 local workers, prioritizing community employment and skills development. The program includes comprehensive training in construction and safety, creating opportunities that extend beyond project completion.</p>\n","featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/2-scaled.jpg"}},"id":"cG9zdDoyOQ==","newsFields":{"author":"Sarah Nkandu","category":["Community"],"publishedDate":"2025-11-07T00:00:00+00:00","tags":"employment, local jobs, training, community development"},"slug":"community-employment-program-creates-500-local-jobs","title":"Community Employment Program Creates 500 Local Jobs"},{"content":"\n<p>The Western Corridor project has achieved a significant milestone with the successful completion of 100 kilometers of road rehabilitation. This achievement marks a major step forward in connecting the Northwestern and Western provinces of Zambia.</p>\n\n\n\n<p>The rehabilitation work includes complete road surface renewal, drainage system upgrades, and the installation of modern road safety features. Local communities have already begun to experience the benefits of improved connectivity and reduced travel times.</p>\n\n\n\n<p>&#8220;This milestone represents not just physical infrastructure, but a commitment to the economic development of the region,&#8221; said Project Manager Michael Banda. &#8220;We&#8217;re creating a corridor that will facilitate trade and improve the lives of thousands of Zambians.&#8221;</p>\n\n\n\n<p>The project is expected to be completed by 2026, with the full 371km stretch transforming regional connectivity across the SADC region.</p>\n\n\n\n<p></p>\n","date":"2025-11-07T11:07:40","excerpt":"<p>The Western Corridor project celebrates a major achievement with 100 kilometers of road rehabilitation completed. This milestone marks significant progress in connecting Northwestern and Western provinces, bringing improved connectivity and economic opportunities to local communities.</p>\n","featuredImage":{"node":{"altText":"","mediaDetails":{"height":1918,"width":2560},"sourceUrl":"https://cms.westerncorridorlimited.com/wp-content/uploads/2025/11/1-scaled.jpg"}},"id":"cG9zdDoyNg==","newsFields":{"author":"Michael Banda","category":["Project Update"],"publishedDate":"2025-11-07T00:00:00+00:00","tags":"milestone, infrastructure, progress, construction"},"slug":"western-corridor-project-reaches-100km-milestone","title":"Western Corridor Project Reaches 100km Milestone"}]
+[00:04:16.511] Browser LOG     📊 Number of articles: 5
+[00:04:16.511] Browser LOG     📁 Categories in data: [["Press Release"],["Announcement"],["Press Release"],["Community"],["Project Update"]]

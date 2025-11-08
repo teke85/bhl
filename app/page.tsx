@@ -22,10 +22,6 @@ export default function HomePage() {
         </SectionWrapper>
 
         <SectionWrapper>
-          <PressReleaseSection />
-        </SectionWrapper>
-
-        <SectionWrapper>
           <KeyStats />
         </SectionWrapper>
 
@@ -58,8 +54,12 @@ export default function HomePage() {
         </SectionWrapper>
 
         <SectionWrapper>
-          <NewsUpdatesSection />
+          <PressReleaseSection />
         </SectionWrapper>
+
+        {/* <SectionWrapper>
+          <NewsUpdatesSection />
+        </SectionWrapper> */}
 
         <Footer />
       </div>
