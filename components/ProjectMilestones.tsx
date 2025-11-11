@@ -14,7 +14,11 @@ const ProjectMilestonesSection = () => {
     },
     {
       year: "2025",
-      description: "Financial close target",
+      description: "Start of construction",
+    },
+    {
+      year: "2028",
+      description: "Projected completion of the highway",
     },
   ];
 
@@ -26,7 +30,7 @@ const ProjectMilestonesSection = () => {
             Project Milestones
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12">
             {milestones.map((milestone, index) => (
               <div key={index} className="space-y-3">
                 <div className="text-[#fdb913] font-bdy dark:text-[#fdb913] text-3xl md:text-4xl font-bold">

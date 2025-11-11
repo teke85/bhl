@@ -87,30 +87,6 @@ export default function ContactPage() {
                   </div>
                 </Card>
 
-                <Card className="p-6 border-border">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-lg flex items-center justify-center shrink-0">
-                      <Phone className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-2">Call Us</h3>
-                      <a
-                        href="tel:+260123456789"
-                        className="text-sm transition-colors"
-                      >
-                        +260 123 456 789
-                      </a>
-                      <br />
-                      <a
-                        href="tel:+260987654321"
-                        className="text-sm transition-colors"
-                      >
-                        +260 987 654 321
-                      </a>
-                    </div>
-                  </div>
-                </Card>
-
                 <Card className="p-6 bg-card border-border">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-lg flex items-center justify-center shrink-0">
