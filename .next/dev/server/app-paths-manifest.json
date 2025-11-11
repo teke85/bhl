@@ -1,10 +1,3 @@
 {
-<<<<<<< HEAD
-  "/_not-found/page": "app/_not-found/page.js",
-  "/api/graphql/route": "app/api/graphql/route.js",
-=======
-  "/news/[slug]/page": "app/news/[slug]/page.js",
->>>>>>> d40ccb435ef373d8649cbe4d7976bb1e8b39b880
-  "/news/page": "app/news/page.js",
   "/page": "app/page.js"
 }

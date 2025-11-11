@@ -1,40 +1,6 @@
 {
   "app": {
-    "[project]/app/news/[slug]/page": [
-      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2",
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/81cef6a21128489e-s.p.6cf41120.woff2",
-      "static/media/LarkenDEMO_Light-s.p.6d169b17.otf",
-      "static/media/LarkenDEMO_Regular-s.p.7e361212.otf",
-      "static/media/LarkenDEMO_Bold-s.p.f5cf7ce0.otf",
-      "static/media/LarkenDEMO_ExtraBold-s.p.a70cc568.otf",
-      "static/media/Aeonik_Light-s.p.d56c7b9a.otf",
-      "static/media/Aeonik_Regular-s.p.2024409c.otf",
-      "static/media/Aeonik_Bold-s.p.6cb12c5b.otf",
-      "static/media/cf514f5d0007dafa-s.p.417aa1a2.woff2"
-    ],
-<<<<<<< HEAD
-    "[project]/Teke/New bhl/new-bhl/app/news/page": [
-=======
-    "[project]/app/news/page": [
->>>>>>> d40ccb435ef373d8649cbe4d7976bb1e8b39b880
-      "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2",
-      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
-      "static/media/81cef6a21128489e-s.p.6cf41120.woff2",
-      "static/media/LarkenDEMO_Light-s.p.6d169b17.otf",
-      "static/media/LarkenDEMO_Regular-s.p.7e361212.otf",
-      "static/media/LarkenDEMO_Bold-s.p.f5cf7ce0.otf",
-      "static/media/LarkenDEMO_ExtraBold-s.p.a70cc568.otf",
-      "static/media/Aeonik_Light-s.p.d56c7b9a.otf",
-      "static/media/Aeonik_Regular-s.p.2024409c.otf",
-      "static/media/Aeonik_Bold-s.p.6cb12c5b.otf",
-      "static/media/cf514f5d0007dafa-s.p.417aa1a2.woff2"
-    ],
-<<<<<<< HEAD
-    "[project]/Teke/New bhl/new-bhl/app/page": [
-=======
     "[project]/app/page": [
->>>>>>> d40ccb435ef373d8649cbe4d7976bb1e8b39b880
       "static/media/e8f2fbee2754df70-s.p.9b7a96b4.woff2",
       "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2",
       "static/media/81cef6a21128489e-s.p.6cf41120.woff2",
