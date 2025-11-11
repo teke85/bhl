@@ -83,7 +83,7 @@ export default function LeadershipTeam() {
             Leadership Team
           </h2>
           <p className="text-lg text-[#868584] dark:text-gray-300 font-paragraph max-w-2xl mx-auto">
-            Experienced professionals driving the Barotse Highway vision
+            Experienced professionals driving the Western Corridor vision
           </p>
         </div>
 
@@ -130,9 +130,8 @@ export default function LeadershipTeam() {
                   >
                     {expandedBio === leader.id ? "Collapse Bio" : "Expand Bio"}
                     <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-300 ${
-                        expandedBio === leader.id ? "rotate-180" : ""
-                      }`}
+                      className={`w-4 h-4 transition-transform duration-300 ${expandedBio === leader.id ? "rotate-180" : ""
+                        }`}
                     />
                   </button>
                 </div>

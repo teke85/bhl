@@ -1,27 +1,34 @@
-[00:00:25.512] Server  LOG      ✓ Ready in 21.1s
-[00:00:28.646] Server  LOG      ○ Compiling / ...
-[00:01:01.989] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_300,c_limit/v1761708103/westerncorridor_logo_bih0jh.png" is using quality "70" which is not configured in images.qualities [75]. Please update your config to [70, 75].
+[00:00:05.014] Server  LOG      ✓ Ready in 4.1s
+[00:00:28.386] Server  LOG      ○ Compiling / ...
+[00:02:27.680] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_300,c_limit/v1761708103/westerncorridor_logo_bih0jh.png" is using quality "70" which is not configured in images.qualities [75]. Please update your config to [70, 75].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:01:02.130] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1762357419/Toll_plaza_ls71wg.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+[00:02:27.890] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1762357419/Toll_plaza_ls71wg.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:01:02.132] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1761601625/IMG_7101-1024x649_mzybrr.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+[00:02:27.893] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1761601625/IMG_7101-1024x649_mzybrr.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:01:02.136] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1761107765/EI3A9507DRM_emgog7.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+[00:02:27.914] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1761107765/EI3A9507DRM_emgog7.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:01:02.157] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761481328/EI3A9529DRM_exisuy.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+[00:02:27.996] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761481328/EI3A9529DRM_exisuy.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:01:02.160] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761481327/EI3A9515DRM_yzoiit.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+[00:02:28.004] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761481327/EI3A9515DRM_yzoiit.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:01:05.350] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:06.834] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_300,c_limit/v1761708103/westerncorridor_logo_bih0jh.png" is using quality "70" which is not configured in images.qualities [75]. Please update your config to [70, 75].
+[00:02:37.999] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_300,c_limit/v1761708103/westerncorridor_logo_bih0jh.png" is using quality "70" which is not configured in images.qualities [75]. Please update your config to [70, 75].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:01:06.834] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1762357419/Toll_plaza_ls71wg.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+[00:02:37.999] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1762357419/Toll_plaza_ls71wg.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:01:06.834] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1761601625/IMG_7101-1024x649_mzybrr.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+[00:02:37.999] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1761601625/IMG_7101-1024x649_mzybrr.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:01:06.834] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1761107765/EI3A9507DRM_emgog7.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+[00:02:37.999] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1761107765/EI3A9507DRM_emgog7.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:01:06.834] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761481328/EI3A9529DRM_exisuy.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+[00:02:37.999] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761481328/EI3A9529DRM_exisuy.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
-[00:01:06.834] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761481327/EI3A9515DRM_yzoiit.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+[00:02:37.999] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761481327/EI3A9515DRM_yzoiit.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[00:18:19.424] Server  LOG      ✓ Compiled in 9.7s
+[00:23:18.257] Server  LOG      ✓ Compiled in 428ms
+[00:23:41.092] Server  LOG      ○ Compiling /about ...
+[00:26:31.880] Server  LOG      ✓ Compiled in 610ms
+[00:28:01.912] Server  LOG      ✓ Compiled in 346ms
+[00:28:49.822] Server  LOG      ✓ Compiled in 373ms
+[00:30:25.334] Server  LOG      ✓ Compiled in 663ms
+[00:31:31.460] Server  LOG      ✓ Compiled in 303ms
