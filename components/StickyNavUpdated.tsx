@@ -8,7 +8,7 @@ import { X, Search, Menu, ChevronDown, ArrowDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ModeToggle from "./ModeToggle";
 
-type MenuKey = "company" | "our commitment" | "project" | "careers" | "gallery";
+type MenuKey = "company" | "our Commitment" | "project" | "careers" | "gallery";
 
 function StickyNavigationMenu() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -96,14 +96,14 @@ function StickyNavigationMenu() {
     company: {
       title: "ABOUT US",
       description:
-        "Barotse Highway Limited is a Special Purpose Vehicle (SPV) incorporated by BeefCo Holdings Limited and First Quantum Minerals Operations Limited for executing this transformative infrastructure project.",
+        "Western Corridor Limited is a Special Purpose Vehicle (SPV) incorporated by BeefCo Holdings Limited and First Quantum Minerals Operations Limited for executing this transformative infrastructure project.",
       links: [
         { name: "Our Story", href: "/about" },
         { name: "Partners", href: "/partners" },
         { name: "Home", href: "/" },
       ],
     },
-    "our commitment": {
+    "our Commitment": {
       title: "OUR COMMITMENT",
       description:
         "We are committed to delivering world-class infrastructure while prioritizing community welfare, environmental sustainability, and economic development across the Western Corridor.",
@@ -134,7 +134,7 @@ function StickyNavigationMenu() {
     gallery: {
       title: "GALLERY",
       description:
-        "Explore our multimedia gallery showcasing the Barotse Highway project.",
+        "Explore our multimedia gallery showcasing the Western Corridor project.",
       links: [{ name: "View Gallery", href: "/gallery" }],
     },
   };
@@ -272,7 +272,7 @@ function StickyNavigationMenu() {
         <div
           ref={megaMenuRef}
           className="hidden lg:block fixed top-36 left-6 right-6 shadow-2xl transition-all duration-300 z-51 rounded-xl overflow-hidden"
-          //                                    ^^^^^^ Changed from top-28 to top-36
+        //                                    ^^^^^^ Changed from top-28 to top-36
         >
           <div className="container mx-auto">
             <div className="grid grid-cols-2 gap-0 max-w-6xl mx-auto rounded-lg overflow-hidden">

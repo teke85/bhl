@@ -33,9 +33,9 @@ export default function ProjectScopeAndHistory() {
               <p className="text-lg text-black dark:text-white font-body leading-relaxed">
                 On 21 March 2018, The Sponsors entered a 10-year maintenance
                 contract with the Road Development Agency (RDA) for the
-                Kaoma–Kasempa road. This arrangement ensured that BHL trucks,
+                Kaoma–Kasempa road. This arrangement ensured that WCL trucks,
                 along with other road users, could utilise the road in a
-                maintained gravel state. BHL has invested over $8 million in
+                maintained gravel state. WCL has invested over $8 million in
                 maintaining the stretch to keep it in a usable condition,
                 underscoring the strategic importance and operational value of
                 the route even before its formal proposed upgrade under the

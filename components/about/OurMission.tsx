@@ -42,7 +42,7 @@ export default function OurMission() {
     {
       title: "Purpose",
       description:
-        "The purose of Barotse is to deliver the Mutanda–Kaoma Toll Road under a 25-year Public–Private Partnership (PPP) concession through a dedicated Special Purpose Vehicle (SPV) established to execute the full lifecycle of the Project, design, build, finance, operate, maintain, and transfer. Barotse’s purpose is to serve as the legal and operational entity responsible for mobilizing capital, managing construction and operations, ensuring compliance with environmental and social standards, and coordinating stakeholder engagement. Through this structure, the Project aims to unlock regional trade, enhance Zambia’s infrastructure, and promote inclusive, sustainable development across the Western Corridor.",
+        "The purose of Western Corridor is to deliver the Mutanda–Kaoma Toll Road under a 25-year Public–Private Partnership (PPP) concession through a dedicated Special Purpose Vehicle (SPV) established to execute the full lifecycle of the Project, design, build, finance, operate, maintain, and transfer. Western Corridor’s purpose is to serve as the legal and operational entity responsible for mobilizing capital, managing construction and operations, ensuring compliance with environmental and social standards, and coordinating stakeholder engagement. Through this structure, the Project aims to unlock regional trade, enhance Zambia’s infrastructure, and promote inclusive, sustainable development across the Western Corridor.",
     },
   ];
 
