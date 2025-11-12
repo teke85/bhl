@@ -24,6 +24,9 @@ export default function GalleryGrid() {
   const [imageLoadStates, setImageLoadStates] = useState<{
     [key: string]: boolean;
   }>({});
+  const [videoLoadStates, setVideoLoadStates] = useState<{
+    [key: string]: boolean;
+  }>({});
 
   // Gallery categories
   const categories = [
@@ -49,12 +52,17 @@ export default function GalleryGrid() {
 
         setGalleryImages(data || []);
 
-        // Initialize load states for all images
-        const initialLoadStates: { [key: string]: boolean } = {};
+        // Initialize load states for all images and videos
+        const initialImageLoadStates: { [key: string]: boolean } = {};
+        const initialVideoLoadStates: { [key: string]: boolean } = {};
+
         data?.forEach((item) => {
-          initialLoadStates[item.id] = false;
+          initialImageLoadStates[item.id] = false;
+          initialVideoLoadStates[item.id] = false;
         });
-        setImageLoadStates(initialLoadStates);
+
+        setImageLoadStates(initialImageLoadStates);
+        setVideoLoadStates(initialVideoLoadStates);
       } catch (error) {
         console.error("❌ Error fetching gallery:", error);
       } finally {
@@ -70,6 +78,17 @@ export default function GalleryGrid() {
       ...prev,
       [imageId]: true,
     }));
+  };
+
+  const handleVideoLoad = (videoId: string) => {
+    setVideoLoadStates((prev) => ({
+      ...prev,
+      [videoId]: true,
+    }));
+  };
+
+  const isVideo = (url: string) => {
+    return /\.(mp4|webm|ogg|mov|avi|wmv|flv|mkv)$/i.test(url);
   };
 
   const containerVariants = {
@@ -91,10 +110,21 @@ export default function GalleryGrid() {
     },
   };
 
-  // Skeleton loader component
+  // Skeleton loader components
   const ImageSkeleton = () => (
     <div className="relative overflow-hidden rounded-lg aspect-square bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 animate-pulse">
       <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-shimmer" />
+    </div>
+  );
+
+  const VideoSkeleton = () => (
+    <div className="relative overflow-hidden rounded-lg aspect-square bg-linear-to-r from-blue-200 via-blue-300 to-blue-200 dark:from-blue-700 dark:via-blue-600 dark:to-blue-700 animate-pulse">
+      <div className="absolute inset-0 bg-linear-to-r from-transparent via-blue-100/20 to-transparent -skew-x-12 animate-shimmer" />
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+          <div className="w-0 h-0 border-l-12 border-l-white border-t-8 border-t-transparent border-b-8 border-b-transparent ml-1" />
+        </div>
+      </div>
     </div>
   );
 
@@ -117,11 +147,15 @@ export default function GalleryGrid() {
             ))}
           </div>
 
-          {/* Skeleton grid */}
+          {/* Skeleton grid - mix of image and video skeletons */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {[...Array(8)].map((_, i) => (
-              <ImageSkeleton key={i} />
-            ))}
+            {[...Array(8)].map((_, i) =>
+              i % 3 === 0 ? (
+                <VideoSkeleton key={i} />
+              ) : (
+                <ImageSkeleton key={i} />
+              )
+            )}
           </div>
         </div>
       </section>
@@ -180,8 +214,11 @@ export default function GalleryGrid() {
             animate={inView ? "visible" : "hidden"}
           >
             {galleryImages.map((item) => {
-              const imageUrl = getImageUrl(item);
-              const isLoaded = imageLoadStates[item.id];
+              const mediaUrl = getImageUrl(item);
+              const isVideoItem = isVideo(mediaUrl);
+              const isLoaded = isVideoItem
+                ? videoLoadStates[item.id]
+                : imageLoadStates[item.id];
 
               return (
                 <motion.div
@@ -189,23 +226,46 @@ export default function GalleryGrid() {
                   className="relative overflow-hidden rounded-lg cursor-pointer group aspect-square"
                   variants={itemVariants}
                   whileHover={{ scale: 1.05 }}
-                  onClick={() => setSelectedImage(imageUrl)}
+                  onClick={() => !isVideoItem && setSelectedImage(mediaUrl)}
                 >
                   {/* Skeleton */}
-                  {!isLoaded && <ImageSkeleton />}
+                  {!isLoaded &&
+                    (isVideoItem ? <VideoSkeleton /> : <ImageSkeleton />)}
 
-                  {/* Actual Image */}
-                  <Image
-                    src={imageUrl}
-                    alt={item.title}
-                    fill
-                    className={`object-cover group-hover:scale-110 transition-all duration-300 ${
-                      isLoaded ? "opacity-100" : "opacity-0"
-                    }`}
-                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                    onLoad={() => handleImageLoad(item.id)}
-                    priority={galleryImages.indexOf(item) < 4} // Priority for first 4 images
-                  />
+                  {/* Actual Media */}
+                  {isVideoItem ? (
+                    <video
+                      src={mediaUrl}
+                      className={`object-cover w-full h-full group-hover:scale-110 transition-all duration-300 ${
+                        isLoaded ? "opacity-100" : "opacity-0"
+                      }`}
+                      muted
+                      loop
+                      playsInline
+                      onLoadedData={() => handleVideoLoad(item.id)}
+                    />
+                  ) : (
+                    <Image
+                      src={mediaUrl}
+                      alt={item.title}
+                      fill
+                      className={`object-cover group-hover:scale-110 transition-all duration-300 ${
+                        isLoaded ? "opacity-100" : "opacity-0"
+                      }`}
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                      onLoad={() => handleImageLoad(item.id)}
+                      priority={galleryImages.indexOf(item) < 4}
+                    />
+                  )}
+
+                  {/* Play icon for videos */}
+                  {isVideoItem && isLoaded && (
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="w-16 h-16 bg-black/50 rounded-full flex items-center justify-center backdrop-blur-sm">
+                        <div className="w-0 h-0 border-l-12 border-l-white border-t-8 border-t-transparent border-b-8 border-b-transparent ml-1" />
+                      </div>
+                    </div>
+                  )}
 
                   {/* Overlay */}
                   <div
@@ -220,6 +280,9 @@ export default function GalleryGrid() {
                           ? item.galleryFields.category.join(", ")
                           : item.galleryFields?.category || "Gallery"}
                       </p>
+                      {isVideoItem && (
+                        <p className="text-xs text-[#fdb913] mt-1">Video</p>
+                      )}
                     </div>
                   </div>
                 </motion.div>
@@ -230,14 +293,14 @@ export default function GalleryGrid() {
           <div className="text-center py-20">
             <p className="text-xl text-[#868584] dark:text-white font-paragraph">
               {selectedCategory
-                ? `No images found in "${selectedCategory}" category.`
-                : "No gallery images found."}
+                ? `No media found in "${selectedCategory}" category.`
+                : "No gallery media found."}
             </p>
           </div>
         )}
       </div>
 
-      {/* Image Modal */}
+      {/* Image Modal (only for images, not videos) */}
       {selectedImage && (
         <motion.div
           className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
