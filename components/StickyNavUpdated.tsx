@@ -8,7 +8,13 @@ import { X, Search, Menu, ChevronDown, ArrowDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ModeToggle from "./ModeToggle";
 
-type MenuKey = "company" | "our Commitment" | "project" | "careers" | "gallery";
+type MenuKey =
+  | "company"
+  | "our Commitment"
+  | "project"
+  | "careers"
+  | "gallery"
+  | "news";
 
 function StickyNavigationMenu() {
   const [scrollProgress, setScrollProgress] = useState(0);
