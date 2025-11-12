@@ -191,3 +191,11 @@ Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
 [01:29:50.555] Browser DEBUG   TSS: Counted history being pushed
 [01:29:50.556] Browser DEBUG   TSS: Caught history
 [01:29:50.556] Browser DEBUG   TSS: Checking if repeated 500 times for interval 1000 against data:  {"lastCount":1,"lastTime":1762908516504}
+[01:39:31.739] Server  WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_300,c_limit/v1761708103/westerncorridor_logo_bih0jh.png" is using quality "70" which is not configured in images.qualities [75]. Please update your config to [70, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[01:39:32.178] Server  LOG      ✓ Compiled in 7.1s
+[01:39:37.303] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:39:39.553] Browser DEBUG   TSS: Counted history being replaced
+[01:39:39.553] Browser DEBUG   TSS: Caught history
+[01:39:39.553] Browser DEBUG   TSS: Checking if repeated 500 times for interval 1000 against data:  {}
+[01:39:39.553] Browser ERROR   uncaughtError: Error: Could not parse module '[project]/components/StickyNavUpdated.tsx', file not found
