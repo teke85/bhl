@@ -26,3 +26,30 @@ Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
 [00:01:06.834] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761481327/EI3A9515DRM_yzoiit.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
 Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
 [01:34:28.220] Server  LOG      ✓ Compiled in 15.3s
+[01:42:45.924] Server  LOG      ✓ Compiled in 1747ms
+[01:42:47.032] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[01:42:47.033] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./components/StickyNavUpdated.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[01:42:47.040] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[01:42:50.554] Server  LOG      ○ Compiling /_not-found/page ...
+[01:43:46.686] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:49:21.112] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_300,c_limit/v1761708103/westerncorridor_logo_bih0jh.png" is using quality "70" which is not configured in images.qualities [75]. Please update your config to [70, 75].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[01:49:21.112] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1762357419/Toll_plaza_ls71wg.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[01:49:21.112] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1761601625/IMG_7101-1024x649_mzybrr.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[01:49:21.112] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1761107765/EI3A9507DRM_emgog7.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[01:49:21.112] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761481328/EI3A9529DRM_exisuy.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[01:49:21.112] Browser WARN    Image with src "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761481327/EI3A9515DRM_yzoiit.jpg" is using quality "90" which is not configured in images.qualities [75]. Please update your config to [75, 90].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[01:49:21.112] Browser DEBUG   TSS: Counted history being pushed
+[01:49:21.112] Browser DEBUG   TSS: Caught history
+[01:49:21.112] Browser DEBUG   TSS: Checking if repeated 500 times for interval 1000 against data:  {}
+[01:49:33.707] Browser DEBUG   TSS: Counted history being pushed
+[01:49:33.708] Browser DEBUG   TSS: Caught history
+[01:49:33.708] Browser DEBUG   TSS: Checking if repeated 500 times for interval 1000 against data:  {"lastCount":1,"lastTime":1762909702572}
+[01:49:37.057] Browser DEBUG   TSS: Counted history being pushed
+[01:49:37.057] Browser DEBUG   TSS: Caught history
+[01:49:37.057] Browser DEBUG   TSS: Checking if repeated 500 times for interval 1000 against data:  {"lastCount":1,"lastTime":1762909715697}
