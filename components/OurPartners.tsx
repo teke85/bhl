@@ -42,8 +42,8 @@ function PartnersCarousel() {
     },
     {
       id: 8,
-      name: "KORRIDOR",
-      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430581/dhki-e1677569611745_d61ec9.jpg",
+      name: "NYELETI",
+      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1762950469/Nyeleti_Logo_wpojak.jpg",
     },
     {
       id: 9,
