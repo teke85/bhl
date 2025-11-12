@@ -43,8 +43,8 @@ const PartnersGrid: React.FC = () => {
     {
       id: "bchod",
       name: "Brian Colquhoun, Hugh O'Donnel & Partners (BCHOD)",
-      role: "Local EPC Contractor",
-      category: "Engineering & Construction",
+      role: "Local Civil and Structural Engineering Consultant",
+      category: "Engineering & Design",
       description:
         "BCHOD is a Zambian-based civil engineering firm with over 75 years of experience operating in the African region. The company offers a wide range of consultancy services, including civil, environmental, structural, electrical, and mechanical engineering, as well as building infrastructure and information technology. BCHOD plays a crucial role in planning, designing, and supervising construction projects, ensuring their successful delivery and meeting the highest standards of quality.",
       expertise: [
@@ -90,8 +90,7 @@ const PartnersGrid: React.FC = () => {
       name: "Korridor Holdings",
       role: "Toll Operator",
       category: "Operations & Technology",
-      description:
-        "Korridor is a multinational technology company headquartered in Mauritius, specialising in providing innovative solutions to the logistics and transport industries. With a focus on simplifying en route and cross-border processes. Korridor will implement Turnkey Systems (“TKS”) during the construction phase and manage revenue collection at toll plazas, weighbridges, and potentially the Sesheke One-Stop Border Post (“OSBP”) during the operational and maintenance stage.",
+      description: `Korridor is a multinational technology company headquartered in Mauritius, specialising in providing innovative solutions to the logistics and transport industries. With a focus on simplifying en route and cross-border processes. Korridor will implement Turnkey Systems ("TKS") during the construction phase and manage revenue collection at toll plazas, weighbridges, and potentially the Sesheke One-Stop Border Post ("OSBP") during the operational and maintenance stage.`,
       expertise: [
         "Toll Management Systems",
         "Revenue Collection",
@@ -108,9 +107,9 @@ const PartnersGrid: React.FC = () => {
     },
     {
       id: "hsf",
-      name: "Herbert Smith Freehills",
+      name: "Herbert Smith Freehills Kramer",
       role: "Lead Legal Advisor",
-      category: "Legal & Finance",
+      category: "Legal Team",
       description:
         "HSFK is a leading international law firm with a strong presence in Africa. As the International SPV legal counsel, they play a crucial role in facilitating the drafting and conclusion of all PPP and Project Agreements. With over 40 years of experience in Africa, Herbert Smith Freehills boasts a team of highly skilled lawyers who possess a deep understanding of the continent's legal systems, business practices, and cultural nuances.",
       expertise: [
@@ -149,7 +148,7 @@ const PartnersGrid: React.FC = () => {
     {
       id: "nyeleti",
       name: "Nyeleti Consulting",
-      role: "Lead Civil Engineer",
+      role: "Lead Civil and Structural Design Consultant",
       category: "Engineering & Design",
       description:
         "A South African-based civil engineering consultancy specializing in structural engineering, municipal infrastructure, roads and transportation.",
@@ -159,32 +158,15 @@ const PartnersGrid: React.FC = () => {
         "Roads & Transportation",
         "Design & Supervision",
         "Technical Expertise",
+        "Water",
+        "Traffic Engineering",
       ],
       responsibilities: [
-        "Civil engineer for design and site supervision",
-        "EPC Consortium technical expertise",
-        "Design conception to construction oversight",
-      ],
-    },
-    {
-      id: "tlc",
-      name: "Transport & Logistics Consulting (TLC)",
-      role: "Traffic Specialist",
-      category: "Logistics & Border",
-      description:
-        "A specialized firm focused on cross-border and corridor monitoring, offering comprehensive solutions for regional trade facilitation.",
-      expertise: [
-        "Cross-border Monitoring",
-        "Regional Bond Solutions",
-        "COMESA RTCG & IRU TIR Carnet",
-        "COMESA Virtual Trade Facilitation",
-        "Regional Cargo Tracking",
-        "OSBP Design & Implementation",
-      ],
-      responsibilities: [
-        "One-Stop Border Post (OSBP) designing and implementation",
-        "Traffic flow design",
-        "Cross-border facilitation",
+        "Civil and Structural Design Engineers",
+        "Design Development through to construction oversight",
+        "Construction Monitoring",
+        "Project Specifications",
+        "Quality Assurance",
       ],
     },
     {
@@ -211,19 +193,12 @@ const PartnersGrid: React.FC = () => {
       id: "mayco",
       name: "MAY and Company",
       role: "Local Legal Advisor",
-      category: "Legal & Compliance",
+      category: "Legal Team",
       description:
         "A corporate law firm based in Zambia, offering a wide range of legal services to businesses with expertise in PPP transactions.",
-      expertise: [
-        "Corporate Law",
-        "PPP Transactions",
-        "International Finance",
-        "Tax Advisory",
-        "Zambian Legal Systems",
-      ],
+      expertise: ["Corporate Law", "PPP Transactions", "Zambian Legal Systems"],
       responsibilities: [
         "Zambian SPV legal counsel",
-        "International finance and tax advisor",
         "PPP transaction facilitation",
       ],
     },
@@ -234,15 +209,8 @@ const PartnersGrid: React.FC = () => {
       category: "Architecture & Design",
       description:
         "A Zambian architectural design firm specializing in creating innovative and sustainable building solutions.",
-      expertise: [
-        "Architectural Design",
-        "Sustainable Solutions",
-        "Urban Planning",
-        "Building Design",
-        "OSBP Architecture",
-      ],
+      expertise: ["Sustainable Solutions", "Urban Planning", "Building Design"],
       responsibilities: [
-        "Architectural design of Sesheke OSBP",
         "Urban planning aspects",
         "Ensuring well-integrated and functional facility design",
       ],
