@@ -27,7 +27,7 @@ const ScrollTriggeredImage = () => {
       description:
         "The Western Corridor Project is a strategic infrastructure initiative that significantly enhances regional connectivity by linking Zambia’s mineral-rich Copperbelt and North-Western Provinces with the West Coast of Africa via Walvis Bay in Namibia. By upgrading the 371 km Mutanda to Kaoma Road and integrating it with key trade routes such as the Lumwana–Kambimba and Kipushi–Solwezi corridors, the project creates a seamless transport network that bypasses congested urban centres and reduces travel distances by up to 400 km for cross-border freight. This improved corridor facilitates efficient trade flows between Zambia, the Democratic Republic of Congo, Angola, Botswana, and Namibia, positioning Zambia as a pivotal logistics hub in the Southern African Development Community (SADC) region.",
       imageUrl:
-        "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1761601625/IMG_7101-1024x649_mzybrr.jpg",
+        "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1762947095/DJI_0711_wiuokv.jpg",
     },
     {
       title: "COMMUNITY IMPACT",
