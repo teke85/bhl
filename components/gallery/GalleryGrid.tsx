@@ -21,9 +21,18 @@ export default function GalleryGrid() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [imageLoadStates, setImageLoadStates] = useState<{
+    [key: string]: boolean;
+  }>({});
 
-  // Gallery categories - VERIFY these match your WordPress ACF exactly!
-  const categories = ["Chilombo", "Landscape", "Equipment", "Community", "Groundbreaking"];
+  // Gallery categories
+  const categories = [
+    "Chilombo",
+    "Landscape",
+    "Equipment",
+    "Community",
+    "Groundbreaking",
+  ];
 
   useEffect(() => {
     const fetchGallery = async () => {
@@ -38,14 +47,14 @@ export default function GalleryGrid() {
         console.log("✅ GraphQL Gallery Response:", data);
         console.log("📊 Number of items:", data?.length);
 
-        // Debug: Log categories from fetched data
-        if (data && data.length > 0) {
-          console.log("📁 Categories in gallery data:",
-            data.map(item => item.galleryFields?.category)
-          );
-        }
-
         setGalleryImages(data || []);
+
+        // Initialize load states for all images
+        const initialLoadStates: { [key: string]: boolean } = {};
+        data?.forEach((item) => {
+          initialLoadStates[item.id] = false;
+        });
+        setImageLoadStates(initialLoadStates);
       } catch (error) {
         console.error("❌ Error fetching gallery:", error);
       } finally {
@@ -55,6 +64,13 @@ export default function GalleryGrid() {
 
     fetchGallery();
   }, [selectedCategory]);
+
+  const handleImageLoad = (imageId: string) => {
+    setImageLoadStates((prev) => ({
+      ...prev,
+      [imageId]: true,
+    }));
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -75,11 +91,38 @@ export default function GalleryGrid() {
     },
   };
 
+  // Skeleton loader component
+  const ImageSkeleton = () => (
+    <div className="relative overflow-hidden rounded-lg aspect-square bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 animate-pulse">
+      <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-shimmer" />
+    </div>
+  );
+
   if (loading) {
     return (
       <section className="py-20 md:py-32 bg-background dark:bg-[#0a0a0a]">
-        <div className="container mx-auto px-4 flex justify-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-[#fdb913]"></div>
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12 md:mb-16">
+            <div className="h-12 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 rounded-lg max-w-md mx-auto mb-4 animate-pulse" />
+            <div className="h-6 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 rounded max-w-2xl mx-auto animate-pulse" />
+          </div>
+
+          {/* Skeleton filters */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {[...Array(6)].map((_, i) => (
+              <div
+                key={i}
+                className="h-12 w-20 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 rounded-full animate-pulse"
+              />
+            ))}
+          </div>
+
+          {/* Skeleton grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {[...Array(8)].map((_, i) => (
+              <ImageSkeleton key={i} />
+            ))}
+          </div>
         </div>
       </section>
     );
@@ -96,35 +139,32 @@ export default function GalleryGrid() {
             Project Gallery
           </h2>
           <p className="text-lg md:text-xl text-[#868584] dark:text-white font-paragraph max-w-2xl mx-auto">
-            Explore our journey through visuals capturing the progress and milestones
+            Explore our journey through visuals capturing the progress and
+            milestones
           </p>
         </div>
 
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           <button
-            onClick={() => {
-              console.log("🔄 Resetting to All Gallery");
-              setSelectedCategory(null);
-            }}
-            className={`px-6 py-3 rounded-full font-paragraph transition-all duration-300 ${!selectedCategory
-              ? "bg-[#fdb913] text-black scale-105 shadow-lg"
-              : "bg-card dark:bg-[#1a1a1a] text-foreground dark:text-white hover:bg-[#fdb913]/20 border border-border dark:border-white/10"
-              }`}
+            onClick={() => setSelectedCategory(null)}
+            className={`px-6 py-3 rounded-full font-paragraph transition-all duration-300 ${
+              !selectedCategory
+                ? "bg-[#fdb913] text-black scale-105 shadow-lg"
+                : "bg-card dark:bg-[#1a1a1a] text-foreground dark:text-white hover:bg-[#fdb913]/20 border border-border dark:border-white/10"
+            }`}
           >
             All
           </button>
           {categories.map((cat) => (
             <button
               key={cat}
-              onClick={() => {
-                console.log("🔄 Filtering gallery by category:", cat);
-                setSelectedCategory(cat);
-              }}
-              className={`px-6 py-3 rounded-full font-paragraph transition-all duration-300 ${selectedCategory === cat
-                ? "bg-[#fdb913] text-black scale-105 shadow-lg"
-                : "bg-card dark:bg-[#1a1a1a] text-foreground dark:text-white hover:bg-[#fdb913]/20 border border-border dark:border-white/10"
-                }`}
+              onClick={() => setSelectedCategory(cat)}
+              className={`px-6 py-3 rounded-full font-paragraph transition-all duration-300 ${
+                selectedCategory === cat
+                  ? "bg-[#fdb913] text-black scale-105 shadow-lg"
+                  : "bg-card dark:bg-[#1a1a1a] text-foreground dark:text-white hover:bg-[#fdb913]/20 border border-border dark:border-white/10"
+              }`}
             >
               {cat}
             </button>
@@ -141,6 +181,7 @@ export default function GalleryGrid() {
           >
             {galleryImages.map((item) => {
               const imageUrl = getImageUrl(item);
+              const isLoaded = imageLoadStates[item.id];
 
               return (
                 <motion.div
@@ -150,19 +191,33 @@ export default function GalleryGrid() {
                   whileHover={{ scale: 1.05 }}
                   onClick={() => setSelectedImage(imageUrl)}
                 >
+                  {/* Skeleton */}
+                  {!isLoaded && <ImageSkeleton />}
+
+                  {/* Actual Image */}
                   <Image
                     src={imageUrl}
                     alt={item.title}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    className={`object-cover group-hover:scale-110 transition-all duration-300 ${
+                      isLoaded ? "opacity-100" : "opacity-0"
+                    }`}
                     sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    onLoad={() => handleImageLoad(item.id)}
+                    priority={galleryImages.indexOf(item) < 4} // Priority for first 4 images
                   />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-colors duration-300 flex items-end p-4">
+
+                  {/* Overlay */}
+                  <div
+                    className={`absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-colors duration-300 flex items-end p-4 ${
+                      !isLoaded ? "opacity-0" : ""
+                    }`}
+                  >
                     <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <p className="font-heading font-semibold">{item.title}</p>
                       <p className="text-sm font-paragraph capitalize">
                         {Array.isArray(item.galleryFields?.category)
-                          ? item.galleryFields.category.join(', ')
+                          ? item.galleryFields.category.join(", ")
                           : item.galleryFields?.category || "Gallery"}
                       </p>
                     </div>

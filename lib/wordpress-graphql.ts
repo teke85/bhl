@@ -1,13 +1,14 @@
-import { GraphQLClient } from 'graphql-request';
+import { GraphQLClient } from "graphql-request";
 
 // GraphQL endpoint from your GoDaddy WordPress
-const GRAPHQL_URL = process.env.NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL ||
-  'https://cms.westerncorridorlimited.com/graphql';
+const GRAPHQL_URL =
+  process.env.NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL ||
+  "https://cms.westerncorridorlimited.com/graphql";
 
 // Create GraphQL client
 const client = new GraphQLClient(GRAPHQL_URL, {
   headers: {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   },
 });
 
@@ -171,7 +172,7 @@ export async function getAllNews(): Promise<NewsArticle[]> {
     const data: any = await client.request(GET_ALL_NEWS);
     return data.newsArticles.nodes || [];
   } catch (error) {
-    console.error('❌ GraphQL Error fetching news:', error);
+    console.error("❌ GraphQL Error fetching news:", error);
     return [];
   }
 }
@@ -179,19 +180,23 @@ export async function getAllNews(): Promise<NewsArticle[]> {
 /**
  * Fetch news by category via GraphQL
  */
-export async function getNewsByCategory(category: string): Promise<NewsArticle[]> {
+export async function getNewsByCategory(
+  category: string
+): Promise<NewsArticle[]> {
   try {
     const allNews = await getAllNews();
-    return allNews.filter(article => {
+    return allNews.filter((article) => {
       const articleCategory = article.newsFields?.category;
 
       // Handle both string and array formats
       if (Array.isArray(articleCategory)) {
         // If it's an array, check if the category is in the array
-        return articleCategory.some(cat =>
-          typeof cat === 'string' && cat.toLowerCase() === category.toLowerCase()
+        return articleCategory.some(
+          (cat) =>
+            typeof cat === "string" &&
+            cat.toLowerCase() === category.toLowerCase()
         );
-      } else if (typeof articleCategory === 'string') {
+      } else if (typeof articleCategory === "string") {
         // If it's a string, do direct comparison
         return articleCategory.toLowerCase() === category.toLowerCase();
       }
@@ -199,7 +204,7 @@ export async function getNewsByCategory(category: string): Promise<NewsArticle[]
       return false;
     });
   } catch (error) {
-    console.error('❌ GraphQL Error filtering news:', error);
+    console.error("❌ GraphQL Error filtering news:", error);
     return [];
   }
 }
@@ -212,7 +217,7 @@ export async function getAllGallery(): Promise<GalleryItem[]> {
     const data: any = await client.request(GET_ALL_GALLERY);
     return data.galleryItems.nodes || [];
   } catch (error) {
-    console.error('❌ GraphQL Error fetching gallery:', error);
+    console.error("❌ GraphQL Error fetching gallery:", error);
     return [];
   }
 }
@@ -220,19 +225,23 @@ export async function getAllGallery(): Promise<GalleryItem[]> {
 /**
  * Fetch gallery by category via GraphQL
  */
-export async function getGalleryByCategory(category: string): Promise<GalleryItem[]> {
+export async function getGalleryByCategory(
+  category: string
+): Promise<GalleryItem[]> {
   try {
     const allGallery = await getAllGallery();
-    return allGallery.filter(item => {
+    return allGallery.filter((item) => {
       const itemCategory = item.galleryFields?.category;
 
       // Handle both string and array formats
       if (Array.isArray(itemCategory)) {
         // If it's an array, check if the category is in the array
-        return itemCategory.some(cat =>
-          typeof cat === 'string' && cat.toLowerCase() === category.toLowerCase()
+        return itemCategory.some(
+          (cat) =>
+            typeof cat === "string" &&
+            cat.toLowerCase() === category.toLowerCase()
         );
-      } else if (typeof itemCategory === 'string') {
+      } else if (typeof itemCategory === "string") {
         // If it's a string, do direct comparison
         return itemCategory.toLowerCase() === category.toLowerCase();
       }
@@ -240,7 +249,7 @@ export async function getGalleryByCategory(category: string): Promise<GalleryIte
       return false;
     });
   } catch (error) {
-    console.error('❌ GraphQL Error filtering gallery:', error);
+    console.error("❌ GraphQL Error filtering gallery:", error);
     return [];
   }
 }
@@ -304,7 +313,7 @@ export async function getAllVideos(): Promise<VideoItem[]> {
     const data: any = await client.request(GET_ALL_VIDEOS);
     return data.videoItems.nodes || [];
   } catch (error) {
-    console.error('❌ GraphQL Error fetching videos:', error);
+    console.error("❌ GraphQL Error fetching videos:", error);
     return [];
   }
 }
@@ -316,16 +325,18 @@ export async function getAllVideos(): Promise<VideoItem[]> {
 /**
  * Get image URL from GraphQL response
  */
-export function getImageUrl(item: NewsArticle | GalleryItem | VideoItem): string {
-  return item.featuredImage?.node?.sourceUrl || '/placeholder.svg';
+export function getImageUrl(
+  item: NewsArticle | GalleryItem | VideoItem
+): string {
+  return item.featuredImage?.node?.sourceUrl || "/placeholder.svg";
 }
 
 /**
  * Strip HTML tags from content
  */
 export function stripHtml(html: string): string {
-  if (!html) return '';
-  return html.replace(/<[^>]*>/g, '').trim();
+  if (!html) return "";
+  return html.replace(/<[^>]*>/g, "").trim();
 }
 
 /**
@@ -333,10 +344,10 @@ export function stripHtml(html: string): string {
  */
 export function formatDate(dateString: string): string {
   const date = new Date(dateString);
-  return date.toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
+  return date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
   });
 }
 
@@ -379,7 +390,7 @@ export async function getNewsBySlug(slug: string): Promise<NewsArticle | null> {
     const data: any = await client.request(GET_SINGLE_NEWS, { slug });
     return data.newsArticle || null;
   } catch (error) {
-    console.error('❌ GraphQL Error fetching single news:', error);
+    console.error("❌ GraphQL Error fetching single news:", error);
     return null;
   }
 }
@@ -396,10 +407,10 @@ export async function getRelatedNews(
   try {
     const allNews = await getNewsByCategory(category);
     return allNews
-      .filter(article => article.slug !== currentSlug)
+      .filter((article) => article.slug !== currentSlug)
       .slice(0, limit);
   } catch (error) {
-    console.error('❌ Error fetching related news:', error);
+    console.error("❌ Error fetching related news:", error);
     return [];
   }
 }

@@ -1,13 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import {
-  Mail,
-  Phone,
-  Facebook,
-  Twitter,
-  Linkedin,
-  Youtube,
-} from "lucide-react";
+import { Mail, Facebook, Twitter, Linkedin, Youtube } from "lucide-react";
 
 export const Footer = () => {
   const quickLinks = [
@@ -52,7 +45,7 @@ export const Footer = () => {
                 />
               </div>
               <span className="font-bold text-[#DCAF0E] font-heading text-xl">
-                Western Corridor
+                Western Corridor Limited
               </span>
             </Link>
             <p className="text-[#868584] dark:text-white font-body text-lg leading-relaxed mb-6">
@@ -155,15 +148,6 @@ export const Footer = () => {
                 <span className="text-sm text-[#868584] dark:text-white">
                   Mutanda Road P.O. Box 110086, Solwezi, Zambia.
                 </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Mail className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                <a
-                  href="mailto:info@barotsehighway.com"
-                  className="text-sm text-[#868584] dark:text-white hover:text-foreground transition-colors"
-                >
-                  buksvr@bhl.co.zm
-                </a>
               </li>
             </ul>
           </div>
