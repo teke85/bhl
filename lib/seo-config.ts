@@ -1,16 +1,16 @@
 export const siteConfig = {
-  name: "Barotse Highway Limited",
+  name: "Western Corridor Limited",
   description:
-    "Barotse Highway Limited - A 371km expressway connecting Mutanda to Kaoma, enhancing regional trade and connectivity in Zambia. Connecting Zambia's rich mineral resources to the world.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://barotsehighway.com",
+    "Western Corridor Limited - A 371km expressway connecting Mutanda to Kaoma, enhancing regional trade and connectivity in Zambia. Connecting Zambia's rich mineral resources to the world.",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://westerncorridor.com",
   ogImage: "/og-image.jpg",
   links: {
-    twitter: "https://twitter.com/BarotseHighway",
-    linkedin: "https://linkedin.com/company/barotse-highway-limited",
-    facebook: "https://facebook.com/BarotseHighway",
+    twitter: "https://twitter.com/WesternCorridor",
+    linkedin: "https://linkedin.com/company/western-corridor-limited",
+    facebook: "https://facebook.com/WesternCorridor",
   },
   contact: {
-    email: "info@barotsehighway.com",
+    email: "info@westerncorridor.com",
     phone: "+260 123 456 789",
     address: "Cairo Road, Lusaka, Zambia",
   },
@@ -23,9 +23,9 @@ export const pageMetadata = {
   home: {
     title: "Home - Connecting Zambia's Future",
     description:
-      "Barotse Highway Limited is developing a 371km expressway from Mutanda to Kaoma, transforming regional connectivity and trade in Zambia.",
+      "Western Corridor Limited is developing a 371km expressway from Mutanda to Kaoma, transforming regional connectivity and trade in Zambia.",
     keywords: [
-      "Barotse Highway",
+      "Western Corridor Limited",
       "Zambia infrastructure",
       "expressway development",
       "regional connectivity",
@@ -34,9 +34,9 @@ export const pageMetadata = {
   about: {
     title: "About Us - Our Vision & Mission",
     description:
-      "Learn about Barotse Highway Limited, a joint venture between BeefCo Holdings and First Quantum Minerals, dedicated to transforming Zambia's infrastructure.",
+      "Learn about Western Corridor Limited, a joint venture between BeefCo Holdings and First Quantum Minerals, dedicated to transforming Zambia's infrastructure.",
     keywords: [
-      "about Barotse Highway",
+      "about Western Corridor",
       "company history",
       "infrastructure development",
       "Zambian companies",
@@ -45,7 +45,7 @@ export const pageMetadata = {
   projects: {
     title: "Our Projects - 371km Highway Development",
     description:
-      "Explore the Barotse Highway project: 371km of road construction, toll plazas, weighbridges, and sustainable infrastructure development.",
+      "Explore the Western Corridor project: 371km of road construction, toll plazas, weighbridges, and sustainable infrastructure development.",
     keywords: [
       "highway project",
       "road construction",
@@ -56,9 +56,9 @@ export const pageMetadata = {
   news: {
     title: "Latest News & Updates",
     description:
-      "Stay updated with the latest news, project milestones, and developments from Barotse Highway Limited.",
+      "Stay updated with the latest news, project milestones, and developments from Western Corridor Limited.",
     keywords: [
-      "Barotse Highway news",
+      "Western Corridor news",
       "project updates",
       "infrastructure news",
       "Zambia development",
@@ -67,7 +67,7 @@ export const pageMetadata = {
   gallery: {
     title: "Project Gallery - Photos & Videos",
     description:
-      "View photos and videos showcasing the progress and impact of the Barotse Highway project across Zambia.",
+      "View photos and videos showcasing the progress and impact of the Western Corridor project across Zambia.",
     keywords: [
       "project gallery",
       "construction photos",
@@ -78,7 +78,7 @@ export const pageMetadata = {
   careers: {
     title: "Careers - Join Our Team",
     description:
-      "Explore career opportunities at Barotse Highway Limited. Join us in building Zambia's future infrastructure.",
+      "Explore career opportunities at Western Corridor Limited. Join us in building Zambia's future infrastructure.",
     keywords: [
       "careers Zambia",
       "infrastructure jobs",
@@ -89,9 +89,9 @@ export const pageMetadata = {
   contact: {
     title: "Contact Us - Get in Touch",
     description:
-      "Contact Barotse Highway Limited for inquiries, partnerships, or general information about our projects.",
+      "Contact Western Corridor Limited for inquiries, partnerships, or general information about our projects.",
     keywords: [
-      "contact Barotse Highway",
+      "contact Western Corridor",
       "get in touch",
       "project inquiries",
       "partnerships",
@@ -100,7 +100,7 @@ export const pageMetadata = {
   regionalImpact: {
     title: "Regional Impact - Transforming Connectivity",
     description:
-      "Discover how the Barotse Highway is enhancing regional trade, connectivity, and economic development across Southern Africa.",
+      "Discover how the Western Corridor is enhancing regional trade, connectivity, and economic development across Southern Africa.",
     keywords: [
       "regional impact",
       "trade corridor",
@@ -122,7 +122,7 @@ export const pageMetadata = {
   partners: {
     title: "Our Partners - Strategic Collaborations",
     description:
-      "Meet our strategic partners and stakeholders contributing to the success of the Barotse Highway project.",
+      "Meet our strategic partners and stakeholders contributing to the success of the Western Corridor project.",
     keywords: [
       "project partners",
       "strategic partnerships",

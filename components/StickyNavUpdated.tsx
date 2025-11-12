@@ -8,7 +8,13 @@ import { X, Search, Menu, ChevronDown, ArrowDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ModeToggle from "./ModeToggle";
 
-type MenuKey = "company" | "our commitment" | "project" | "careers" | "gallery";
+type MenuKey =
+  | "company"
+  | "our commitment"
+  | "project"
+  | "careers"
+  | "gallery"
+  | "news";
 
 function StickyNavigationMenu() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -137,9 +143,13 @@ function StickyNavigationMenu() {
         "Explore our multimedia gallery showcasing the Barotse Highway project.",
       links: [{ name: "View Gallery", href: "/gallery" }],
     },
+    news: {
+      title: "NEWS & MEDIA",
+      description:
+        "Stay updated with the latest news and media coverage about the Barotse Highway project.",
+      links: [{ name: "Latest News", href: "/news" }],
+    },
   };
-
-  const moreMenuItems = [{ name: "News & Media", href: "/news" }];
 
   const handleMenuClick = (menu: MenuKey) => {
     setActiveMenu((prev) => (prev === menu ? null : menu));
@@ -151,8 +161,10 @@ function StickyNavigationMenu() {
   };
 
   // Capitalize first letter of menu items
-  const formatMenuLabel = (key: MenuKey) =>
-    key.charAt(0).toUpperCase() + key.slice(1);
+  const formatMenuLabel = (key: MenuKey) => {
+    if (key === "news") return "News & Media";
+    return key.charAt(0).toUpperCase() + key.slice(1);
+  };
 
   return (
     <>
@@ -272,7 +284,6 @@ function StickyNavigationMenu() {
         <div
           ref={megaMenuRef}
           className="hidden lg:block fixed top-36 left-6 right-6 shadow-2xl transition-all duration-300 z-51 rounded-xl overflow-hidden"
-          //                                    ^^^^^^ Changed from top-28 to top-36
         >
           <div className="container mx-auto">
             <div className="grid grid-cols-2 gap-0 max-w-6xl mx-auto rounded-lg overflow-hidden">
@@ -339,17 +350,6 @@ function StickyNavigationMenu() {
                   </div>
                 )}
               </div>
-            ))}
-
-            {moreMenuItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="block px-4 py-4 text-white hover:text-[#FDB913] border-b border-white/10 tracking-wide font-medium text-sm"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
             ))}
 
             {/* Mobile Contact Button */}

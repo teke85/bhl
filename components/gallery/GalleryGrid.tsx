@@ -23,7 +23,13 @@ export default function GalleryGrid() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   // Gallery categories - VERIFY these match your WordPress ACF exactly!
-  const categories = ["Chilombo", "Landscape", "Equipment", "Community", "Groundbreaking"];
+  const categories = [
+    "Chilombo",
+    "Landscape",
+    "Equipment",
+    "Community",
+    "Groundbreaking",
+  ];
 
   useEffect(() => {
     const fetchGallery = async () => {
@@ -40,8 +46,9 @@ export default function GalleryGrid() {
 
         // Debug: Log categories from fetched data
         if (data && data.length > 0) {
-          console.log("📁 Categories in gallery data:",
-            data.map(item => item.galleryFields?.category)
+          console.log(
+            "📁 Categories in gallery data:",
+            data.map((item) => item.galleryFields?.category)
           );
         }
 
@@ -96,7 +103,8 @@ export default function GalleryGrid() {
             Project Gallery
           </h2>
           <p className="text-lg md:text-xl text-[#868584] dark:text-white font-paragraph max-w-2xl mx-auto">
-            Explore our journey through visuals capturing the progress and milestones
+            Explore our journey through visuals capturing the progress and
+            milestones
           </p>
         </div>
 
@@ -107,10 +115,11 @@ export default function GalleryGrid() {
               console.log("🔄 Resetting to All Gallery");
               setSelectedCategory(null);
             }}
-            className={`px-6 py-3 rounded-full font-paragraph transition-all duration-300 ${!selectedCategory
-              ? "bg-[#fdb913] text-black scale-105 shadow-lg"
-              : "bg-card dark:bg-[#1a1a1a] text-foreground dark:text-white hover:bg-[#fdb913]/20 border border-border dark:border-white/10"
-              }`}
+            className={`px-6 py-3 rounded-full font-paragraph transition-all duration-300 ${
+              !selectedCategory
+                ? "bg-[#fdb913] text-black scale-105 shadow-lg"
+                : "bg-card dark:bg-[#1a1a1a] text-foreground dark:text-white hover:bg-[#fdb913]/20 border border-border dark:border-white/10"
+            }`}
           >
             All
           </button>
@@ -121,10 +130,11 @@ export default function GalleryGrid() {
                 console.log("🔄 Filtering gallery by category:", cat);
                 setSelectedCategory(cat);
               }}
-              className={`px-6 py-3 rounded-full font-paragraph transition-all duration-300 ${selectedCategory === cat
-                ? "bg-[#fdb913] text-black scale-105 shadow-lg"
-                : "bg-card dark:bg-[#1a1a1a] text-foreground dark:text-white hover:bg-[#fdb913]/20 border border-border dark:border-white/10"
-                }`}
+              className={`px-6 py-3 rounded-full font-paragraph transition-all duration-300 ${
+                selectedCategory === cat
+                  ? "bg-[#fdb913] text-black scale-105 shadow-lg"
+                  : "bg-card dark:bg-[#1a1a1a] text-foreground dark:text-white hover:bg-[#fdb913]/20 border border-border dark:border-white/10"
+              }`}
             >
               {cat}
             </button>
@@ -162,7 +172,7 @@ export default function GalleryGrid() {
                       <p className="font-heading font-semibold">{item.title}</p>
                       <p className="text-sm font-paragraph capitalize">
                         {Array.isArray(item.galleryFields?.category)
-                          ? item.galleryFields.category.join(', ')
+                          ? item.galleryFields.category.join(", ")
                           : item.galleryFields?.category || "Gallery"}
                       </p>
                     </div>
