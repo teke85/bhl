@@ -93,8 +93,8 @@ export default function GalleryGrid() {
 
   // Skeleton loader component
   const ImageSkeleton = () => (
-    <div className="relative overflow-hidden rounded-lg aspect-square bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 animate-pulse">
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-shimmer" />
+    <div className="relative overflow-hidden rounded-lg aspect-square bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 animate-pulse">
+      <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -skew-x-12 animate-shimmer" />
     </div>
   );
 
@@ -103,8 +103,8 @@ export default function GalleryGrid() {
       <section className="py-20 md:py-32 bg-background dark:bg-[#0a0a0a]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12 md:mb-16">
-            <div className="h-12 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 rounded-lg max-w-md mx-auto mb-4 animate-pulse" />
-            <div className="h-6 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 rounded max-w-2xl mx-auto animate-pulse" />
+            <div className="h-12 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 rounded-lg max-w-md mx-auto mb-4 animate-pulse" />
+            <div className="h-6 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 rounded max-w-2xl mx-auto animate-pulse" />
           </div>
 
           {/* Skeleton filters */}
@@ -112,7 +112,7 @@ export default function GalleryGrid() {
             {[...Array(6)].map((_, i) => (
               <div
                 key={i}
-                className="h-12 w-20 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 rounded-full animate-pulse"
+                className="h-12 w-20 bg-linear-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 rounded-full animate-pulse"
               />
             ))}
           </div>
