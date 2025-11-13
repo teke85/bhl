@@ -30,11 +30,10 @@ export default function GalleryGrid() {
 
   // Gallery categories
   const categories = [
-    "Chilombo",
-    "Landscape",
-    "Equipment",
-    "Community",
-    "Groundbreaking",
+    "Signing Ceremony",
+    "Groundbreaking Ceremony",
+    "Construction Camp",
+    "Road Sections",
   ];
 
   useEffect(() => {
