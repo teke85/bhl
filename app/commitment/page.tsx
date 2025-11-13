@@ -149,7 +149,7 @@ export default function CommitmentPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-lg md:text-xl text-foreground dark:text-white leading-relaxed mb-8">
+            <p className="text-lg md:text-xl text-muted-foreground dark:text-white leading-relaxed mb-8">
               We are committed to delivering the Western Corridor Project as a
               transformative infrastructure initiative that strengthens
               Zambia&apos;s regional connectivity, economic resilience, and

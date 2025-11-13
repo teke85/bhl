@@ -31,7 +31,7 @@ export default function PortOfWalvisBay() {
             Recognized as one of the most efficient, secure, and high-performing
             ports within the SADC region.
           </p>
-          <p className="text-muted-foreground dark:text-gray-400 leading-relaxed">
+          <p className="text-lg text-muted-foreground dark:text-gray-400 leading-relaxed">
             The Western Corridor Limited provides direct access to this
             world-class facility, significantly reducing transport times and
             costs for regional exports. This strategic connection positions the

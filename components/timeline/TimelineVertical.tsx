@@ -28,7 +28,7 @@ const events: TimelineEvent[] = [
     date: "10 July 2024",
     title: "SPV Incorporated",
     description:
-      "The Promoters incorporated the Special Purpose Vehicle, Western Corridor. ü	The Promoters engaged in a period of contract negotiations. The Promoters engaged various advisors, legal, financing, engineering, and ESG advisors to assist in the negotiations.",
+      "The Promoters incorporated the Special Purpose Vehicle, Western Corridor. The Promoters engaged in a period of contract negotiations. The Promoters engaged various advisors, legal, financing, engineering, and ESG advisors to assist in the negotiations.",
     status: "completed",
   },
 
