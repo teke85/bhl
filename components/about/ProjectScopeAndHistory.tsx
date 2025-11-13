@@ -6,15 +6,15 @@ export default function ProjectScopeAndHistory() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 gap-12 justify-between items-center">
           <div>
-            <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground dark:text-white mb-6 text-balance">
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-black dark:text-white mb-6 text-balance">
               Project Scope & History
             </h2>
 
             <div className="mb-12">
-              <h3 className="text-2xl md:text-3xl font-heading font-bold text-foreground dark:text-white mb-4">
+              <h3 className="text-2xl md:text-3xl font-heading font-bold text-black dark:text-white mb-4">
                 Scope of Work
               </h3>
-              <p className="text-lg text-black dark:text-white font-body mb-8 leading-relaxed">
+              <p className="text-lg text-muted-foreground dark:text-white font-body mb-8 leading-relaxed">
                 The scope of work includes the establishment of a comprehensive
                 tolling system with supporting infrastructure, comprising three
                 toll plazas and two weighbridges along the corridor. It also
@@ -27,10 +27,10 @@ export default function ProjectScopeAndHistory() {
             </div>
 
             <div>
-              <h3 className="text-2xl md:text-3xl font-heading font-bold text-foreground dark:text-white mb-4">
+              <h3 className="text-2xl md:text-3xl font-heading font-bold text-black dark:text-white mb-4">
                 Brief History of the Project
               </h3>
-              <p className="text-lg text-black dark:text-white font-body leading-relaxed">
+              <p className="text-lg text-muted-foreground dark:text-white font-body leading-relaxed">
                 On 21 March 2018, The Sponsors entered a 10-year maintenance
                 contract with the Road Development Agency (RDA) for the
                 Kaoma–Kasempa road. This arrangement ensured that WCL trucks,

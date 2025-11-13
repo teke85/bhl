@@ -32,7 +32,7 @@ export default function Achievements() {
     { number: "371km", label: "Total Stretch" },
     { number: "3", label: "Toll Gates" },
     { number: "2025", label: "Start of Early Works" },
-    { number: "2027", label: "Target Completion" },
+    { number: "2028", label: "Target Completion" },
     { number: "20km", label: "Urban Roads Planned" },
   ];
 

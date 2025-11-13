@@ -32,10 +32,10 @@ export default function PortOfWalvisBay() {
             ports within the SADC region.
           </p>
           <p className="text-muted-foreground dark:text-gray-400 leading-relaxed">
-            The Barotse Highway provides direct access to this world-class
-            facility, significantly reducing transport times and costs for
-            regional exports. This strategic connection positions the corridor
-            as a critical gateway for SADC trade.
+            The Western Corridor Limited provides direct access to this
+            world-class facility, significantly reducing transport times and
+            costs for regional exports. This strategic connection positions the
+            corridor as a critical gateway for SADC trade.
           </p>
         </div>
       </div>
