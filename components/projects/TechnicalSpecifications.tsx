@@ -17,7 +17,7 @@ const TechnicalSpecifications = () => {
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground dark:text-white mb-4">
             Technical Specifications
           </h2>
-          <p className="text-lg md:text-xl text-black dark:text-white font-paragraph max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground dark:text-white font-paragraph max-w-3xl mx-auto">
             Our commitment to excellence ensures world-class infrastructure that
             meets the highest international standards.
           </p>
@@ -33,10 +33,10 @@ const TechnicalSpecifications = () => {
                 <div className="w-14 h-14 rounded-none flex items-center justify-center group-hover:bg-[#fdb913]/20 transition-colors duration-300">
                   <Icon className="w-7 h-7 text-[#fdb913]" />
                 </div>
-                <h3 className="text-2xl font-heading font-bold text-foreground dark:text-white">
+                <h3 className="text-2xl font-heading font-bold text-black dark:text-white">
                   {standard.title}
                 </h3>
-                <p className="text-base md:text-lg text-black dark:text-white font-paragraph leading-relaxed">
+                <p className="text-base md:text-lg text-muted-foreground dark:text-white font-paragraph leading-relaxed">
                   {standard.description}
                 </p>
               </div>

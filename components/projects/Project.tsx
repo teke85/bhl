@@ -50,7 +50,7 @@ const ProjectHistory = () => {
         </motion.h2>
 
         <div className="space-y-5 leading-tight">
-          <p className="text-lg font-body text-black dark:text-white mb-8 leading-relaxed">
+          <p className="text-lg font-body text-muted-foreground dark:text-white mb-8 leading-relaxed">
             The Mutanda–Kaoma Road Project traces its origins to{" "}
             <strong className="text-[#fdb913]">21 March 2018</strong>, when{" "}
             <strong className="text-[#fdb913]">
@@ -65,7 +65,7 @@ const ProjectHistory = () => {
             before the formal concession.
           </p>
 
-          <p className="text-lg text-black dark:text-white font-body mb-8 leading-relaxed">
+          <p className="text-lg text-muted-foreground dark:text-white font-body mb-8 leading-relaxed">
             After assessing the corridor&apos;s traffic potential, the Promoters
             resolved in 2023 to upgrade the entire 371 km stretch to bituminous
             standard. An unsolicited PPP proposal was submitted on{" "}
@@ -75,7 +75,7 @@ const ProjectHistory = () => {
             <strong className="text-[#fdb913]">19 June 2024</strong>.
           </p>
 
-          <p className="font-body text-lg">
+          <p className="font-body text-muted-foreground text-lg">
             To deliver the concession, the Special Purpose Vehicle{" "}
             <strong className="text-[#fdb913]">
               Western Corridor Limited (WCL)

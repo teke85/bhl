@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const ResettlementPolicy = () => {
   return (
-    <section className="py-20 bg-white dark:bg-black text-black dark:text-white">
+    <section className="py-20 bg-white dark:bg-black text-muted-foreground dark:text-white">
       <div className="container mx-auto px-4 max-w-6xl">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

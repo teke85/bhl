@@ -8,7 +8,7 @@ const ProjectGallery = () => {
 
   const images = [
     {
-      src: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760699527/WhatsApp_Image_2025-10-10_at_13.00.15_hygpnc.jpg",
+      src: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1763132969/40_-_000_-_010_-_002_-_LOCALITY_KEYPLAN-Layout1_zmnp5o.jpg",
       title: "Regional Connectivity Map",
     },
     {

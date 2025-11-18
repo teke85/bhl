@@ -15,7 +15,7 @@ const EnvironmentalImpact = () => {
           Environmental & Social Impact
         </motion.h2>
 
-        <div className="space-y-5 text-black font-body dark:text-white leading-relaxed">
+        <div className="space-y-5 text-muted-foreground font-body dark:text-white leading-relaxed">
           <p>
             The <strong>Mutanda–Kaoma Road Project</strong> is being implemented
             under a rigorous{" "}

@@ -156,11 +156,11 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-black dark:text-white text-center md:text-left">
+            <p className="text-sm text-muted-foreground dark:text-white text-center md:text-left">
               © {new Date().getFullYear()} Western Corridor Limited. All rights
               reserved.
             </p>
-            <p className="text-sm text-black dark:text-white text-center md:text-right">
+            <p className="text-sm text-muted-foreground dark:text-white text-center md:text-right">
               Powered by{" "}
               <Link href="https://www.maniccreatives.com/">
                 Manic Creatives

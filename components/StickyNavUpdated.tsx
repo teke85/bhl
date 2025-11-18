@@ -203,7 +203,7 @@ function StickyNavigationMenu() {
             {/* Logo */}
             <Link
               href="/"
-              className="absolute left-6 top-1/2 -translate-y-1/2 z-60 flex items-center"
+              className="absolute left-6 top-1/2 -translate-y-1/2 pt-8 md:pt-0 z-60 flex items-center"
             >
               <Image
                 src="https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_300,c_limit/v1761708103/westerncorridor_logo_bih0jh.png"
