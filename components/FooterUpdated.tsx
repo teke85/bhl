@@ -55,29 +55,29 @@ export const Footer = () => {
             </p>
             <div className="flex items-center gap-4">
               <Link
-                href="https://facebook.com"
+                href="https://web.facebook.com/westerncorridorlimited/"
                 className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"
               >
                 <Facebook className="h-5 w-5" />
               </Link>
-              <Link
+              {/* <Link
                 href="https://twitter.com"
                 className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"
               >
                 <Twitter className="h-5 w-5" />
-              </Link>
+              </Link> */}
               <Link
-                href="https://linkedin.com"
+                href="https://linkedin.com/company/westerncorridorlimited"
                 className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"
               >
                 <Linkedin className="h-5 w-5" />
               </Link>
-              <Link
+              {/* <Link
                 href="https://youtube.com"
                 className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"
               >
                 <Youtube className="h-5 w-5" />
-              </Link>
+              </Link> */}
             </div>
           </div>
 
