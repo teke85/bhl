@@ -95,7 +95,7 @@ export default function CompanyStory() {
                 </p>
               </div>
               <div>
-                <h3 className="text-3xl font-bold text-[#fdb913] mb-2">2025</h3>
+                <h3 className="text-3xl font-bold text-[#fdb913] mb-2">2028</h3>
                 <p className="text-[#868584] dark:text-white font-paragraph">
                   Target Completion
                 </p>
