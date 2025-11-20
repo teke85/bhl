@@ -67,7 +67,7 @@ export const Footer = () => {
                 <Twitter className="h-5 w-5" />
               </Link> */}
               <Link
-                href="https://linkedin.com/company/westerncorridorlimited"
+                href="https://linkedin.com/company/western-corridor-limited"
                 className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-secondary/80 transition-colors"
               >
                 <Linkedin className="h-5 w-5" />
