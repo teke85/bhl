@@ -97,41 +97,7 @@ const GET_ALL_NEWS = `
   }
 `;
 
-const GET_NEWS_BY_CATEGORY = `
-  query GetNewsByCategory($category: String!) {
-    newsArticles(
-      first: 100
-      where: { 
-        orderby: { field: DATE, order: DESC }
-      }
-    ) {
-      nodes {
-        id
-        title
-        slug
-        content
-        excerpt
-        date
-        featuredImage {
-          node {
-            sourceUrl
-            altText
-            mediaDetails {
-              width
-              height
-            }
-          }
-        }
-        newsFields {
-          author
-          publishedDate
-          category
-          tags
-        }
-      }
-    }
-  }
-`;
+// Removed unused GET_NEWS_BY_CATEGORY query (filtering is done client-side via getNewsByCategory)
 
 const GET_ALL_GALLERY = `
   query GetAllGallery {
@@ -169,8 +135,10 @@ const GET_ALL_GALLERY = `
  */
 export async function getAllNews(): Promise<NewsArticle[]> {
   try {
-    const data: any = await client.request(GET_ALL_NEWS);
-    return data.newsArticles.nodes || [];
+    const data = await client.request<{
+      newsArticles: { nodes: NewsArticle[] };
+    }>(GET_ALL_NEWS);
+    return data.newsArticles?.nodes || [];
   } catch (error) {
     console.error("❌ GraphQL Error fetching news:", error);
     return [];
@@ -214,7 +182,9 @@ export async function getNewsByCategory(
  */
 export async function getAllGallery(): Promise<GalleryItem[]> {
   try {
-    const data: any = await client.request(GET_ALL_GALLERY);
+    const data = await client.request<{
+      galleryItems: { nodes: GalleryItem[] };
+    }>(GET_ALL_GALLERY);
     return data.galleryItems.nodes || [];
   } catch (error) {
     console.error("❌ GraphQL Error fetching gallery:", error);
@@ -310,8 +280,10 @@ const GET_ALL_VIDEOS = `
  */
 export async function getAllVideos(): Promise<VideoItem[]> {
   try {
-    const data: any = await client.request(GET_ALL_VIDEOS);
-    return data.videoItems.nodes || [];
+    const data = await client.request<{ videoItems: { nodes: VideoItem[] } }>(
+      GET_ALL_VIDEOS
+    );
+    return data.videoItems?.nodes || [];
   } catch (error) {
     console.error("❌ GraphQL Error fetching videos:", error);
     return [];
@@ -387,7 +359,10 @@ const GET_SINGLE_NEWS = `
  */
 export async function getNewsBySlug(slug: string): Promise<NewsArticle | null> {
   try {
-    const data: any = await client.request(GET_SINGLE_NEWS, { slug });
+    const data = await client.request<{ newsArticle: NewsArticle | null }>(
+      GET_SINGLE_NEWS,
+      { slug }
+    );
     return data.newsArticle || null;
   } catch (error) {
     console.error("❌ GraphQL Error fetching single news:", error);
