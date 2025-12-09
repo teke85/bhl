@@ -1,6 +1,6 @@
 import { GraphQLClient } from "graphql-request";
 
-// GraphQL endpoint from your GoDaddy WordPress
+// GraphQL endpoint from your WordPress
 const GRAPHQL_URL =
   process.env.NEXT_PUBLIC_WORDPRESS_GRAPHQL_URL ||
   "https://cms.westerncorridorlimited.com/graphql";
@@ -62,6 +62,78 @@ export interface GalleryItem {
   };
 }
 
+export interface VideoItem {
+  id: string;
+  title: string;
+  slug: string;
+  featuredImage?: {
+    node: {
+      sourceUrl: string;
+      altText: string;
+      mediaDetails: {
+        width: number;
+        height: number;
+      };
+    };
+  };
+  videoFields: {
+    videoUrl: string;
+    category?: string | string[];
+    order: number;
+  };
+}
+
+// Commitment interface for the commitment page
+export interface CommitmentData {
+  title: string;
+  heroTitle: string;
+  heroDescription: string;
+  commitmentStatement: string;
+  // Repeatable commitment items (comma-separated or newline-separated)
+  itemTitles: string;
+  itemDescriptions: string;
+  mainTitle: string;
+  // Repeatable key principles (comma-separated or newline-separated)
+  keyPrincipleTitles: string;
+  keyPrincipleDescriptions: string;
+  impactQuote: string;
+  impactAuthor: string;
+  accountabilityMainTitle: string;
+  accountabilitysubtitle: string;
+  // Repeatable accountability items (comma-separated or newline-separated)
+  accountabilityitemstitle: string;
+  accountabilityitemssubtitle: string;
+  ctatitle: string;
+  ctadescription: string;
+  button1Text: string;
+  button1Link: string;
+  button2text: string;
+  button2link: string;
+}
+
+// Resettlement interface for the resettlement page
+export interface ResettlementData {
+  title: string;
+  heroTitle: string;
+  heroDescription: string;
+  purposeStatement: string;
+  leftcolumntitle: string;
+  rightcolumnimage: {
+    node: {
+      id: string;
+      sourceUrl?: string;
+    };
+  } | null;
+  mainTitle: string;
+  frameworkcardtitle: string;
+  frameworkcarddescritpion: string;
+  principlesnumber: string;
+  principlemaintitle: string;
+  principlesdescription: string;
+  communitytitle: string;
+  communitydescription: string;
+}
+
 // ============================================
 // GraphQL Queries
 // ============================================
@@ -97,8 +169,6 @@ const GET_ALL_NEWS = `
   }
 `;
 
-// Removed unused GET_NEWS_BY_CATEGORY query (filtering is done client-side via getNewsByCategory)
-
 const GET_ALL_GALLERY = `
   query GetAllGallery {
     galleryItems(first: 100, where: { orderby: { field: MENU_ORDER, order: ASC } }) {
@@ -121,6 +191,120 @@ const GET_ALL_GALLERY = `
           order
           description
         }
+      }
+    }
+  }
+`;
+
+const GET_ALL_VIDEOS = `
+  query GetAllVideos {
+    videoItems(first: 100, where: { orderby: { field: MENU_ORDER, order: ASC } }) {
+      nodes {
+        id
+        title
+        slug
+        featuredImage {
+          node {
+            sourceUrl
+            altText
+            mediaDetails {
+              width
+              height
+            }
+          }
+        }
+        videoFields {
+          videoUrl
+          category
+          order
+        }
+      }
+    }
+  }
+`;
+
+const GET_COMMITMENT = `
+  query GetCommitmentQuery {
+    commitments {
+      nodes {
+        title
+        heroTitle
+        heroDescription
+        commitmentStatement
+        itemTitles
+        itemDescriptions
+        mainTitle
+        keyPrincipleTitles
+        keyPrincipleDescriptions
+        impactQuote
+        impactAuthor
+        accountabilityMainTitle
+        accountabilitysubtitle
+        accountabilityitemstitle
+        accountabilityitemssubtitle
+        ctatitle
+        ctadescription
+        button1Text
+        button1Link
+        button2text
+        button2link
+      }
+    }
+  }
+`;
+
+const GET_RESETTLEMENT = `
+  query GetResettlementQuery {
+    resettlements {
+      nodes {
+        title
+        heroTitle
+        heroDescription
+        purposeStatement
+        leftcolumntitle
+        rightcolumnimage {
+          node {
+            id
+            sourceUrl
+          }
+        }
+        mainTitle
+        frameworkcardtitle
+        frameworkcarddescritpion
+        principlesnumber
+        principlemaintitle
+        principlesdescription
+        communitytitle
+        communitydescription
+      }
+    }
+  }
+`;
+
+const GET_SINGLE_NEWS = `
+  query GetSingleNews($slug: ID!) {
+    newsArticle(id: $slug, idType: SLUG) {
+      id
+      title
+      slug
+      content
+      excerpt
+      date
+      featuredImage {
+        node {
+          sourceUrl
+          altText
+          mediaDetails {
+            width
+            height
+          }
+        }
+      }
+      newsFields {
+        author
+        publishedDate
+        category
+        tags
       }
     }
   }
@@ -156,16 +340,13 @@ export async function getNewsByCategory(
     return allNews.filter((article) => {
       const articleCategory = article.newsFields?.category;
 
-      // Handle both string and array formats
       if (Array.isArray(articleCategory)) {
-        // If it's an array, check if the category is in the array
         return articleCategory.some(
           (cat) =>
             typeof cat === "string" &&
             cat.toLowerCase() === category.toLowerCase()
         );
       } else if (typeof articleCategory === "string") {
-        // If it's a string, do direct comparison
         return articleCategory.toLowerCase() === category.toLowerCase();
       }
 
@@ -203,16 +384,13 @@ export async function getGalleryByCategory(
     return allGallery.filter((item) => {
       const itemCategory = item.galleryFields?.category;
 
-      // Handle both string and array formats
       if (Array.isArray(itemCategory)) {
-        // If it's an array, check if the category is in the array
         return itemCategory.some(
           (cat) =>
             typeof cat === "string" &&
             cat.toLowerCase() === category.toLowerCase()
         );
       } else if (typeof itemCategory === "string") {
-        // If it's a string, do direct comparison
         return itemCategory.toLowerCase() === category.toLowerCase();
       }
 
@@ -224,57 +402,6 @@ export async function getGalleryByCategory(
   }
 }
 
-// Add this interface after GalleryItem interface (around line 62)
-export interface VideoItem {
-  id: string;
-  title: string;
-  slug: string;
-  featuredImage?: {
-    node: {
-      sourceUrl: string;
-      altText: string;
-      mediaDetails: {
-        width: number;
-        height: number;
-      };
-    };
-  };
-  videoFields: {
-    videoUrl: string;
-    category?: string | string[];
-    order: number;
-  };
-}
-
-// Add this GraphQL query after GET_ALL_GALLERY (around line 160)
-const GET_ALL_VIDEOS = `
-  query GetAllVideos {
-    videoItems(first: 100, where: { orderby: { field: MENU_ORDER, order: ASC } }) {
-      nodes {
-        id
-        title
-        slug
-        featuredImage {
-          node {
-            sourceUrl
-            altText
-            mediaDetails {
-              width
-              height
-            }
-          }
-        }
-        videoFields {
-          videoUrl
-          category
-          order
-        }
-      }
-    }
-  }
-`;
-
-// Add this function after getGalleryByCategory (around line 234)
 /**
  * Fetch all video items via GraphQL
  */
@@ -290,6 +417,72 @@ export async function getAllVideos(): Promise<VideoItem[]> {
   }
 }
 
+/**
+ * Fetch commitment page data via GraphQL
+ */
+export async function getCommitmentData(): Promise<CommitmentData | null> {
+  try {
+    const data = await client.request<{
+      commitments: { nodes: CommitmentData[] };
+    }>(GET_COMMITMENT);
+    // Return the first commitment (assuming single page content)
+    return data.commitments?.nodes?.[0] || null;
+  } catch (error) {
+    console.error("❌ GraphQL Error fetching commitment:", error);
+    return null;
+  }
+}
+
+/**
+ * Fetch resettlement page data via GraphQL
+ */
+export async function getResettlementData(): Promise<ResettlementData | null> {
+  try {
+    const data = await client.request<{
+      resettlements: { nodes: ResettlementData[] };
+    }>(GET_RESETTLEMENT);
+    return data.resettlements?.nodes?.[0] || null;
+  } catch (error) {
+    console.error("❌ GraphQL Error fetching resettlement:", error);
+    return null;
+  }
+}
+
+/**
+ * Fetch single news article by slug via GraphQL
+ */
+export async function getNewsBySlug(slug: string): Promise<NewsArticle | null> {
+  try {
+    const data = await client.request<{ newsArticle: NewsArticle | null }>(
+      GET_SINGLE_NEWS,
+      { slug }
+    );
+    return data.newsArticle || null;
+  } catch (error) {
+    console.error("❌ GraphQL Error fetching single news:", error);
+    return null;
+  }
+}
+
+/**
+ * Get related news articles by category
+ */
+export async function getRelatedNews(
+  currentSlug: string,
+  category: string,
+  limit = 3
+): Promise<NewsArticle[]> {
+  try {
+    const allNews = await getNewsByCategory(category);
+    return allNews
+      .filter((article) => article.slug !== currentSlug)
+      .slice(0, limit);
+  } catch (error) {
+    console.error("❌ Error fetching related news:", error);
+    return [];
+  }
+}
+
 // ============================================
 // Helper Functions
 // ============================================
@@ -298,9 +491,17 @@ export async function getAllVideos(): Promise<VideoItem[]> {
  * Get image URL from GraphQL response
  */
 export function getImageUrl(
-  item: NewsArticle | GalleryItem | VideoItem
+  item: NewsArticle | GalleryItem | VideoItem | ResettlementData
 ): string {
-  return item.featuredImage?.node?.sourceUrl || "/placeholder.svg";
+  // Check for featuredImage (NewsArticle, GalleryItem, VideoItem)
+  if ("featuredImage" in item && item.featuredImage?.node?.sourceUrl) {
+    return item.featuredImage.node.sourceUrl;
+  }
+  // Check for rightcolumnimage (ResettlementData)
+  if ("rightcolumnimage" in item && item.rightcolumnimage?.node?.sourceUrl) {
+    return item.rightcolumnimage.node.sourceUrl;
+  }
+  return "/placeholder.svg";
 }
 
 /**
@@ -323,69 +524,40 @@ export function formatDate(dateString: string): string {
   });
 }
 
-// Add this GraphQL query
-const GET_SINGLE_NEWS = `
-  query GetSingleNews($slug: ID!) {
-    newsArticle(id: $slug, idType: SLUG) {
-      id
-      title
-      slug
-      content
-      excerpt
-      date
-      featuredImage {
-        node {
-          sourceUrl
-          altText
-          mediaDetails {
-            width
-            height
-          }
-        }
-      }
-      newsFields {
-        author
-        publishedDate
-        category
-        tags
-      }
-    }
-  }
-`;
-
-// Add this function
 /**
- * Fetch single news article by slug via GraphQL
+ * Parse repeatable fields (pipe-separated, newline-separated, or comma-separated)
+ * This handles WordPress ACF repeater fields stored as delimited strings
  */
-export async function getNewsBySlug(slug: string): Promise<NewsArticle | null> {
-  try {
-    const data = await client.request<{ newsArticle: NewsArticle | null }>(
-      GET_SINGLE_NEWS,
-      { slug }
-    );
-    return data.newsArticle || null;
-  } catch (error) {
-    console.error("❌ GraphQL Error fetching single news:", error);
-    return null;
-  }
-}
+export function parseRepeatableField(
+  field: string | null | undefined
+): string[] {
+  if (!field) return [];
 
-// Add this function for related articles
-/**
- * Get related news articles by category
- */
-export async function getRelatedNews(
-  currentSlug: string,
-  category: string,
-  limit: number = 3
-): Promise<NewsArticle[]> {
-  try {
-    const allNews = await getNewsByCategory(category);
-    return allNews
-      .filter((article) => article.slug !== currentSlug)
-      .slice(0, limit);
-  } catch (error) {
-    console.error("❌ Error fetching related news:", error);
-    return [];
+  // Try pipe separator first (most common for ACF)
+  if (field.includes("|")) {
+    return field
+      .split("|")
+      .map((item) => item.trim())
+      .filter(Boolean);
   }
+
+  // Then try newline separator
+  if (field.includes("\n")) {
+    return field
+      .split("\n")
+      .map((item) => item.trim())
+      .filter(Boolean);
+  }
+
+  // Finally try comma separator (but be careful with content that has commas)
+  // Only use comma if the field looks like a list
+  if (field.includes(",") && !field.includes(".")) {
+    return field
+      .split(",")
+      .map((item) => item.trim())
+      .filter(Boolean);
+  }
+
+  // Return as single item array if no separator found
+  return [field.trim()];
 }
