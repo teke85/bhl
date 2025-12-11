@@ -89,18 +89,15 @@ export interface CommitmentData {
   heroTitle: string;
   heroDescription: string;
   commitmentStatement: string;
-  // Repeatable commitment items (comma-separated or newline-separated)
   itemTitles: string;
   itemDescriptions: string;
   mainTitle: string;
-  // Repeatable key principles (comma-separated or newline-separated)
   keyPrincipleTitles: string;
   keyPrincipleDescriptions: string;
   impactQuote: string;
   impactAuthor: string;
   accountabilityMainTitle: string;
   accountabilitysubtitle: string;
-  // Repeatable accountability items (comma-separated or newline-separated)
   accountabilityitemstitle: string;
   accountabilityitemssubtitle: string;
   ctatitle: string;
@@ -132,6 +129,35 @@ export interface ResettlementData {
   principlesdescription: string;
   communitytitle: string;
   communitydescription: string;
+}
+
+// Regional Impact interface for the regional impact page
+export interface RegionalImpactData {
+  title: string;
+  heroTitle: string;
+  heroDescription: string;
+  heroBackgroundImage: {
+    node: {
+      id: string;
+      sourceUrl?: string;
+    };
+  } | null;
+  iconnames: string;
+  cardtitle: string;
+  carddescription: string;
+  mainTitle: string;
+  positioningtitle: string;
+  positioningdescription: string;
+  porttitle: string;
+  portdescription: string;
+  trademaintitle: string;
+  tradeicon: {
+    node: {
+      id: string;
+    };
+  } | null;
+  tradetitle: string;
+  tradelistitem: string;
 }
 
 // ============================================
@@ -281,6 +307,40 @@ const GET_RESETTLEMENT = `
   }
 `;
 
+const GET_REGIONAL_IMPACT = `
+  query GetRegionalQuery {
+    regionalImpactPage {
+      nodes {
+        title
+        heroTitle
+        heroDescription
+        heroBackgroundImage {
+          node {
+            id
+            sourceUrl
+          }
+        }
+        iconnames
+        cardtitle
+        carddescription
+        mainTitle
+        positioningtitle
+        positioningdescription
+        porttitle
+        portdescription
+        trademaintitle
+        tradeicon {
+          node {
+            id
+          }
+        }
+        tradetitle
+        tradelistitem
+      }
+    }
+  }
+`;
+
 const GET_SINGLE_NEWS = `
   query GetSingleNews($slug: ID!) {
     newsArticle(id: $slug, idType: SLUG) {
@@ -425,7 +485,6 @@ export async function getCommitmentData(): Promise<CommitmentData | null> {
     const data = await client.request<{
       commitments: { nodes: CommitmentData[] };
     }>(GET_COMMITMENT);
-    // Return the first commitment (assuming single page content)
     return data.commitments?.nodes?.[0] || null;
   } catch (error) {
     console.error("❌ GraphQL Error fetching commitment:", error);
@@ -444,6 +503,21 @@ export async function getResettlementData(): Promise<ResettlementData | null> {
     return data.resettlements?.nodes?.[0] || null;
   } catch (error) {
     console.error("❌ GraphQL Error fetching resettlement:", error);
+    return null;
+  }
+}
+
+/**
+ * Fetch regional impact page data via GraphQL
+ */
+export async function getRegionalImpactData(): Promise<RegionalImpactData | null> {
+  try {
+    const data = await client.request<{
+      regionalImpactPage: { nodes: RegionalImpactData[] };
+    }>(GET_REGIONAL_IMPACT);
+    return data.regionalImpactPage?.nodes?.[0] || null;
+  } catch (error) {
+    console.error("❌ GraphQL Error fetching regional impact:", error);
     return null;
   }
 }
@@ -491,15 +565,24 @@ export async function getRelatedNews(
  * Get image URL from GraphQL response
  */
 export function getImageUrl(
-  item: NewsArticle | GalleryItem | VideoItem | ResettlementData
+  item:
+    | NewsArticle
+    | GalleryItem
+    | VideoItem
+    | ResettlementData
+    | RegionalImpactData
 ): string {
-  // Check for featuredImage (NewsArticle, GalleryItem, VideoItem)
   if ("featuredImage" in item && item.featuredImage?.node?.sourceUrl) {
     return item.featuredImage.node.sourceUrl;
   }
-  // Check for rightcolumnimage (ResettlementData)
   if ("rightcolumnimage" in item && item.rightcolumnimage?.node?.sourceUrl) {
     return item.rightcolumnimage.node.sourceUrl;
+  }
+  if (
+    "heroBackgroundImage" in item &&
+    item.heroBackgroundImage?.node?.sourceUrl
+  ) {
+    return item.heroBackgroundImage.node.sourceUrl;
   }
   return "/placeholder.svg";
 }
@@ -526,14 +609,12 @@ export function formatDate(dateString: string): string {
 
 /**
  * Parse repeatable fields (pipe-separated, newline-separated, or comma-separated)
- * This handles WordPress ACF repeater fields stored as delimited strings
  */
 export function parseRepeatableField(
   field: string | null | undefined
 ): string[] {
   if (!field) return [];
 
-  // Try pipe separator first (most common for ACF)
   if (field.includes("|")) {
     return field
       .split("|")
@@ -541,7 +622,6 @@ export function parseRepeatableField(
       .filter(Boolean);
   }
 
-  // Then try newline separator
   if (field.includes("\n")) {
     return field
       .split("\n")
@@ -549,8 +629,6 @@ export function parseRepeatableField(
       .filter(Boolean);
   }
 
-  // Finally try comma separator (but be careful with content that has commas)
-  // Only use comma if the field looks like a list
   if (field.includes(",") && !field.includes(".")) {
     return field
       .split(",")
@@ -558,6 +636,85 @@ export function parseRepeatableField(
       .filter(Boolean);
   }
 
-  // Return as single item array if no separator found
   return [field.trim()];
+}
+
+/**
+ * Parse HTML-wrapped repeatable fields from WordPress
+ * Handles fields like: "<p>Item1</p>\n <p>Item2</p>\n <p>Item3</p>"
+ */
+export function parseHtmlRepeatableField(
+  field: string | null | undefined
+): string[] {
+  if (!field) return [];
+
+  // Split by </p> and extract content from <p> tags
+  const matches = field.match(/<p>([^<]*)<\/p>/g);
+  if (matches && matches.length > 0) {
+    return matches.map((match) => stripHtml(match).trim()).filter(Boolean);
+  }
+
+  // Fallback to regular parsing if no <p> tags
+  return parseRepeatableField(stripHtml(field));
+}
+
+/**
+ * Parse regional impact cards from WordPress fields
+ */
+export function parseRegionalImpactCards(
+  iconnames: string,
+  cardtitle: string,
+  carddescription: string
+): Array<{ icon: string; title: string; description: string }> {
+  const icons = parseHtmlRepeatableField(iconnames);
+  const titles = parseHtmlRepeatableField(cardtitle);
+  const descriptions = parseHtmlRepeatableField(carddescription);
+
+  const maxLength = Math.max(icons.length, titles.length, descriptions.length);
+  const cards = [];
+
+  for (let i = 0; i < maxLength; i++) {
+    cards.push({
+      icon: icons[i] || "TrendingUp",
+      title: titles[i] || "",
+      description: descriptions[i] || "",
+    });
+  }
+
+  return cards;
+}
+
+/**
+ * Parse strategic positioning sections from WordPress
+ * Handles HTML content with multiple <p> tags
+ */
+export function parseStrategicPositioning(description: string): {
+  mineralCorridor: string;
+  integratedNetwork: string;
+} {
+  if (!description) {
+    return { mineralCorridor: "", integratedNetwork: "" };
+  }
+
+  // Split by </p> <p> pattern to get two paragraphs
+  const paragraphs = parseHtmlRepeatableField(description);
+
+  return {
+    mineralCorridor: paragraphs[0] || "",
+    integratedNetwork: paragraphs[1] || "",
+  };
+}
+
+/**
+ * Parse trade list items from WordPress (comma-separated)
+ */
+export function parseTradeListItems(tradelistitem: string): string[] {
+  if (!tradelistitem) return [];
+
+  // Handle comma-separated list with "and"
+  return tradelistitem
+    .replace(/, and /g, ", ")
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean);
 }
