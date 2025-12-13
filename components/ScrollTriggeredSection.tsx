@@ -1,5 +1,6 @@
 "use client";
 
+import type React from "react";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
@@ -9,23 +10,29 @@ interface ScrollImageItem {
   imageUrl: string;
 }
 
-const ScrollTriggeredImage = () => {
+interface ScrollTriggeredSectionProps {
+  items?: ScrollImageItem[];
+}
+
+const ScrollTriggeredSection: React.FC<ScrollTriggeredSectionProps> = ({
+  items: propItems,
+}) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const items: ScrollImageItem[] = [
+  const defaultItems: ScrollImageItem[] = [
     {
       title: "INFRASTRUCTURE EXCELLENCE",
       description:
-        "The Western Corridor Project represents a transformative infrastructure initiative aimed at upgrading the 371 km Mutanda to Kaoma Road to international bituminous standards. Delivered under a 25-year Public-Private Partnership concession, the project includes the construction of three toll plazas, two weighbridges, upgraded bridges, and 20 km of urban roads, forming a critical trade artery between Zambia’s mineral-rich regions and the West Coast of Africa. With a phased pavement design, climate-resilient drainage systems, and electronic tolling infrastructure, the project is engineered for long-term durability, safety, and efficiency. It is strategically aligned with Zambia’s national infrastructure and economic development goals, and is expected to significantly enhance regional connectivity, reduce transport costs, and support sustainable growth across the SADC region.",
+        "The Western Corridor Project represents a transformative infrastructure initiative aimed at upgrading the 371 km Mutanda to Kaoma Road to international bituminous standards. Delivered under a 25-year Public-Private Partnership concession, the project includes the construction of three toll plazas, two weighbridges, upgraded bridges, and 20 km of urban roads, forming a critical trade artery between Zambia's mineral-rich regions and the West Coast of Africa. With a phased pavement design, climate-resilient drainage systems, and electronic tolling infrastructure, the project is engineered for long-term durability, safety, and efficiency.",
       imageUrl:
         "https://res.cloudinary.com/dpeg7wc34/image/upload/v1762357419/Toll_plaza_ls71wg.jpg",
     },
     {
       title: "REGIONAL CONNECTIVITY",
       description:
-        "The Western Corridor Project is a strategic infrastructure initiative that significantly enhances regional connectivity by linking Zambia’s mineral-rich Copperbelt and North-Western Provinces with the West Coast of Africa via Walvis Bay in Namibia. By upgrading the 371 km Mutanda to Kaoma Road and integrating it with key trade routes such as the Lumwana–Kambimba and Kipushi–Solwezi corridors, the project creates a seamless transport network that bypasses congested urban centres and reduces travel distances by up to 400 km for cross-border freight. This improved corridor facilitates efficient trade flows between Zambia, the Democratic Republic of Congo, Angola, Botswana, and Namibia, positioning Zambia as a pivotal logistics hub in the Southern African Development Community (SADC) region.",
+        "The Western Corridor Project is a strategic infrastructure initiative that significantly enhances regional connectivity by linking Zambia's mineral-rich Copperbelt and North-Western Provinces with the West Coast of Africa via Walvis Bay in Namibia. By upgrading the 371 km Mutanda to Kaoma Road and integrating it with key trade routes such as the Lumwana–Kambimba and Kipushi–Solwezi corridors, the project creates a seamless transport network that bypasses congested urban centres and reduces travel distances by up to 400 km for cross-border freight.",
       imageUrl:
         "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1762947095/DJI_0711_wiuokv.jpg",
     },
@@ -37,6 +44,25 @@ const ScrollTriggeredImage = () => {
         "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1761107765/EI3A9507DRM_emgog7.jpg",
     },
   ];
+
+  // Helper function to fix comma-separated titles
+  const fixItems = (items: ScrollImageItem[]): ScrollImageItem[] => {
+    return items.map((item) => {
+      // If the title contains commas, it means it's the concatenated string
+      // Extract just the first item before the comma
+      if (item.title.includes(",")) {
+        const firstTitle = item.title.split(",")[0].trim();
+        return {
+          ...item,
+          title: firstTitle,
+        };
+      }
+      return item;
+    });
+  };
+
+  const items =
+    propItems && propItems.length > 0 ? fixItems(propItems) : defaultItems;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -86,12 +112,13 @@ const ScrollTriggeredImage = () => {
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 500px"
+                  priority={index === 0}
                 />
               </div>
             ))}
           </div>
 
-          {/* Content - Desktop */}
+          {/* Content - Desktop with scroll-triggered title changes */}
           <div className="space-y-96">
             {items.map((item, index) => (
               <div
@@ -101,7 +128,7 @@ const ScrollTriggeredImage = () => {
                 }}
                 className="min-h-[400px] flex flex-col justify-center"
               >
-                <h2 className="text-4xl xl:text-6xl capitalize text-black dark:text-white font-heading font-bold mb-6">
+                <h2 className="text-4xl xl:text-6xl uppercase text-black dark:text-white font-heading font-bold mb-6">
                   {item.title}
                 </h2>
                 <p className="text-lg xl:text-xl font-body text-[#868584] dark:text-white leading-relaxed">
@@ -125,12 +152,13 @@ const ScrollTriggeredImage = () => {
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 500px"
                   quality={90}
+                  priority={index === 0}
                 />
               </div>
 
               {/* Content */}
               <div className="space-y-4">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl capitalize text-black dark:text-[#cfcdcb] font-heading font-bold">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl uppercase text-black dark:text-[#cfcdcb] font-heading font-bold">
                   {item.title}
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl font-body text-[#cfcdcb] dark:text-[#cfcdcb] leading-relaxed">
@@ -145,4 +173,4 @@ const ScrollTriggeredImage = () => {
   );
 };
 
-export default ScrollTriggeredImage;
+export default ScrollTriggeredSection;
