@@ -16,6 +16,73 @@ const client = new GraphQLClient(GRAPHQL_URL, {
 // TypeScript Interfaces
 // ============================================
 
+export interface NewsArticle {
+  id: string;
+  title: string;
+  slug: string;
+  content: string;
+  excerpt: string;
+  date: string;
+  featuredImage?: {
+    node: {
+      sourceUrl: string;
+      altText: string;
+      mediaDetails: {
+        width: number;
+        height: number;
+      };
+    };
+  };
+  newsFields: {
+    author: string;
+    publishedDate: string;
+    category: string | string[];
+    tags?: string;
+  };
+}
+
+export interface GalleryItem {
+  id: string;
+  title: string;
+  slug: string;
+  featuredImage?: {
+    node: {
+      sourceUrl: string;
+      altText: string;
+      mediaDetails: {
+        width: number;
+        height: number;
+      };
+    };
+  };
+  galleryFields: {
+    category: string | string[];
+    order: number;
+    description?: string;
+  };
+}
+
+export interface VideoItem {
+  id: string;
+  title: string;
+  slug: string;
+  featuredImage?: {
+    node: {
+      sourceUrl: string;
+      altText: string;
+      mediaDetails: {
+        width: number;
+        height: number;
+      };
+    };
+  };
+  videoFields: {
+    videoUrl: string;
+    category?: string | string[];
+    order: number;
+  };
+}
+
 export interface HomePageData {
   title: string;
   heroTitle: string;
@@ -86,7 +153,8 @@ export interface HomePageData {
     };
   } | null;
   twocolumnSectionTitle: string;
-  twocolumnSectionDescription: string;
+  twocolumnSectionDescriptionOne: string;
+  twocolumnSectionDescriptionTwo: string;
   ctaButtonTextExploretheproject: string;
   ctaButtonLinkExploretheproject: string;
   ctaButtonTextLearnabouttheppp: string;
@@ -109,9 +177,152 @@ export interface HomePageData {
   ctaButtonLinkReadmore: string;
 }
 
+// GraphQL Response Types
+interface NewsArticlesResponse {
+  newsArticles: {
+    nodes: NewsArticle[];
+  };
+}
+
+interface SingleNewsResponse {
+  newsArticle: NewsArticle | null;
+}
+
+interface GalleryItemsResponse {
+  galleryItems: {
+    nodes: GalleryItem[];
+  };
+}
+
+interface VideoItemsResponse {
+  videoItems: {
+    nodes: VideoItem[];
+  };
+}
+
+interface HomePageResponse {
+  homePage: {
+    nodes: HomePageData[];
+  };
+}
+
 // ============================================
 // GraphQL Queries
 // ============================================
+
+const GET_ALL_NEWS = `
+  query GetAllNews {
+    newsArticles(first: 100, where: { orderby: { field: DATE, order: DESC } }) {
+      nodes {
+        id
+        title
+        slug
+        content
+        excerpt
+        date
+        featuredImage {
+          node {
+            sourceUrl
+            altText
+            mediaDetails {
+              width
+              height
+            }
+          }
+        }
+        newsFields {
+          author
+          publishedDate
+          category
+          tags
+        }
+      }
+    }
+  }
+`;
+
+const GET_SINGLE_NEWS = `
+  query GetSingleNews($slug: ID!) {
+    newsArticle(id: $slug, idType: SLUG) {
+      id
+      title
+      slug
+      content
+      excerpt
+      date
+      featuredImage {
+        node {
+          sourceUrl
+          altText
+          mediaDetails {
+            width
+            height
+          }
+        }
+      }
+      newsFields {
+        author
+        publishedDate
+        category
+        tags
+      }
+    }
+  }
+`;
+
+const GET_ALL_GALLERY = `
+  query GetAllGallery {
+    galleryItems(first: 100, where: { orderby: { field: MENU_ORDER, order: ASC } }) {
+      nodes {
+        id
+        title
+        slug
+        featuredImage {
+          node {
+            sourceUrl
+            altText
+            mediaDetails {
+              width
+              height
+            }
+          }
+        }
+        galleryFields {
+          category
+          order
+          description
+        }
+      }
+    }
+  }
+`;
+
+const GET_ALL_VIDEOS = `
+  query GetAllVideos {
+    videoItems(first: 100, where: { orderby: { field: MENU_ORDER, order: ASC } }) {
+      nodes {
+        id
+        title
+        slug
+        featuredImage {
+          node {
+            sourceUrl
+            altText
+            mediaDetails {
+              width
+              height
+            }
+          }
+        }
+        videoFields {
+          videoUrl
+          category
+          order
+        }
+      }
+    }
+  }
+`;
 
 const GET_HOME_PAGE = `
   query GetHomePageQuery {
@@ -186,7 +397,8 @@ const GET_HOME_PAGE = `
           }
         }
         twocolumnSectionTitle
-        twocolumnSectionDescription
+        twocolumnSectionDescriptionOne
+        twocolumnSectionDescriptionTwo
         ctaButtonTextExploretheproject
         ctaButtonLinkExploretheproject
         ctaButtonTextLearnabouttheppp
@@ -216,11 +428,145 @@ const GET_HOME_PAGE = `
 // API Functions
 // ============================================
 
+/**
+ * Fetch all news articles via GraphQL
+ */
+export async function getAllNews(): Promise<NewsArticle[]> {
+  try {
+    const data = await client.request<NewsArticlesResponse>(GET_ALL_NEWS);
+    return data.newsArticles.nodes || [];
+  } catch (error) {
+    console.error("❌ GraphQL Error fetching news:", error);
+    return [];
+  }
+}
+
+/**
+ * Fetch single news article by slug via GraphQL
+ */
+export async function getNewsBySlug(slug: string): Promise<NewsArticle | null> {
+  try {
+    const data = await client.request<SingleNewsResponse>(GET_SINGLE_NEWS, {
+      slug,
+    });
+    return data.newsArticle || null;
+  } catch (error) {
+    console.error("❌ GraphQL Error fetching single news:", error);
+    return null;
+  }
+}
+
+/**
+ * Fetch news by category via GraphQL
+ */
+export async function getNewsByCategory(
+  category: string
+): Promise<NewsArticle[]> {
+  try {
+    const allNews = await getAllNews();
+    return allNews.filter((article) => {
+      const articleCategory = article.newsFields?.category;
+
+      // Handle both string and array formats
+      if (Array.isArray(articleCategory)) {
+        return articleCategory.some(
+          (cat) =>
+            typeof cat === "string" &&
+            cat.toLowerCase() === category.toLowerCase()
+        );
+      } else if (typeof articleCategory === "string") {
+        return articleCategory.toLowerCase() === category.toLowerCase();
+      }
+
+      return false;
+    });
+  } catch (error) {
+    console.error("❌ GraphQL Error filtering news:", error);
+    return [];
+  }
+}
+
+/**
+ * Get related news articles by category
+ */
+export async function getRelatedNews(
+  currentSlug: string,
+  category: string,
+  limit: number = 3
+): Promise<NewsArticle[]> {
+  try {
+    const allNews = await getNewsByCategory(category);
+    return allNews
+      .filter((article) => article.slug !== currentSlug)
+      .slice(0, limit);
+  } catch (error) {
+    console.error("❌ Error fetching related news:", error);
+    return [];
+  }
+}
+
+/**
+ * Fetch all gallery items via GraphQL
+ */
+export async function getAllGallery(): Promise<GalleryItem[]> {
+  try {
+    const data = await client.request<GalleryItemsResponse>(GET_ALL_GALLERY);
+    return data.galleryItems.nodes || [];
+  } catch (error) {
+    console.error("❌ GraphQL Error fetching gallery:", error);
+    return [];
+  }
+}
+
+/**
+ * Fetch gallery by category via GraphQL
+ */
+export async function getGalleryByCategory(
+  category: string
+): Promise<GalleryItem[]> {
+  try {
+    const allGallery = await getAllGallery();
+    return allGallery.filter((item) => {
+      const itemCategory = item.galleryFields?.category;
+
+      // Handle both string and array formats
+      if (Array.isArray(itemCategory)) {
+        return itemCategory.some(
+          (cat) =>
+            typeof cat === "string" &&
+            cat.toLowerCase() === category.toLowerCase()
+        );
+      } else if (typeof itemCategory === "string") {
+        return itemCategory.toLowerCase() === category.toLowerCase();
+      }
+
+      return false;
+    });
+  } catch (error) {
+    console.error("❌ GraphQL Error filtering gallery:", error);
+    return [];
+  }
+}
+
+/**
+ * Fetch all video items via GraphQL
+ */
+export async function getAllVideos(): Promise<VideoItem[]> {
+  try {
+    const data = await client.request<VideoItemsResponse>(GET_ALL_VIDEOS);
+    return data.videoItems.nodes || [];
+  } catch (error) {
+    console.error("❌ GraphQL Error fetching videos:", error);
+    return [];
+  }
+}
+
+/**
+ * Fetch home page data via GraphQL
+ */
 export async function getHomePageData(): Promise<HomePageData | null> {
   try {
-    const data = await client.request<{
-      homePage: { nodes: HomePageData[] };
-    }>(GET_HOME_PAGE);
+    const data = await client.request<HomePageResponse>(GET_HOME_PAGE);
     return data.homePage?.nodes?.[0] || null;
   } catch (error) {
     console.error("GraphQL Error fetching home page:", error);
@@ -232,6 +578,18 @@ export async function getHomePageData(): Promise<HomePageData | null> {
 // Helper Functions
 // ============================================
 
+/**
+ * Get image URL from GraphQL response
+ */
+export function getImageUrl(
+  item: NewsArticle | GalleryItem | VideoItem
+): string {
+  return item.featuredImage?.node?.sourceUrl || "/placeholder.svg";
+}
+
+/**
+ * Strip HTML tags from content and decode HTML entities
+ */
 export function stripHtml(html: string | null | undefined): string {
   if (!html) return "";
 
@@ -258,6 +616,21 @@ export function stripHtml(html: string | null | undefined): string {
   return text.trim();
 }
 
+/**
+ * Format date to readable string
+ */
+export function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
+/**
+ * Parse HTML repeatable field into array
+ */
 export function parseHtmlRepeatableField(
   field: string | null | undefined
 ): string[] {
@@ -289,6 +662,9 @@ export function parseHtmlRepeatableField(
     .filter((item) => item.length > 0);
 }
 
+/**
+ * Parse key stats from home page data
+ */
 export function parseKeyStats(data: HomePageData): Array<{
   value: string;
   unit: string;
@@ -324,6 +700,9 @@ export function parseKeyStats(data: HomePageData): Array<{
   return stats;
 }
 
+/**
+ * Parse community points from home page data
+ */
 export function parseCommunityPoints(data: HomePageData): Array<{
   number: string;
   description: string;
@@ -344,6 +723,9 @@ export function parseCommunityPoints(data: HomePageData): Array<{
   return points;
 }
 
+/**
+ * Parse partner logos from home page data
+ */
 export function parsePartnerLogos(data: HomePageData): Array<{
   id: string;
   name: string;
@@ -372,6 +754,9 @@ export function parsePartnerLogos(data: HomePageData): Array<{
   return logos;
 }
 
+/**
+ * Parse project milestones from home page data
+ */
 export function parseProjectMilestones(data: HomePageData): Array<{
   year: string;
   description: string;
@@ -394,6 +779,9 @@ export function parseProjectMilestones(data: HomePageData): Array<{
   return milestones;
 }
 
+/**
+ * Parse highlights from home page data
+ */
 export function parseHighlights(data: HomePageData): Array<{
   title: string;
   text: string;
@@ -408,16 +796,11 @@ export function parseHighlights(data: HomePageData): Array<{
     ? data.twocolumnSectionTitle.split(" and ").map((t) => stripHtml(t.trim()))
     : [];
 
-  // Split the descriptions - they come as HTML paragraphs
-  const descriptions = parseHtmlRepeatableField(
-    data.twocolumnSectionDescription
-  );
-
-  // First highlight - Left column
+  // First highlight - Left column (uses descriptionOne)
   highlights.push({
     title:
       titles[0] || "CONNECTING COMMUNITIES THROUGH LEADERSHIP AND COMMITMENT",
-    text: descriptions[0] || "",
+    text: stripHtml(data.twocolumnSectionDescriptionOne) || "",
     img:
       data.leftimage?.node?.sourceUrl ||
       "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761481328/EI3A9529DRM_exisuy.jpg",
@@ -426,11 +809,11 @@ export function parseHighlights(data: HomePageData): Array<{
       stripHtml(data.ctaButtonTextExploretheproject) || "Explore the Project",
   });
 
-  // Second highlight - Right column
+  // Second highlight - Right column (uses descriptionTwo)
   highlights.push({
     title:
       titles[1] || "CONNECTING ZAMBIA THROUGH GOVERNMENT-LED INFRASTRUCTURE",
-    text: descriptions[1] || "",
+    text: stripHtml(data.twocolumnSectionDescriptionTwo) || "",
     img:
       data.rightimage?.node?.sourceUrl ||
       "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761481327/EI3A9515DRM_yzoiit.jpg",
