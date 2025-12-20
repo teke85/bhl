@@ -4,7 +4,17 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const PartnersHero: React.FC = () => {
+interface PartnersHeroProps {
+  title?: string;
+  subtitle?: string;
+  description?: string;
+}
+
+const PartnersHero: React.FC<PartnersHeroProps> = ({
+  title = "Our Partners",
+  subtitle = "Building Excellence Together",
+  description = "Our success is built on the expertise and commitment of world-class partners. Together, we're transforming the Western Corridor into a world-class infrastructure that connects Zambia's rich resources to global markets.",
+}) => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const descriptionRef = useRef<HTMLDivElement>(null);
@@ -55,7 +65,7 @@ const PartnersHero: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
         >
-          Our Partners
+          {title}
         </motion.h1>
 
         <motion.p
@@ -65,7 +75,7 @@ const PartnersHero: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-xl md:text-2xl text-gray-100 mb-8 max-w-3xl mx-auto"
         >
-          Building Excellence Together
+          {subtitle}
         </motion.p>
 
         <motion.div
@@ -75,12 +85,10 @@ const PartnersHero: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="max-w-2xl mx-auto"
         >
-          <p className="text-base md:text-lg text-gray-200 leading-relaxed">
-            Our success is built on the expertise and commitment of world-class
-            partners. Together, we&apos;re transforming the Western Corridor
-            into a world-class infrastructure that connects Zambia&apos;s rich
-            resources to global markets.
-          </p>
+          <div
+            className="text-base md:text-lg text-gray-200 leading-relaxed prose prose-invert max-w-none"
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
         </motion.div>
 
         {/* Decorative line */}

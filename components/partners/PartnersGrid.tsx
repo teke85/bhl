@@ -16,10 +16,14 @@ interface Partner {
   responsibilities: string[];
 }
 
-const PartnersGrid: React.FC = () => {
+interface PartnersGridProps {
+  partners?: Partner[];
+}
+
+const PartnersGrid: React.FC<PartnersGridProps> = ({ partners: customPartners }) => {
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
-  const partners: Partner[] = [
+  const defaultPartners: Partner[] = [
     {
       id: "hotsheet",
       name: "Hotsheet Project Managers",
@@ -216,6 +220,8 @@ const PartnersGrid: React.FC = () => {
       ],
     },
   ];
+
+  const partners = customPartners || defaultPartners;
 
   const categories = Array.from(new Set(partners.map((p) => p.category)));
 

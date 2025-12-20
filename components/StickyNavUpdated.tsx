@@ -239,7 +239,8 @@ function StickyNavigationMenu() {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && searchResults.length > 0) {
       const firstResult = searchResults[0];
-      window.location.href = `/${firstResult.type === "post" ? "news" : ""}/${firstResult.slug}`;
+      const href = firstResult.type === "post" ? `/news/${firstResult.slug}` : (firstResult.slug.startsWith("/") ? firstResult.slug : `/${firstResult.slug}`);
+      window.location.href = href;
     }
   };
 
@@ -247,7 +248,8 @@ function StickyNavigationMenu() {
     e.preventDefault();
     if (searchResults.length > 0) {
       const firstResult = searchResults[0];
-      window.location.href = `/${firstResult.type === "post" ? "news" : ""}/${firstResult.slug}`;
+      const href = firstResult.type === "post" ? `/news/${firstResult.slug}` : (firstResult.slug.startsWith("/") ? firstResult.slug : `/${firstResult.slug}`);
+      window.location.href = href;
     }
   };
 
@@ -621,7 +623,7 @@ function StickyNavigationMenu() {
                     {searchResults.map((result) => (
                       <Link
                         key={result.id}
-                        href={`/${result.type === "post" ? "news" : ""}/${result.slug}`}
+                        href={result.type === "post" ? `/news/${result.slug}` : (result.slug.startsWith("/") ? result.slug : `/${result.slug}`)}
                         className="block group"
                         onClick={resetSearch}
                       >

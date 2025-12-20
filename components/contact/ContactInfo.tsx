@@ -3,7 +3,19 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-export default function ContactInfo() {
+interface ContactInfoProps {
+  email?: string;
+  phone?: string;
+  address?: string;
+  workingHours?: string;
+}
+
+export default function ContactInfo({
+  email = "info@westerncorridor.com",
+  phone,
+  address = "Western Corridor Limited\nSolwezi\nZambia",
+  workingHours = "Monday - Friday: 8:00 AM - 5:00 PM\nSaturday: 9:00 AM - 1:00 PM\nSunday: Closed",
+}: ContactInfoProps) {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -32,22 +44,27 @@ export default function ContactInfo() {
     {
       icon: "📧",
       title: "Email",
-      details: ["info@barotsecorridor.com", "support@barotsecorridor.com"],
+      details: email.split("\n").filter(Boolean),
     },
     {
       icon: "📍",
       title: "Address",
-      details: ["123 Infrastructure Way", "Lusaka, Zambia"],
+      details: address.split("\n").filter(Boolean),
     },
     {
       icon: "🕐",
       title: "Business Hours",
-      details: [
-        "Monday - Friday: 8:00 AM - 5:00 PM",
-        "Saturday: 9:00 AM - 1:00 PM",
-      ],
+      details: workingHours.split("\n").filter(Boolean),
     },
   ];
+
+  if (phone) {
+    contactMethods.unshift({
+      icon: "📞",
+      title: "Phone",
+      details: phone.split("\n").filter(Boolean),
+    });
+  }
 
   return (
     <motion.div

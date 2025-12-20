@@ -1,9 +1,44 @@
-import type React from "react";
+import type { Metadata } from "next";
+import React from "react";
 import { Montserrat, Open_Sans, Inter, Jost } from "next/font/google";
 import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 import CookiePrivacyPopup from "@/components/CookiePrivacyPopup";
+
+export const metadata: Metadata = {
+  title: {
+    default: "Western Corridor Limited",
+    template: "%s | Western Corridor Limited",
+  },
+  description: "The Western Corridor Limited is a strategic infrastructure initiative that significantly enhances regional connectivity.",
+  icons: {
+    icon: [
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      {
+        rel: "mask-icon",
+        url: "/safari-pinned-tab.svg",
+        color: "#5bbad5",
+      },
+    ],
+  },
+  manifest: "/site.webmanifest",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://westerncorridor.com/", // Replace with actual domain if known, or leave as generic placeholder they can update
+    siteName: "Western Corridor Limited",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+};
 
 const montserrat = Montserrat({
   subsets: ["latin"],

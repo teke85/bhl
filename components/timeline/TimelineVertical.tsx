@@ -9,7 +9,11 @@ interface TimelineEvent {
   status: "completed" | "current" | "upcoming";
 }
 
-const events: TimelineEvent[] = [
+interface TimelineVerticalProps {
+  events?: TimelineEvent[];
+}
+
+const defaultEvents: TimelineEvent[] = [
   {
     date: "16 February 2024",
     title: "Unsolicited proposal submitted",
@@ -54,7 +58,11 @@ const events: TimelineEvent[] = [
   },
 ];
 
-export default function TimelineVertical() {
+export default function TimelineVertical({
+  events = defaultEvents,
+}: TimelineVerticalProps) {
+  const displayEvents = events.length > 0 ? events : defaultEvents;
+
   return (
     <section className="py-20 px-4 bg-background dark:bg-[#0a0a0a]">
       <div className="container mx-auto max-w-4xl">
@@ -64,7 +72,7 @@ export default function TimelineVertical() {
 
           {/* Events */}
           <div className="space-y-12">
-            {events.map((event, index) => (
+            {displayEvents.map((event, index) => (
               <div key={index} className="relative">
                 {/* Timeline Dot */}
                 <div className="absolute left-0 md:left-1/2 top-2 w-16 h-16 md:w-20 md:h-20 transform md:-translate-x-1/2 -translate-x-1/2">

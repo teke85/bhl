@@ -1,4 +1,4 @@
-import { getRegionalImpactData } from "@/lib/wordpress-graphql";
+import { getRegionalImpactPageData } from "@/lib/wordpress-graphql";
 import RegionalImpactHero from "@/components/regional-impact/RegionalImpactHero";
 import ImpactAreas from "@/components/regional-impact/ImpactAreas";
 import StrategicPositioning from "@/components/regional-impact/StrategicPositioning";
@@ -8,13 +8,13 @@ import StickyNavigationMenu from "@/components/StickyNavUpdated";
 import Footer from "@/components/FooterUpdated";
 
 export const metadata = {
-  title: "Regional Impact | Western Corridor Limited",
+  title: "Regional Impact",
   description:
     "Transforming trade flows and connectivity across the SADC region through strategic infrastructure development.",
 };
 
 export default async function RegionalImpactPage() {
-  const data = await getRegionalImpactData();
+  const data = await getRegionalImpactPageData();
 
   // Fallback values if WordPress data is not available
   const heroTitle = data?.heroTitle || "Regional Impact";

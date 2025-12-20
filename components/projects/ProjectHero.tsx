@@ -19,19 +19,31 @@
 
 import Image from "next/image";
 
-const ProjectHero = () => {
+interface ProjectHeroProps {
+  title?: string;
+  description?: string;
+  image?: string;
+  subtitle?: string;
+}
+
+const ProjectHero = ({
+  title = "Project Overview",
+  description = "Rehabilitation and upgrading of 371 km Mutanda to Kaoma Road to international bituminous standards, connecting Zambia's mineral-rich regions to global markets.",
+  image = "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760880457/DJI_0445_formphotoeditor.com_bb4kdl.jpg",
+  subtitle = "371 KM PROJECT",
+}: ProjectHeroProps) => {
   return (
     <section className="relative bg-background dark:bg-[#0a0a0a] pt-32 pb-16 px-4 overflow-hidden">
       {/* Background Image with Dark Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760880457/DJI_0445_formphotoeditor.com_bb4kdl.jpg"
-          alt="Barotse Highway Construction"
+          src={image}
+          alt={title}
           fill
           className="object-cover"
           loading="eager"
           placeholder="blur"
-          blurDataURL="https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q-10,w-100,c_limit/v1760880457/DJI_0445_formphotoeditor.com_bb4kdl.jpg"
+          blurDataURL={image}
           quality={70}
         />
         <div className="absolute inset-0 bg-black/70 dark:bg-black/80" />
@@ -41,16 +53,14 @@ const ProjectHero = () => {
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <div className="inline-block px-4 py-2 bg-[#fdb913]/10 border border-[#fdb913]/30 rounded-full backdrop-blur-sm">
             <span className="text-[#fdb913] font-paragraph font-semibold text-sm">
-              371 KM PROJECT
+              {subtitle}
             </span>
           </div>
           <h1 className="text-5xl md:text-7xl font-heading font-bold text-white drop-shadow-lg">
-            Project Overview
+            {title}
           </h1>
           <p className="text-xl md:text-2xl font-paragraph text-white leading-relaxed drop-shadow-md">
-            Rehabilitation and upgrading of 371 km Mutanda to Kaoma Road to
-            international bituminous standards, connecting Zambia&apos;s
-            mineral-rich regions to global markets.
+            {description}
           </p>
         </div>
       </div>

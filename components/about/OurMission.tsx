@@ -3,7 +3,15 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-export default function OurMission() {
+interface OurMissionProps {
+  title?: string;
+  description?: string;
+}
+
+export default function OurMission({
+  title = "Our Mission & Vision",
+  description = "Guided by clear principles and ambitious goals",
+}: OurMissionProps) {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -59,13 +67,13 @@ export default function OurMission() {
             className="text-4xl md:text-5xl font-heading font-bold text-foreground dark:text-white mb-6"
             variants={itemVariants}
           >
-            Our Mission & Vision
+            {title}
           </motion.h2>
           <motion.p
             className="text-lg text-muted-foreground dark:text-gray-300 max-w-2xl mx-auto"
             variants={itemVariants}
           >
-            Guided by clear principles and ambitious goals
+            {description}
           </motion.p>
         </motion.div>
 

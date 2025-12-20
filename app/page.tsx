@@ -16,8 +16,31 @@ import Footer from "@/components/FooterUpdated"
 import HeroCarousel from "@/components/HeroSection3RightLeft"
 import ScrollTriggeredSection from "@/components/ScrollTriggeredSection"
 import SectionWrapper from "@/components/SectionWrapper"
+import type { Metadata } from "next"
 import ExpertBuildersSection from "@/components/ExpertBuildersSection"
 import VideoHeroSection from "@/components/BigVideoComponent"
+
+export async function generateMetadata(): Promise<Metadata> {
+  const data = await getHomePageData()
+
+  if (!data) {
+    return {}
+  }
+
+  const title = data.title || data.heroTitle || "Home"
+  const description = stripHtml(data.heroDescription || data.description || "")
+  const ogImage = data.heroBackgroundImage?.node?.sourceUrl
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: ogImage ? [{ url: ogImage }] : [],
+    },
+  }
+}
 
 export default async function HomePage() {
   const data = await getHomePageData()
