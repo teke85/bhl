@@ -2,39 +2,20 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 
-export const OpenPositions = () => {
-  const positions = [
-    {
-      title: "Senior Civil Engineer",
-      location: "Lusaka, Zambia",
-      department: "Engineering",
-    },
-    {
-      title: "Project Coordinator",
-      location: "Mongu, Zambia",
-      department: "Project Management",
-    },
-    {
-      title: "Environmental Specialist",
-      location: "Western Province, Zambia",
-      department: "Environmental & Social",
-    },
-    {
-      title: "Financial Analyst",
-      location: "Lusaka, Zambia",
-      department: "Finance",
-    },
-    {
-      title: "Construction Supervisor",
-      location: "Senanga, Zambia",
-      department: "Construction",
-    },
-    {
-      title: "Community Liaison Officer",
-      location: "Sesheke, Zambia",
-      department: "Community Relations",
-    },
-  ];
+interface Job {
+  title: string;
+  location: string;
+  department: string;
+  link?: string;
+  date?: string;
+}
+
+interface OpenPositionsProps {
+  jobs?: Job[];
+}
+
+export const OpenPositions = ({ jobs = [] }: OpenPositionsProps) => {
+  const positions = jobs;
 
   return (
     <section className="py-16 bg-white dark:bg-black lg:py-24">

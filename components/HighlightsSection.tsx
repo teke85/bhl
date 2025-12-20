@@ -10,25 +10,45 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const highlights = [
+interface Highlight {
+  title: string;
+  text: string;
+  img: string;
+  link: string;
+  btnText: string;
+}
+
+interface HighlightsSectionProps {
+  highlights?: Highlight[];
+}
+
+const defaultHighlights: Highlight[] = [
   {
     title: "CONNECTING COMMUNITIES THROUGH LEADERSHIP AND COMMITMENT",
-    text: "The Western Corridor leadership has reaffirmed its commitment to the successful delivery of the Mutanda–Kaoma Road, a vital link in Zambia’s Barotse Highway network. Through strong collaboration with government and development partners, this project aims to uplift communities, enhance regional trade, and improve access to essential services. The renewed dedication of local leadership reflects a shared vision — to create lasting infrastructure that strengthens economic growth, empowers rural areas, and unites Zambia through reliable connectivity.",
+    text: "The Western Corridor leadership has reaffirmed its commitment to the successful delivery of the Mutanda–Kaoma Road, a vital link in Zambia's Barotse Highway network. Through strong collaboration with government and development partners, this project aims to uplift communities, enhance regional trade, and improve access to essential services.",
     img: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761481328/EI3A9529DRM_exisuy.jpg",
     link: "/about",
     btnText: "Explore the Project",
   },
   {
     title: "CONNECTING ZAMBIA THROUGH GOVERNMENT-LED INFRASTRUCTURE",
-    text: "The Government of the Republic of Zambia continues to play a vital role in national development through transformative road projects like the Mutanda Road. This strategic initiative strengthens regional connectivity, supports local trade, and improves access to essential services. By partnering with key stakeholders, the government is ensuring that every community along the route benefits from enhanced mobility and economic opportunity.",
+    text: "The Government of the Republic of Zambia continues to play a vital role in national development through transformative road projects like the Mutanda Road. This strategic initiative strengthens regional connectivity, supports local trade, and improves access to essential services.",
     img: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761481327/EI3A9515DRM_yzoiit.jpg",
     link: "/projects",
     btnText: "Learn About the PPP",
   },
 ];
 
-const HighlightsSection = () => {
+const HighlightsSection = ({
+  highlights: propHighlights,
+}: HighlightsSectionProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
+
+  // Use WordPress data if provided, otherwise use defaults
+  const highlights =
+    propHighlights && propHighlights.length > 0
+      ? propHighlights
+      : defaultHighlights;
 
   useGSAP(() => {
     const sections = gsap.utils.toArray<HTMLElement>(".highlight-item");
@@ -71,7 +91,7 @@ const HighlightsSection = () => {
         }
       );
     });
-  }, []);
+  }, [highlights]);
 
   return (
     <section ref={sectionRef} className="w-full">

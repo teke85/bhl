@@ -8,27 +8,40 @@ import LeadershipTeam from "@/components/about/LeadershipTeam";
 import Achievements from "@/components/about/Achievements";
 import OurCommitment from "@/components/OurCommitment";
 import ProjectScopeAndHistory from "@/components/about/ProjectScopeAndHistory";
+import { getAboutPageData, stripHtml } from "@/lib/wordpress-graphql";
+import type { Metadata } from "next";
 
-export default function AboutPage() {
+export const metadata: Metadata = {
+  title: "About Us",
+  description: "Learn about Western Corridor Limited, our story, mission, vision, and the team driving Zambia's infrastructure transformation.",
+};
+
+export default async function AboutPage() {
+  const data = await getAboutPageData();
+
   return (
     <main className="min-h-screen bg-background dark:bg-[#0a0a0a]">
-      <nav className="absolute top-0 left-0 right-0 z-40">
-        <div className="container mx-auto px-4 py-4">
-          <div className="grid grid-cols-3 items-center gap-4 h-16">
-            <div className="relative z-30 justify-self-center">
-              <StickyNavigationMenu />
-            </div>
-            <div className="relative z-30 justify-self-end" />
-          </div>
-        </div>
-      </nav>
+      <StickyNavigationMenu />
 
-      <AboutHero />
-      <CompanyStory />
+      <AboutHero
+        title={data?.heroTitle || undefined}
+        description={stripHtml(data?.heroDescription) || undefined}
+        image={data?.heroBackgroundImage?.node?.sourceUrl || undefined}
+      />
+      <CompanyStory
+        title={data?.sectionTitle || undefined}
+        content={data?.sectionParagraph || undefined}
+        image={data?.leftImage?.node?.sourceUrl || undefined}
+      />
       <ProjectScopeAndHistory />
-      <OurMission />
+      <OurMission
+        title={data?.missionStatementTitle || undefined}
+        description={data?.missionStatementDescription || undefined}
+      />
       <OurCommitment />
-      <CoreValues />
+      <CoreValues
+        title={data?.ourCoreValuesTitle || undefined}
+      />
       <LeadershipTeam />
       <Achievements />
       <Footer />

@@ -5,7 +5,15 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-export default function ContactHero() {
+export default function ContactHero({
+  title = "Get in Touch",
+  subtitle = "Have questions about the Western Corridor Limited project? We would love to hear from you. Reach out to our team today.",
+  image = "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761800734/MutandaJunction_DJI_0581_zjk0pv.jpg",
+}: {
+  title?: string;
+  subtitle?: string;
+  image?: string;
+}) {
   const { theme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -45,13 +53,14 @@ export default function ContactHero() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761800734/MutandaJunction_DJI_0581_zjk0pv.jpg"
-          alt="Contact Us"
+          src={image}
+          alt={title}
           className="w-full h-full object-cover opacity-20 dark:opacity-10"
           loading="lazy"
           quality={75}
           placeholder="blur"
-          blurDataURL="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761800734/MutandaJunction_DJI_0581_zjk0pv.jpg"
+          blurDataURL={image}
+          fill
         />
         <div
           className={`absolute inset-0 ${theme === "dark" ? "bg-[#0a0a0a]/70" : "bg-white/60"}`}
@@ -69,14 +78,13 @@ export default function ContactHero() {
             className="text-5xl md:text-6xl font-heading font-bold text-foreground dark:text-white mb-6"
             variants={itemVariants}
           >
-            Get in Touch
+            {title}
           </motion.h1>
           <motion.p
             className="text-lg md:text-xl text-muted-foreground dark:text-gray-300"
             variants={itemVariants}
           >
-            Have questions about the Barotse Corridor Connector? We would love
-            to hear from you. Reach out to our team today.
+            {subtitle}
           </motion.p>
         </motion.div>
       </div>

@@ -4,11 +4,44 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 
-export default function CompanyStory() {
+interface CompanyStoryProps {
+  title?: string;
+  content?: string;
+  image?: string;
+}
+
+export default function CompanyStory({
+  title = "The Project",
+  content,
+  image = "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761706973/DJI_0595_1_xlewwl.jpg",
+}: CompanyStoryProps) {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const defaultContent = `
+    <p class="text-lg text-muted-foreground dark:text-gray-300">
+      The Project involves the rehabilitation and upgrading of the 371
+      km Mutanda to Kaoma Road, a road stretch that completes Zambia’s
+      Western Corridor. The Project Highway will be upgraded to
+      international bituminous standards. The road rehabilitation and
+      construction will be executed in two primary sections: Mutanda to
+      Kasempa (150 km) and Kasempa to Kaoma (221 km). The Project’s key
+      components include the construction of three toll plazas, two
+      weighbridges, and the upgrading of key bridges such as the
+      Lalafuta and Chilombo Bridges. The road design will feature a
+      bidirectional single carriageway with 3.5-meter-wide travel lanes,
+      2-meter surfaced shoulders and 0.3-meter gravel shoulders.
+    </p>
+
+    <p class="text-lg text-[#868584] dark:text-white font-paragraph">
+      Our journey is defined by our unwavering commitment to excellence,
+      sustainability, and community partnership. Every milestone
+      achieved reflects our dedication to building infrastructure that
+      lasts generations.
+    </p>
+  `;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -47,43 +80,27 @@ export default function CompanyStory() {
             className="relative w-full aspect-4/3 md:aspect-3/2 overflow-hidden rounded-none shadow-lg"
           >
             <Image
-              src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761706973/DJI_0595_1_xlewwl.jpg"
-              alt="Company Story"
+              src={image}
+              alt={title || "Company Story"}
               fill
               className="object-cover"
               loading="lazy"
               quality={75}
               placeholder="blur"
-              blurDataURL="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761706973/DJI_0595_1_xlewwl.jpg"
+              blurDataURL={image}
             />
           </motion.div>
 
           {/* Text Side */}
           <motion.div variants={itemVariants} className="space-y-6">
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground dark:text-white">
-              The Project
+              {title}
             </h2>
 
-            <p className="text-lg text-muted-foreground dark:text-gray-300">
-              The Project involves the rehabilitation and upgrading of the 371
-              km Mutanda to Kaoma Road, a road stretch that completes Zambia’s
-              Western Corridor. The Project Highway will be upgraded to
-              international bituminous standards. The road rehabilitation and
-              construction will be executed in two primary sections: Mutanda to
-              Kasempa (150 km) and Kasempa to Kaoma (221 km). The Project’s key
-              components include the construction of three toll plazas, two
-              weighbridges, and the upgrading of key bridges such as the
-              Lalafuta and Chilombo Bridges. The road design will feature a
-              bidirectional single carriageway with 3.5-meter-wide travel lanes,
-              2-meter surfaced shoulders and 0.3-meter gravel shoulders.
-            </p>
-
-            <p className="text-lg text-[#868584] dark:text-white font-paragraph">
-              Our journey is defined by our unwavering commitment to excellence,
-              sustainability, and community partnership. Every milestone
-              achieved reflects our dedication to building infrastructure that
-              lasts generations.
-            </p>
+            <div
+              className="space-y-6 prose prose-lg dark:prose-invert max-w-none"
+              dangerouslySetInnerHTML={{ __html: content || defaultContent }}
+            />
 
             <div className="flex gap-8 pt-4">
               <div>

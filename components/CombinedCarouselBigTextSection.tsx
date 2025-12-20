@@ -1,9 +1,5 @@
 "use client";
-import Image from "next/image";
-import BigText from "./BigText";
-import { Footer } from "./Footer";
 import HighlightsSection from "./HighlightsSection";
-// import Route from "./FastestRoute";
 
 const CombinedCarouselBigTextSection = () => {
   return (
@@ -14,16 +10,6 @@ const CombinedCarouselBigTextSection = () => {
         <div className="w-full">
           <HighlightsSection />
         </div>
-
-        {/* EfficientLogistics Section */}
-        {/* <div className="w-full">
-          <BigText />
-        </div> */}
-
-        {/* EfficientGrowthCatalyst Section */}
-        {/* <div className="w-full">
-          <Footer />
-        </div> */}
       </div>
     </section>
   );

@@ -3,60 +3,85 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-function PartnersCarousel() {
-  const partners = [
-    {
-      id: 1,
-      name: "FIRST QUANTUM MINERALS",
-      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430581/First_Quantum_Minerals_New_Logo.svg_ivz3bj.png",
-    },
-    {
-      id: 2,
-      name: "BEEFCO",
-      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1762357921/Beefco_iarvhw.jpg",
-    },
+interface Partner {
+  id: string | number;
+  name: string;
+  logo: string;
+}
 
-    {
-      id: 3,
-      name: "HOTSHEET PROJECT MANAGERS",
-      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1762393622/Hotsheet_logo_hz645n.jpg",
-    },
-    {
-      id: 4,
-      name: "PANGAEA SECURITIES",
-      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430587/Pangaea-Securities__qbmjbo.png",
-    },
-    {
-      id: 5,
-      name: "HERBERT SMITH FREEHILLS KRAMER",
-      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430583/Herbert_Smith_Freehills_logo.svg_wit9u9.png",
-    },
-    {
-      id: 6,
-      name: "MAY AND CO",
-      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430582/MAY-and-Co-teal-logo-1_lcmvcw.jpg",
-    },
-    {
-      id: 7,
-      name: "NYELETI",
-      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1762950469/Nyeleti_Logo_wpojak.jpg",
-    },
-    {
-      id: 8,
-      name: "KONGIWE",
-      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430583/Kongiwe-Logo-for-Header_ciq6du.png",
-    },
-    {
-      id: 9,
-      name: "DH Engineering Consultants",
-      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430581/dhki-e1677569611745_d61ec9.jpg",
-    },
-    {
-      id: 10,
-      name: "Brian Colquhoun, Hugh O'Donnell & Partners (BCHOD)",
-      logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1762425986/BCHOD_col4d9.jpg",
-    },
-  ];
+interface PartnersCarouselProps {
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  partners?: Partner[];
+  buttonText?: string;
+  buttonLink?: string;
+}
+
+const defaultPartners: Partner[] = [
+  {
+    id: 1,
+    name: "FIRST QUANTUM MINERALS",
+    logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430581/First_Quantum_Minerals_New_Logo.svg_ivz3bj.png",
+  },
+  {
+    id: 2,
+    name: "BEEFCO",
+    logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1762357921/Beefco_iarvhw.jpg",
+  },
+  {
+    id: 3,
+    name: "HOTSHEET PROJECT MANAGERS",
+    logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1762393622/Hotsheet_logo_hz645n.jpg",
+  },
+  {
+    id: 4,
+    name: "PANGAEA SECURITIES",
+    logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430587/Pangaea-Securities__qbmjbo.png",
+  },
+  {
+    id: 5,
+    name: "HERBERT SMITH FREEHILLS KRAMER",
+    logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430583/Herbert_Smith_Freehills_logo.svg_wit9u9.png",
+  },
+  {
+    id: 6,
+    name: "MAY AND CO",
+    logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430582/MAY-and-Co-teal-logo-1_lcmvcw.jpg",
+  },
+  {
+    id: 7,
+    name: "NYELETI",
+    logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1762950469/Nyeleti_Logo_wpojak.jpg",
+  },
+  {
+    id: 8,
+    name: "KONGIWE",
+    logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430583/Kongiwe-Logo-for-Header_ciq6du.png",
+  },
+  {
+    id: 9,
+    name: "DH Engineering Consultants",
+    logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1759430581/dhki-e1677569611745_d61ec9.jpg",
+  },
+  {
+    id: 10,
+    name: "Brian Colquhoun, Hugh O'Donnell & Partners (BCHOD)",
+    logo: "https://res.cloudinary.com/dpeg7wc34/image/upload/v1762425986/BCHOD_col4d9.jpg",
+  },
+];
+
+function PartnersCarousel({
+  title = "Our Partners",
+  subtitle = "Trusted By",
+  description = "Collaborating with industry leaders to deliver exceptional infrastructure solutions",
+  partners: propPartners,
+  buttonText = "Read More",
+  buttonLink = "/partners",
+}: PartnersCarouselProps) {
+  // Use WordPress data if provided, otherwise use defaults
+  const partners =
+    propPartners && propPartners.length > 0 ? propPartners : defaultPartners;
 
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -71,13 +96,14 @@ function PartnersCarousel() {
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const currentRef = sectionRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -90,14 +116,13 @@ function PartnersCarousel() {
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="text-center mb-16">
           <h2 className="text-sm font-semibold text-[#868584] dark:text-white tracking-wider uppercase mb-3">
-            Trusted By
+            {subtitle}
           </h2>
           <h3 className="text-4xl md:text-5xl font-bold text-black dark:text-white mb-4">
-            Our Partners
+            {title}
           </h3>
           <p className="text-lg text-[#868584] dark:text-white max-w-2xl mx-auto">
-            Collaborating with industry leaders to deliver exceptional
-            infrastructure solutions
+            {description}
           </p>
         </div>
 
@@ -136,10 +161,10 @@ function PartnersCarousel() {
 
         <div className="mt-16 text-center">
           <a
-            href="/partners"
+            href={buttonLink}
             className="inline-flex items-center gap-2 px-12 py-3 rounded-none bg-[#FDDB59] text-black dark:text-black font-semibold hover:bg-[#fdb913] dark:hover:bg-[#fdb913] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
           >
-            Read More
+            {buttonText}
             <svg
               className="w-5 h-5"
               fill="none"

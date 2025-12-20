@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { X, Search, Menu, ChevronDown, ArrowDown } from "lucide-react";
+import { X, Search, Menu, ChevronDown, ArrowDown, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ModeToggle from "./ModeToggle";
 
@@ -16,6 +16,74 @@ type MenuKey =
   | "gallery"
   | "news";
 
+// Type for search results
+interface SearchResult {
+  id: string;
+  title: string;
+  excerpt: string;
+  slug: string;
+  type: "post" | "page";
+  date?: string;
+  featuredImage?: {
+    node: {
+      sourceUrl: string;
+      altText: string;
+    };
+  };
+}
+
+// Type for API response
+interface ApiSearchResponse {
+  posts: {
+    nodes: Array<{
+      id: string;
+      title: string;
+      excerpt: string;
+      slug: string;
+      date?: string;
+      featuredImage?: {
+        node: {
+          sourceUrl: string;
+          altText: string;
+        };
+      };
+    }>;
+  };
+  pages: {
+    nodes: Array<{
+      id: string;
+      title: string;
+      excerpt: string;
+      slug: string;
+      featuredImage?: {
+        node: {
+          sourceUrl: string;
+          altText: string;
+        };
+      };
+    }>;
+  };
+  error?: string;
+  message?: string;
+}
+
+// Custom debounce hook with proper typing
+function useDebounce<T>(value: T, delay: number): T {
+  const [debouncedValue, setDebouncedValue] = useState<T>(value);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+}
+
 function StickyNavigationMenu() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,10 +93,17 @@ function StickyNavigationMenu() {
     useState<MenuKey | null>(null);
   const [showMoreMenu, setShowMoreMenu] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+  const [isSearching, setIsSearching] = useState(false);
+  const [searchError, setSearchError] = useState<string | null>(null);
 
   const menuRef = useRef<HTMLDivElement>(null);
   const megaMenuRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const searchContainerRef = useRef<HTMLDivElement>(null);
+
+  const debouncedSearchQuery = useDebounce(searchQuery, 300);
 
   // Handle scroll progress
   useEffect(() => {
@@ -52,6 +127,7 @@ function StickyNavigationMenu() {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node;
+
       if (
         menuRef.current &&
         !menuRef.current.contains(target) &&
@@ -61,14 +137,25 @@ function StickyNavigationMenu() {
         setActiveMenu(null);
         setShowMoreMenu(false);
       }
+
+      // Close search if clicking outside
+      if (
+        isSearchOpen &&
+        searchContainerRef.current &&
+        !searchContainerRef.current.contains(target) &&
+        searchInputRef.current &&
+        !searchInputRef.current.contains(target)
+      ) {
+        setIsSearchOpen(false);
+      }
     };
 
-    if (activeMenu || showMoreMenu) {
+    if (activeMenu || showMoreMenu || isSearchOpen) {
       document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [activeMenu, showMoreMenu]);
+  }, [activeMenu, showMoreMenu, isSearchOpen]);
 
   // Focus search input when open
   useEffect(() => {
@@ -76,6 +163,63 @@ function StickyNavigationMenu() {
       searchInputRef.current.focus();
     }
   }, [isSearchOpen]);
+
+  // Perform search when query changes
+  useEffect(() => {
+    const performSearch = async () => {
+      if (!debouncedSearchQuery.trim()) {
+        setSearchResults([]);
+        setSearchError(null);
+        return;
+      }
+
+      setIsSearching(true);
+      setSearchError(null);
+
+      try {
+        const response = await fetch(
+          `/api/search?q=${encodeURIComponent(debouncedSearchQuery)}`
+        );
+
+        if (!response.ok) {
+          throw new Error(`Search request failed: ${response.status}`);
+        }
+
+        const data: ApiSearchResponse = await response.json();
+
+        // Check for API error
+        if (data.error) {
+          throw new Error(data.message || data.error);
+        }
+
+        // Combine posts and pages with proper typing
+        const combinedResults: SearchResult[] = [
+          ...(data.posts?.nodes?.map((post) => ({
+            ...post,
+            type: "post" as const,
+          })) || []),
+          ...(data.pages?.nodes?.map((page) => ({
+            ...page,
+            type: "page" as const,
+          })) || []),
+        ];
+
+        setSearchResults(combinedResults);
+      } catch (error) {
+        console.error("Search error:", error);
+        setSearchError(
+          error instanceof Error
+            ? error.message
+            : "Failed to search. Please try again."
+        );
+        setSearchResults([]);
+      } finally {
+        setIsSearching(false);
+      }
+    };
+
+    performSearch();
+  }, [debouncedSearchQuery]);
 
   // ESC key closes all overlays
   useEffect(() => {
@@ -90,6 +234,43 @@ function StickyNavigationMenu() {
     window.addEventListener("keydown", handleEscape);
     return () => window.removeEventListener("keydown", handleEscape);
   }, []);
+
+  // Handle Enter key to navigate to first result
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && searchResults.length > 0) {
+      const firstResult = searchResults[0];
+      const href = firstResult.type === "post" ? `/news/${firstResult.slug}` : (firstResult.slug.startsWith("/") ? firstResult.slug : `/${firstResult.slug}`);
+      window.location.href = href;
+    }
+  };
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchResults.length > 0) {
+      const firstResult = searchResults[0];
+      const href = firstResult.type === "post" ? `/news/${firstResult.slug}` : (firstResult.slug.startsWith("/") ? firstResult.slug : `/${firstResult.slug}`);
+      window.location.href = href;
+    }
+  };
+
+  const stripHtml = (html: string): string => {
+    if (!html) return "";
+    return html.replace(/<[^>]*>/g, "");
+  };
+
+  const formatDate = (dateString?: string): string => {
+    if (!dateString) return "";
+    try {
+      const date = new Date(dateString);
+      return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      });
+    } catch (error) {
+      return dateString;
+    }
+  };
 
   const menuData: Record<
     MenuKey,
@@ -161,9 +342,20 @@ function StickyNavigationMenu() {
   };
 
   // Capitalize first letter of menu items
-  const formatMenuLabel = (key: MenuKey) => {
+  const formatMenuLabel = (key: MenuKey): string => {
     if (key === "news") return "News & Media";
     return key.charAt(0).toUpperCase() + key.slice(1);
+  };
+
+  const resetSearch = () => {
+    setIsSearchOpen(false);
+    setSearchQuery("");
+    setSearchResults([]);
+    setSearchError(null);
+  };
+
+  const handleSuggestionClick = (tag: string) => {
+    setSearchQuery(tag);
   };
 
   return (
@@ -284,7 +476,6 @@ function StickyNavigationMenu() {
         <div
           ref={megaMenuRef}
           className="hidden lg:block fixed top-36 left-6 right-6 shadow-2xl transition-all duration-300 z-51 rounded-xl overflow-hidden"
-          //                                    ^^^^^^ Changed from top-28 to top-36
         >
           <div className="container mx-auto">
             <div className="grid grid-cols-2 gap-0 max-w-6xl mx-auto rounded-lg overflow-hidden">
@@ -373,33 +564,158 @@ function StickyNavigationMenu() {
 
       {/* Search Drawer */}
       <div
+        ref={searchContainerRef}
         className={cn(
-          "fixed top-0 right-0 h-full w-full md:w-[600px] bg-[#0A0A0A]/95 z-100 transition-transform duration-500 ease-out border-l border-white/10",
+          "fixed top-0 right-0 h-full w-full md:w-[600px] bg-[#0A0A0A]/95 z-100 transition-transform duration-500 ease-out border-l border-white/10 overflow-hidden flex flex-col",
           isSearchOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <div className="flex items-center justify-between h-20 md:h-24 px-4 md:px-8 border-b border-white/10">
-          <div className="flex items-center gap-4 flex-1">
-            <Search className="h-5 w-5 md:h-6 md:w-6 text-[#FDDB59]" />
-            <input
-              ref={searchInputRef}
-              type="text"
-              placeholder="Search..."
-              className="flex-1 bg-transparent font-body text-white placeholder:text-gray-500 text-base md:text-lg tracking-wide focus:outline-none"
-            />
+        <form onSubmit={handleSearchSubmit} className="shrink-0">
+          <div className="flex items-center justify-between h-20 md:h-24 px-4 md:px-8 border-b border-white/10">
+            <div className="flex items-center gap-4 flex-1">
+              <Search className="h-5 w-5 md:h-6 md:w-6 text-[#FDDB59]" />
+              <input
+                ref={searchInputRef}
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder="Search news, pages, and content..."
+                className="flex-1 bg-transparent font-body text-white placeholder:text-gray-500 text-base md:text-lg tracking-wide focus:outline-none"
+                aria-label="Search"
+              />
+              {isSearching && (
+                <Loader2 className="h-5 w-5 animate-spin text-[#FDDB59]" />
+              )}
+            </div>
+            <button
+              type="button"
+              onClick={resetSearch}
+              className="text-white hover:text-[#FDB913] transition-colors ml-4"
+              aria-label="Close search"
+            >
+              <X className="h-5 w-5 md:h-6 md:w-6" />
+            </button>
           </div>
-          <button
-            onClick={() => setIsSearchOpen(false)}
-            className="text-white hover:text-[#FDB913] transition-colors ml-4"
-            aria-label="Close search"
-          >
-            <X className="h-5 w-5 md:h-6 md:w-6" />
-          </button>
-        </div>
-        <div className="p-4 md:p-8">
-          <p className="text-gray-400 text-sm md:text-xl font-body">
-            Start typing to search...
-          </p>
+        </form>
+
+        <div className="flex-1 overflow-y-auto">
+          {searchError ? (
+            <div className="p-8 text-center">
+              <p className="text-red-400 font-body">{searchError}</p>
+            </div>
+          ) : searchQuery.trim() ? (
+            <div className="p-4 md:p-8">
+              {isSearching ? (
+                <div className="flex items-center justify-center py-12">
+                  <Loader2 className="h-8 w-8 animate-spin text-[#FDDB59]" />
+                  <span className="ml-3 text-gray-400 font-body">
+                    Searching...
+                  </span>
+                </div>
+              ) : searchResults.length > 0 ? (
+                <>
+                  <p className="text-gray-400 text-sm md:text-base font-body mb-6">
+                    Found {searchResults.length} result
+                    {searchResults.length !== 1 ? "s" : ""}
+                  </p>
+                  <div className="space-y-6">
+                    {searchResults.map((result) => (
+                      <Link
+                        key={result.id}
+                        href={result.type === "post" ? `/news/${result.slug}` : (result.slug.startsWith("/") ? result.slug : `/${result.slug}`)}
+                        className="block group"
+                        onClick={resetSearch}
+                      >
+                        <div className="bg-white/5 hover:bg-white/10 p-4 rounded-lg transition-colors">
+                          <div className="flex items-start gap-4">
+                            {result.featuredImage?.node?.sourceUrl && (
+                              <div className="relative w-16 h-16 flex-shrink-0">
+                                <Image
+                                  src={result.featuredImage.node.sourceUrl}
+                                  alt={
+                                    result.featuredImage.node.altText ||
+                                    stripHtml(result.title)
+                                  }
+                                  fill
+                                  className="object-cover rounded"
+                                  sizes="64px"
+                                />
+                              </div>
+                            )}
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-2 mb-1">
+                                <span
+                                  className={cn(
+                                    "text-xs px-2 py-0.5 rounded-full font-medium",
+                                    result.type === "post"
+                                      ? "bg-blue-500/20 text-blue-400"
+                                      : "bg-green-500/20 text-green-400"
+                                  )}
+                                >
+                                  {result.type === "post" ? "News" : "Page"}
+                                </span>
+                                {result.date && (
+                                  <span className="text-xs text-gray-400">
+                                    {formatDate(result.date)}
+                                  </span>
+                                )}
+                              </div>
+                              <h3 className="text-white font-body font-semibold group-hover:text-[#FDDB59] transition-colors truncate">
+                                {stripHtml(result.title)}
+                              </h3>
+                              {result.excerpt && (
+                                <p className="text-gray-400 text-sm mt-1 line-clamp-2">
+                                  {stripHtml(result.excerpt)}
+                                </p>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <div className="text-center py-12">
+                  <Search className="h-12 w-12 text-gray-600 mx-auto mb-4" />
+                  <p className="text-gray-400 font-body">
+                    No results found for &quot;{searchQuery}&quot;
+                  </p>
+                  <p className="text-gray-500 text-sm mt-2">
+                    Try different keywords or check your spelling
+                  </p>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="p-8">
+              <p className="text-gray-400 text-sm md:text-xl font-body mb-4">
+                Start typing to search...
+              </p>
+              <div className="space-y-4">
+                <p className="text-gray-500 text-sm">Search for:</p>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Project Updates",
+                    "News Articles",
+                    "Careers",
+                    "Gallery",
+                    "About Us",
+                  ].map((tag) => (
+                    <button
+                      key={tag}
+                      type="button"
+                      onClick={() => handleSuggestionClick(tag)}
+                      className="px-3 py-1.5 bg-white/5 hover:bg-white/10 text-gray-300 text-sm rounded-full transition-colors"
+                    >
+                      {tag}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

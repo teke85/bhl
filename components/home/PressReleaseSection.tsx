@@ -6,7 +6,7 @@ import { FileText, Calendar, ExternalLink, ChevronRight } from "lucide-react";
 
 export default function PressReleaseSection() {
   return (
-    <section className="relative py-20 md:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-black dark:via-gray-900 dark:to-black overflow-hidden">
+    <section className="relative py-20 md:py-32 bg-linear-to-br from-gray-50 via-white to-gray-100 dark:from-black dark:via-gray-900 dark:to-black overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10 dark:opacity-10">
         <div
@@ -103,12 +103,12 @@ export default function PressReleaseSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="bg-gradient-to-r from-[#fdb913]/10 to-transparent border-l-4 border-[#fdb913] p-8 rounded-r-xl mb-12 shadow-md dark:shadow-none"
+            className="bg-linear-to-r from-[#fdb913]/10 to-transparent border-l-4 border-[#fdb913] p-8 rounded-r-xl mb-12 shadow-md dark:shadow-none"
           >
             <blockquote className="text-gray-900 dark:text-white text-lg md:text-xl italic mb-4">
-              "This road means business, business to move goods from Zambia to
-              the world through the port of Walvis Bay, and from the world,
-              through Walvis Bay, back to Zambia."
+              &ldquo;This road means business, business to move goods from
+              Zambia to the world through the port of Walvis Bay, and from the
+              world, through Walvis Bay, back to Zambia.&rdquo;
             </blockquote>
             <cite className="text-[#fdb913] font-semibold not-italic">
               — His Excellency, President Hakainde Hichilema

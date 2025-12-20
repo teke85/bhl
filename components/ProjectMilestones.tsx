@@ -1,9 +1,23 @@
+import type React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-const ProjectMilestonesSection = () => {
-  const milestones = [
+interface ProjectMilestonesSectionProps {
+  milestones?: Array<{
+    year: string;
+    description: string;
+  }>;
+  buttonText?: string;
+  buttonLink?: string;
+}
+
+const ProjectMilestonesSection: React.FC<ProjectMilestonesSectionProps> = ({
+  milestones: propMilestones,
+  buttonText = "See our Project History",
+  buttonLink = "/timeline",
+}) => {
+  const defaultMilestones = [
     {
       year: "2018",
       description: "Maintenance contract initiated",
@@ -21,6 +35,11 @@ const ProjectMilestonesSection = () => {
       description: "Projected completion of the highway",
     },
   ];
+
+  const milestones =
+    propMilestones && propMilestones.length > 0
+      ? propMilestones
+      : defaultMilestones;
 
   return (
     <section className="bg-white dark:bg-black py-16 md:py-24 px-4">
@@ -48,8 +67,8 @@ const ProjectMilestonesSection = () => {
               className=" font-heading text-xl rounded-none dark:hover:bg-black hover:text-white transition-all duration-500 border-white/20 text-black dark:text-white bg-transparent gap-2"
               asChild
             >
-              <Link href="/timeline">
-                See our Project History{" "}
+              <Link href={buttonLink}>
+                {buttonText}{" "}
                 <ArrowRight className="h-4 w-4 hover:text-white text-black dark:text-white" />
               </Link>
             </Button>

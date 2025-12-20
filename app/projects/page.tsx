@@ -12,23 +12,38 @@ import ProjectPromoters from "@/components/projects/ProjectPromoters";
 import ResettlementPolicy from "@/components/projects/ResettlementPolicy";
 // import ProjectScopeAndHistory from "@/components/about/ProjectScopeAndHistory";
 import ProjectHistory from "@/components/projects/Project";
+import { getProjectsPageData, stripHtml } from "@/lib/wordpress-graphql";
+import type { Metadata } from "next";
 
-export default function ProjectPage() {
+export const metadata: Metadata = {
+  title: "Projects",
+  description: "Detailed overview of the Mutanda–Kaoma Road Project, technical specifications, and environmental impact assessments.",
+};
+
+export default async function ProjectPage() {
+  const data = await getProjectsPageData();
+
+  // Parse stats list if present
+  let stats = undefined;
+  if (data?.projectPageFields?.statsList) {
+    try {
+      stats = JSON.parse(data.projectPageFields.statsList);
+    } catch (e) {
+      console.error("Failed to parse statsList", e);
+    }
+  }
+
   return (
     <main className="min-h-screen">
-      <nav className="absolute top-0 left-0 right-0 z-40">
-        <div className="container mx-auto px-4 py-4">
-          <div className="grid grid-cols-3 items-center gap-4 h-16">
-            <div className="relative z-30 justify-self-center">
-              <StickyNavigationMenu />
-            </div>
-            <div className="relative z-30 justify-self-end" />
-          </div>
-        </div>
-      </nav>
+      <StickyNavigationMenu />
 
-      <ProjectHero />
-      <ProjectKeyStats />
+      <ProjectHero
+        title={data?.projectPageFields?.heroTitle || undefined}
+        subtitle={data?.projectPageFields?.heroSubtitle || undefined}
+        image={data?.projectPageFields?.heroImage?.node?.sourceUrl || undefined}
+        description={stripHtml(data?.projectPageFields?.descriptionContent) || undefined}
+      />
+      <ProjectKeyStats stats={stats} />
       {/* <ProjectScopeAndHistory /> */}
       <ProjectHistory />
       <ProjectGallery />

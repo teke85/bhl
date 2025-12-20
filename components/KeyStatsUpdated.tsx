@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import type React from "react";
+import { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import { Zap, Globe, TrendingUp, Award } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -16,55 +17,100 @@ interface Stat {
   highlight?: boolean;
 }
 
-const KeyStatsUpdated = () => {
+interface KeyStatsUpdatedProps {
+  stats?: Array<{
+    value: string;
+    unit: string;
+    label: string;
+    description: string;
+    icon: string;
+  }>;
+  mainTitle?: string;
+}
+
+const iconMap: Record<string, React.ReactNode> = {
+  TrendingUp: <TrendingUp className="w-8 h-8" />,
+  Award: <Award className="w-8 h-8" />,
+  Zap: <Zap className="w-8 h-8" />,
+  Globe: <Globe className="w-8 h-8" />,
+};
+
+const DEFAULT_STATS: Stat[] = [
+  {
+    value: "371",
+    label: "KILOMETRES",
+    description: "TOTAL ROAD LENGTH",
+    icon: <TrendingUp className="w-8 h-8" />,
+  },
+  {
+    value: "8",
+    unit: "M+",
+    label: "INVESTMENT",
+    description: "ALREADY INVESTED",
+    icon: <Award className="w-8 h-8" />,
+    highlight: true,
+  },
+  {
+    value: "2025",
+    label: "START OF CONSTRUCTION",
+    description: "TARGET YEAR",
+    icon: <Zap className="w-8 h-8" />,
+    highlight: true,
+  },
+  {
+    value: "4",
+    label: "DISTRICTS",
+    description: "COMMUNITIES BENEFITING",
+    icon: <Globe className="w-8 h-8" />,
+  },
+];
+
+const KeyStatsUpdated: React.FC<KeyStatsUpdatedProps> = ({
+  stats: propStats,
+  mainTitle = "OUR KEY STATS",
+}) => {
   const [isVisible, setIsVisible] = useState(false);
   const [counts, setCounts] = useState<Record<number, number>>({});
   const statsRef = useRef<HTMLDivElement>(null);
+  const hasGsapAnimated = useRef(false);
+  const hasCounterAnimated = useRef(false);
+  const timersRef = useRef<NodeJS.Timeout[]>([]);
 
-  const stats: Stat[] = [
-    {
-      value: "371",
-      label: "KILOMETRES",
-      description: "TOTAL ROAD LENGTH",
-      icon: <TrendingUp className="w-8 h-8" />,
-    },
-    {
-      value: "8",
-      unit: "M+",
-      label: "INVESTMENT",
-      description: "ALREADY INVESTED",
-      icon: <Award className="w-8 h-8" />,
-      highlight: true,
-    },
-    {
-      value: "2025",
-      label: "START OF CONSTRUCTION",
-      description: "TARGET YEAR",
-      icon: <Zap className="w-8 h-8" />,
-      highlight: true,
-    },
-    {
-      value: "4",
-      label: "DISTRICTS",
-      description: "COMMUNITIES BENEFITING",
-      icon: <Globe className="w-8 h-8" />,
-    },
-  ];
+  const stats: Stat[] = useMemo(() => {
+    if (!propStats || propStats.length === 0) return DEFAULT_STATS;
 
+    return propStats.map((stat, index) => ({
+      value: stat.value,
+      unit: stat.unit || undefined,
+      label: stat.label,
+      description: stat.description,
+      icon: iconMap[stat.icon] || <TrendingUp className="w-8 h-8" />,
+      highlight: index === 1 || index === 2,
+    }));
+  }, [propStats]);
+
+  // Intersection observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true);
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
       },
       { threshold: 0.2 }
     );
 
-    if (statsRef.current) observer.observe(statsRef.current);
-    return () => observer.disconnect();
+    const currentRef = statsRef.current;
+    if (currentRef) observer.observe(currentRef);
+    return () => {
+      if (currentRef) observer.disconnect();
+    };
   }, []);
 
+  // GSAP animations
   useEffect(() => {
-    if (isVisible && statsRef.current) {
+    if (isVisible && statsRef.current && !hasGsapAnimated.current) {
+      hasGsapAnimated.current = true;
       const cards = gsap.utils.toArray(".stat-card");
       const icons = gsap.utils.toArray(".stat-icon");
 
@@ -80,6 +126,7 @@ const KeyStatsUpdated = () => {
           scrollTrigger: {
             trigger: statsRef.current,
             start: "top 80%",
+            toggleActions: "play none none none",
           },
         }
       );
@@ -96,42 +143,59 @@ const KeyStatsUpdated = () => {
           delay: 0.3,
         }
       );
-
-      gsap.to(".highlight-card", {
-        scale: 1.05,
-        duration: 1.5,
-        yoyo: true,
-        repeat: -1,
-        ease: "sine.inOut",
-      });
     }
   }, [isVisible]);
+
+  const animateCounters = useCallback(() => {
+    // Clear any existing timers
+    timersRef.current.forEach((timer) => clearInterval(timer));
+    timersRef.current = [];
+
+    stats.forEach((stat, index) => {
+      const numValue = Number.parseFloat(stat.value);
+      if (!isNaN(numValue)) {
+        let current = 0;
+        const duration = 1500; // 1.5 seconds
+        const steps = 50;
+        const increment = numValue / steps;
+        const intervalTime = duration / steps;
+
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= numValue) {
+            setCounts((prev) => ({ ...prev, [index]: numValue }));
+            clearInterval(timer);
+          } else {
+            setCounts((prev) => ({
+              ...prev,
+              [index]: stat.value.includes(".")
+                ? Number.parseFloat(current.toFixed(1))
+                : Math.floor(current),
+            }));
+          }
+        }, intervalTime);
+        timersRef.current.push(timer);
+      } else {
+        // For non-numeric values like text, don't animate
+        setCounts((prev) => ({ ...prev, [index]: 0 }));
+      }
+    });
+  }, [stats]);
 
   useEffect(() => {
-    if (isVisible) {
-      stats.forEach((stat, index) => {
-        const numValue = parseFloat(stat.value);
-        if (!isNaN(numValue)) {
-          let current = 0;
-          const increment = numValue / 50;
-          const timer = setInterval(() => {
-            current += increment;
-            if (current >= numValue) {
-              setCounts((prev) => ({ ...prev, [index]: numValue }));
-              clearInterval(timer);
-            } else {
-              setCounts((prev) => ({
-                ...prev,
-                [index]: stat.value.includes(".")
-                  ? parseFloat(current.toFixed(1))
-                  : Math.floor(current),
-              }));
-            }
-          }, 30);
-        }
-      });
+    if (isVisible && !hasCounterAnimated.current) {
+      hasCounterAnimated.current = true;
+      console.log(
+        "[v0] Starting counter animation, stats:",
+        stats.map((s) => s.value)
+      );
+      animateCounters();
     }
-  }, [isVisible]);
+
+    return () => {
+      timersRef.current.forEach((timer) => clearInterval(timer));
+    };
+  }, [isVisible, animateCounters, stats]);
 
   return (
     <section
@@ -156,78 +220,93 @@ const KeyStatsUpdated = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-sm font-body tracking-[0.3em] text-black dark:text-white mb-4">
-            OUR KEY STATS
+            {mainTitle}
           </h2>
           <div className="w-24 h-px bg-[#FDDB59] mx-auto" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-          {stats.map((stat, index) => (
-            <div
-              key={index}
-              className={`stat-card relative group p-8 rounded-lg transition-all duration-700 ${
-                stat.highlight
-                  ? "highlight-card bg-[#FDDB59] dark:bg-[#FDDB59]/95"
-                  : "bg-transparent"
-              }`}
-            >
-              <div className="space-y-4 text-left">
-                <div className="flex items-center gap-3">
-                  <span
+          {stats.map((stat, index) => {
+            const numValue = Number.parseFloat(stat.value);
+            const isNumeric = !isNaN(numValue);
+            const displayValue =
+              isNumeric && counts[index] !== undefined
+                ? counts[index]
+                : stat.value;
+
+            return (
+              <div
+                key={index}
+                className={`stat-card relative group p-8 rounded-lg ${
+                  stat.highlight
+                    ? "bg-[#FDDB59] dark:bg-[#FDDB59]/95"
+                    : "bg-transparent"
+                } text-left flex flex-col justify-between min-h-[280px] md:min-h-[320px]`}
+              >
+                <div className="space-y-6">
+                  <h3
                     className={`text-xs font-body tracking-[0.2em] uppercase ${
                       stat.highlight
                         ? "text-black"
-                        : "text-black dark:text-white/50"
+                        : "text-black dark:text-white/70"
                     }`}
                   >
                     {stat.label}
-                  </span>
-                </div>
+                  </h3>
 
-                <div className="flex items-baseline gap-2">
-                  <span
-                    className={`text-6xl md:text-7xl font-bold leading-none ${
-                      stat.highlight
-                        ? "text-black"
-                        : "text-black dark:text-white"
-                    }`}
-                  >
-                    {index === 1 && "$"}
-                    {counts[index] !== undefined ? counts[index] : stat.value}
-                  </span>
-                  {stat.unit && (
+                  <div className="flex items-baseline gap-1">
+                    {index === 1 && (
+                      <span
+                        className={`text-6xl md:text-7xl font-bold ${
+                          stat.highlight
+                            ? "text-black"
+                            : "text-black dark:text-white"
+                        }`}
+                      >
+                        $
+                      </span>
+                    )}
                     <span
-                      className={`text-3xl md:text-4xl font-bold ${
+                      className={`text-7xl md:text-8xl font-bold leading-none ${
                         stat.highlight
-                          ? "text-black/80"
-                          : "text-black dark:text-white/80"
+                          ? "text-black"
+                          : "text-black dark:text-white"
                       }`}
                     >
-                      {stat.unit}
+                      {displayValue}
                     </span>
-                  )}
+                    {stat.unit && (
+                      <span
+                        className={`text-4xl md:text-5xl font-bold ${
+                          stat.highlight
+                            ? "text-black/80"
+                            : "text-black/70 dark:text-white/70"
+                        }`}
+                      >
+                        {stat.unit}
+                      </span>
+                    )}
+                  </div>
+
+                  <p
+                    className={`text-sm font-body uppercase tracking-wide ${
+                      stat.highlight
+                        ? "text-black/70"
+                        : "text-black/70 dark:text-white/70"
+                    }`}
+                  >
+                    {stat.description}
+                  </p>
                 </div>
 
                 <div
-                  className={`text-sm font-body uppercase tracking-wide ${
-                    stat.highlight
-                      ? "text-black/70"
-                      : "text-black/60 dark:text-white/60"
-                  }`}
-                >
-                  {stat.description}
-                </div>
-
-                <div
-                  className={`stat-icon opacity-60 group-hover:opacity-100 transition-opacity ${
-                    stat.highlight ? "text-black" : "text-[#FDDB59]"
-                  }`}
+                  className={`stat-icon mt-6 ${stat.highlight ? "text-black opacity-60" : "text-[#FDDB59] opacity-60"}`}
                 >
                   {stat.icon}
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

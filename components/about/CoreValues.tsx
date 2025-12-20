@@ -3,7 +3,11 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-export default function CoreValues() {
+interface CoreValuesProps {
+  title?: string;
+}
+
+export default function CoreValues({ title = "Our Core Values" }: CoreValuesProps) {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -95,7 +99,7 @@ export default function CoreValues() {
             className="text-4xl md:text-5xl font-heading font-bold text-foreground dark:text-white mb-6"
             variants={itemVariants}
           >
-            Our Core Values
+            {title}
           </motion.h2>
         </motion.div>
         <p className="font-body text-center text-lg md:text-xl text-muted-foreground dark:text-gray-300 mb-12 max-w-3xl mx-auto">

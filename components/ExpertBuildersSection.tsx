@@ -1,5 +1,7 @@
 "use client";
 
+import type React from "react";
+
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,7 +11,27 @@ import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ExpertBuildersSection = () => {
+interface ExpertBuildersSectionProps {
+  expertTitle?: string;
+  expertDescription?: string;
+  expertButton1Text?: string;
+  expertButton1Link?: string;
+  regionalTitle?: string;
+  regionalDescription?: string;
+  regionalButton2Text?: string;
+  regionalButton2Link?: string;
+}
+
+const ExpertBuildersSection: React.FC<ExpertBuildersSectionProps> = ({
+  expertTitle = "Expert Builders",
+  expertDescription = "Upgrading 371 km of the Mutanda to Kaoma Road to international bituminous standards, completing Zambia's Western Corridor.",
+  expertButton1Text = "View Project Details",
+  expertButton1Link = "/projects",
+  regionalTitle = "Regional Impact",
+  regionalDescription = "Creating a vital link between Zambia's Copperbelt, DRC's mining regions, and the Port of Walvis Bay on Africa's West Coast.",
+  regionalButton2Text = "Explore Regional Benefits",
+  regionalButton2Link = "/regional-impact",
+}) => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -82,19 +104,18 @@ const ExpertBuildersSection = () => {
           {/* Expert Builders Card */}
           <div className="space-y-6">
             <h2 className="animated-title text-4xl uppercase md:text-6xl font-bold text-black dark:text-white">
-              Expert Builders
+              {expertTitle}
             </h2>
             <p className="animated-paragraph text-[#868584] font-body dark:text-white text-lg md:text-xl leading-relaxed">
-              Upgrading 371 km of the Mutanda to Kaoma Road to international
-              bituminous standards, completing Zambia&apos;s Western Corridor.
+              {expertDescription}
             </p>
             <div className="animated-button">
               <Button
                 className="font-body text-lg border-white/20 text-white dark:text-black bg-[#FDDB59] rounded-none hover:bg-[#FDDB59]/90 hover:scale-105 transition-transform duration-300 gap-2"
                 asChild
               >
-                <Link href="/projects">
-                  View Project Details <ArrowRight className="h-4 w-4" />
+                <Link href={expertButton1Link}>
+                  {expertButton1Text} <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
             </div>
@@ -103,20 +124,18 @@ const ExpertBuildersSection = () => {
           {/* Regional Impact Card */}
           <div className="space-y-6">
             <h2 className="animated-title text-4xl uppercase md:text-6xl font-bold text-black dark:text-white">
-              Regional Impact
+              {regionalTitle}
             </h2>
             <p className="animated-paragraph text-[#868584] dark:text-white font-body text-lg md:text-xl leading-relaxed">
-              Creating a vital link between Zambia&apos;s Copperbelt, DRC&apos;s
-              mining regions, and the Port of Walvis Bay on Africa&apos;s West
-              Coast.
+              {regionalDescription}
             </p>
             <div className="animated-button">
               <Button
                 className="bg-[#FDDB59] hover:bg-[#FDDB59]/90 font-body text-lg rounded-none border-white/20 text-white dark:text-black hover:scale-105 hover:border-white/40 transition-transform duration-300 gap-2"
                 asChild
               >
-                <Link href="/regional-impact">
-                  Explore Regional Benefits <ArrowRight className="h-4 w-4" />
+                <Link href={regionalButton2Link}>
+                  {regionalButton2Text} <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
             </div>

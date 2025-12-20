@@ -1,30 +1,45 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { parseStrategicPositioning } from "@/lib/wordpress-graphql";
 
-const strategicAreas = [
-  {
-    title: "Mineral Corridor",
-    description:
-      "The Mutanda–Kaoma Road is strategically positioned to enhance regional connectivity, connecting Zambia's mineral-rich Copperbelt and North-Western Provinces to the DRC's key mining regions. Traffic is primarily driven by heavy trucks transporting copper and cobalt from Zambia and the DRC.",
-  },
-  {
-    title: "Integrated Network",
-    description:
-      "Designed to integrate with the proposed Lumwana–Kambimba Road, establishing a continuous transport route from Kolwezi in the DRC to Walvis Bay. Targeted for full operational readiness by 2028.",
-  },
-];
+interface StrategicPositioningProps {
+  mainTitle: string;
+  positioningtitle: string;
+  positioningdescription: string;
+}
 
-export default function StrategicPositioning() {
+export default function StrategicPositioning({
+  mainTitle,
+  positioningtitle,
+  positioningdescription,
+}: StrategicPositioningProps) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Schedule the state update for after the current render
     const timer = setTimeout(() => setMounted(true), 0);
     return () => clearTimeout(timer);
   }, []);
 
-  // Prevent flash of incorrect theme
+  const { mineralCorridor, integratedNetwork } = parseStrategicPositioning(
+    positioningdescription
+  );
+
+  const strategicAreas = [
+    {
+      title: "Mineral Corridor",
+      description:
+        mineralCorridor ||
+        "The Mutanda–Kaoma Road is strategically positioned to enhance regional connectivity, connecting Zambia's mineral-rich Copperbelt and North-Western Provinces to the DRC's key mining regions. Traffic is primarily driven by heavy trucks transporting copper and cobalt from Zambia and the DRC.",
+    },
+    {
+      title: "Integrated Network",
+      description:
+        integratedNetwork ||
+        "Designed to integrate with the proposed Lumwana–Kambimba Road, establishing a continuous transport route from Kolwezi in the DRC to Walvis Bay. Targeted for full operational readiness by 2028.",
+    },
+  ];
+
   if (!mounted) {
     return (
       <section className="w-full py-16 md:py-24">
@@ -38,9 +53,12 @@ export default function StrategicPositioning() {
   return (
     <section className="w-full py-16 md:py-24 bg-background dark:bg-[#0a0a0a]">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-heading font-bold text-black dark:text-white mb-12 text-balance">
-          Strategic Positioning
+        <h2 className="text-4xl md:text-5xl font-heading font-bold text-black dark:text-white mb-4 text-balance">
+          {mainTitle || "Strategic Positioning"}
         </h2>
+        <h3 className="text-2xl md:text-3xl font-heading font-semibold text-[#fdb913] mb-12">
+          {positioningtitle || "Mineral Corridor and Integrated Network"}
+        </h3>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {strategicAreas.map((area, index) => (

@@ -1,68 +1,171 @@
-import CombinedCarouselBigTextSection from "@/components/CombinedCarouselBigTextSection";
-import { Footer } from "@/components/FooterUpdated";
-import HeroCarousel from "@/components/HeroSection3RightLeft";
-import KeyStats from "@/components/KeyStatsUpdated";
-import OurPartners from "@/components/OurPartners";
-import ScrollTriggeredSection from "@/components/ScrollTriggeredSection";
-import ExpertBuildersSection from "@/components/ExpertBuildersSection";
-import ProjectMilestonesSection from "@/components/ProjectMilestones";
-import CommunityFirstSection from "@/components/CommunityFirst";
-import VideoHeroSection from "@/components/BigVideoComponent";
-// import { BuildingExcellence } from "@/components/BuildingExcellence";
-import SectionWrapper from "@/components/SectionWrapper";
-import NewsUpdatesSection from "@/components/home/NewsUpdates";
-import PressReleaseSection from "@/components/home/PressReleaseSection";
+import KeyStatsUpdated from "@/components/KeyStatsUpdated"
+import HighlightsSection from "@/components/HighlightsSection"
+import {
+  getHomePageData,
+  parseKeyStats,
+  parseCommunityPoints,
+  parsePartnerLogos,
+  parseHighlights,
+  parseProjectMilestones,
+  stripHtml,
+} from "@/lib/wordpress-graphql"
+import CommunityFirstSection from "@/components/CommunityFirst"
+import ProjectMilestonesSection from "@/components/ProjectMilestones"
+import PartnersCarousel from "@/components/OurPartners"
+import Footer from "@/components/FooterUpdated"
+import HeroCarousel from "@/components/HeroSection3RightLeft"
+import ScrollTriggeredSection from "@/components/ScrollTriggeredSection"
+import SectionWrapper from "@/components/SectionWrapper"
+import type { Metadata } from "next"
+import ExpertBuildersSection from "@/components/ExpertBuildersSection"
+import VideoHeroSection from "@/components/BigVideoComponent"
 
-export default function HomePage() {
+export async function generateMetadata(): Promise<Metadata> {
+  const data = await getHomePageData()
+
+  if (!data) {
+    return {}
+  }
+
+  const title = data.title || data.heroTitle || "Home"
+  const description = stripHtml(data.heroDescription || data.description || "")
+  const ogImage = data.heroBackgroundImage?.node?.sourceUrl
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: ogImage ? [{ url: ogImage }] : [],
+    },
+  }
+}
+
+export default async function HomePage() {
+  const data = await getHomePageData()
+  if (!data) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <p className="text-lg text-muted-foreground">Unable to load page data Kindly Connect to Internet</p>
+      </div>
+    )
+  }
+
+  // Parse WordPress data if available
+  const keyStats = data ? parseKeyStats(data) : []
+  const communityPoints = data ? parseCommunityPoints(data) : []
+  const partnerLogos = data ? parsePartnerLogos(data) : []
+  const highlights = data ? parseHighlights(data) : []
+  const milestones = data ? parseProjectMilestones(data) : []
+
+  const scrollItems = [
+    {
+      title:
+        stripHtml(data.sectionTitle)
+          ?.replace(/,\s*REGIONAL\s+CONNECTIVITY,\s*COMMUNITY\s+IMPACT/gi, "")
+          .replace(/\s+and\s+/gi, " ")
+          .trim() || "INFRASTRUCTURE EXCELLENCE",
+      description: stripHtml(data.description) || "",
+      imageUrl: data.sectionImage?.node?.sourceUrl || "/placeholder.svg",
+    },
+    {
+      title: "REGIONAL CONNECTIVITY",
+      description:
+        "The Western Corridor Project is a strategic infrastructure initiative that significantly enhances regional connectivity by linking Zambia's mineral-rich Copperbelt and North-Western Provinces with the West Coast of Africa via Walvis Bay in Namibia.",
+      imageUrl:
+        "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1762947095/DJI_0711_wiuokv.jpg",
+    },
+    {
+      title: "COMMUNITY IMPACT",
+      description:
+        "Empowering local communities through inclusive development and collaboration. The Western Corridor leadership, in partnership with traditional leaders across four districts, is ensuring that the Mutanda–Kaoma Road benefits every household along its route.",
+      imageUrl:
+        "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_auto,w_1920,c_limit/v1761107765/EI3A9507DRM_emgog7.jpg",
+    },
+  ]
+
+  // Transform partner logos to match component interface
+  const partners = partnerLogos.map((logo) => ({
+    id: logo.id,
+    name: logo.name,
+    logo: logo.url,
+  }))
+
   return (
     <main className="min-h-screen bg-black">
-      <div className="w-full mx-auto">
-        <SectionWrapper fullWidth>
-          <HeroCarousel />
+      <div className="w-full max-w-full mx-auto">
+        <HeroCarousel
+          title={stripHtml(data.heroTitle)}
+          subtitle={stripHtml(data.heroDescription)}
+          backgroundImage={data.heroBackgroundImage?.node?.sourceUrl || "/placeholder.svg"}
+          videoUrl={data.heroBackgroundVideo?.node?.sourceUrl}
+          scrollingText={stripHtml(data.scrollingText)}
+          button1Text={stripHtml(data.button1Text)}
+          button1Link={data.button1Link || "#"}
+          button2Text={stripHtml(data.button2Text)}
+          button2Link={data.button2Link || "#"}
+        />
+        {/* Key Stats Section */}
+        <KeyStatsUpdated
+          stats={keyStats.length > 0 ? keyStats : undefined}
+          mainTitle={data?.keystatsmaintitle ? stripHtml(data.keystatsmaintitle) : "OUR KEY STATS"}
+        />
+
+        <SectionWrapper>
+          <ScrollTriggeredSection items={scrollItems} />
         </SectionWrapper>
 
         <SectionWrapper>
-          <KeyStats />
+          <ExpertBuildersSection
+            expertTitle={
+              stripHtml(data.expertbuildersSectionTitle)
+                ?.replace(/\s+and\s+Regional\s+Impact\.?/gi, "")
+                .trim() || "EXPERT BUILDERS"
+            }
+            expertDescription={stripHtml(data.expertbuildersDescription)}
+            expertButton1Text={stripHtml(data.expertbuildersButton1Text)}
+            expertButton1Link={data.expertBuildersButton1Link || "/projects"}
+            regionalTitle="Regional Impact"
+            regionalDescription={stripHtml(data.expertbuildersDescription)}
+            regionalButton2Text={stripHtml(data.expertbuildersButton2Text)}
+            regionalButton2Link={data.expertBuildersButton2Link || "/regional-impact"}
+          />
         </SectionWrapper>
 
-        <SectionWrapper>
-          <ScrollTriggeredSection />
-        </SectionWrapper>
+        <ProjectMilestonesSection
+          milestones={milestones.length > 0 ? milestones : undefined}
+          buttonText={data?.projectMilestonesButtonText ? stripHtml(data.projectMilestonesButtonText) : undefined}
+          buttonLink={data?.projectMilestonesButtonLink || undefined}
+        />
 
-        <SectionWrapper>
-          <ExpertBuildersSection />
-        </SectionWrapper>
-
-        <SectionWrapper>
-          <ProjectMilestonesSection />
-        </SectionWrapper>
-
-        <SectionWrapper>
-          <CommunityFirstSection />
-        </SectionWrapper>
+        {/* Community First Section */}
+        <CommunityFirstSection
+          title={data?.communityfirstSectionTitle ? stripHtml(data.communityfirstSectionTitle) : undefined}
+          paragraph={data?.sectionParagraph ? stripHtml(data.sectionParagraph) : undefined}
+          buttonText={data?.ctaButtonText ? stripHtml(data.ctaButtonText) : undefined}
+          buttonLink={data?.ctaButtonLink || undefined}
+          points={communityPoints.length > 0 ? communityPoints : undefined}
+        />
 
         <SectionWrapper>
           <VideoHeroSection />
         </SectionWrapper>
 
-        <SectionWrapper>
-          <CombinedCarouselBigTextSection />
-        </SectionWrapper>
+        {/* Highlights Section */}
+        <HighlightsSection highlights={highlights.length > 0 ? highlights : undefined} />
 
-        <SectionWrapper>
-          <OurPartners />
-        </SectionWrapper>
-
-        <SectionWrapper>
-          <PressReleaseSection />
-        </SectionWrapper>
-
-        {/* <SectionWrapper>
-          <NewsUpdatesSection />
-        </SectionWrapper> */}
-
+        {/* Partners Carousel */}
+        <PartnersCarousel
+          title={data?.partnersTitle ? stripHtml(data.partnersTitle) : undefined}
+          subtitle={data?.partnersSubtitle ? stripHtml(data.partnersSubtitle) : undefined}
+          description={data?.partnersDescription ? stripHtml(data.partnersDescription) : undefined}
+          partners={partners.length > 0 ? partners : undefined}
+          buttonText={data?.ctaButtonTextReadmore ? stripHtml(data.ctaButtonTextReadmore) : undefined}
+          buttonLink={data?.ctaButtonLinkReadmore || undefined}
+        />
         <Footer />
       </div>
     </main>
-  );
+  )
 }

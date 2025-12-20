@@ -15,12 +15,16 @@ interface Stat {
   highlight?: boolean;
 }
 
-const ProjectKeyStats = () => {
+interface ProjectKeyStatsProps {
+  stats?: Stat[];
+}
+
+const ProjectKeyStats = ({ stats: customStats }: ProjectKeyStatsProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const [counts, setCounts] = useState<Record<number, number>>({});
   const statsRef = useRef<HTMLDivElement>(null);
 
-  const stats: Stat[] = [
+  const defaultStats: Stat[] = [
     {
       value: "371",
       label: "KILOMETRES",
@@ -48,6 +52,8 @@ const ProjectKeyStats = () => {
       highlight: true,
     },
   ];
+
+  const stats = customStats || defaultStats;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -161,20 +167,18 @@ const ProjectKeyStats = () => {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className={`stat-card relative group p-8 rounded-lg transition-all duration-700 ${
-                stat.highlight
+              className={`stat-card relative group p-8 rounded-lg transition-all duration-700 ${stat.highlight
                   ? "highlight-card bg-[#FDB913]/90 dark:bg-[#FDB913]/95"
                   : "bg-transparent"
-              }`}
+                }`}
             >
               <div className="space-y-4 text-left">
                 <div className="flex items-center gap-3">
                   <span
-                    className={`text-xs font-body tracking-[0.2em] uppercase ${
-                      stat.highlight
+                    className={`text-xs font-body tracking-[0.2em] uppercase ${stat.highlight
                         ? "text-black"
                         : "text-black dark:text-white/50"
-                    }`}
+                      }`}
                   >
                     {stat.label}
                   </span>
@@ -182,30 +186,27 @@ const ProjectKeyStats = () => {
 
                 <div className="flex items-baseline gap-2">
                   <span
-                    className={`text-6xl md:text-7xl font-bold leading-none ${
-                      stat.highlight
+                    className={`text-6xl md:text-7xl font-bold leading-none ${stat.highlight
                         ? "text-black"
                         : "text-black dark:text-white"
-                    }`}
+                      }`}
                   >
                     {counts[index] !== undefined ? counts[index] : stat.value}
                   </span>
                 </div>
 
                 <div
-                  className={`text-sm font-body uppercase tracking-wide ${
-                    stat.highlight
+                  className={`text-sm font-body uppercase tracking-wide ${stat.highlight
                       ? "text-black/70"
                       : "text-black/60 dark:text-white/60"
-                  }`}
+                    }`}
                 >
                   {stat.description}
                 </div>
 
                 <div
-                  className={`stat-icon opacity-60 group-hover:opacity-100 transition-opacity ${
-                    stat.highlight ? "text-black" : "text-[#FDB913]"
-                  }`}
+                  className={`stat-icon opacity-60 group-hover:opacity-100 transition-opacity ${stat.highlight ? "text-black" : "text-[#FDB913]"
+                    }`}
                 >
                   {stat.icon}
                 </div>
