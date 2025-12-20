@@ -1051,6 +1051,41 @@ export function parseProjectMilestones(data: HomePageData): Array<{
 }
 
 /**
+ * Parse strategic positioning sections from WordPress
+ * Handles HTML content with multiple <p> tags
+ */
+export function parseStrategicPositioning(description: string): {
+  mineralCorridor: string;
+  integratedNetwork: string;
+} {
+  if (!description) {
+    return { mineralCorridor: "", integratedNetwork: "" };
+  }
+
+  // Split by </p> <p> pattern to get two paragraphs
+  const paragraphs = parseHtmlRepeatableField(description);
+
+  return {
+    mineralCorridor: paragraphs[0] || "",
+    integratedNetwork: paragraphs[1] || "",
+  };
+}
+
+/**
+ * Parse trade list items from WordPress (comma-separated)
+ */
+export function parseTradeListItems(tradelistitem: string): string[] {
+  if (!tradelistitem) return [];
+
+  // Handle comma-separated list with "and"
+  return tradelistitem
+    .replace(/, and /g, ", ")
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
+/**
  * Parse highlights from home page data
  */
 export function parseHighlights(data: HomePageData): Array<{
