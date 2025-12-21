@@ -1,7 +1,7 @@
 import { Footer } from "@/components/FooterUpdated";
 import StickyNavigationMenu from "@/components/StickyNavUpdated";
 import Link from "next/link";
-import { getPrivacyPageData } from "@/lib/wordpress-graphql";
+import { getPrivacyPageData, stripHtml } from "@/lib/wordpress-graphql";
 
 export const metadata = {
     title: "Privacy Policy",
@@ -11,9 +11,10 @@ export const metadata = {
 export default async function PrivacyPage() {
     const data = await getPrivacyPageData();
 
-    const lastUpdated = data?.lastUpdated || new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    const lastUpdatedRaw = data?.lastUpdated || new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    const lastUpdated = stripHtml(lastUpdatedRaw).replace(/^Last updated:\s*/i, "");
     const content = data?.visualContent;
-    const heroTitle = data?.heroTitle || "Privacy Policy";
+    const heroTitle = stripHtml(data?.heroTitle || "Privacy Policy");
 
     return (
         <main className="min-h-screen bg-background dark:bg-[#0a0a0a]">

@@ -5,7 +5,17 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-export default function GalleryHero() {
+interface GalleryHeroProps {
+  title?: string;
+  description?: string;
+  backgroundImage?: string;
+}
+
+export default function GalleryHero({
+  title = "Project Gallery",
+  description = "Explore the progress and milestones of the Barotse Corridor Connector through our comprehensive multimedia collection.",
+  backgroundImage = "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760880450/DJI_0442_formphotoeditor.com_bdwonh.jpg",
+}: GalleryHeroProps) {
   const { theme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -41,8 +51,8 @@ export default function GalleryHero() {
       {/* Background Image with Overlay */}
       <div className="absolute bg-black inset-0 z-0">
         <Image
-          src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1760880450/DJI_0442_formphotoeditor.com_bdwonh.jpg"
-          alt="Gallery"
+          src={backgroundImage}
+          alt={title}
           className="w-full h-full object-cover"
           fill
           priority
@@ -64,14 +74,13 @@ export default function GalleryHero() {
             className="text-5xl md:text-6xl font-heading mt-12 font-bold text-white mb-6"
             variants={itemVariants}
           >
-            Project Gallery
+            {title}
           </motion.h1>
           <motion.p
             className="text-lg md:text-xl text-white"
             variants={itemVariants}
           >
-            Explore the progress and milestones of the Barotse Corridor
-            Connector through our comprehensive multimedia collection.
+            {description}
           </motion.p>
         </motion.div>
       </div>

@@ -3,11 +3,72 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-interface CoreValuesProps {
-  title?: string;
+interface Value {
+  icon: string;
+  title: string;
+  description: string;
 }
 
-export default function CoreValues({ title = "Our Core Values" }: CoreValuesProps) {
+interface CoreValuesProps {
+  title?: string;
+  values?: Value[];
+}
+
+const defaultValues: Value[] = [
+  {
+    icon: "🌱",
+    title: "Sustainability",
+    description:
+      "Commitment to environmentally responsible infrastructure development, aligned with IFC Performance Standards and Zambia's Environmental Management Act.",
+  },
+  {
+    icon: "⚖️",
+    title: "Inclusivity & Equity",
+    description:
+      "Ensuring fair resettlement, livelihood restoration, and meaningful stakeholder engagement, with special attention to vulnerable groups including women, youth, and informal land users.",
+  },
+  {
+    icon: "🔍",
+    title: "Transparency & Accountability",
+    description:
+      "Upholding clear governance, financial integrity, and public reporting mechanisms throughout the concession lifecycle.",
+  },
+  {
+    icon: "💡",
+    title: "Innovation & Efficiency",
+    description:
+      "Leveraging modern tolling systems, weigh-in-motion technology, and smart project management tools to deliver high-quality infrastructure and services.",
+  },
+  {
+    icon: "🌟",
+    title: "Local Empowerment",
+    description:
+      "Promoting local content, employment, and capacity building through subcontracting to Zambian citizen contractors and suppliers.",
+  },
+  {
+    icon: "🛡️",
+    title: "Resilience & Adaptability",
+    description:
+      "Designing infrastructure and financial models that respond to climate risks, traffic patterns, and evolving regional trade dynamics.",
+  },
+  {
+    icon: "🛣️",
+    title: "Safety & Reliability",
+    description:
+      "Prioritizing road safety, asset durability, and operational excellence to protect users and maintain service levels.",
+  },
+  {
+    icon: "🌍",
+    title: "Regional Integration",
+    description:
+      "Supporting Zambia's role as a transport and logistics hub by connecting mining regions to key ports and trade corridors across SADC.",
+  },
+];
+
+export default function CoreValues({
+  title = "Our Core Values",
+  values = defaultValues,
+}: CoreValuesProps) {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -32,56 +93,6 @@ export default function CoreValues({ title = "Our Core Values" }: CoreValuesProp
     },
   };
 
-  const values = [
-    {
-      icon: "🌱",
-      title: "Sustainability",
-      description:
-        "Commitment to environmentally responsible infrastructure development, aligned with IFC Performance Standards and Zambia's Environmental Management Act.",
-    },
-    {
-      icon: "⚖️",
-      title: "Inclusivity & Equity",
-      description:
-        "Ensuring fair resettlement, livelihood restoration, and meaningful stakeholder engagement, with special attention to vulnerable groups including women, youth, and informal land users.",
-    },
-    {
-      icon: "🔍",
-      title: "Transparency & Accountability",
-      description:
-        "Upholding clear governance, financial integrity, and public reporting mechanisms throughout the concession lifecycle.",
-    },
-    {
-      icon: "💡",
-      title: "Innovation & Efficiency",
-      description:
-        "Leveraging modern tolling systems, weigh-in-motion technology, and smart project management tools to deliver high-quality infrastructure and services.",
-    },
-    {
-      icon: "🌟",
-      title: "Local Empowerment",
-      description:
-        "Promoting local content, employment, and capacity building through subcontracting to Zambian citizen contractors and suppliers.",
-    },
-    {
-      icon: "🛡️",
-      title: "Resilience & Adaptability",
-      description:
-        "Designing infrastructure and financial models that respond to climate risks, traffic patterns, and evolving regional trade dynamics.",
-    },
-    {
-      icon: "🛣️",
-      title: "Safety & Reliability",
-      description:
-        "Prioritizing road safety, asset durability, and operational excellence to protect users and maintain service levels.",
-    },
-    {
-      icon: "🌍",
-      title: "Regional Integration",
-      description:
-        "Supporting Zambia's role as a transport and logistics hub by connecting mining regions to key ports and trade corridors across SADC.",
-    },
-  ];
 
   return (
     <section

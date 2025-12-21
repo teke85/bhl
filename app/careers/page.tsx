@@ -11,6 +11,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Careers",
   description: "Join Western Corridor Limited and be part of a transformative team building the future of Zambia's infrastructure.",
+  robots: "noindex, nofollow",
 };
 
 export default async function CareersPage() {

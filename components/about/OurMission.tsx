@@ -3,14 +3,39 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
+interface Mission {
+  title: string;
+  description: string;
+}
+
 interface OurMissionProps {
   title?: string;
   description?: string;
+  missions?: Mission[];
 }
+
+const defaultMissions: Mission[] = [
+  {
+    title: "Vision Statement",
+    description:
+      "To transform Zambia’s Western Corridor into a world-class transport artery that catalyzes regional trade, economic growth, and sustainable development—by delivering resilient infrastructure, fostering public-private partnerships, and empowering communities through inclusive, environmentally responsible, and economically viable road connectivity.",
+  },
+  {
+    title: "Mission Statement",
+    description:
+      "To design, build, finance, operate, and maintain the Mutanda–Kaoma Road under a robust Public–Private Partnership model, delivering high-quality infrastructure that enhances regional trade, supports Zambia’s economic diversification, and improves mobility, safety, and livelihoods for communities along the Western Corridor—while upholding environmental sustainability, social equity, and international best practices.",
+  },
+  {
+    title: "Purpose",
+    description:
+      "The purose of Western Corridor is to deliver the Mutanda–Kaoma Toll Road under a 25-year Public–Private Partnership (PPP) concession through a dedicated Special Purpose Vehicle (SPV) established to execute the full lifecycle of the Project, design, build, finance, operate, maintain, and transfer. Western Corridor’s purpose is to serve as the legal and operational entity responsible for mobilizing capital, managing construction and operations, ensuring compliance with environmental and social standards, and coordinating stakeholder engagement. Through this structure, the Project aims to unlock regional trade, enhance Zambia’s infrastructure, and promote inclusive, sustainable development across the Western Corridor.",
+  },
+];
 
 export default function OurMission({
   title = "Our Mission & Vision",
   description = "Guided by clear principles and ambitious goals",
+  missions = defaultMissions,
 }: OurMissionProps) {
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -36,23 +61,6 @@ export default function OurMission({
     },
   };
 
-  const missions = [
-    {
-      title: "Vision Statement",
-      description:
-        "To transform Zambia’s Western Corridor into a world-class transport artery that catalyzes regional trade, economic growth, and sustainable development—by delivering resilient infrastructure, fostering public-private partnerships, and empowering communities through inclusive, environmentally responsible, and economically viable road connectivity.",
-    },
-    {
-      title: "Mission Statement",
-      description:
-        "To design, build, finance, operate, and maintain the Mutanda–Kaoma Road under a robust Public–Private Partnership model, delivering high-quality infrastructure that enhances regional trade, supports Zambia’s economic diversification, and improves mobility, safety, and livelihoods for communities along the Western Corridor—while upholding environmental sustainability, social equity, and international best practices.",
-    },
-    {
-      title: "Purpose",
-      description:
-        "The purose of Western Corridor is to deliver the Mutanda–Kaoma Toll Road under a 25-year Public–Private Partnership (PPP) concession through a dedicated Special Purpose Vehicle (SPV) established to execute the full lifecycle of the Project, design, build, finance, operate, maintain, and transfer. Western Corridor’s purpose is to serve as the legal and operational entity responsible for mobilizing capital, managing construction and operations, ensuring compliance with environmental and social standards, and coordinating stakeholder engagement. Through this structure, the Project aims to unlock regional trade, enhance Zambia’s infrastructure, and promote inclusive, sustainable development across the Western Corridor.",
-    },
-  ];
 
   return (
     <section ref={ref} className="py-20 md:py-32 bg-card dark:bg-[#1a1a1a]">

@@ -6,6 +6,7 @@ import ResettlementClient from "./ResettlementClient";
 export const metadata: Metadata = {
   title: "Resettlement Policy Framework",
   description: "The Western Corridor Resettlement Policy Framework guides how the Mutanda–Kaoma Road Project addresses land acquisition, displacement, and livelihood restoration.",
+  robots: "noindex, nofollow",
 };
 
 // Helper function to extract only digits from number strings (fixes "and 6" issue)

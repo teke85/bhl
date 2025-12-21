@@ -11,6 +11,7 @@ export const metadata = {
   title: "Regional Impact",
   description:
     "Transforming trade flows and connectivity across the SADC region through strategic infrastructure development.",
+  robots: "noindex, nofollow",
 };
 
 export default async function RegionalImpactPage() {

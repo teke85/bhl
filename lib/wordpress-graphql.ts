@@ -742,18 +742,29 @@ export async function getGalleryByCategory(
 ): Promise<GalleryItem[]> {
   try {
     const allGallery = await getAllGallery();
+    const normalizedTarget = category.toLowerCase().trim();
+
     return allGallery.filter((item) => {
       const itemCategory = item.galleryFields?.category;
 
-      // Handle both string and array formats
+      const matches = (cat: any) => {
+        if (typeof cat !== "string") return false;
+        const normalizedCat = cat.toLowerCase().trim();
+
+        // Exact match (case-insensitive + trimmed)
+        if (normalizedCat === normalizedTarget) return true;
+
+        // Handle plural/singular variations (e.g., "Road Sections" vs "Road Section")
+        if (normalizedCat + "s" === normalizedTarget) return true;
+        if (normalizedTarget + "s" === normalizedCat) return true;
+
+        return false;
+      };
+
       if (Array.isArray(itemCategory)) {
-        return itemCategory.some(
-          (cat) =>
-            typeof cat === "string" &&
-            cat.toLowerCase() === category.toLowerCase()
-        );
+        return itemCategory.some(matches);
       } else if (typeof itemCategory === "string") {
-        return itemCategory.toLowerCase() === category.toLowerCase();
+        return matches(itemCategory);
       }
 
       return false;
@@ -1080,9 +1091,127 @@ export function parseTradeListItems(tradelistitem: string): string[] {
   // Handle comma-separated list with "and"
   return tradelistitem
     .replace(/, and /g, ", ")
+    .replace(/ and /g, ", ")
     .split(",")
     .map((item) => item.trim())
     .filter(Boolean);
+}
+
+/**
+ * Parse "By the Numbers" achievements from About page data
+ */
+export function parseAboutByTheNumbers(data: AboutPageData): Array<{
+  number: string;
+  label: string;
+}> {
+  const numbers = parseHtmlRepeatableField(data.byTheNumbersCardTitle);
+  const labels = parseHtmlRepeatableField(data.byTheNumbersDescription);
+
+  const maxLength = Math.max(numbers.length, labels.length);
+  const achievements = [];
+
+  for (let i = 0; i < maxLength; i++) {
+    achievements.push({
+      number: numbers[i] || "",
+      label: labels[i] || "",
+    });
+  }
+
+  return achievements;
+}
+
+/**
+ * Parse Leadership Team from About page data
+ */
+export function parseLeadershipTeam(data: AboutPageData): Array<{
+  id: string;
+  name: string;
+  title: string;
+  image: string;
+  shortBio: string;
+  fullBio: string;
+}> {
+  const names = parseHtmlRepeatableField(data.fullnames);
+  const bios = parseHtmlRepeatableField(data.bio);
+
+  const team = [];
+
+  // CEO
+  if (names[0]) {
+    team.push({
+      id: "ceo",
+      name: names[0],
+      title: "CEO",
+      image: data.ceoLeftImage?.node?.sourceUrl || "/placeholder.svg",
+      shortBio: bios[0]?.substring(0, 150) + "..." || "",
+      fullBio: bios[0] || "",
+    });
+  }
+
+  // Director
+  if (names[1]) {
+    team.push({
+      id: "director",
+      name: names[1],
+      title: "Director",
+      image: data.directorRightImage?.node?.sourceUrl || "/placeholder.svg",
+      shortBio: bios[1]?.substring(0, 150) + "..." || "",
+      fullBio: bios[1] || "",
+    });
+  }
+
+  return team;
+}
+
+/**
+ * Parse Missions from About page data
+ */
+export function parseAboutMissions(data: AboutPageData): Array<{
+  title: string;
+  description: string;
+}> {
+  return [
+    {
+      title: stripHtml(data.visionStatementCardTitle) || "Vision Statement",
+      description: stripHtml(data.visionStatementCardDescription) || "",
+    },
+    {
+      title: stripHtml(data.missionStatementTitle) || "Mission Statement",
+      description: stripHtml(data.missionStatementDescription) || "",
+    },
+    {
+      title: stripHtml(data.purposeTitle) || "Purpose",
+      description: stripHtml(data.purposeDescription) || "",
+    },
+  ].filter((item) => item.description.length > 0);
+}
+
+/**
+ * Parse Core Values from About page data
+ */
+export function parseAboutCoreValues(data: AboutPageData): Array<{
+  icon: string;
+  title: string;
+  description: string;
+}> {
+  const titles = parseHtmlRepeatableField(data.ourCoreValuesCardTitle);
+  const descriptions = parseHtmlRepeatableField(data.ourCoreValuesDecription);
+  const icons = parseHtmlRepeatableField(data.iconName); // Assuming this is where icons are stored
+
+  const maxLength = Math.max(titles.length, descriptions.length);
+  const values = [];
+
+  const defaultIcons = ["🌱", "⚖️", "🔍", "💡", "🌟", "🛡️", "🛣️", "🌍"];
+
+  for (let i = 0; i < maxLength; i++) {
+    values.push({
+      icon: icons[i] || defaultIcons[i % defaultIcons.length],
+      title: titles[i] || "",
+      description: descriptions[i] || "",
+    });
+  }
+
+  return values;
 }
 
 /**
@@ -1206,6 +1335,13 @@ export interface ResettlementPageData {
   principlesdescription?: string;
   communitytitle?: string;
   communitydescription?: string;
+}
+
+export interface GalleryPageData {
+  herotitle?: string;
+  heroDescription?: string;
+  heroBackgroundImage?: ImageNode | null;
+  projectGalleryDetails?: string;
 }
 
 export interface RegionalImpactPageData {
@@ -1481,9 +1617,32 @@ export const GET_TERMS_PAGE_QUERY = `
 }
 `;
 
+export const GET_GALLERY_PAGE_QUERY = `
+  query GetGalleryPageQuery {
+    gallerydatas {
+      nodes {
+        herotitle
+        heroDescription
+        heroBackgroundImage {
+          node {
+            id
+            sourceUrl
+          }
+        }
+        projectGalleryDetails
+      }
+    }
+  }
+`;
+
 export async function getAboutPageData(): Promise<AboutPageData | null> {
   const data = await fetchAPI(GET_ABOUT_PAGE_QUERY);
   return data?.aboutPage?.nodes?.[0] || null;
+}
+
+export async function getGalleryPageData(): Promise<GalleryPageData | null> {
+  const data = await fetchAPI(GET_GALLERY_PAGE_QUERY);
+  return data?.gallerydatas?.nodes?.[0] || null;
 }
 
 export async function getResettlementPageData(): Promise<ResettlementPageData | null> {

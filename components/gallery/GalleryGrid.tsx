@@ -11,22 +11,42 @@ import {
 } from "@/lib/wordpress-graphql";
 import { useInView } from "react-intersection-observer";
 
-export default function GalleryGrid() {
+interface GalleryGridProps {
+  title?: string;
+  description?: string;
+  initialItems?: GalleryItem[];
+}
+
+export default function GalleryGrid({
+  title = "Project Gallery",
+  description = "Explore our journey through visuals capturing the progress and milestones",
+  initialItems = [],
+}: GalleryGridProps) {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  const [galleryImages, setGalleryImages] = useState<GalleryItem[]>([]);
+  const [galleryImages, setGalleryImages] = useState<GalleryItem[]>(initialItems);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(initialItems.length === 0);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  // Initialize load states
   const [imageLoadStates, setImageLoadStates] = useState<{
     [key: string]: boolean;
-  }>({});
+  }>(() => {
+    const states: { [key: string]: boolean } = {};
+    initialItems.forEach(item => { states[item.id] = false; });
+    return states;
+  });
   const [videoLoadStates, setVideoLoadStates] = useState<{
     [key: string]: boolean;
-  }>({});
+  }>(() => {
+    const states: { [key: string]: boolean } = {};
+    initialItems.forEach(item => { states[item.id] = false; });
+    return states;
+  });
 
   // Gallery categories
   const categories = [
@@ -37,7 +57,14 @@ export default function GalleryGrid() {
   ];
 
   useEffect(() => {
+    // If we have initial items and no category is selected, we already have the "All" view
+    if (initialItems.length > 0 && !selectedCategory) {
+      setLoading(false);
+      return;
+    }
+
     const fetchGallery = async () => {
+      setLoading(true);
       try {
         console.log("🔍 Fetching gallery via GraphQL...");
         console.log("🎯 Selected category:", selectedCategory);
@@ -70,7 +97,7 @@ export default function GalleryGrid() {
     };
 
     fetchGallery();
-  }, [selectedCategory]);
+  }, [selectedCategory, initialItems]);
 
   const handleImageLoad = (imageId: string) => {
     setImageLoadStates((prev) => ({
@@ -146,15 +173,11 @@ export default function GalleryGrid() {
             ))}
           </div>
 
-          {/* Skeleton grid - mix of image and video skeletons */}
+          {/* Skeleton grid - mostly image skeletons for generic feel */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {[...Array(8)].map((_, i) =>
-              i % 3 === 0 ? (
-                <VideoSkeleton key={i} />
-              ) : (
-                <ImageSkeleton key={i} />
-              )
-            )}
+            {[...Array(8)].map((_, i) => (
+              <ImageSkeleton key={i} />
+            ))}
           </div>
         </div>
       </section>
@@ -169,11 +192,10 @@ export default function GalleryGrid() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-black dark:text-white mb-4">
-            Project Gallery
+            {title}
           </h2>
           <p className="text-lg md:text-xl text-[#868584] dark:text-white font-paragraph max-w-2xl mx-auto">
-            Explore our journey through visuals capturing the progress and
-            milestones
+            {description}
           </p>
         </div>
 
@@ -181,11 +203,10 @@ export default function GalleryGrid() {
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           <button
             onClick={() => setSelectedCategory(null)}
-            className={`px-6 py-3 rounded-full font-paragraph transition-all duration-300 ${
-              !selectedCategory
-                ? "bg-[#fdb913] text-black scale-105 shadow-lg"
-                : "bg-card dark:bg-[#1a1a1a] text-foreground dark:text-white hover:bg-[#fdb913]/20 border border-border dark:border-white/10"
-            }`}
+            className={`px-6 py-3 rounded-full font-paragraph transition-all duration-300 ${!selectedCategory
+              ? "bg-[#fdb913] text-black scale-105 shadow-lg"
+              : "bg-card dark:bg-[#1a1a1a] text-foreground dark:text-white hover:bg-[#fdb913]/20 border border-border dark:border-white/10"
+              }`}
           >
             All
           </button>
@@ -193,11 +214,10 @@ export default function GalleryGrid() {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-6 py-3 rounded-full font-paragraph transition-all duration-300 ${
-                selectedCategory === cat
-                  ? "bg-[#fdb913] text-black scale-105 shadow-lg"
-                  : "bg-card dark:bg-[#1a1a1a] text-foreground dark:text-white hover:bg-[#fdb913]/20 border border-border dark:border-white/10"
-              }`}
+              className={`px-6 py-3 rounded-full font-paragraph transition-all duration-300 ${selectedCategory === cat
+                ? "bg-[#fdb913] text-black scale-105 shadow-lg"
+                : "bg-card dark:bg-[#1a1a1a] text-foreground dark:text-white hover:bg-[#fdb913]/20 border border-border dark:border-white/10"
+                }`}
             >
               {cat}
             </button>
@@ -235,9 +255,8 @@ export default function GalleryGrid() {
                   {isVideoItem ? (
                     <video
                       src={mediaUrl}
-                      className={`object-cover w-full h-full group-hover:scale-110 transition-all duration-300 ${
-                        isLoaded ? "opacity-100" : "opacity-0"
-                      }`}
+                      className={`object-cover w-full h-full group-hover:scale-110 transition-all duration-300 ${isLoaded ? "opacity-100" : "opacity-0"
+                        }`}
                       muted
                       loop
                       playsInline
@@ -248,9 +267,8 @@ export default function GalleryGrid() {
                       src={mediaUrl}
                       alt={item.title}
                       fill
-                      className={`object-cover group-hover:scale-110 transition-all duration-300 ${
-                        isLoaded ? "opacity-100" : "opacity-0"
-                      }`}
+                      className={`object-cover group-hover:scale-110 transition-all duration-300 ${isLoaded ? "opacity-100" : "opacity-0"
+                        }`}
                       sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                       onLoad={() => handleImageLoad(item.id)}
                       priority={galleryImages.indexOf(item) < 4}
@@ -268,9 +286,8 @@ export default function GalleryGrid() {
 
                   {/* Overlay */}
                   <div
-                    className={`absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-colors duration-300 flex items-end p-4 ${
-                      !isLoaded ? "opacity-0" : ""
-                    }`}
+                    className={`absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-colors duration-300 flex items-end p-4 ${!isLoaded ? "opacity-0" : ""
+                      }`}
                   >
                     <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <p className="font-heading font-semibold">{item.title}</p>

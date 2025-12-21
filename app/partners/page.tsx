@@ -8,6 +8,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Partners",
     description: "Meet our strategic partners and collaborators working together to deliver excellence in infrastructure and logistics.",
+    robots: "noindex, nofollow",
 };
 
 export default async function PartnersPage() {

@@ -12,6 +12,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Timeline",
   description: "Explore the key milestones and future plans for the Western Corridor Mutanda–Kaoma Road Project.",
+  robots: "noindex, nofollow",
 };
 
 export default async function TimelinePage() {
@@ -31,14 +32,14 @@ export default async function TimelinePage() {
     <main className="min-h-screen bg-background dark:bg-[#0a0a0a]">
       <StickyNavigationMenu />
       <TimelineHero
-        title={pageData?.projectKeyTimelinesAndMilestonesTitle || undefined}
-        subtitle={pageData?.heroDescription || undefined}
+        title={pageData?.projectKeyTimelinesAndMilestonesTitle ? stripHtml(pageData.projectKeyTimelinesAndMilestonesTitle) : undefined}
+        subtitle={pageData?.heroDescription ? stripHtml(pageData.heroDescription) : undefined}
         image={pageData?.heroBackgroundImage?.node?.sourceUrl || undefined}
       />
       <TimelineVertical events={events} />
-      <ProjectPhases />
+      {/* <ProjectPhases /> */}
       <KeyAchievements />
-      <MilestoneHighlights />
+      {/* <MilestoneHighlights /> */}
       <UpcomingMilestones />
       <Footer />
     </main>

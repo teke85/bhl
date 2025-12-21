@@ -1,8 +1,10 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <h1>Western Corridor Website</h1>
-  <p>Official Website – Client Handover Documentation</p>
+  <img src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761708103/westerncorridor_logo_bih0jh.png" alt="Logo" width="120">
+  <h1 style="color: #DCAF0E;">Western Corridor Limited</h1>
+  <p><strong>Official Infrastructure Initiative Website</strong></p>
+  <p>Connecting Communities | Driving Economic Growth | Zambia</p>
 </div>
 
 ---
@@ -11,171 +13,128 @@
 
 - [📖 Project Overview](#-project-overview)
 - [🛠 Technology Stack](#-technology-stack)
+- [🏗 Folder Structure](#-folder-structure)
 - [✨ Key Features](#-key-features)
 - [🚀 Live Website](#-live-website)
-- [🎥 Project Walkthrough](#-project-walkthrough)
-- [🧑‍💼 Client Handover Guide](#-client-handover-guide)
-  - [Updating Website Content](#updating-website-content)
-  - [Media & Images](#media--images)
-
-- [💻 Developer Setup (Optional)](#-developer-setup-optional)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Environment Variables](#environment-variables)
-  - [Running the Project](#running-the-project)
-
-- [📦 Deployment Notes](#-deployment-notes)
+- [🧑‍💼 Maintenance Guide (Non-Technical)](#-maintenance-guide-non-technical)
+- [💻 Developer Guide (Technical)](#-developer-guide-technical)
+  - [Updating Navigation](#updating-navigation)
+  - [Updating Footer](#updating-footer)
+- [📦 Deployment](#-deployment)
 - [📝 License](#-license)
 
 ---
 
 ## 📖 Project Overview <a name="project-overview"></a>
 
-The **Western Corridor Website** is the official digital presence of **Western Corridor Limited**, developed on behalf of **Manic Creatives**.
+The **Western Corridor Website** is the official digital presence for the **Mutanda–Kaoma Road Project**. This strategic initiative enhances regional connectivity by linking Zambia's Copperbelt and North-Western Provinces with the West Coast of Africa via Walvis Bay in Namibia.
 
-The website is built using a **headless architecture**, with **WordPress serving as the Content Management System (CMS)** and a **Next.js frontend** consuming content via GraphQL. This setup allows non-technical users to easily manage content while maintaining modern performance, scalability, and security standards.
-
-This repository/package is delivered as a **handover ZIP** for ongoing maintenance and future development.
+Built with a **Headless CMS architecture**, the site combines the flexibility of **WordPress** with the modern performance of **Next.js**.
 
 ---
 
 ## 🛠 Technology Stack <a name="technology-stack"></a>
 
-### Frontend
+- **Frontend:** Next.js (App Router), React, Tailwind CSS, Framer Motion, GSAP
+- **CMS:** Headless WordPress via [WPGraphQL](https://www.wpgraphql.com/)
+- **Media:** [Cloudinary](https://cloudinary.com/) (Optimized image delivery)
+- **Icons:** Lucide React
+- **Fonts:** Montserrat, Open Sans, Inter (Google Fonts)
 
-- Next.js
-- React
-- GraphQL
-- Tailwind CSS (if applicable)
+---
 
-### CMS / Backend
+## 🏗 Folder Structure <a name="folder-structure"></a>
 
-- WordPress (Headless CMS)
-- WPGraphQL
-
-### Media Management
-
-- Cloudinary
+```text
+/app             - Next.js App Router (Pages and Layouts)
+/components      - Reusable UI Components
+  /ui            - Radix-based UI Primitives
+  /home          - Home-page specific components
+  /about         - About-page specific components
+/lib             - Utility functions and GraphQL queries
+/public          - Static assets (favicons, fonts)
+```
 
 ---
 
 ## ✨ Key Features <a name="key-features"></a>
 
-- WordPress-powered content management
-- GraphQL API integration using WPGraphQL
-- Dynamic rendering via Next.js
-- Optimized image delivery through Cloudinary
-- SEO-friendly and high-performance frontend
+- **Dynamic Content:** Managed entirely through WordPress.
+- **SEO Optimized:** Automatic sitemap generation and controlled indexing.
+- **Bilingual Layouts:** Support for dark and light modes.
+- **Performance:** optimized with Next.js Image component and Cloudinary.
+- **Interactive Timeline:** Visual representation of project milestones.
 
 ---
 
 ## 🚀 Live Website <a name="live-website"></a>
 
-🔗 **Production URL:**
-[https://www.westerncorridorlimited.com/](https://www.westerncorridorlimited.com/)
+🔗 **Production URL:** [https://www.westerncorridorlimited.com/](https://www.westerncorridorlimited.com/)
 
 ---
 
-## 🎥 Project Walkthrough <a name="project-walkthrough"></a>
+## 🧑‍💼 Maintenance Guide (Non-Technical) <a name="maintenance-guide-non-technical"></a>
 
-📹 **Overview Video:**
-[https://www.loom.com/share/98e3385a8dee47eeb2014bbbdc039ca3](https://www.loom.com/share/98e3385a8dee47eeb2014bbbdc039ca3)
-
----
-
-## 🧑‍💼 Client Handover Guide <a name="client-handover-guide"></a>
-
-This section is intended for **Western Corridor Limited staff** who will manage and update the website content.
-
-### Updating Website Content <a name="updating-website-content"></a>
-
-1. Log in to WordPress using the provided admin URL:
-
-   ```
-   https://yourwebsite.com/wp-admin
-   ```
-
-2. **Edit Pages**
-   - Go to **Pages**
-   - Select the page you want to update
-   - Make your changes
-   - Click **Update**
-
-3. **Edit Blog Posts or News**
-   - Navigate to **Posts**
-   - Add a new post or edit an existing one
-   - Click **Publish** or **Update**
-
-### Media & Images <a name="media--images"></a>
-
-- Go to **Media → Add New** to upload images or documents
-- Images uploaded here can be reused across pages and posts
-- For best performance, avoid uploading very large image files
-
-> **Note:** The website frontend automatically reflects updates made in WordPress. No developer involvement is required for routine content changes.
+### Updating Content (WordPress)
+1. Log in to your WordPress dashboard.
+2. Navigate to **Pages** to update text, images, and SEO metadata.
+3. Use **Posts** (News Category) to add new articles to the News section.
+4. **Media Library:** Upload images directly to WordPress; they are automatically optimized via Cloudinary.
 
 ---
 
-## 💻 Developer Setup (Optional) <a name="developer-setup-optional"></a>
+## 💻 Developer Guide (Technical) <a name="developer-guide-technical"></a>
 
-This section is only required if a developer needs to run or extend the project locally.
+### Updating Navigation <a name="updating-navigation"></a>
+To add or remove links from the main navigation menu, edit:
+`components/StickyNavUpdated.tsx`
 
-### Prerequisites <a name="prerequisites"></a>
+Search for the `menuData` object. It is organized by categories:
+```typescript
+const menuData = {
+  COMPANY: { ... },
+  PROJECT: { ... },
+  // Add new links here
+};
+```
 
-- Node.js (v16 or later)
-- npm
-- Access to the WordPress CMS
-- Access to Cloudinary account credentials
+### Updating Footer <a name="updating-footer"></a>
+To update footer links or resources, edit:
+`components/FooterUpdated.tsx`
 
-### Installation <a name="installation"></a>
+Update the `quickLinks`, `resources`, or `legal` arrays:
+```typescript
+const quickLinks = [
+  { href: "/about", label: "About Us" },
+  // ...
+];
+```
 
-1. Extract the provided ZIP file
-2. Navigate into the project directory
-3. Install dependencies:
+### Prerequisites
+- Node.js (v18+)
+- WordPress instance with WPGraphQL plugin installed
 
+### Installation
 ```sh
 npm install
-```
-
-### Environment Variables <a name="environment-variables"></a>
-
-Create a `.env.local` file in the root directory and configure the following:
-
-```env
-NEXT_PUBLIC_WORDPRESS_API_URL=https://yourwordpresssite.com/graphql
-NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your_cloud_name
-NEXT_PUBLIC_CLOUDINARY_API_KEY=your_api_key
-CLOUDINARY_API_SECRET=your_api_secret
-```
-
-> **Important:** Environment variables are not included in the ZIP for security reasons and must be provided separately.
-
-### Running the Project <a name="running-the-project"></a>
-
-Start the development server:
-
-```sh
+cp .env.example .env.local  # Configure your API keys
 npm run dev
 ```
 
-The application will be available at:
-
-```
-http://localhost:3000
-```
-
 ---
 
-## 📦 Deployment Notes <a name="deployment-notes"></a>
+## 📦 Deployment <a name="deployment"></a>
 
-- The **frontend** can be deployed on platforms such as Vercel, Netlify, or Render
-- The **WordPress CMS** should remain hosted on a WordPress-compatible hosting provider
-- Ensure environment variables are configured correctly on the hosting platform
+The site is optimized for deployment on **Vercel**. 
+1. Push your changes to GitHub/GitLab.
+2. Connect the repository to Vercel.
+3. Configure Environment Variables (WordPress URL, Cloudinary Keys).
+4. Deploy.
 
 ---
 
 ## 📝 License <a name="license"></a>
 
-This project is licensed under the **MIT License**. See the `LICENSE` file for details.
+Managed by **Manic Creatives** for **Western Corridor Limited**. All rights reserved.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

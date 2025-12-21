@@ -1,19 +1,21 @@
 import { Footer } from "@/components/FooterUpdated";
 import StickyNavigationMenu from "@/components/StickyNavUpdated";
 import Link from "next/link";
-import { getCookiePolicyPageData } from "@/lib/wordpress-graphql";
+import { getCookiePolicyPageData, stripHtml } from "@/lib/wordpress-graphql";
 
 export const metadata = {
     title: "Cookie Policy",
     description: "Learn about how Western Corridor Limited uses cookies and similar technologies on our website.",
+    robots: "noindex, nofollow",
 };
 
 export default async function CookiesPage() {
     const data = await getCookiePolicyPageData();
 
-    const lastUpdated = data?.lastUpdated || new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    const lastUpdatedRaw = data?.lastUpdated || new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    const lastUpdated = stripHtml(lastUpdatedRaw).replace(/^Last updated:\s*/i, "");
     const content = data?.visualContent;
-    const heroTitle = data?.heroTitle || "Cookie Policy";
+    const heroTitle = stripHtml(data?.heroTitle || "Cookie Policy");
 
     return (
         <main className="min-h-screen bg-background dark:bg-[#0a0a0a]">

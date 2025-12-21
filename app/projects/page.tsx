@@ -38,8 +38,8 @@ export default async function ProjectPage() {
       <StickyNavigationMenu />
 
       <ProjectHero
-        title={data?.projectPageFields?.heroTitle || undefined}
-        subtitle={data?.projectPageFields?.heroSubtitle || undefined}
+        title={stripHtml(data?.projectPageFields?.heroTitle) || undefined}
+        subtitle={stripHtml(data?.projectPageFields?.heroSubtitle) || undefined}
         image={data?.projectPageFields?.heroImage?.node?.sourceUrl || undefined}
         description={stripHtml(data?.projectPageFields?.descriptionContent) || undefined}
       />

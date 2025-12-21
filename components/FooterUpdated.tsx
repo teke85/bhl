@@ -3,6 +3,10 @@ import Image from "next/image";
 import { Mail, Facebook, Twitter, Linkedin, Youtube } from "lucide-react";
 
 export const Footer = () => {
+  /**
+   * FOOTER LINKS CONFIGURATION
+   * Update these arrays to add or modify links in the footer.
+   */
   const quickLinks = [
     { href: "/about", label: "About Us" },
     { href: "/projects", label: "Project Overview" },

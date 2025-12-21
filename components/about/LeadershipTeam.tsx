@@ -8,7 +8,51 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function LeadershipTeam() {
+interface Leader {
+  id: string;
+  name: string;
+  title: string;
+  image: string;
+  shortBio: string;
+  fullBio: string;
+}
+
+interface LeadershipTeamProps {
+  title?: string;
+  description?: string;
+  leaders?: Leader[];
+}
+
+const defaultLeaders: Leader[] = [
+  {
+    id: "ceo",
+    name: "Nicolaas Marthinus Janse van Rensburg",
+    title: "CEO",
+    image:
+      "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_1920,c_limit/v1759885052/2_n6tp5e.png",
+    shortBio:
+      "Buks is an experienced entrepreneur with over 30 years of leadership in logistics, transport, and agribusiness.",
+    fullBio:
+      "Buks is an experienced entrepreneur with over 30 years of leadership in the logistics, transport, and agribusiness sectors. As the founder and CEO of BHL Zambia, he has grown the company from a small five-truck operation into a major transport enterprise with a fleet of 1000 trucks. Buks also co-founded Beefco Holdings Ltd, a 3000-hectare cattle ranch in Zambia, and Reinsberg Holdings AG, an offshore company in Liechtenstein.",
+  },
+  {
+    id: "director",
+    name: "Chris Dijkstra",
+    title: "Director",
+    image:
+      "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_1920,c_limit/v1759885059/3_sdcuxl.png",
+    shortBio:
+      "Chris Dijkstra is a seasoned civil engineer and project management professional with extensive infrastructure experience.",
+    fullBio:
+      "Chris Dijkstra is a seasoned civil engineer and project management professional with extensive experience in large-scale infrastructure, mining, and public-private partnership (PPP) projects. Holding a B.Eng. in Civil Engineering from the University of Pretoria and a Construction Management Programme certificate from Stellenbosch University, Chris has been at the forefront of engineering and project leadership for over 15 years.",
+  },
+];
+
+export default function LeadershipTeam({
+  title = "Leadership Team",
+  description = "Experienced professionals driving the Western Corridor vision",
+  leaders = defaultLeaders,
+}: LeadershipTeamProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
@@ -46,30 +90,6 @@ export default function LeadershipTeam() {
     return () => ctx.revert();
   }, []);
 
-  const leaders = [
-    {
-      id: "ceo",
-      name: "Nicolaas Marthinus Janse van Rensburg",
-      title: "CEO",
-      image:
-        "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_1920,c_limit/v1759885052/2_n6tp5e.png",
-      shortBio:
-        "Buks is an experienced entrepreneur with over 30 years of leadership in logistics, transport, and agribusiness.",
-      fullBio:
-        "Buks is an experienced entrepreneur with over 30 years of leadership in the logistics, transport, and agribusiness sectors. As the founder and CEO of BHL Zambia, he has grown the company from a small five-truck operation into a major transport enterprise with a fleet of 1000 trucks. Buks also co-founded Beefco Holdings Ltd, a 3000-hectare cattle ranch in Zambia, and Reinsberg Holdings AG, an offshore company in Liechtenstein.",
-    },
-    {
-      id: "director",
-      name: "Chris Dijkstra",
-      title: "Director",
-      image:
-        "https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_1920,c_limit/v1759885059/3_sdcuxl.png",
-      shortBio:
-        "Chris Dijkstra is a seasoned civil engineer and project management professional with extensive infrastructure experience.",
-      fullBio:
-        "Chris Dijkstra is a seasoned civil engineer and project management professional with extensive experience in large-scale infrastructure, mining, and public-private partnership (PPP) projects. Holding a B.Eng. in Civil Engineering from the University of Pretoria and a Construction Management Programme certificate from Stellenbosch University, Chris has been at the forefront of engineering and project leadership for over 15 years.",
-    },
-  ];
 
   return (
     <section
@@ -80,10 +100,10 @@ export default function LeadershipTeam() {
         {/* Section Header */}
         <div ref={titleRef} className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-black dark:text-white mb-6">
-            Leadership Team
+            {title}
           </h2>
           <p className="text-lg text-[#868584] dark:text-gray-300 font-paragraph max-w-2xl mx-auto">
-            Experienced professionals driving the Western Corridor vision
+            {description}
           </p>
         </div>
 

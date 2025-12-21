@@ -23,14 +23,14 @@ function ModernCookiePopup() {
   });
 
   useEffect(() => {
-    const consent = sessionStorage.getItem("cookieConsent");
+    const consent = localStorage.getItem("cookieConsent");
     if (!consent) {
       setTimeout(() => setShowPopup(true), 1000);
     }
   }, []);
 
   const handleAcceptAll = () => {
-    sessionStorage.setItem(
+    localStorage.setItem(
       "cookieConsent",
       JSON.stringify({
         accepted: true,
@@ -46,7 +46,7 @@ function ModernCookiePopup() {
   };
 
   const handleSavePreferences = () => {
-    sessionStorage.setItem(
+    localStorage.setItem(
       "cookieConsent",
       JSON.stringify({
         accepted: true,
@@ -57,7 +57,7 @@ function ModernCookiePopup() {
   };
 
   const handleDecline = () => {
-    sessionStorage.setItem(
+    localStorage.setItem(
       "cookieConsent",
       JSON.stringify({
         accepted: false,
@@ -150,11 +150,10 @@ function ModernCookiePopup() {
                     className="flex-shrink-0"
                   >
                     <div
-                      className={`w-12 h-6 rounded-full flex items-center transition-all duration-300 ${
-                        preferences.analytics
+                      className={`w-12 h-6 rounded-full flex items-center transition-all duration-300 ${preferences.analytics
                           ? "bg-[#FDB913] justify-end"
                           : "bg-gray-300 dark:bg-gray-700 justify-start"
-                      } px-1`}
+                        } px-1`}
                     >
                       <div className="w-4 h-4 bg-white rounded-full shadow"></div>
                     </div>
@@ -179,11 +178,10 @@ function ModernCookiePopup() {
                     className="flex-shrink-0"
                   >
                     <div
-                      className={`w-12 h-6 rounded-full flex items-center transition-all duration-300 ${
-                        preferences.marketing
+                      className={`w-12 h-6 rounded-full flex items-center transition-all duration-300 ${preferences.marketing
                           ? "bg-[#FDB913] justify-end"
                           : "bg-gray-300 dark:bg-gray-700 justify-start"
-                      } px-1`}
+                        } px-1`}
                     >
                       <div className="w-4 h-4 bg-white rounded-full shadow"></div>
                     </div>
@@ -209,11 +207,10 @@ function ModernCookiePopup() {
                     className="flex-shrink-0"
                   >
                     <div
-                      className={`w-12 h-6 rounded-full flex items-center transition-all duration-300 ${
-                        preferences.personalization
+                      className={`w-12 h-6 rounded-full flex items-center transition-all duration-300 ${preferences.personalization
                           ? "bg-[#FDB913] justify-end"
                           : "bg-gray-300 dark:bg-gray-700 justify-start"
-                      } px-1`}
+                        } px-1`}
                     >
                       <div className="w-4 h-4 bg-white rounded-full shadow"></div>
                     </div>

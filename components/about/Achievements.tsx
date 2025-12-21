@@ -3,7 +3,28 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-export default function Achievements() {
+interface Stat {
+  number: string;
+  label: string;
+}
+
+interface AchievementsProps {
+  title?: string;
+  stats?: Stat[];
+}
+
+const defaultStats: Stat[] = [
+  { number: "371km", label: "Total Stretch" },
+  { number: "3", label: "Toll Gates" },
+  { number: "2025", label: "Start of Early Works" },
+  { number: "2028", label: "Target Completion" },
+  { number: "20km", label: "Urban Roads Planned" },
+];
+
+export default function Achievements({
+  title = "By The Numbers",
+  stats = defaultStats,
+}: AchievementsProps) {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -28,13 +49,6 @@ export default function Achievements() {
     },
   };
 
-  const achievements = [
-    { number: "371km", label: "Total Stretch" },
-    { number: "3", label: "Toll Gates" },
-    { number: "2025", label: "Start of Early Works" },
-    { number: "2028", label: "Target Completion" },
-    { number: "20km", label: "Urban Roads Planned" },
-  ];
 
   return (
     <section
@@ -52,7 +66,7 @@ export default function Achievements() {
             className="text-4xl md:text-5xl font-heading font-bold text-black dark:text-white mb-6"
             variants={itemVariants}
           >
-            By The Numbers
+            {title}
           </motion.h2>
         </motion.div>
 
@@ -62,7 +76,7 @@ export default function Achievements() {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
-          {achievements.map((achievement, index) => (
+          {stats.map((achievement, index) => (
             <motion.div
               key={index}
               className="text-center p-6 rounded-lg bg-card dark:bg-[#1a1a1a] border border-border dark:border-white/10"

@@ -19,8 +19,8 @@ export default async function ContactPage() {
 
       {/* Hero Section */}
       <ContactHero
-        title={data?.contactPageFields?.heroTitle || undefined}
-        subtitle={data?.contactPageFields?.heroSubtitle || undefined}
+        title={stripHtml(data?.contactPageFields?.heroTitle) || undefined}
+        subtitle={stripHtml(data?.contactPageFields?.heroSubtitle) || undefined}
         image={data?.contactPageFields?.heroImage?.node?.sourceUrl || undefined}
       />
 

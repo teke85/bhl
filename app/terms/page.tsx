@@ -1,19 +1,21 @@
 import { Footer } from "@/components/FooterUpdated";
 import StickyNavigationMenu from "@/components/StickyNavUpdated";
 import Link from "next/link";
-import { getTermsPageData } from "@/lib/wordpress-graphql";
+import { getTermsPageData, stripHtml } from "@/lib/wordpress-graphql";
 
 export const metadata = {
     title: "Terms of Service",
     description: "Read the terms and conditions for using the Western Corridor Limited website and services.",
+    robots: "noindex, nofollow",
 };
 
 export default async function TermsPage() {
     const data = await getTermsPageData();
 
-    const lastUpdated = data?.lastUpdated || new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    const lastUpdatedRaw = data?.lastUpdated || new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    const lastUpdated = stripHtml(lastUpdatedRaw).replace(/^Last updated:\s*/i, "");
     const content = data?.visualContent;
-    const heroTitle = data?.heroTitle || "Terms of Service";
+    const heroTitle = stripHtml(data?.heroTitle || "Terms of Service");
 
     return (
         <main className="min-h-screen bg-background dark:bg-[#0a0a0a]">

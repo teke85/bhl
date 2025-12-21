@@ -272,6 +272,14 @@ function StickyNavigationMenu() {
     }
   };
 
+  /**
+   * NAVIGATION LINKS CONFIGURATION
+   * Update these objects to add, remove, or modify navigation items.
+   * - company: About Us, Partners, etc.
+   * - our Commitment: Regional Impact, etc.
+   * - project: Overview, Timeline, etc.
+   * - careers: Current Openings, etc.
+   */
   const menuData: Record<
     MenuKey,
     {

@@ -12,7 +12,7 @@ import {
 import CommunityFirstSection from "@/components/CommunityFirst"
 import ProjectMilestonesSection from "@/components/ProjectMilestones"
 import PartnersCarousel from "@/components/OurPartners"
-import Footer from "@/components/FooterUpdated"
+import { Footer } from "@/components/FooterUpdated"
 import HeroCarousel from "@/components/HeroSection3RightLeft"
 import ScrollTriggeredSection from "@/components/ScrollTriggeredSection"
 import SectionWrapper from "@/components/SectionWrapper"
