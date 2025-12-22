@@ -23,6 +23,7 @@ interface PartnersGridProps {
 const PartnersGrid: React.FC<PartnersGridProps> = ({ partners: customPartners }) => {
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
+  // Default fallback data - used when WordPress data is not available
   const defaultPartners: Partner[] = [
     {
       id: "hotsheet",
@@ -221,6 +222,7 @@ const PartnersGrid: React.FC<PartnersGridProps> = ({ partners: customPartners })
     },
   ];
 
+  // Use WordPress data if available, otherwise use default fallback data
   const partners = customPartners || defaultPartners;
 
   const categories = Array.from(new Set(partners.map((p) => p.category)));

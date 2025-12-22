@@ -290,6 +290,17 @@ export interface ContactPageData {
   };
 }
 
+export interface PartnersPageData {
+  id: string;
+  title: string;
+  partnersPageFields: {
+    heroTitle: string;
+    heroSubtitle: string;
+    heroDescription: string;
+    heroImage: { node: { sourceUrl: string; altText?: string } };
+  };
+}
+
 // Response Interfaces
 interface PartnersResponse {
   partners: {
@@ -640,6 +651,26 @@ const GET_CONTACT_PAGE = `
 }
 `;
 
+const GET_PARTNERS_PAGE = `
+  query GetPartnersPage {
+  pageBy(uri: "/partners") {
+    id
+    title
+      partnersPageFields {
+      heroTitle
+      heroSubtitle
+      heroDescription
+        heroImage {
+          node {
+          sourceUrl
+          altText
+        }
+      }
+    }
+  }
+}
+`;
+
 // ============================================
 // API Functions
 // ============================================
@@ -852,6 +883,16 @@ export async function getContactPageData(): Promise<ContactPageData | null> {
     return data.pageBy || null;
   } catch (error) {
     console.error("❌ GraphQL Error fetching contact page:", error);
+    return null;
+  }
+}
+
+export async function getPartnersPageData(): Promise<PartnersPageData | null> {
+  try {
+    const data = await client.request<PageDataResponse<PartnersPageData>>(GET_PARTNERS_PAGE);
+    return data.pageBy || null;
+  } catch (error) {
+    console.error("❌ GraphQL Error fetching partners page:", error);
     return null;
   }
 }

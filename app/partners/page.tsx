@@ -2,7 +2,7 @@ import StickyNavigationMenu from "@/components/StickyNavUpdated";
 import { Footer } from "@/components/FooterUpdated";
 import PartnersHero from "@/components/partners/PartnersHero";
 import PartnersGrid from "@/components/partners/PartnersGrid";
-import { getAllPartners } from "@/lib/wordpress-graphql";
+import { getAllPartners, getPartnersPageData, stripHtml } from "@/lib/wordpress-graphql";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,7 +12,11 @@ export const metadata: Metadata = {
 };
 
 export default async function PartnersPage() {
+    // Fetch partners data
     const partnersData = await getAllPartners();
+
+    // Fetch partners page data (for hero section)
+    const pageData = await getPartnersPageData();
 
     // Map WP data to local interface
     const formattedPartners = partnersData.length
@@ -36,10 +40,14 @@ export default async function PartnersPage() {
             {/* Navigation */}
             <StickyNavigationMenu />
 
-            {/* Hero Section */}
-            <PartnersHero />
+            {/* Hero Section - with WordPress data */}
+            <PartnersHero
+                title={stripHtml(pageData?.partnersPageFields?.heroTitle) || undefined}
+                subtitle={stripHtml(pageData?.partnersPageFields?.heroSubtitle) || undefined}
+                description={stripHtml(pageData?.partnersPageFields?.heroDescription) || undefined}
+            />
 
-            {/* Partners Grid */}
+            {/* Partners Grid - with fallback data */}
             <PartnersGrid partners={formattedPartners} />
 
             {/* Footer */}

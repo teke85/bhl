@@ -40,7 +40,7 @@ export default async function NewsArticlePage({
   }
 
   // Fetch related articles
-  let relatedArticles = [];
+  let relatedArticles: Awaited<ReturnType<typeof getRelatedNews>> = [];
   if (article.newsFields?.category) {
     const category = Array.isArray(article.newsFields.category)
       ? article.newsFields.category[0]
