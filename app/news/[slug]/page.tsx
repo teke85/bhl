@@ -2,7 +2,6 @@ import {
   getNewsBySlug,
   getRelatedNews,
   stripHtml,
-  NewsArticle,
 } from "@/lib/wordpress-graphql";
 import type { Metadata } from "next";
 import NewsArticleClient from "./NewsArticleClient";
@@ -41,7 +40,7 @@ export default async function NewsArticlePage({
   }
 
   // Fetch related articles
-  let relatedArticles: NewsArticle[] = [];
+  let relatedArticles: any[] = [];
   if (article.newsFields?.category) {
     const category = Array.isArray(article.newsFields.category)
       ? article.newsFields.category[0]
