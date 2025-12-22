@@ -22,6 +22,10 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About Us",
   description: "Learn about Western Corridor Limited, our story, mission, vision, and the team driving Zambia's infrastructure transformation.",
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default async function AboutPage() {

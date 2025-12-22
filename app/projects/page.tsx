@@ -18,6 +18,10 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Projects",
   description: "Detailed overview of the Mutanda–Kaoma Road Project, technical specifications, and environmental impact assessments.",
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default async function ProjectPage() {

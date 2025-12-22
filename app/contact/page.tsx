@@ -9,6 +9,10 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact Us",
   description: "Get in touch with Western Corridor Limited for inquiries, collaborations, or more information about our projects.",
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default async function ContactPage() {
