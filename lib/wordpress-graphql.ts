@@ -124,6 +124,18 @@ export interface HomePageData {
   sectionImage: {
     node: {
       id: string;
+      sourceUrl?: string; // Made optional to match query usage flexibility
+    };
+  } | null;
+  sectionImageTwo: {
+    node: {
+      id: string;
+      sourceUrl?: string;
+    };
+  } | null;
+  sectionImageThree: {
+    node: {
+      id: string;
       sourceUrl?: string;
     };
   } | null;
@@ -479,6 +491,18 @@ const GET_HOME_PAGE = `
           sourceUrl
         }
       }
+        sectionImageTwo {
+          node {
+            id
+            sourceUrl
+          }
+        }
+        sectionImageThree {
+          node {
+            id
+            sourceUrl
+          }
+        }
       expertbuildersSectionTitle
       expertbuildersDescription
       expertbuildersButton1Text
@@ -585,7 +609,6 @@ const GET_TIMELINE_EVENTS = `
 `;
 
 
-
 const GET_PROJECTS_PAGE = `
   query GetProjectsPage {
   pageBy(uri: "/projects") {
@@ -654,6 +677,313 @@ const GET_PARTNERS_PAGE = `
     }
   }
 }
+`;
+
+export const GET_ABOUT_PAGE_QUERY = `
+  query GetAboutPageQuery {
+    aboutPage {
+      nodes {
+      id
+      slug
+      heroTitle
+      heroDescription
+        heroBackgroundImage {
+          node {
+          id
+          sourceUrl
+        }
+      }
+      sectionTitle
+      sectionParagraph
+        leftImage {
+          node {
+          id
+          sourceUrl
+        }
+      }
+      distance
+      year
+      length
+      completion
+      sectionMainTitle
+      scopeOfWorkTitle
+      scopeOfWorkDescription
+      briefHistoryOfTheProjectTitle
+      briefHistoryOfTheProjectDescription
+      ourMissionVisionSectionTitle
+      guidedByClearPrinciplesAndAmbitiousGoalsDescription
+      visionStatementCardTitle
+      visionStatementCardDescription
+      missionStatementTitle
+      missionStatementDescription
+      purposeTitle
+      purposeDescription
+      ourCommitmentSectionTitle
+      ourCommitmentDescription
+      ourCoreValuesTitle
+      ourCoreValuesDescription
+      iconName
+      ourCoreValuesCardTitle
+      leadershipTeamTitle
+      leadershipTeamParagraph
+      button1Text
+      button2Text
+      fullnames
+      bioone
+      biotwo
+      expandBioButton
+        ceoLeftImage {
+          node {
+          id
+          sourceUrl
+        }
+      }
+        directorRightImage {
+          node {
+          id
+          sourceUrl
+        }
+      }
+      byTheNumbersTitle
+      byTheNumbersCardTitle
+      byTheNumbersDescription
+    }
+  }
+}
+`;
+
+export const GET_RESETTLEMENT_PAGE_QUERY = `
+  query GetResettleMentPageQuery {
+    resettlements {
+      nodes {
+      id
+      slug
+      heroTitle
+      heroDescription
+        heroBackgroundImage {
+          node {
+          id
+          sourceUrl
+        }
+      }
+      purposeStatement
+      leftcolumntitle
+        rightcolumnimage {
+          node {
+          id
+          sourceUrl
+        }
+      }
+      mainTitle
+      frameworkcardtitle
+      frameworkcarddescritpion
+      principlesnumber
+      principlemaintitle
+      principlesdescription
+      communitytitle
+      communitydescription
+    }
+  }
+}
+`;
+
+export const GET_REGIONAL_IMPACT_PAGE_QUERY = `
+  query GetRegionalImpactPageQuery {
+    regionalImpactPage {
+      nodes {
+      id
+      slug
+      heroTitle
+      heroDescription
+        heroBackgroundImage {
+          node {
+          id
+          sourceUrl
+        }
+      }
+      iconnames
+      cardtitle
+      carddescription
+      mainTitle
+      positioningtitle
+      positioningdescription
+      porttitle
+      portdescription
+      trademaintitle
+        tradeicon {
+          node {
+          id
+          sourceUrl
+        }
+      }
+      tradetitle
+      tradelistitem
+    }
+  }
+}
+`;
+
+export const GET_TIMELINE_PAGE_QUERY = `
+  query GetTimelinePageQuery {
+    timelinePage {
+      nodes {
+      id
+      slug
+      projectKeyTimelinesAndMilestonesTitle
+      heroDescription
+        heroBackgroundImage {
+          node {
+          id
+          sourceUrl
+        }
+      }
+      carddate
+      cardtitle
+      carddescription
+      cardbuttontext
+      projectAchievementsCardIcon
+      projectAchievementsFigure
+      projectAchievementsTitle
+      projectAchievementsDescription
+      upcomingMilestonesTitle
+      upcomingMilestonesCardIcon
+      upcomingMilestonesCardTitle
+      upcomingMilestonesCardYear
+      upcomingMilestonesCardDescription
+    }
+  }
+}
+`;
+
+export const GET_COOKIE_POLICY_PAGE_QUERY = `
+  query GetCookiePolicyPageQuery {
+    cookiePolicyPage {
+      nodes {
+      id
+      slug
+      heroTitle
+        heroBackgroundImage {
+          node {
+          id
+          sourceUrl
+        }
+      }
+      lastUpdated
+      visualContent
+    }
+  }
+}
+`;
+
+export const GET_PRIVACY_PAGE_QUERY = `
+  query GetPrivacyPageQuery {
+    privacys {
+      nodes {
+      id
+      slug
+      heroTitle
+      lastUpdated
+      visualContent
+    }
+  }
+}
+`;
+
+export const GET_TERMS_PAGE_QUERY = `
+  query GetTermsPageQuery {
+    termsPage {
+      nodes {
+      id
+      slug
+      heroTitle
+      lastUpdated
+      visualContent
+    }
+  }
+}
+`;
+
+export const GET_GALLERY_PAGE_QUERY = `
+  query GetGalleryPageQuery {
+    gallerydatas {
+      nodes {
+        herotitle
+        heroDescription
+        heroBackgroundImage {
+          node {
+            id
+            sourceUrl
+          }
+        }
+        projectGalleryDetails
+      }
+    }
+  }
+`;
+
+const GET_CAREERS_PAGE = `
+  query GetCareersPage {
+    careerspages {
+      nodes {
+        id
+        title
+        heroTitle
+        heroDescription
+        heroBackgroundImage {
+          node {
+            sourceUrl
+          }
+        }
+        commitmentTitle
+        commitmentDescription
+        commitmentItems
+        button1Text
+        button1Link
+        noCurrentOpeningsTitle
+        weAreAlwaysOnTheLookoutForTalentedProfessionalsDescritpion
+        checkingBackSoonIcon
+        checkingBackSoonText
+        stayUpdatedText
+        stayUpdatedDescription
+        stayUpdatedButtonText
+        stayUpdatedIcon
+        stayUpdatedSmallText
+        whyJoinUsText
+        whyJoinUsListItem
+        whyJoinUsIcon
+        haveAQuestionAboutWorkingAtWesternCorridorLimitedText
+        getInTouchWithOurHrTeamText
+        getInTouchWithOurHrTeamLink
+        frequentlyAskedQuestionsTitle
+        frequentlyAskedQuestionsDescription
+        question
+        answer
+        question2
+        answer2
+        question3
+        answer3
+        question4
+        answer4
+        question5
+        answer5
+        question6
+        answer6
+      }
+    }
+  }
+`;
+
+const GET_CAREER_FAQS = `
+  query GetCareerFaqs {
+    careerFaqs(first: 100) {
+      nodes {
+        id
+        title
+        question
+        answer
+      }
+    }
+  }
 `;
 
 // ============================================
@@ -1486,247 +1816,7 @@ export interface LegalPageData {
   visualContent?: string;
 }
 
-export const GET_ABOUT_PAGE_QUERY = `
-  query GetAboutPageQuery {
-    aboutPage {
-      nodes {
-      id
-      slug
-      heroTitle
-      heroDescription
-        heroBackgroundImage {
-          node {
-          id
-          sourceUrl
-        }
-      }
-      sectionTitle
-      sectionParagraph
-        leftImage {
-          node {
-          id
-          sourceUrl
-        }
-      }
-      distance
-      year
-      length
-      completion
-      sectionMainTitle
-      scopeOfWorkTitle
-      scopeOfWorkDescription
-      briefHistoryOfTheProjectTitle
-      briefHistoryOfTheProjectDescription
-      ourMissionVisionSectionTitle
-      guidedByClearPrinciplesAndAmbitiousGoalsDescription
-      visionStatementCardTitle
-      visionStatementCardDescription
-      missionStatementTitle
-      missionStatementDescription
-      purposeTitle
-      purposeDescription
-      ourCommitmentSectionTitle
-      ourCommitmentDescription
-      ourCoreValuesTitle
-      ourCoreValuesDescription
-      iconName
-      ourCoreValuesCardTitle
-      leadershipTeamTitle
-      leadershipTeamParagraph
-      button1Text
-      button2Text
-      fullnames
-      bioone
-      biotwo
-      expandBioButton
-        ceoLeftImage {
-          node {
-          id
-          sourceUrl
-        }
-      }
-        directorRightImage {
-          node {
-          id
-          sourceUrl
-        }
-      }
-      byTheNumbersTitle
-      byTheNumbersCardTitle
-      byTheNumbersDescription
-    }
-  }
-}
-`;
 
-export const GET_RESETTLEMENT_PAGE_QUERY = `
-  query GetResettleMentPageQuery {
-    resettlements {
-      nodes {
-      id
-      slug
-      heroTitle
-      heroDescription
-        heroBackgroundImage {
-          node {
-          id
-          sourceUrl
-        }
-      }
-      purposeStatement
-      leftcolumntitle
-        rightcolumnimage {
-          node {
-          id
-          sourceUrl
-        }
-      }
-      mainTitle
-      frameworkcardtitle
-      frameworkcarddescritpion
-      principlesnumber
-      principlemaintitle
-      principlesdescription
-      communitytitle
-      communitydescription
-    }
-  }
-}
-`;
-
-export const GET_REGIONAL_IMPACT_PAGE_QUERY = `
-  query GetRegionalImpactPageQuery {
-    regionalImpactPage {
-      nodes {
-      id
-      slug
-      heroTitle
-      heroDescription
-        heroBackgroundImage {
-          node {
-          id
-          sourceUrl
-        }
-      }
-      iconnames
-      cardtitle
-      carddescription
-      mainTitle
-      positioningtitle
-      positioningdescription
-      porttitle
-      portdescription
-      trademaintitle
-        tradeicon {
-          node {
-          id
-          sourceUrl
-        }
-      }
-      tradetitle
-      tradelistitem
-    }
-  }
-}
-`;
-
-export const GET_TIMELINE_PAGE_QUERY = `
-  query GetTimelinePageQuery {
-    timelinePage {
-      nodes {
-      id
-      slug
-      projectKeyTimelinesAndMilestonesTitle
-      heroDescription
-        heroBackgroundImage {
-          node {
-          id
-          sourceUrl
-        }
-      }
-      carddate
-      cardtitle
-      carddescription
-      cardbuttontext
-      projectAchievementsCardIcon
-      projectAchievementsFigure
-      projectAchievementsTitle
-      projectAchievementsDescription
-      upcomingMilestonesTitle
-      upcomingMilestonesCardIcon
-      upcomingMilestonesCardTitle
-      upcomingMilestonesCardYear
-      upcomingMilestonesCardDescription
-    }
-  }
-}
-`;
-
-export const GET_COOKIE_POLICY_PAGE_QUERY = `
-  query GetCookiePolicyPageQuery {
-    cookiePolicyPage {
-      nodes {
-      id
-      slug
-      heroTitle
-        heroBackgroundImage {
-          node {
-          id
-          sourceUrl
-        }
-      }
-      lastUpdated
-      visualContent
-    }
-  }
-}
-`;
-
-export const GET_PRIVACY_PAGE_QUERY = `
-  query GetPrivacyPageQuery {
-    privacys {
-      nodes {
-      id
-      slug
-      heroTitle
-      lastUpdated
-      visualContent
-    }
-  }
-}
-`;
-
-export const GET_TERMS_PAGE_QUERY = `
-  query GetTermsPageQuery {
-    termsPage {
-      nodes {
-      id
-      slug
-      heroTitle
-      lastUpdated
-      visualContent
-    }
-  }
-}
-`;
-
-export const GET_GALLERY_PAGE_QUERY = `
-  query GetGalleryPageQuery {
-    gallerydatas {
-      nodes {
-        herotitle
-        heroDescription
-        heroBackgroundImage {
-          node {
-            id
-            sourceUrl
-          }
-        }
-        projectGalleryDetails
-      }
-    }
-  }
-`;
 
 export async function getAboutPageData(): Promise<AboutPageData | null> {
   const data = await fetchAPI(GET_ABOUT_PAGE_QUERY);
@@ -1838,70 +1928,7 @@ interface CareerFaqsResponse {
   };
 }
 
-const GET_CAREERS_PAGE = `
-  query GetCareersPage {
-    careerspages {
-      nodes {
-        id
-        title
-        heroTitle
-        heroDescription
-        heroBackgroundImage {
-          node {
-            sourceUrl
-          }
-        }
-        commitmentTitle
-        commitmentDescription
-        commitmentItems
-        button1Text
-        button1Link
-        noCurrentOpeningsTitle
-        weAreAlwaysOnTheLookoutForTalentedProfessionalsDescritpion
-        checkingBackSoonIcon
-        checkingBackSoonText
-        stayUpdatedText
-        stayUpdatedDescription
-        stayUpdatedButtonText
-        stayUpdatedIcon
-        stayUpdatedSmallText
-        whyJoinUsText
-        whyJoinUsListItem
-        whyJoinUsIcon
-        haveAQuestionAboutWorkingAtWesternCorridorLimitedText
-        getInTouchWithOurHrTeamText
-        getInTouchWithOurHrTeamLink
-        frequentlyAskedQuestionsTitle
-        frequentlyAskedQuestionsDescription
-        question
-        answer
-        question2
-        answer2
-        question3
-        answer3
-        question4
-        answer4
-        question5
-        answer5
-        question6
-        answer6
-      }
-    }
-  }
-`;
 
-const GET_CAREER_FAQS = `
-  query GetCareerFaqs {
-    careerFaqs(first: 100) {
-      nodes {
-        id
-        title
-        question
-        answer
-      }
-    }
-  }
-`;
 
 export async function getCareersPageData(): Promise<CareersPageData | null> {
   try {
