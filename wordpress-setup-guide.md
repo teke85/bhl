@@ -101,6 +101,55 @@ Create the following Field Groups. Ensure "Show in GraphQL" is ENABLED for all g
 
 ---
 
-## 3. Important Notes
-- **GraphQL Field Names**: Make sure the "GraphQL Field Name" in ACF settings matches exactly what is listed above (e.g. `partnerFields`, `aboutPageFields`).
-- **Images**: Ensure you install a plugin like **WPType** or similar if you need to expose deeper image nodes, but standard WPGraphQL with ACF works fine.
+## 3. Pods Configuration (For Careers Page)
+
+Since you are using the **Pods** plugin, please create the following Pods (Custom Post Types) to power the Careers Page.
+
+### A. Careers Page (Pod)
+*   **Label**: Careers Page
+*   **Name (Slug)**: `careers_page` (Singular), `careers_pages` (Plural)
+*   **Pod Type**: Custom Post Type
+*   **GraphQL Single Name**: `careersPage`
+*   **GraphQL Plural Name**: `careersPages`
+
+**Fields**:
+| Label | Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| Hero Title | `heroTitle` | Text | Main title on the banner |
+| Hero Description | `heroDescription` | WYSIWYG / Text Area | Subtitle text |
+| Hero Background Image | `heroBackgroundImage` | File / Image | Background image |
+| Commitment Title | `commitmentTitle` | Text | Title for "Our Commitment" section |
+| Commitment Description | `commitmentDescription` | WYSIWYG | Description paragraph |
+| Commitment Items | `commitmentItems` | Paragraph Text | Enter one item per line. These will be the bullet points. |
+
+### B. Career FAQs (Fields in Careers Page Pod)
+**Note**: The user requested 4 specific dropdowns. Add these items to the **Careers Page** Pod (not a separate pod) to match the query.
+
+**Fields**:
+| Label | Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| Question | `question` | Text | The FAQ question |
+| Answer | `answer` | WYSIWYG | The answer |
+| Question 2 | `question2` | Text | Second FAQ question |
+| Answer 2 | `answer2` | WYSIWYG | Second FAQ answer |
+| Question 3 | `question3` | Text | Third FAQ question |
+| Answer 3 | `answer3` | WYSIWYG | Third FAQ answer |
+| Question 4 | `question4` | Text | Fourth FAQ question |
+| Answer 4 | `answer4` | WYSIWYG | Fourth FAQ answer |
+| Question 5 | `question5` | Text | Fifth FAQ question |
+| Answer 5 | `answer5` | WYSIWYG | Fifth FAQ answer |
+| Question 6 | `question6` | Text | Sixth FAQ question |
+| Answer 6 | `answer6` | WYSIWYG | Sixth FAQ answer |
+
+
+
+
+---
+
+## 4. Important Notes
+- **GraphQL Field Names**: Ensure the field names match exactly as listed above.
+- **Images**: When using Pods, ensuring "File / Image" fields are set to "Single File" usually works best for these queries.
+- **Populating Data**:
+    -   Create **ONE** post in "Careers Page" with your content.
+    -   Create multiple posts in "Career FAQs" for each question you want to display.
+

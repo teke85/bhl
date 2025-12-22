@@ -246,20 +246,6 @@ export interface TimelineItem {
   };
 }
 
-export interface JobOpening {
-  id: string;
-  title: string;
-  date: string;
-  jobFields: {
-    location: string;
-    type: string; // "Full Time", etc.
-    department: string;
-    description: string;
-    requirements: string;
-    applicationLink?: string;
-  };
-}
-
 
 export interface ProjectPageData {
   id: string;
@@ -275,18 +261,31 @@ export interface ProjectPageData {
   };
 }
 
-export interface ContactPageData {
+export interface ContactPageNode {
   id: string;
-  title: string;
-  contactPageFields: {
-    heroTitle: string;
-    heroSubtitle: string;
-    heroImage: { node: { sourceUrl: string } };
-    address: string;
-    email: string;
-    phone: string;
-    workingHours: string;
-    mapEmbedUrl?: string;
+  slug: string;
+  heroTitle: string;
+  heroDescription: string;
+  heroBackgroundImage: {
+    node: {
+      id: string;
+      sourceUrl: string;
+    };
+  };
+  email: string;
+  emailUrl: string;
+  emailIcon: string;
+  address: string;
+  addressIcon: string;
+  timeIcon: string;
+  businessHours: string;
+  days: string;
+  phone?: string; // Added as requested
+}
+
+export interface ContactPageResponse {
+  contactPage: {
+    nodes: ContactPageNode[];
   };
 }
 
@@ -314,11 +313,11 @@ interface TimelineResponse {
   };
 }
 
-interface JobsResponse {
-  jobOpenings: {
-    nodes: JobOpening[];
-  };
-}
+
+
+
+
+
 
 interface PageDataResponse<T> {
   pageBy: T;
@@ -585,25 +584,7 @@ const GET_TIMELINE_EVENTS = `
 }
 `;
 
-const GET_JOB_OPENINGS = `
-  query GetJobOpenings {
-  jobOpenings(first: 50, where: { orderby: { field: DATE, order: DESC } }) {
-      nodes {
-      id
-      title
-      date
-        jobFields {
-        location
-        type
-        department
-        description
-        requirements
-        applicationLink
-      }
-    }
-  }
-}
-`;
+
 
 const GET_PROJECTS_PAGE = `
   query GetProjectsPage {
@@ -627,28 +608,32 @@ const GET_PROJECTS_PAGE = `
 }
 `;
 
-
 const GET_CONTACT_PAGE = `
-  query GetContactPage {
-  pageBy(uri: "/contact") {
-    id
-    title
-      contactPageFields {
-      heroTitle
-      heroSubtitle
-        heroImage {
+  query GetContactPageQuery {
+    contactPage {
+      nodes {
+        id
+        slug
+        heroTitle
+        heroDescription
+        heroBackgroundImage {
           node {
-          sourceUrl
+            id
+            sourceUrl
+          }
         }
+        email
+        emailUrl
+        emailIcon
+        address
+        addressIcon
+        timeIcon
+        businessHours
+        days
+        phone
       }
-      address
-      email
-      phone
-      workingHours
-      mapEmbedUrl
     }
   }
-}
 `;
 
 const GET_PARTNERS_PAGE = `
@@ -856,15 +841,7 @@ export async function getTimelineEvents(): Promise<TimelineItem[]> {
   }
 }
 
-export async function getJobOpenings(): Promise<JobOpening[]> {
-  try {
-    const data = await client.request<JobsResponse>(GET_JOB_OPENINGS);
-    return data.jobOpenings.nodes || [];
-  } catch (error) {
-    console.error("❌ GraphQL Error fetching jobs:", error);
-    return [];
-  }
-}
+
 
 
 export async function getProjectsPageData(): Promise<ProjectPageData | null> {
@@ -877,15 +854,7 @@ export async function getProjectsPageData(): Promise<ProjectPageData | null> {
   }
 }
 
-export async function getContactPageData(): Promise<ContactPageData | null> {
-  try {
-    const data = await client.request<PageDataResponse<ContactPageData>>(GET_CONTACT_PAGE);
-    return data.pageBy || null;
-  } catch (error) {
-    console.error("❌ GraphQL Error fetching contact page:", error);
-    return null;
-  }
-}
+
 
 export async function getPartnersPageData(): Promise<PartnersPageData | null> {
   try {
@@ -1797,4 +1766,159 @@ export async function getPrivacyPageData(): Promise<LegalPageData | null> {
 export async function getTermsPageData(): Promise<LegalPageData | null> {
   const data = await fetchAPI(GET_TERMS_PAGE_QUERY);
   return data?.termsPage?.nodes?.[0] || null;
+}
+
+export async function getContactPageData(): Promise<ContactPageNode | null> {
+  const data = await fetchAPI(GET_CONTACT_PAGE);
+  return data?.contactPage?.nodes?.[0] || null;
+}
+
+export interface CareersPageData {
+  id: string;
+  title: string;
+  heroTitle: string;
+  heroDescription: string;
+  heroBackgroundImage: {
+    node: {
+      sourceUrl: string;
+    };
+  };
+  commitmentTitle: string;
+  commitmentDescription: string;
+  commitmentItems: string;
+  button1Text?: string;
+  button1Link?: string;
+  noCurrentOpeningsTitle?: string;
+  weAreAlwaysOnTheLookoutForTalentedProfessionalsDescritpion?: string;
+  checkingBackSoonIcon?: string;
+  checkingBackSoonText?: string;
+  stayUpdatedText?: string;
+  stayUpdatedDescription?: string;
+  stayUpdatedButtonText?: string;
+  stayUpdatedIcon?: string;
+  stayUpdatedSmallText?: string;
+  whyJoinUsText?: string;
+  whyJoinUsListItem?: string;
+  whyJoinUsIcon?: string;
+  haveAQuestionAboutWorkingAtWesternCorridorLimitedText?: string;
+  getInTouchWithOurHrTeamText?: string;
+  getInTouchWithOurHrTeamLink?: string;
+  frequentlyAskedQuestionsTitle?: string;
+  frequentlyAskedQuestionsDescription?: string;
+  question?: string;
+  answer?: string;
+  question2?: string;
+  answer2?: string;
+  question3?: string;
+  answer3?: string;
+  question4?: string;
+  answer4?: string;
+  question5?: string;
+  answer5?: string;
+  question6?: string;
+  answer6?: string;
+}
+
+export interface CareerFaqItem {
+  id: string;
+  title: string;
+  question: string;
+  answer: string;
+}
+
+interface CareersPageResponse {
+  careerspages: {
+    nodes: CareersPageData[];
+  };
+}
+
+interface CareerFaqsResponse {
+  careerFaqs: {
+    nodes: CareerFaqItem[];
+  };
+}
+
+const GET_CAREERS_PAGE = `
+  query GetCareersPage {
+    careerspages {
+      nodes {
+        id
+        title
+        heroTitle
+        heroDescription
+        heroBackgroundImage {
+          node {
+            sourceUrl
+          }
+        }
+        commitmentTitle
+        commitmentDescription
+        commitmentItems
+        button1Text
+        button1Link
+        noCurrentOpeningsTitle
+        weAreAlwaysOnTheLookoutForTalentedProfessionalsDescritpion
+        checkingBackSoonIcon
+        checkingBackSoonText
+        stayUpdatedText
+        stayUpdatedDescription
+        stayUpdatedButtonText
+        stayUpdatedIcon
+        stayUpdatedSmallText
+        whyJoinUsText
+        whyJoinUsListItem
+        whyJoinUsIcon
+        haveAQuestionAboutWorkingAtWesternCorridorLimitedText
+        getInTouchWithOurHrTeamText
+        getInTouchWithOurHrTeamLink
+        frequentlyAskedQuestionsTitle
+        frequentlyAskedQuestionsDescription
+        question
+        answer
+        question2
+        answer2
+        question3
+        answer3
+        question4
+        answer4
+        question5
+        answer5
+        question6
+        answer6
+      }
+    }
+  }
+`;
+
+const GET_CAREER_FAQS = `
+  query GetCareerFaqs {
+    careerFaqs(first: 100) {
+      nodes {
+        id
+        title
+        question
+        answer
+      }
+    }
+  }
+`;
+
+export async function getCareersPageData(): Promise<CareersPageData | null> {
+  try {
+    const data = await fetchAPI(GET_CAREERS_PAGE);
+    return data?.careerspages?.nodes?.[0] || null;
+  } catch (error) {
+    console.error("❌ GraphQL Error fetching careers page:", error);
+    return null;
+  }
+}
+
+export async function getCareerFaqs(): Promise<CareerFaqItem[]> {
+  try {
+    const data = await fetchAPI(GET_CAREER_FAQS);
+    return data?.careerFaqs?.nodes || [];
+  } catch (error) {
+    console.error("❌ GraphQL Error fetching career FAQs:", error);
+    return [];
+  }
 }

@@ -23,9 +23,9 @@ export default async function ContactPage() {
 
       {/* Hero Section */}
       <ContactHero
-        title={stripHtml(data?.contactPageFields?.heroTitle) || undefined}
-        subtitle={stripHtml(data?.contactPageFields?.heroSubtitle) || undefined}
-        image={data?.contactPageFields?.heroImage?.node?.sourceUrl || undefined}
+        title={stripHtml(data?.heroTitle) || undefined}
+        subtitle={stripHtml(data?.heroDescription) || undefined}
+        image={data?.heroBackgroundImage?.node?.sourceUrl || undefined}
       />
 
       {/* Contact Form & Info */}
@@ -35,10 +35,14 @@ export default async function ContactPage() {
             {/* Contact Information */}
             <div className="lg:col-span-1 text-black bg-white dark:text-white dark:bg-black space-y-6">
               <ContactInfo
-                email={stripHtml(data?.contactPageFields?.email) || undefined}
-                phone={stripHtml(data?.contactPageFields?.phone) || undefined}
-                address={stripHtml(data?.contactPageFields?.address) || undefined}
-                workingHours={stripHtml(data?.contactPageFields?.workingHours) || undefined}
+                email={stripHtml(data?.email) || undefined}
+                phone={stripHtml(data?.phone) || undefined}
+                address={stripHtml(data?.address) || undefined}
+                workingHours={
+                  data?.days && data?.businessHours
+                    ? `${stripHtml(data.days)}\n${stripHtml(data.businessHours)}`
+                    : stripHtml(data?.businessHours) || undefined
+                }
               />
             </div>
 
@@ -50,14 +54,6 @@ export default async function ContactPage() {
         </div>
       </section>
 
-      {/* Map Section - Optional, can be added back if needed and fetched from WP */}
-      {/* {data?.contactPageFields?.mapEmbedUrl && (
-          <section className="py-16 lg:py-24 bg-card">
-            <div className="container mx-auto px-4 lg:px-8">
-               ... map embed ...
-            </div>
-          </section>
-        )} */}
       <Footer />
     </main>
   );

@@ -5,8 +5,17 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-export const FAQSection = () => {
-  const faqs = [
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface FAQSectionProps {
+  faqs?: FAQItem[];
+}
+
+export const FAQSection = ({
+  faqs = [
     {
       question: "How can I send my resume to Western Corridor Limited?",
       answer:
@@ -38,8 +47,8 @@ export const FAQSection = () => {
       answer:
         "We are committed to the continuous growth of our team members. We offer training programs, mentorship opportunities, conference attendance, professional certifications support, and clear career progression paths within the organization.",
     },
-  ];
-
+  ],
+}: FAQSectionProps) => {
   return (
     <section className="py-16 lg:py-24 bg-white text-black dark:bg-black">
       <div className="container mx-auto px-4 lg:px-8">
@@ -67,7 +76,7 @@ export const FAQSection = () => {
                   </span>
                 </AccordionTrigger>
                 <AccordionContent className="text-[#868584] dark:text-white font-paragraph leading-relaxed">
-                  {faq.answer}
+                  <div dangerouslySetInnerHTML={{ __html: faq.answer }} />
                 </AccordionContent>
               </AccordionItem>
             ))}
