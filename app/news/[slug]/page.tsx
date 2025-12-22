@@ -2,6 +2,7 @@ import {
   getNewsBySlug,
   getRelatedNews,
   stripHtml,
+  NewsArticle,
 } from "@/lib/wordpress-graphql";
 import type { Metadata } from "next";
 import NewsArticleClient from "./NewsArticleClient";
