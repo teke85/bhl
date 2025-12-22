@@ -4,8 +4,7 @@ export default function robots(): MetadataRoute.Robots {
     return {
         rules: {
             userAgent: '*',
-            allow: ['/', '/about', '/projects', '/contact'],
-            disallow: '/',
+            allow: '/',
         },
         sitemap: 'https://westerncorridorlimited.com/sitemap.xml',
     }
