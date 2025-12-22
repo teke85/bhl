@@ -1,0 +1,16 @@
+{
+    "name": "Western Corridor Limited",
+    "short_name": "WCL",
+    "description": "Transforming Zambia's Western Corridor through world-class infrastructure development",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#000000",
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "sizes": "any",
+            "type": "image/x-icon"
+        }
+    ]
+}

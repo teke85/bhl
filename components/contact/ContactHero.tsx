@@ -55,16 +55,14 @@ export default function ContactHero({
         <Image
           src={image}
           alt={title}
-          className="w-full h-full object-cover opacity-20 dark:opacity-10"
+          className="w-full h-full object-cover opacity-90 dark:opacity-10"
           loading="lazy"
           quality={75}
           placeholder="blur"
           blurDataURL={image}
           fill
         />
-        <div
-          className={`absolute inset-0 ${theme === "dark" ? "bg-[#0a0a0a]/70" : "bg-white/60"}`}
-        ></div>
+        <div className="absolute bg-black/80 inset-0" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10 pt-20">
@@ -75,7 +73,7 @@ export default function ContactHero({
           animate="visible"
         >
           <motion.h1
-            className="text-5xl md:text-6xl font-heading font-bold text-foreground dark:text-white mb-6"
+            className="text-5xl md:text-6xl font-heading font-bold text-white dark:text-white mb-6"
             variants={itemVariants}
           >
             {title}

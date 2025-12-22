@@ -959,8 +959,16 @@ export function parseHtmlRepeatableField(
 ): string[] {
   if (!field) return [];
 
+  // First, check for <p> tags BEFORE stripping HTML
+  const pTagMatches = field.match(/<p>([^<]*)<\/p>/g);
+  if (pTagMatches && pTagMatches.length > 0) {
+    return pTagMatches.map((match) => stripHtml(match).trim()).filter(Boolean);
+  }
+
+  // Now strip HTML for other checks
   const cleanText = stripHtml(field);
 
+  // Check for comma-separated values
   if (cleanText.includes(",")) {
     const textWithoutAnd = cleanText
       .replace(/, and /g, ", ")
@@ -974,15 +982,16 @@ export function parseHtmlRepeatableField(
       .filter((item) => item.length > 0);
   }
 
-  const matches = field.match(/<p>([^<]*)<\/p>/g);
-  if (matches && matches.length > 0) {
-    return matches.map((match) => stripHtml(match).trim()).filter(Boolean);
+  // Check for newline-separated values
+  if (cleanText.includes("\n")) {
+    return cleanText
+      .split("\n")
+      .map((item) => item.trim())
+      .filter((item) => item.length > 0);
   }
 
-  return cleanText
-    .split("\n")
-    .map((item) => item.trim())
-    .filter((item) => item.length > 0);
+  // Return as single item if no delimiters found
+  return cleanText.trim() ? [cleanText.trim()] : [];
 }
 
 /**
@@ -1173,7 +1182,21 @@ export function parseLeadershipTeam(data: AboutPageData): Array<{
   fullBio: string;
 }> {
   const names = parseHtmlRepeatableField(data.fullnames);
-  const bios = parseHtmlRepeatableField(data.bio);
+
+  // Try new fields first (bioone/biotwo), fall back to old bio field if not available
+  let ceoBio = "";
+  let directorBio = "";
+
+  if (data.bioone || data.biotwo) {
+    // Use new separate bio fields
+    ceoBio = stripHtml(data.bioone || "");
+    directorBio = stripHtml(data.biotwo || "");
+  } else if ((data as any).bio) {
+    // Fallback to old bio field for backward compatibility
+    const bios = parseHtmlRepeatableField((data as any).bio);
+    ceoBio = bios[0] || "";
+    directorBio = bios[1] || "";
+  }
 
   const team = [];
 
@@ -1184,8 +1207,8 @@ export function parseLeadershipTeam(data: AboutPageData): Array<{
       name: names[0],
       title: "CEO",
       image: data.ceoLeftImage?.node?.sourceUrl || "/placeholder.svg",
-      shortBio: bios[0]?.substring(0, 150) + "..." || "",
-      fullBio: bios[0] || "",
+      shortBio: ceoBio.length > 160 ? ceoBio.substring(0, 160) + "..." : ceoBio,
+      fullBio: ceoBio,
     });
   }
 
@@ -1196,8 +1219,8 @@ export function parseLeadershipTeam(data: AboutPageData): Array<{
       name: names[1],
       title: "Director",
       image: data.directorRightImage?.node?.sourceUrl || "/placeholder.svg",
-      shortBio: bios[1]?.substring(0, 150) + "..." || "",
-      fullBio: bios[1] || "",
+      shortBio: directorBio.length > 160 ? directorBio.substring(0, 160) + "..." : directorBio,
+      fullBio: directorBio,
     });
   }
 
@@ -1236,8 +1259,8 @@ export function parseAboutCoreValues(data: AboutPageData): Array<{
   description: string;
 }> {
   const titles = parseHtmlRepeatableField(data.ourCoreValuesCardTitle);
-  const descriptions = parseHtmlRepeatableField(data.ourCoreValuesDecription);
-  const icons = parseHtmlRepeatableField(data.iconName); // Assuming this is where icons are stored
+  const descriptions = parseHtmlRepeatableField(data.ourCoreValuesDescription);
+  const icons = parseHtmlRepeatableField(data.iconName);
 
   const maxLength = Math.max(titles.length, descriptions.length);
   const values = [];
@@ -1246,13 +1269,71 @@ export function parseAboutCoreValues(data: AboutPageData): Array<{
 
   for (let i = 0; i < maxLength; i++) {
     values.push({
-      icon: icons[i] || defaultIcons[i % defaultIcons.length],
+      icon: icons[i]?.trim() || defaultIcons[i % defaultIcons.length],
       title: titles[i] || "",
       description: descriptions[i] || "",
     });
   }
 
   return values;
+}
+
+/**
+ * Parse Timeline page achievements
+ */
+export function parseTimelineAchievements(data: TimelinePageData): Array<{
+  icon: string;
+  stat: string;
+  label: string;
+  description: string;
+}> {
+  const icons = parseHtmlRepeatableField(data.projectAchievementsCardIcon);
+  const figures = parseHtmlRepeatableField(data.projectAchievementsFigure);
+  const titles = parseHtmlRepeatableField(data.projectAchievementsTitle);
+  const descriptions = parseHtmlRepeatableField(data.projectAchievementsDescription);
+
+  const maxLength = Math.max(icons.length, figures.length, titles.length, descriptions.length);
+  const achievements = [];
+
+  for (let i = 0; i < maxLength; i++) {
+    achievements.push({
+      icon: icons[i]?.trim() || "CheckCircle2",
+      stat: figures[i] || "",
+      label: titles[i] || "",
+      description: descriptions[i] || "",
+    });
+  }
+
+  return achievements;
+}
+
+/**
+ * Parse Timeline page upcoming milestones
+ */
+export function parseUpcomingMilestones(data: TimelinePageData): Array<{
+  icon: string;
+  title: string;
+  date: string;
+  description: string;
+}> {
+  const icons = parseHtmlRepeatableField(data.upcomingMilestonesCardIcon);
+  const titles = parseHtmlRepeatableField(data.upcomingMilestonesCardTitle);
+  const years = parseHtmlRepeatableField(data.upcomingMilestonesCardYear);
+  const descriptions = parseHtmlRepeatableField(data.upcomingMilestonesCardDescription);
+
+  const maxLength = Math.max(icons.length, titles.length, years.length, descriptions.length);
+  const milestones = [];
+
+  for (let i = 0; i < maxLength; i++) {
+    milestones.push({
+      icon: icons[i]?.trim() || "Rocket",
+      title: titles[i] || "",
+      date: years[i] || "",
+      description: descriptions[i] || "",
+    });
+  }
+
+  return milestones;
 }
 
 /**
@@ -1342,7 +1423,7 @@ export interface AboutPageData {
   ourCommitmentSectionTitle?: string;
   ourCommitmentDescription?: string;
   ourCoreValuesTitle?: string;
-  ourCoreValuesDecription?: string;
+  ourCoreValuesDescription?: string;
   iconName?: string;
   ourCoreValuesCardTitle?: string;
   leadershipTeamTitle?: string;
@@ -1350,7 +1431,8 @@ export interface AboutPageData {
   button1Text?: string;
   button2Text?: string;
   fullnames?: string;
-  bio?: string;
+  bioone?: string;
+  biotwo?: string;
   expandBioButton?: string;
   ceoLeftImage?: ImageNode | null;
   directorRightImage?: ImageNode | null;
@@ -1477,7 +1559,7 @@ export const GET_ABOUT_PAGE_QUERY = `
       ourCommitmentSectionTitle
       ourCommitmentDescription
       ourCoreValuesTitle
-      ourCoreValuesDecription
+      ourCoreValuesDescription
       iconName
       ourCoreValuesCardTitle
       leadershipTeamTitle
@@ -1485,7 +1567,8 @@ export const GET_ABOUT_PAGE_QUERY = `
       button1Text
       button2Text
       fullnames
-      bio
+      bioone
+      biotwo
       expandBioButton
         ceoLeftImage {
           node {

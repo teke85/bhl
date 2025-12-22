@@ -6,7 +6,14 @@ import ProjectPhases from "@/components/timeline/ProjectPhases";
 import KeyAchievements from "@/components/timeline/KeyAchievements";
 import MilestoneHighlights from "@/components/timeline/MilestoneHighlights";
 import UpcomingMilestones from "@/components/timeline/UpcomingMilestones";
-import { getTimelineEvents, getTimelinePageData, stripHtml } from "@/lib/wordpress-graphql";
+import {
+  getTimelineEvents,
+  getTimelinePageData,
+  stripHtml,
+  parseTimelineAchievements,
+  parseUpcomingMilestones,
+  parseHtmlRepeatableField
+} from "@/lib/wordpress-graphql";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -28,6 +35,9 @@ export default async function TimelinePage() {
     status: e.timelineFields.status as "completed" | "current" | "upcoming",
   }));
 
+  const achievements = pageData ? parseTimelineAchievements(pageData) : [];
+  const milestones = pageData ? parseUpcomingMilestones(pageData) : [];
+
   return (
     <main className="min-h-screen bg-background dark:bg-[#0a0a0a]">
       <StickyNavigationMenu />
@@ -38,9 +48,15 @@ export default async function TimelinePage() {
       />
       <TimelineVertical events={events} />
       {/* <ProjectPhases /> */}
-      <KeyAchievements />
+      <KeyAchievements
+        title={pageData?.projectAchievementsTitle ? stripHtml(pageData.projectAchievementsTitle) : undefined}
+        achievements={achievements.length > 0 ? achievements : undefined}
+      />
       {/* <MilestoneHighlights /> */}
-      <UpcomingMilestones />
+      <UpcomingMilestones
+        title={pageData?.upcomingMilestonesTitle ? stripHtml(pageData.upcomingMilestonesTitle) : undefined}
+        milestones={milestones.length > 0 ? milestones : undefined}
+      />
       <Footer />
     </main>
   );

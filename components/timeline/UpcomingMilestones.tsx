@@ -1,33 +1,53 @@
 "use client";
 
-import { Target, Rocket } from "lucide-react";
+import { Target, Rocket, type LucideIcon } from "lucide-react";
 
-const upcoming = [
-  {
-    icon: Rocket,
-    title: "Construction Commencement",
-    date: "2025",
-    description: "Begin main construction works on the 371km corridor",
-  },
-  {
-    icon: Target,
-    title: "Project Completion",
-    date: "2028",
-    description: "Delivery of fully upgraded bituminous highway",
-  },
-];
+const iconMap: Record<string, LucideIcon> = {
+  Rocket,
+  Target,
+  "rocket": Rocket,
+  "target": Target,
+};
 
-export default function UpcomingMilestones() {
+interface Milestone {
+  icon: string;
+  title: string;
+  date: string;
+  description: string;
+}
+
+interface UpcomingMilestonesProps {
+  title?: string;
+  milestones?: Milestone[];
+}
+
+export default function UpcomingMilestones({
+  title = "Upcoming Milestones",
+  milestones = [
+    {
+      icon: "Rocket",
+      title: "Construction Commencement",
+      date: "2025",
+      description: "Begin main construction works on the 371km corridor",
+    },
+    {
+      icon: "Target",
+      title: "Project Completion",
+      date: "2028",
+      description: "Delivery of fully upgraded bituminous highway",
+    },
+  ],
+}: UpcomingMilestonesProps) {
   return (
     <section className="py-20 px-4 bg-background dark:bg-[#0a0a0a]">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-heading font-bold text-black dark:text-white mb-12 text-center">
-          Upcoming Milestones
+          {title}
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {upcoming.map((item, index) => {
-            const Icon = item.icon;
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+          {milestones.map((item, index) => {
+            const Icon = iconMap[item.icon] || Rocket;
             return (
               <div
                 key={index}

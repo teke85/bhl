@@ -14,7 +14,8 @@ import {
   parseLeadershipTeam,
   parseAboutByTheNumbers,
   parseAboutMissions,
-  parseAboutCoreValues
+  parseAboutCoreValues,
+  parseHtmlRepeatableField,
 } from "@/lib/wordpress-graphql";
 import type { Metadata } from "next";
 
@@ -54,13 +55,22 @@ export default async function AboutPage() {
         content={data?.sectionParagraph || undefined}
         image={data?.leftImage?.node?.sourceUrl || undefined}
       />
-      <ProjectScopeAndHistory />
+      <ProjectScopeAndHistory
+        scopeTitle={stripHtml(data?.scopeOfWorkTitle) || undefined}
+        scopeDescription={stripHtml(data?.scopeOfWorkDescription) || undefined}
+        historyTitle={stripHtml(data?.briefHistoryOfTheProjectTitle) || undefined}
+        historyDescription={stripHtml(data?.briefHistoryOfTheProjectDescription) || undefined}
+      />
       <OurMission
         title={missionTitle}
         description={missionDescription}
         missions={missions}
       />
-      <OurCommitment />
+      <OurCommitment
+        title={stripHtml(data?.ourCommitmentSectionTitle) || undefined}
+        description={stripHtml(data?.ourCommitmentDescription) || undefined}
+        points={data?.ourCommitmentDescription ? parseHtmlRepeatableField(data.ourCommitmentDescription) : undefined}
+      />
       <CoreValues
         title={coreValuesTitle}
         values={coreValues}
