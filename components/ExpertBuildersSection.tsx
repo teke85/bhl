@@ -23,14 +23,14 @@ interface ExpertBuildersSectionProps {
 }
 
 const ExpertBuildersSection: React.FC<ExpertBuildersSectionProps> = ({
-  expertTitle = "Expert Builders",
-  expertDescription = "Upgrading 371 km of the Mutanda to Kaoma Road to international bituminous standards, completing Zambia's Western Corridor.",
-  expertButton1Text = "View Project Details",
-  expertButton1Link = "/projects",
-  regionalTitle = "Regional Impact",
-  regionalDescription = "Creating a vital link between Zambia's Copperbelt, DRC's mining regions, and the Port of Walvis Bay on Africa's West Coast.",
-  regionalButton2Text = "Explore Regional Benefits",
-  regionalButton2Link = "/regional-impact",
+  expertTitle,
+  expertDescription,
+  expertButton1Text,
+  expertButton1Link,
+  regionalTitle,
+  regionalDescription,
+  regionalButton2Text,
+  regionalButton2Link,
 }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -114,7 +114,7 @@ const ExpertBuildersSection: React.FC<ExpertBuildersSectionProps> = ({
                 className="font-body text-lg border-white/20 text-white dark:text-black bg-[#FDDB59] rounded-none hover:bg-[#FDDB59]/90 hover:scale-105 transition-transform duration-300 gap-2"
                 asChild
               >
-                <Link href={expertButton1Link}>
+                <Link href={expertButton1Link || "#"}>
                   {expertButton1Text} <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
@@ -134,7 +134,7 @@ const ExpertBuildersSection: React.FC<ExpertBuildersSectionProps> = ({
                 className="bg-[#FDDB59] hover:bg-[#FDDB59]/90 font-body text-lg rounded-none border-white/20 text-white dark:text-black hover:scale-105 hover:border-white/40 transition-transform duration-300 gap-2"
                 asChild
               >
-                <Link href={regionalButton2Link}>
+                <Link href={regionalButton2Link || "#"}>
                   {regionalButton2Text} <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>

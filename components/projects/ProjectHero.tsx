@@ -27,10 +27,10 @@ interface ProjectHeroProps {
 }
 
 const ProjectHero = ({
-  title = "Project Overview",
-  description = "Rehabilitation and upgrading of 371 km Mutanda to Kaoma Road to international bituminous standards, connecting Zambia's mineral-rich regions to global markets.",
-  image = "https://res.cloudinary.com/dpeg7wc34/image/upload/v1760880457/DJI_0445_formphotoeditor.com_bb4kdl.jpg",
-  subtitle = "371 KM PROJECT",
+  title,
+  description,
+  image,
+  subtitle,
 }: ProjectHeroProps) => {
   return (
     <section className="relative bg-background dark:bg-[#0a0a0a] pt-32 pb-16 px-4 overflow-hidden">

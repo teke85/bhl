@@ -6,10 +6,13 @@ const GRAPHQL_URL =
   "https://cms.westerncorridorlimited.com/graphql";
 
 // Create GraphQL client
+// Create GraphQL client
 const client = new GraphQLClient(GRAPHQL_URL, {
   headers: {
     "Content-Type": "application/json",
   },
+  fetch: (url, params) =>
+    fetch(url, { ...params, next: { revalidate: 0 } } as RequestInit),
 });
 
 async function fetchAPI(query: string, { variables }: { variables?: any } = {}) {

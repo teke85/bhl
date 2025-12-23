@@ -10,9 +10,9 @@ interface AboutHeroProps {
 }
 
 export default function AboutHero({
-  title = "Our Story",
-  description = "The wider transport and PPP market in Zambia and SADC is akin to a vast, interconnected circulatory system. The Mutanda to Kaoma Project, which completes Zambia's Western Corridor, is a major new artery, aiming to streamline the flow of vital resources (like minerals) and goods to and from key regional ports.",
-  image = "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761477016/EI3A9561DRM_bbw3jo.jpg",
+  title,
+  description,
+  image,
 }: AboutHeroProps) {
   const [mounted, setMounted] = useState(false);
 
@@ -35,17 +35,19 @@ export default function AboutHero({
     <section className="relative w-full py-20 md:py-32 overflow-hidden bg-background dark:bg-[#0a0a0a]">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0 w-full h-full">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          priority
-          placeholder="blur"
-          blurDataURL={image}
-          quality={75}
-          sizes="100vw"
-          className="object-cover"
-        />
+        {image && (
+          <Image
+            src={image}
+            alt={title || "About Hero"}
+            fill
+            priority
+            placeholder="blur"
+            blurDataURL={image}
+            quality={75}
+            sizes="100vw"
+            className="object-cover"
+          />
+        )}
         <div className="absolute inset-0 bg-black/75" />
       </div>
 
@@ -56,7 +58,7 @@ export default function AboutHero({
           </h1>
           <div
             className="text-lg md:text-xl text-white prose prose-invert max-w-none"
-            dangerouslySetInnerHTML={{ __html: description }}
+            dangerouslySetInnerHTML={{ __html: description || "" }}
           />
         </div>
       </div>

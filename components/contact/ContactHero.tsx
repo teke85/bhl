@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function ContactHero({
-  title = "Get in Touch",
-  subtitle = "Have questions about the Western Corridor Limited project? We would love to hear from you. Reach out to our team today.",
-  image = "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761800734/MutandaJunction_DJI_0581_zjk0pv.jpg",
+  title,
+  subtitle,
+  image,
 }: {
   title?: string;
   subtitle?: string;

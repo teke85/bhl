@@ -2,7 +2,8 @@ import { Footer } from "@/components/FooterUpdated";
 import StickyNavigationMenu from "@/components/StickyNavUpdated";
 import ContactHero from "@/components/contact/ContactHero";
 import ContactInfo from "@/components/contact/ContactInfo";
-// import ContactForm from "@/components/contact/ContactForm";
+import ContactForm from "@/components/contact/ContactForm";
+
 
 import { getContactPageData, stripHtml } from "@/lib/wordpress-graphql";
 import type { Metadata } from "next";
@@ -49,7 +50,7 @@ export default async function ContactPage() {
 
             {/* Contact Form */}
             <div className="lg:col-span-2 bg-white text-black dark:bg-black dark:text-white">
-              {/* <ContactForm /> */}
+              <ContactForm />
             </div>
           </div>
         </div>
