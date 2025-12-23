@@ -52,16 +52,18 @@ export default function ContactHero({
     <section className="relative w-full py-20 md:py-32 overflow-hidden bg-background dark:bg-[#0a0a0a]">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover opacity-90 dark:opacity-10"
-          loading="lazy"
-          quality={75}
-          placeholder="blur"
-          blurDataURL={image}
-          fill
-        />
+        {image && (
+          <Image
+            src={image}
+            alt={title || "Contact Hero"}
+            className="w-full h-full object-cover opacity-90 dark:opacity-10"
+            loading="lazy"
+            quality={75}
+            placeholder="blur"
+            blurDataURL={image}
+            fill
+          />
+        )}
         <div className="absolute bg-black/80 inset-0" />
       </div>
 
