@@ -36,16 +36,18 @@ const ProjectHero = ({
     <section className="relative bg-background dark:bg-[#0a0a0a] pt-32 pb-16 px-4 overflow-hidden">
       {/* Background Image with Dark Overlay */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          className="object-cover"
-          loading="eager"
-          placeholder="blur"
-          blurDataURL={image}
-          quality={70}
-        />
+        {image && (
+          <Image
+            src={image}
+            alt={title || "Project Hero"}
+            fill
+            className="object-cover"
+            loading="eager"
+            placeholder="blur"
+            blurDataURL={image}
+            quality={70}
+          />
+        )}
         <div className="absolute inset-0 bg-black/70 dark:bg-black/80" />
       </div>
 
