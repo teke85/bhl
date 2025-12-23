@@ -44,7 +44,8 @@ export default async function PartnersPage() {
             <PartnersHero
                 title={stripHtml(pageData?.partnersPageFields?.heroTitle) || undefined}
                 subtitle={stripHtml(pageData?.partnersPageFields?.heroSubtitle) || undefined}
-                description={stripHtml(pageData?.partnersPageFields?.heroDescription) || undefined}
+                description={stripHtml(pageData?.partnersPageFields?.herodescription) || undefined}
+                image={pageData?.partnersPageFields?.heroImage?.node?.sourceUrl || undefined}
             />
 
             {/* Partners Grid - with fallback data */}

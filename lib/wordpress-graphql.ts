@@ -6,7 +6,6 @@ const GRAPHQL_URL =
   "https://cms.westerncorridorlimited.com/graphql";
 
 // Create GraphQL client
-// Create GraphQL client
 const client = new GraphQLClient(GRAPHQL_URL, {
   headers: {
     "Content-Type": "application/json",
@@ -310,10 +309,14 @@ export interface PartnersPageData {
   partnersPageFields: {
     heroTitle: string;
     heroSubtitle: string;
-    heroDescription: string;
+    herodescription: string; // Fixed case to match WordPress
     heroImage: { node: { sourceUrl: string; altText?: string } };
   };
 }
+
+// ... (skipping unchanged lines)
+
+
 
 // Response Interfaces
 interface PartnersResponse {
@@ -664,13 +667,13 @@ const GET_CONTACT_PAGE = `
 
 const GET_PARTNERS_PAGE = `
   query GetPartnersPage {
-  pageBy(uri: "/partners") {
+  pageBy(pageId: 764) {
     id
     title
       partnersPageFields {
       heroTitle
       heroSubtitle
-      heroDescription
+      herodescription
         heroImage {
           node {
           sourceUrl
@@ -1198,6 +1201,8 @@ export async function getPartnersPageData(): Promise<PartnersPageData | null> {
     return null;
   }
 }
+
+
 
 // ============================================
 // Helper Functions

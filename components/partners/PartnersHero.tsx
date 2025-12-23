@@ -8,12 +8,14 @@ interface PartnersHeroProps {
   title?: string;
   subtitle?: string;
   description?: string;
+  image?: string;
 }
 
 const PartnersHero: React.FC<PartnersHeroProps> = ({
-  title = "Our Partners",
-  subtitle = "Building Excellence Together",
-  description = "Our success is built on the expertise and commitment of world-class partners. Together, we're transforming the Western Corridor into a world-class infrastructure that connects Zambia's rich resources to global markets.",
+  title,
+  subtitle,
+  description,
+  image,
 }) => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -35,12 +37,12 @@ const PartnersHero: React.FC<PartnersHeroProps> = ({
       {/* Optimized hero image */}
       <div className="absolute inset-0">
         <Image
-          src="https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_70,w_1920,c_limit/v1761799064/KasempaToll_WB_Area-DJI_0573_svtpxp.jpg"
+          src={image || ""}
           alt="Kasempa Toll area aerial view"
           fill
           loading="eager"
           placeholder="blur"
-          blurDataURL="https://res.cloudinary.com/dpeg7wc34/image/upload/f_auto,q_10,w_100,c_limit/v1761799064/KasempaToll_WB_Area-DJI_0573_svtpxp.jpg"
+          blurDataURL={image || ""}
           quality={85}
           sizes="100vw"
           className="object-cover object-center"
@@ -87,7 +89,7 @@ const PartnersHero: React.FC<PartnersHeroProps> = ({
         >
           <div
             className="text-base md:text-lg text-gray-200 leading-relaxed prose prose-invert max-w-none"
-            dangerouslySetInnerHTML={{ __html: description }}
+            dangerouslySetInnerHTML={{ __html: description || "" }}
           />
         </motion.div>
 
