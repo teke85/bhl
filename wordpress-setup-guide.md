@@ -146,6 +146,23 @@ Since you are using the **Pods** plugin, please create the following Pods (Custo
 
 ---
 
+### C. Gallery Page (Pod)
+*   **Label**: Gallery Page
+*   **Name (Slug)**: `gallery_data` (Singular), `gallerydatas` (Plural)
+*   **Pod Type**: Custom Post Type
+*   **GraphQL Single Name**: `gallerydata`
+*   **GraphQL Plural Name**: `gallerydatas`
+
+**Fields**:
+| Label | Name | Type | Description |
+| :--- | :--- | :--- | :--- |
+| Hero Title | `herotitle` | Text | Main title on the banner |
+| Hero Description | `heroDescription` | WYSIWYG / Text Area | Subtitle text |
+| Hero Background Image | `heroBackgroundImage` | File / Image | Background image |
+| Project Gallery Details | `projectGalleryDetails` | WYSIWYG | Description above the grid |
+
+---
+
 ## 4. Important Notes
 - **GraphQL Field Names**: Ensure the field names match exactly as listed above.
 - **Images**: When using Pods, ensuring "File / Image" fields are set to "Single File" usually works best for these queries.
