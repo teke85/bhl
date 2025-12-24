@@ -148,10 +148,12 @@ export const Footer = () => {
               Contact Us
             </h3>
             <ul className="space-y-4">
-              <li className="w-full text-primary ">
+              <li className="w-full text-primary flex flex-col">
                 <span className="text-sm text-[#868584] dark:text-white">
-                  Mutanda Road P.O. Box 110086, Solwezi, Zambia.
+                  Mutanda Road
                 </span>
+                <span className="text-sm text-[#868584] dark:text-white">P.O. Box 110086,</span>
+                <span className="text-sm text-[#868584] dark:text-white">Solwezi, Zambia.</span>
               </li>
             </ul>
           </div>
