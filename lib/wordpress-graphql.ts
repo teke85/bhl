@@ -928,20 +928,20 @@ export const GET_GALLERY_PAGE_QUERY = `
 `;
 
 const GET_CAREERS_PAGE = `
-  query GetCareersPage {
+  query GetCareersPageQuery {
     careerspages {
       nodes {
         id
-        title
+        slug
         heroTitle
         heroDescription
         heroBackgroundImage {
           node {
+            id
             sourceUrl
           }
         }
         commitmentTitle
-        commitmentDescription
         commitmentItems
         button1Text
         button1Link
@@ -949,6 +949,7 @@ const GET_CAREERS_PAGE = `
         weAreAlwaysOnTheLookoutForTalentedProfessionalsDescritpion
         checkingBackSoonIcon
         checkingBackSoonText
+        checkingBackSoonDescription
         stayUpdatedText
         stayUpdatedDescription
         stayUpdatedButtonText
@@ -957,23 +958,60 @@ const GET_CAREERS_PAGE = `
         whyJoinUsText
         whyJoinUsListItem
         whyJoinUsIcon
-        haveAQuestionAboutWorkingAtWesternCorridorLimitedText
         getInTouchWithOurHrTeamText
         getInTouchWithOurHrTeamLink
         frequentlyAskedQuestionsTitle
         frequentlyAskedQuestionsDescription
-        question
         answer
-        question2
-        answer2
-        question3
-        answer3
-        question4
-        answer4
-        question5
-        answer5
-        question6
-        answer6
+        question
+        answerone
+        questionone
+        answertwo
+        questiontwo
+        answerthree
+        questionthree
+        answerfour
+        questionfour
+        answerfive
+        questionfive
+      }
+    }
+  }
+`;
+
+const GET_COMMITMENT = `
+  query GetCommitmentQuery {
+    commitments {
+      nodes {
+        id
+        slug
+        heroTitle
+        heroDescription
+        heroBackgroundImage {
+          node {
+            id
+            sourceUrl
+          }
+        }
+        commitmentStatement
+        itemTitles
+        itemDescriptions
+        iconname
+        mainTitle
+        keyPrincipleTitles
+        keyPrincipleDescriptions
+        impactQuote
+        impactAuthor
+        accountabilityMainTitle
+        accountabilitysubtitle
+        accountabilityitemstitle
+        accountabilityitemssubtitle
+        ctatitle
+        ctadescription
+        button1Text
+        button1Link
+        button2text
+        button2link
       }
     }
   }
@@ -1266,6 +1304,12 @@ export function parseHtmlRepeatableField(
 ): string[] {
   if (!field) return [];
 
+  // Check for <li> tags
+  const liMatches = field.match(/<li[^>]*>([\s\S]*?)<\/li>/gi);
+  if (liMatches && liMatches.length > 0) {
+    return liMatches.map((match) => stripHtml(match).trim()).filter(Boolean);
+  }
+
   // First, check for <p> tags BEFORE stripping HTML
   const pTagMatches = field.match(/<p>([^<]*)<\/p>/g);
   if (pTagMatches && pTagMatches.length > 0) {
@@ -1285,6 +1329,8 @@ export function parseHtmlRepeatableField(
 
     return textWithoutAnd
       .split(",")
+      // Split by " and " as well if it remained (though regex above handles ", and ")
+      // But standard comma split is fine
       .map((item) => item.trim())
       .filter((item) => item.length > 0);
   }
@@ -1873,16 +1919,17 @@ export async function getContactPageData(): Promise<ContactPageNode | null> {
 
 export interface CareersPageData {
   id: string;
-  title: string;
+  slug?: string;
   heroTitle: string;
   heroDescription: string;
   heroBackgroundImage: {
     node: {
+      id?: string;
       sourceUrl: string;
     };
   };
   commitmentTitle: string;
-  commitmentDescription: string;
+  commitmentDescription?: string;
   commitmentItems: string;
   button1Text?: string;
   button1Link?: string;
@@ -1890,6 +1937,7 @@ export interface CareersPageData {
   weAreAlwaysOnTheLookoutForTalentedProfessionalsDescritpion?: string;
   checkingBackSoonIcon?: string;
   checkingBackSoonText?: string;
+  checkingBackSoonDescription?: string;
   stayUpdatedText?: string;
   stayUpdatedDescription?: string;
   stayUpdatedButtonText?: string;
@@ -1898,23 +1946,54 @@ export interface CareersPageData {
   whyJoinUsText?: string;
   whyJoinUsListItem?: string;
   whyJoinUsIcon?: string;
-  haveAQuestionAboutWorkingAtWesternCorridorLimitedText?: string;
   getInTouchWithOurHrTeamText?: string;
   getInTouchWithOurHrTeamLink?: string;
   frequentlyAskedQuestionsTitle?: string;
   frequentlyAskedQuestionsDescription?: string;
   question?: string;
   answer?: string;
-  question2?: string;
-  answer2?: string;
-  question3?: string;
-  answer3?: string;
-  question4?: string;
-  answer4?: string;
-  question5?: string;
-  answer5?: string;
-  question6?: string;
-  answer6?: string;
+  questionone?: string;
+  answerone?: string;
+  questiontwo?: string;
+  answertwo?: string;
+  questionthree?: string;
+  answerthree?: string;
+  questionfour?: string;
+  answerfour?: string;
+  questionfive?: string;
+  answerfive?: string;
+}
+
+export interface CommitmentPageData {
+  id: string;
+  slug: string;
+  heroTitle: string;
+  heroDescription: string;
+  heroBackgroundImage?: {
+    node: {
+      id: string;
+      sourceUrl: string;
+    };
+  };
+  commitmentStatement: string;
+  itemTitles: string;
+  itemDescriptions: string;
+  iconname?: string;
+  mainTitle: string;
+  keyPrincipleTitles: string;
+  keyPrincipleDescriptions: string;
+  impactQuote: string;
+  impactAuthor: string;
+  accountabilityMainTitle: string;
+  accountabilitysubtitle: string;
+  accountabilityitemstitle: string;
+  accountabilityitemssubtitle: string;
+  ctatitle: string;
+  ctadescription: string;
+  button1Text: string;
+  button1Link: string;
+  button2text: string;
+  button2link: string;
 }
 
 export interface CareerFaqItem {
@@ -1927,6 +2006,12 @@ export interface CareerFaqItem {
 interface CareersPageResponse {
   careerspages: {
     nodes: CareersPageData[];
+  };
+}
+
+interface CommitmentPageResponse {
+  commitments: {
+    nodes: CommitmentPageData[];
   };
 }
 
@@ -1944,6 +2029,16 @@ export async function getCareersPageData(): Promise<CareersPageData | null> {
     return data?.careerspages?.nodes?.[0] || null;
   } catch (error) {
     console.error("❌ GraphQL Error fetching careers page:", error);
+    return null;
+  }
+}
+
+export async function getCommitmentPageData(): Promise<CommitmentPageData | null> {
+  try {
+    const data = await fetchAPI(GET_COMMITMENT);
+    return data?.commitments?.nodes?.[0] || null;
+  } catch (error) {
+    console.error("❌ GraphQL Error fetching commitment page:", error);
     return null;
   }
 }

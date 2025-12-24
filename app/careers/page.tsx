@@ -33,21 +33,18 @@ export default async function CareersPage() {
       .filter(Boolean)
     : undefined;
 
-  // Prefer page data FAQs if available, otherwise use default
+  // Construct FAQs array from the new field names
   const faqs = [];
   if (pageData) {
     if (pageData.question && pageData.answer) faqs.push({ question: stripHtml(pageData.question), answer: stripHtml(pageData.answer) });
-    if (pageData.question2 && pageData.answer2) faqs.push({ question: stripHtml(pageData.question2), answer: stripHtml(pageData.answer2) });
-    if (pageData.question3 && pageData.answer3) faqs.push({ question: stripHtml(pageData.question3), answer: stripHtml(pageData.answer3) });
-    if (pageData.question4 && pageData.answer4) faqs.push({ question: stripHtml(pageData.question4), answer: stripHtml(pageData.answer4) });
-    if (pageData.question5 && pageData.answer5) faqs.push({ question: stripHtml(pageData.question5), answer: stripHtml(pageData.answer5) });
-    if (pageData.question6 && pageData.answer6) faqs.push({ question: stripHtml(pageData.question6), answer: stripHtml(pageData.answer6) });
+    if (pageData.questionone && pageData.answerone) faqs.push({ question: stripHtml(pageData.questionone), answer: stripHtml(pageData.answerone) });
+    if (pageData.questiontwo && pageData.answertwo) faqs.push({ question: stripHtml(pageData.questiontwo), answer: stripHtml(pageData.answertwo) });
+    if (pageData.questionthree && pageData.answerthree) faqs.push({ question: stripHtml(pageData.questionthree), answer: stripHtml(pageData.answerthree) });
+    if (pageData.questionfour && pageData.answerfour) faqs.push({ question: stripHtml(pageData.questionfour), answer: stripHtml(pageData.answerfour) });
+    if (pageData.questionfive && pageData.answerfive) faqs.push({ question: stripHtml(pageData.questionfive), answer: stripHtml(pageData.answerfive) });
   }
 
   const finalFaqs = faqs.length > 0 ? faqs : undefined;
-
-  // If there are multiple FAQs handled via a different structure in the future, adapt here.
-  // Currently supports 1 Q&A pair from the page pod as per query provided.
 
   return (
     <div className="min-h-screen">
@@ -67,20 +64,18 @@ export default async function CareersPage() {
               pageData?.weAreAlwaysOnTheLookoutForTalentedProfessionalsDescritpion
             ) || undefined
           }
-          checkingBackTitle={undefined} // No field in query for title?
-          checkingBackText={stripHtml(pageData?.checkingBackSoonText) || undefined}
+          checkingBackIcon={stripHtml(pageData?.checkingBackSoonIcon) || undefined}
+          checkingBackTitle={stripHtml(pageData?.checkingBackSoonText) || undefined}
+          checkingBackText={stripHtml(pageData?.checkingBackSoonDescription) || undefined}
           stayUpdatedTitle={stripHtml(pageData?.stayUpdatedText) || undefined}
           stayUpdatedText={stripHtml(pageData?.stayUpdatedDescription) || undefined}
           stayUpdatedButtonText={stripHtml(pageData?.stayUpdatedButtonText) || undefined}
           stayUpdatedSmallText={stripHtml(pageData?.stayUpdatedSmallText) || undefined}
           whyJoinUsTitle={stripHtml(pageData?.whyJoinUsText) || undefined}
           whyJoinUsList={whyJoinUsList}
-          contactText={
-            stripHtml(
-              pageData?.haveAQuestionAboutWorkingAtWesternCorridorLimitedText
-            ) || undefined
-          }
+          contactText="Have a question about working at Western Corridor Limited?"
           contactLinkText={stripHtml(pageData?.getInTouchWithOurHrTeamText) || undefined}
+          contactLink={stripHtml(pageData?.getInTouchWithOurHrTeamLink) || undefined}
         />
       )}
       <OurCommitment

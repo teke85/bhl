@@ -1,10 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { AlertCircle, Mail } from "lucide-react";
+import { AlertCircle, Mail, Info, CheckCircle, Clock, Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface NoOpeningsProps {
   title?: string;
   description?: string;
+  checkingBackIcon?: string;
   checkingBackTitle?: string;
   checkingBackText?: string;
   stayUpdatedTitle?: string;
@@ -19,25 +20,31 @@ interface NoOpeningsProps {
 }
 
 export function NoOpenings({
-  title = "No Current Openings",
-  description = "We are always on the lookout for talented professionals",
-  checkingBackTitle = "Checking Back Soon",
-  checkingBackText = "While we dont have any open positions at the moment, we constantly growing and evaluating talent for future opportunities. Our team is expanding, and we would love to hear from talented professionals who are interested in joining Western Corridor Limited.<br/><br/>We encourage you to stay connected with us and check back regularly for new job postings. The best candidates often come from individuals who demonstrate genuine interest in our company and mission.",
-  stayUpdatedTitle = "Stay Updated",
-  stayUpdatedText = "Be the first to know when we have new opportunities available.",
-  stayUpdatedButtonText = "Express Your Interest",
-  stayUpdatedSmallText = "Drop us a note with your CV and we will keep it on file for future opportunities.",
-  whyJoinUsTitle = "Why Join Us",
-  whyJoinUsList = [
-    "Cutting-edge infrastructure projects",
-    "Professional development & growth",
-    "Collaborative team environment",
-    "Competitive compensation",
-  ],
-  contactText = "Have a question about working at Western Corridor Limited?",
-  contactLinkText = "Get in touch with our HR team",
-  contactLink = "mailto:careers@westerncorridorlimited.com",
+  title,
+  description,
+  checkingBackIcon,
+  checkingBackTitle,
+  checkingBackText,
+  stayUpdatedTitle,
+  stayUpdatedText,
+  stayUpdatedButtonText,
+  stayUpdatedSmallText,
+  whyJoinUsTitle,
+  whyJoinUsList,
+  contactText,
+  contactLinkText,
+  contactLink,
 }: NoOpeningsProps) {
+  // Map icon names to Lucide icons
+  const iconMap: { [key: string]: any } = {
+    Info,
+    AlertCircle,
+    CheckCircle,
+    Clock,
+    Bell,
+  };
+
+  const IconComponent = checkingBackIcon && iconMap[checkingBackIcon] ? iconMap[checkingBackIcon] : Info;
   return (
     <section className="w-full bg-muted/30 py-16 md:py-24">
       <div className="container mx-auto max-w-4xl px-4 md:px-6">
@@ -55,17 +62,19 @@ export function NoOpenings({
           <Card className="md:col-span-2">
             <CardHeader>
               <div className="flex items-start gap-3">
-                <AlertCircle className="w-6 h-6 text-muted-foreground mt-1 shrink-0" />
+                <IconComponent className="w-6 h-6 text-muted-foreground mt-1 shrink-0" />
                 <div>
                   <CardTitle className="text-xl">{checkingBackTitle}</CardTitle>
                 </div>
               </div>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div
-                className="text-muted-foreground leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: checkingBackText }}
-              />
+              {checkingBackText && (
+                <div
+                  className="text-muted-foreground leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: checkingBackText }}
+                />
+              )}
             </CardContent>
           </Card>
 
@@ -97,7 +106,7 @@ export function NoOpenings({
             </CardHeader>
             <CardContent>
               <ul className="space-y-3">
-                {whyJoinUsList.map((item, index) => (
+                {whyJoinUsList?.map((item, index) => (
                   <li key={index} className="flex gap-3">
                     <span className="text-primary font-bold shrink-0">✓</span>
                     <span className="text-sm text-muted-foreground">

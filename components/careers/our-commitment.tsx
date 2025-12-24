@@ -10,14 +10,9 @@ interface OurCommitmentProps {
 }
 
 export const OurCommitment = ({
-  title = "We Are Constantly Seeking Great Minds. Like Yours.",
-  description = "Our commitment goes beyond building infrastructure. We're committed to building a diverse, inclusive workplace where every team member can thrive and contribute to Zambia's development.",
-  items = [
-    "Equal opportunity employer committed to diversity and inclusion",
-    "Competitive compensation and comprehensive benefits package",
-    "Professional development and training opportunities for career growth",
-    "Work-life balance with flexible working arrangements",
-  ],
+  title,
+  description,
+  items,
 }: OurCommitmentProps) => {
   return (
     <section className="py-16 lg:py-24 bg-card">
@@ -27,12 +22,14 @@ export const OurCommitment = ({
             <h2 className="text-3xl lg:text-4xl font-bold text-black dark:text-white font-heading mb-6 text-balance">
               {title}
             </h2>
-            <div
-              className="text-lg text-[#868584] dark:text-white font-paragraph leading-relaxed mb-8"
-              dangerouslySetInnerHTML={{ __html: description }}
-            />
+            {description && (
+              <div
+                className="text-lg text-[#868584] dark:text-white font-paragraph leading-relaxed mb-8"
+                dangerouslySetInnerHTML={{ __html: description }}
+              />
+            )}
             <div className="space-y-4 mb-8">
-              {items.map((item, index) => (
+              {items?.map((item, index) => (
                 <div key={index} className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
                   <p className="text-[#868584] dark:text-white font-paragraph">

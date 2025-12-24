@@ -5,79 +5,11 @@ import Image from "next/image";
 import { Shield, Users, Leaf, TrendingUp, Heart, Target } from "lucide-react";
 import StickyNavigationMenu from "@/components/StickyNavUpdated";
 import { Footer } from "@/components/FooterUpdated";
-import { useState, useEffect } from "react";
-
-// ============================================
-// Types
-// ============================================
-interface CommitmentData {
-    title: string;
-    heroTitle: string;
-    heroDescription: string;
-    commitmentStatement: string;
-    itemTitles: string;
-    itemDescriptions: string;
-    mainTitle: string;
-    keyPrincipleTitles: string;
-    keyPrincipleDescriptions: string;
-    impactQuote: string;
-    impactAuthor: string;
-    accountabilityMainTitle: string;
-    accountabilitysubtitle: string;
-    accountabilityitemstitle: string;
-    accountabilityitemssubtitle: string;
-    ctatitle: string;
-    ctadescription: string;
-    button1Text: string;
-    button1Link: string;
-    button2text: string;
-    button2link: string;
-}
-
-// ============================================
-// Helper Functions (duplicated for simplicity in client component)
-// ============================================
-function stripHtmlTags(html: string): string {
-    if (!html) return "";
-    return html
-        .replace(/<[^>]*>/g, "")
-        .replace(/&#(\d+);/g, (_, dec) => String.fromCharCode(Number.parseInt(dec, 10)))
-        .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(Number.parseInt(hex, 16)))
-        .replace(/&nbsp;/g, " ")
-        .replace(/&amp;/g, "&")
-        .replace(/&lt;/g, "<")
-        .replace(/&gt;/g, ">")
-        .replace(/&quot;/g, '"')
-        .replace(/&apos;/g, "'")
-        .replace(/&rsquo;/g, "'")
-        .replace(/&lsquo;/g, "'")
-        .replace(/&rdquo;/g, '"')
-        .replace(/&ldquo;/g, '"')
-        .replace(/&ndash;/g, "–")
-        .replace(/&mdash;/g, "—")
-        .trim();
-}
-
-function parseRepeatableField(field: string | null | undefined): string[] {
-    if (!field) return [];
-    if (field.includes("<li>")) {
-        const liMatches = field.match(/<li[^>]*>([\s\S]*?)<\/li>/gi);
-        if (liMatches) return liMatches.map((li) => stripHtmlTags(li)).filter(Boolean);
-    }
-    if (field.includes("<p>")) {
-        const pMatches = field.match(/<p[^>]*>([\s\S]*?)<\/p>/gi);
-        if (pMatches) return pMatches.map((p) => stripHtmlTags(p)).filter(Boolean);
-    }
-    const cleanField = stripHtmlTags(field);
-    if (cleanField.includes("|")) return cleanField.split("|").map(s => s.trim()).filter(Boolean);
-    if (cleanField.includes("\n")) return cleanField.split("\n").map(s => s.trim()).filter(Boolean);
-    return [cleanField.trim()].filter(Boolean);
-}
-
-function cleanTextField(field: string | null | undefined): string {
-    if (!field) return "";
-    return stripHtmlTags(field);
-}
+import {
+    type CommitmentPageData,
+    parseHtmlRepeatableField,
+    stripHtml
+} from "@/lib/wordpress-graphql";
 
 const iconMap = [Shield, Target, Users, Leaf, TrendingUp, Heart];
 const colorMap = [
@@ -85,15 +17,7 @@ const colorMap = [
     "text-emerald-500", "text-orange-500", "text-red-500"
 ];
 
-export default function CommitmentClient({ data }: { data: CommitmentData | null }) {
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    if (!mounted) return null;
-
+export default function CommitmentClient({ data }: { data: CommitmentPageData | null }) {
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
@@ -104,12 +28,12 @@ export default function CommitmentClient({ data }: { data: CommitmentData | null
         visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
     };
 
-    const commitmentItemTitles = parseRepeatableField(data?.itemTitles);
-    const commitmentItemDescriptions = parseRepeatableField(data?.itemDescriptions);
-    const keyPrincipleTitles = parseRepeatableField(data?.keyPrincipleTitles);
-    const keyPrincipleDescriptions = parseRepeatableField(data?.keyPrincipleDescriptions);
-    const accountabilityTitles = parseRepeatableField(data?.accountabilityitemstitle);
-    const accountabilityDescriptions = parseRepeatableField(data?.accountabilityitemssubtitle);
+    const commitmentItemTitles = parseHtmlRepeatableField(data?.itemTitles);
+    const commitmentItemDescriptions = parseHtmlRepeatableField(data?.itemDescriptions);
+    const keyPrincipleTitles = parseHtmlRepeatableField(data?.keyPrincipleTitles);
+    const keyPrincipleDescriptions = parseHtmlRepeatableField(data?.keyPrincipleDescriptions);
+    const accountabilityTitles = parseHtmlRepeatableField(data?.accountabilityitemstitle);
+    const accountabilityDescriptions = parseHtmlRepeatableField(data?.accountabilityitemssubtitle);
 
     const commitments = commitmentItemTitles.map((title, index) => ({
         icon: iconMap[index % iconMap.length],
@@ -128,19 +52,20 @@ export default function CommitmentClient({ data }: { data: CommitmentData | null
         description: accountabilityDescriptions[index] || "",
     }));
 
-    const heroTitle = cleanTextField(data?.heroTitle) || "Our Commitment";
-    const heroDescription = cleanTextField(data?.heroDescription) || "Building a corridor of opportunity, sustainability, and shared prosperity for Zambia and the region";
-    const commitmentStatement = cleanTextField(data?.commitmentStatement) || "We are committed to delivering the Western Corridor Project as a transformative infrastructure initiative that strengthens Zambia's regional connectivity, economic resilience, and social equity.";
-    const mainTitle = cleanTextField(data?.mainTitle) || "Guiding Principles";
-    const impactQuote = cleanTextField(data?.impactQuote) || "Our commitment is to not only construct a road, but to create a corridor of opportunity, sustainability, and shared prosperity for Zambia and the region.";
-    const impactAuthor = cleanTextField(data?.impactAuthor) || "Western Corridor Limited";
-    const accountabilityMainTitle = cleanTextField(data?.accountabilityMainTitle) || "Accountability & Transparency";
-    const accountabilitySubtitle = cleanTextField(data?.accountabilitysubtitle) || "We maintain the highest standards of governance and reporting";
-    const ctaTitle = cleanTextField(data?.ctatitle) || "Learn More About Our Impact";
-    const ctaDescription = cleanTextField(data?.ctadescription) || "Discover how we are making a difference across the Western Corridor";
-    const button1Text = cleanTextField(data?.button1Text) || "Regional Impact";
+    const heroTitle = stripHtml(data?.heroTitle) || "Our Commitment";
+    const heroDescription = stripHtml(data?.heroDescription) || "Building a corridor of opportunity, sustainability, and shared prosperity for Zambia and the region";
+    const bgImage = data?.heroBackgroundImage?.node?.sourceUrl || "https://res.cloudinary.com/dpeg7wc34/image/upload/v1761799061/KasempaToll_WB_Area-DJI_0577_cs1c5k.jpg";
+    const commitmentStatement = stripHtml(data?.commitmentStatement) || "We are committed to delivering the Western Corridor Project as a transformative infrastructure initiative that strengthens Zambia's regional connectivity, economic resilience, and social equity.";
+    const mainTitle = stripHtml(data?.mainTitle) || "Guiding Principles";
+    const impactQuote = stripHtml(data?.impactQuote) || "Our commitment is to not only construct a road, but to create a corridor of opportunity, sustainability, and shared prosperity for Zambia and the region.";
+    const impactAuthor = stripHtml(data?.impactAuthor) || "Western Corridor Limited";
+    const accountabilityMainTitle = stripHtml(data?.accountabilityMainTitle) || "Accountability & Transparency";
+    const accountabilitySubtitle = stripHtml(data?.accountabilitysubtitle) || "We maintain the highest standards of governance and reporting";
+    const ctaTitle = stripHtml(data?.ctatitle) || "Learn More About Our Impact";
+    const ctaDescription = stripHtml(data?.ctadescription) || "Discover how we are making a difference across the Western Corridor";
+    const button1Text = stripHtml(data?.button1Text) || "Regional Impact";
     const button1Link = data?.button1Link || "/regional-impact";
-    const button2Text = cleanTextField(data?.button2text) || "Resettlement Framework";
+    const button2Text = stripHtml(data?.button2text) || "Resettlement Framework";
     const button2Link = data?.button2link || "/resettlement";
 
     return (
@@ -149,7 +74,7 @@ export default function CommitmentClient({ data }: { data: CommitmentData | null
             <section className="relative w-full py-20 md:py-32 overflow-hidden bg-background dark:bg-[#0a0a0a]">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="https://res.cloudinary.com/dpeg7wc34/image/upload/v1761799061/KasempaToll_WB_Area-DJI_0577_cs1c5k.jpg"
+                        src={bgImage}
                         alt="Our Commitment"
                         fill
                         className="object-cover"
